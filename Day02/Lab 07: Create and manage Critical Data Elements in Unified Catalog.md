@@ -1,6 +1,4 @@
-# Day 2 -- Microsoft Purview Unified Catalog (Governance Expansion)
-
-# Lab 07: Create and Manage Critical Data Elements in Microsoft Purview Unified Catalog
+# Day 02 - Lab 07: Create and Manage Critical Data Elements in Microsoft Purview Unified Catalog
 
 ## Estimated Duration: 120 Minutes
 
