@@ -11,9 +11,6 @@ pattern, create a regex-based classification rule, configure a scan rule
 set, execute a new scan, and validate that the classification is
 successfully applied in Unified Catalog.
 
-This lab strictly focuses on creating and applying custom
-classification.
-
 ## Lab Objectives
 
 In this lab, you will perform the following:
@@ -43,18 +40,18 @@ rule.
 
 4.  In the query editor window, paste the following SQL script:
 
-``` sql
-ALTER TABLE Customers
-ADD EmployeeID NVARCHAR(20);
+    ``` sql
+    ALTER TABLE Customers
+    ADD EmployeeID NVARCHAR(20);
 
-UPDATE Customers
-SET EmployeeID = 'EMP-1001'
-WHERE CustomerID = 1;
+    UPDATE Customers
+    SET EmployeeID = 'EMP-1001'
+    WHERE CustomerID = 1;
 
-UPDATE Customers
-SET EmployeeID = 'EMP-1002'
-WHERE CustomerID = 2;
-```
+    UPDATE Customers
+    SET EmployeeID = 'EMP-1002'
+    WHERE CustomerID = 2;
+    ```
 
 5.  Click **Run (6)** to execute the script.
 
@@ -65,7 +62,7 @@ WHERE CustomerID = 2;
 ## Task 2: Create a Custom Classification Rule
 
 In this task, you will create a regex-based classification rule to
-detect Employee IDs in the format EMP-XXXX.
+detect Employee IDs in the format.
 
 1.  Open a browser and navigate to **https://purview.microsoft.com**.
 
@@ -85,10 +82,10 @@ detect Employee IDs in the format EMP-XXXX.
 
 6.  In the **Pattern (7)** field, enter the following expression:
 
-```{=html}
-<!-- -->
-```
-    EMP-d{4}
+    ```{=html}
+    <!-- -->
+    ```
+        EMP-d{4}
 
 7.  Under **Data types (8)**, select **String**.
 
