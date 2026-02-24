@@ -1,246 +1,253 @@
 # Lab 01: Register and Scan Data Sources using Microsoft Purview Data Map
 
-## Estimated Duration: 120--150 Minutes
+## Estimated Duration: 150 Minutes
 
 ## Lab Overview
 
 In this lab, you will configure Microsoft Purview from scratch and
-perform end-to-end data source registration and scanning using the
-Microsoft Purview Data Map.
-
-This lab focuses primarily on the Microsoft Purview portal. However,
-since access to the Data Map requires a deployed Microsoft Purview
-account, you will first provision the Purview account from Azure Portal
-before performing governance activities inside the Purview portal.
-
-By the end of this lab, you will:
-
--   Provision a Microsoft Purview account
--   Configure access control and managed identity
--   Register Azure SQL Database
--   Configure and execute a scan
--   Validate metadata discovery inside Unified Catalog
+perform end-to-end registration and scanning of an Azure SQL Database
+using Microsoft Purview Data Map. You will provision the Purview
+account, configure permissions, prepare a structured data source,
+register it, execute a scan, and validate metadata in Unified Catalog.
 
 ## Lab Objectives
 
 In this lab, you will perform the following:
 
--   **Task 1:** Create a Microsoft Purview Account
--   **Task 2:** Configure Access Control and Managed Identity
--   **Task 3:** Access the Microsoft Purview Portal
--   **Task 4:** Register Azure SQL Database in Data Map
--   **Task 5:** Configure and Execute a Scan
--   **Task 6:** Validate Metadata Discovery in Unified Catalog
+- **Task 1:** Create and Configure Microsoft Purview Account  
+- **Task 2:** Assign Roles and Enable Managed Identity  
+- **Task 3:** Create and Prepare Azure SQL Database  
+- **Task 4:** Create Sample Tables and Insert Data  
+- **Task 5:** Grant Microsoft Purview Access to SQL Database  
+- **Task 6:** Register Azure SQL Database in Microsoft Purview Data Map  
+- **Task 7:** Configure and Execute a Scan  
+- **Task 8:** Validate Metadata in Unified Catalog  
 
-# Task 1: Create a Microsoft Purview Account
+## Task 1: Create and Configure Microsoft Purview Account
 
-In this task, you will create a Microsoft Purview account, which is
-required before accessing the Data Map and Unified Catalog.
+In this task, you will create a Microsoft Purview account in Azure. This
+account is required before accessing the Data Map and Unified Catalog
+experiences in the Microsoft Purview portal.
 
-1.  Open a web browser and navigate to the Azure Portal by entering
-    https://portal.azure.com in the address bar.
+1.  On the **Azure Portal** page, in the **Search resources, services
+    and docs (G+/) (1)** box at the top of the portal, enter **Microsoft
+    Purview accounts (2)**, and then select **Microsoft Purview accounts
+    (3)** under services.
 
-2.  After signing in, locate the search bar at the top of the Azure
-    Portal page labeled **Search resources, services, and docs (1)**.
+    ![Picture 1](../Images/purview-search.png)
 
-3.  In the search bar, type **Microsoft Purview accounts (2)** and
-    select it from the search results under Services.
+2.  On the Microsoft Purview accounts page, click **+ Create (4)**.
 
-4.  On the Microsoft Purview accounts page, click the **+ Create (3)**
-    button to begin provisioning a new Purview account.
+3.  On the **Basics** tab:
 
-5.  On the Basics tab:
+    -   Select your **Subscription (5)**.
+    -   Select an existing **Resource Group (6)**.
+    -   In the **Account name (7)** field, enter a globally unique name.
+    -   Select a supported **Region (8)**.
 
-    -   Select your Subscription (4).
-    -   Select an existing Resource Group (5).
-    -   In the Account name field (6), enter a globally unique name.
-    -   Choose a supported Region (7).
+4.  Click **Review + Create (9)**, and then select **Create (10)**.
 
-6.  Click **Review + Create (8)** at the bottom of the page.
+    > **Note:** Deployment may take several minutes to complete.
 
-7.  After validation completes successfully, click **Create (9)** to
-    deploy the Purview account.
+5.  After deployment is completed, open the newly created **Microsoft
+    Purview account (11)**.
 
-8.  Wait for the deployment process to complete. This may take several
-    minutes.
 
-### Validation
+## Task 2: Assign Roles and Enable Managed Identity
 
--   Deployment status shows **Succeeded**.
--   The newly created Purview account is visible in Azure Portal.
+In this task, you will assign the required Purview role to your user
+account and enable the system-assigned managed identity so that
+Microsoft Purview can securely scan data sources.
 
-# Task 2: Configure Access Control and Managed Identity
+1.  From the left navigation pane of the Purview resource blade, select
+    **Access control (IAM) (1)**.
 
-In this task, you will assign required roles and enable the
-system-assigned managed identity, which is necessary for scanning data
-sources.
+2.  At the top of the page, click **+ Add (2)** and then select **Add
+    role assignment (3)**.
 
-## Assign Required Role
+3.  In the Role tab, search for and select **Purview Data Curator (4)**,
+    and then click **Next (5)**.
 
-1.  From the Azure Portal, open the newly created **Microsoft Purview
-    account (1)**.
+4.  On the Members tab, click **Select members (6)**, search for your
+    user account (7), select it, and click **Select (8)**.
 
-2.  From the left navigation pane of the Purview resource blade, select
-    **Access control (IAM) (2)**.
+5.  Click **Review + Assign (9)** to complete the role assignment.
 
-3.  At the top of the IAM page, click **+ Add (3)** and then select
-    **Add role assignment (4)**.
+6.  From the left navigation pane, select **Identity (10)**.
 
-4.  On the Role tab, search for and select **Purview Data Curator (5)**
-    (or Purview Administrator if required), and then click **Next (6)**.
+7.  Under the System assigned tab, ensure the **Status toggle (11)** is
+    set to **On**, and then click **Save (12)** if required.
 
-5.  On the Members tab, select **Select members (7)**.
+    > **Important:** Managed Identity is required for secure
+    > authentication when scanning Azure SQL Database.
 
-6.  Search for your user account (8), select it, and click **Select
-    (9)**.
 
-7.  Click **Review + Assign (10)** to complete the role assignment.
+## Task 3: Create Azure SQL Database (Data Source Preparation)
 
-## Enable System Assigned Managed Identity
+In this task, you will create an Azure SQL Database that will be
+registered and scanned in Microsoft Purview.
 
-1.  Still within the Purview account blade, scroll in the left
-    navigation pane and select **Identity (11)**.
+1.  On the **Azure Portal** page, in the search box at the top, enter
+    **SQL databases (1)** and select **SQL databases (2)** under
+    services.
 
-2.  Under the System assigned tab, ensure the Status toggle (12) is set
-    to **On**.
+    ![Picture 1](../Images/sql-search.png)
 
-3.  If it is Off, switch it to On and click **Save (13)**.
+2.  Click **+ Create (3)**.
 
-### Validation
+3.  On the Basics tab:
 
--   Your user account appears under Role assignments.
--   System assigned managed identity status shows as Enabled.
+    -   Select your **Subscription (4)**.
+    -   Select your **Resource Group (5)**.
+    -   In the **Database name (6)** field, enter **PurviewLabDB**.
+    -   Under Server, click **Create new (7)** and provide required
+        server details.
 
-# Task 3: Access the Microsoft Purview Portal
+4.  Select **Basic pricing tier (8)**.
 
-In this task, you will access the Microsoft Purview governance portal to
-use Data Map and Unified Catalog.
+5.  Click **Review + Create (9)**, and then select **Create (10)**.
 
-1.  Open a new browser tab and navigate to
-    https://purview.microsoft.com.
+6.  After deployment completes, open the created **SQL Server (11)**.
 
-2.  Sign in using the same account that was assigned the Purview role.
+7.  From the left navigation pane, select **Networking (12)**, enable
+    **Allow Azure services and resources to access this server (13)**,
+    and then click **Save (14)**.
 
-3.  After the portal loads, observe the left navigation pane.
 
-4.  From the left navigation pane, select **Data Map (1)** to open the
-    Data Map experience.
+## Task 4: Create Sample Tables and Insert Data
 
-5.  Review the available sections such as:
+In this task, you will create a sample table and insert data to ensure
+Microsoft Purview has metadata available to discover during scanning.
 
-    -   Sources
-    -   Collections
-    -   Scan rules
+1.  Open the **PurviewLabDB database (1)**.
 
-### Validation
+2.  From the left navigation pane, select **Query editor (Preview) (2)**
+    and sign in using the SQL credentials.
 
--   Microsoft Purview portal loads successfully.
--   Data Map navigation is accessible without permission errors.
+3.  In the query editor window, paste the following SQL script:
 
-# Task 4: Register Azure SQL Database in Data Map
+``` sql
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    FullName NVARCHAR(100),
+    Email NVARCHAR(100),
+    PhoneNumber NVARCHAR(20),
+    SSN NVARCHAR(20)
+);
 
-In this task, you will register an Azure SQL Database as a data source
-within Microsoft Purview.
+INSERT INTO Customers VALUES
+(1, 'John Doe', 'john@email.com', '9876543210', '123-45-6789'),
+(2, 'Jane Smith', 'jane@email.com', '9876543222', '987-65-4321');
+```
 
-1.  From the left navigation pane of the Microsoft Purview portal, click
-    **Data Map (1)**.
+4.  Click **Run (3)** to execute the script.
 
-2.  Within Data Map, select **Sources (2)** to open the list of
-    registered sources.
+    > **Note:** Columns such as Email and SSN help demonstrate automatic
+    > classification during scanning.
 
-3.  Click the **+ Register (3)** button at the top of the Sources page.
 
-4.  In the Register sources page, search for and select **Azure SQL
-    Database (4)** from the list of available data sources.
+## Task 5: Grant Microsoft Purview Access to SQL Database
 
-5.  On the registration page:
+In this task, you will grant the Microsoft Purview managed identity
+access to the SQL database so that it can perform metadata scanning.
 
-    -   In the Name field (5), enter `Lab-SQL-Source`.
-    -   Select the appropriate Subscription (6).
-    -   Select the SQL Server (7).
-    -   Select the Database (8).
+1.  Open the **PurviewLabDB database (1)**.
 
-6.  Click **Register (9)** to complete the source registration.
+2.  From the left navigation pane, select **Access control (IAM) (2)**.
 
-### Validation
+3.  Click **+ Add (3)** and select **Add role assignment (4)**.
 
--   The Azure SQL source appears in the Sources list.
--   The status column displays **Registered**.
+4.  Select the **Reader role (5)**.
 
-# Task 5: Configure and Execute a Scan
+5.  Under Assign access to, select **Managed identity (6)**.
 
-In this task, you will configure and run a scan against the registered
-SQL data source.
+6.  Select the **Microsoft Purview managed identity (7)**.
 
-1.  From the Sources page in Data Map, click on **Lab-SQL-Source (1)**
-    to open the source details.
+7.  Click **Review + Assign (8)**.
+
+## Task 6: Register Azure SQL Database in Microsoft Purview Data Map
+
+In this task, you will register the Azure SQL Database as a data source
+inside Microsoft Purview Data Map.
+
+1.  Open a browser and navigate to **https://purview.microsoft.com**.
+
+2.  From the left navigation pane of the Microsoft Purview portal,
+    select **Data Map (1)**.
+
+3.  Under Data Map, select **Sources (2)**.
+
+4.  On the Sources page, click **+ Register (3)**.
+
+5.  From the list of available source types, select **Azure SQL Database
+    (4)** and click **Continue (5)**.
+
+6.  On the registration page:
+
+    -   Enter **PROD-SQL-PurviewLab (6)** as the source name.
+    -   Select the appropriate **Subscription (7)**.
+    -   Select the **SQL Server (8)**.
+    -   Select the **Database (9)**.
+
+7.  Click **Register (10)**.
+
+    ![Picture 1](../Images/register-sql.png)
+
+
+## Task 7: Configure and Run a Scan
+
+In this task, you will configure a full scan using Managed Identity
+authentication and execute the scan to ingest metadata into Microsoft
+Purview.
+
+1.  From the **Sources** page, select the registered source
+    **PROD-SQL-PurviewLab (1)**.
 
 2.  On the source overview page, click **New Scan (2)**.
 
-3.  On the Scan configuration page:
+3.  In the **Scan name (3)** field, enter **PROD-SQL-Weekly-0200**.
 
-    -   Under Authentication method (3), select **Managed Identity**.
-    -   Under Scan type (4), select **Full scan**.
-    -   Under Collection (5), select the appropriate collection.
+4.  Under **Authentication method (4)**, select **Managed Identity**.
 
-4.  Click **Test connection (6)** to verify connectivity.
+5.  Under **Scan type (5)**, select **Full scan**.
 
-5.  After successful validation, click **Run (7)** to start the scan.
+6.  Configure the **Schedule (6)** to run during off-peak hours.
 
-6.  Wait for the scan to complete. You may refresh the page to check
-    scan status.
+7.  Click **Test connection (7)** to validate connectivity.
 
-### Validation
+8.  After successful validation, click **Run (8)**.
 
--   Scan status shows **Succeeded**.
--   The number of discovered assets is greater than zero.
+    > **Important:** The first scan is a full scan. Subsequent scans can
+    > be configured as incremental scans.
 
-# Task 6: Validate Metadata Discovery in Unified Catalog
 
-In this task, you will validate that metadata has been successfully
-ingested into Unified Catalog.
+## Task 8: Validate Metadata in Unified Catalog
+
+In this task, you will confirm that metadata from the SQL database has
+been successfully ingested into Microsoft Purview Unified Catalog.
 
 1.  From the left navigation pane of the Microsoft Purview portal,
     select **Unified Catalog (1)**.
 
-2.  In the search bar at the top of the page (2), type part of the
-    database name or table name.
+2.  In the search bar at the top of the page (2), type **Customers** and
+    press Enter.
 
-3.  Press Enter to display search results.
+3.  From the search results, select the **Customers table (3)**.
 
-4.  Click on one of the discovered tables (3) to open the asset details
-    page.
+4.  Review the **Overview, Schema, Columns, Classification, and Lineage
+    tabs (4)** to verify metadata has been captured.
 
-5.  Review the following sections:
 
-    -   Overview
-    -   Schema
-    -   Columns
-    -   Classification
-    -   Lineage
-
-6.  Click the **Lineage tab (4)** to verify that the lineage view loads
-    successfully.
-
-## Final Validation Checklist
-
--   Azure SQL source registered successfully
--   Scan completed without errors
--   Tables visible in Unified Catalog
--   Schema and metadata displayed
--   Lineage tab accessible
-
-# Review
+## Review
 
 In this lab, you have:
 
--   Created and configured a Microsoft Purview account
--   Assigned required IAM roles
--   Enabled Managed Identity
--   Registered Azure SQL Database in Data Map
--   Executed a full scan
--   Validated metadata discovery in Unified Catalog
+-   Created and configured Microsoft Purview\
+-   Assigned required roles and enabled Managed Identity\
+-   Created Azure SQL Database and sample data\
+-   Registered the data source in Data Map\
+-   Configured and executed a scan\
+-   Validated metadata in Unified Catalog
 
-The Microsoft Purview governance environment is now fully operational
-and ready for classification, governance domains, data quality
-configuration, and advanced integrations.
+You have successfully completed Lab 01: Register and Scan Data Sources
+using Microsoft Purview Data Map.
