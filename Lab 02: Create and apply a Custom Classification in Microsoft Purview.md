@@ -1,4 +1,4 @@
-# Lab 02: Create and Apply a Custom Classification in Microsoft Purview
+# Day 1 - Lab 02: Create and Apply a Custom Classification in Microsoft Purview
 
 ## Estimated Duration: 120 Minutes
 
