@@ -1,4 +1,4 @@
-# Lab 01: Register and Scan Data Sources using Microsoft Purview Data Map
+# Day 1 - Lab 01: Register and Scan Data Sources using Microsoft Purview Data Map
 
 ## Estimated Duration: 150 Minutes
 
