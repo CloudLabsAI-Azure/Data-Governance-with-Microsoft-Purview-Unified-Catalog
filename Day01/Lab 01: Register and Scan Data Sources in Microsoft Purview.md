@@ -54,7 +54,6 @@ experiences in the Microsoft Purview portal.
 6.  After deployment is completed, open the newly created **Microsoft
     Purview account (11)**.
 
-
 ## Task 2: Assign Roles and Enable Managed Identity
 
 In this task, you will assign the required Purview role to your user
@@ -89,9 +88,7 @@ Microsoft Purview can securely scan data sources.
 In this task, you will create an Azure SQL Database that will be
 registered and scanned in Microsoft Purview.
 
-1.  On the **Azure Portal** page, in the search box at the top, enter
-    **SQL databases (1)** and select **SQL databases (2)** under
-    services.
+1.  Navigate back to **Azure Portal** page, in the search box at the top, enter **SQL databases (1)** and select **Azure SQL databases (2)** under services.
 
     ![Picture 1](../Images/sql-search.png)
 
