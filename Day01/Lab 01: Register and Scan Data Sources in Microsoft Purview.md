@@ -4,7 +4,7 @@
 
 ## Lab Overview
 
-In this lab, you will configure Microsoft Purview from scratch and
+In this lab, you will configure Microsoft Purview and
 perform end-to-end registration and scanning of an Azure SQL Database
 using Microsoft Purview Data Map. You will provision the Purview
 account, configure permissions, prepare a structured data source,
@@ -42,14 +42,16 @@ experiences in the Microsoft Purview portal.
 
     -   Select your **Subscription (5)**.
     -   Select an existing **Resource Group (6)**.
-    -   In the **Account name (7)** field, enter a globally unique name.
-    -   Select a supported **Region (8)**.
+    -   In the **Account name** field, enter purview-<inject key="DeploymentID" enableCopy="false"/> **(7)**
+    -   Select the default **Region (8)**.
 
-4.  Click **Review + Create (9)**, and then select **Create (10)**.
+4.  Click **Review + Create (9)** 
+
+5. And once the validation passes select **Create (10)**.
 
     > **Note:** Deployment may take several minutes to complete.
 
-5.  After deployment is completed, open the newly created **Microsoft
+6.  After deployment is completed, open the newly created **Microsoft
     Purview account (11)**.
 
 
