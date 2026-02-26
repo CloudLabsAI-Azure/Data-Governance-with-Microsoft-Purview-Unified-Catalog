@@ -26,46 +26,65 @@ In this task, you will create a Microsoft Purview account in Azure. This
 account is required before accessing the Data Map and Unified Catalog
 experiences in the Microsoft Purview portal.
 
-1.  On the **Azure Portal** page, in the **Search resources, services
-    and docs (G+/) (1)** box at the top of the portal, enter **Microsoft Purview accounts (2)**, and then select **Microsoft Purview accounts (3)** under services.
+1. On the **Azure Portal** page, in the **Search resources, services
+    and docs (G+/)** box at the top of the portal, enter **Microsoft Purview accounts (1)**, and then select **Microsoft Purview accounts (2)** under services.
 
-    ![Picture 1](../Images/purview-search.png)
+    ![Picture 1](../Media/L1.png)
 
-2.  On the Microsoft Purview accounts page, click **+ Create (4)**.
+1. On the Microsoft Purview accounts page, click **+ Create**.
 
-3.  On the **Basics** tab:
+    ![Picture](../Media/2.png)
 
-    -   Select your **Subscription (5)**.
-    -   Select an existing **Resource Group (6)**.
-    -   In the **Account name** field, enter purview-<inject key="DeploymentID" enableCopy="false"/> **(7)**
-    -   Select the default **Region (8)**.
+1. On the **Basics** tab, configure the required settings as listed below, and then select **Review + Create (5)**.
 
-4.  Click **Review + Create (9)** 
+    | Setting            | Value |
+    |--------------------|-------|
+    | Subscription       | Select your **Subscription (1)** |
+    | Resource Group     | Select an existing **Resource Group (2)** |
+    | Account name       | `purview-<inject key="DeploymentID" enableCopy="false"/>` **(3)** |
+    | Region             | Select the default **<inject key="Region" enableCopy="false"/> (4)** |
 
-5. And once the validation passes select **Create (10)**.
+    ![Picture](../Media/.png)
+
+1. And once the validation passes select **Create**.
+
+    ![Picture](../Media/L3.png)
 
     > **Note:** Deployment may take several minutes to complete.
 
-6.  After deployment is completed, open the newly created **Microsoft
-    Purview account (11)**.
+1. After the deployment is complete, select **Go to resource** to open the newly created **Microsoft Purview account**.
+
+    ![Picture](../Media/L4.png)
+
+1. On the **Overview** page, scroll to the bottom and select **Microsoft Purview governance portal (New)**. 
+
+    ![Picture](../Media/L5.png)
 
 ## Task 2: Verify and Assign Data Curator Role in Microsoft Purview
 
 In this task, you will verify that your user account has been assigned the **Data Curator** role at the collection level in Microsoft Purview. The Data Curator role is required to register data sources, configure scans, manage metadata, and perform governance operations within the Data Map. Without this role, you will not be able to proceed with source registration and scanning tasks in this lab.
 
-1. From the left navigation pane of the **Microsoft Purview portal**, click on **Data Map (1)** to expand the Data Map section, and then select **Domains (2)** to open the Collections management page.
+1. From the left navigation pane of the **Microsoft Purview portal**, click on **Solutions (1)** and select **Data Map (1)**.
 
-1. On the **Collections** page, locate and select the root collection **purview-<inject key="DeploymentID" enableCopy="false"/> (3)**. Click on the collection name to open its configuration view.
+    ![Picture](../Media/L8.png)
 
-1. On the selected collection page, click on the **Role assignments (4)** tab located near the top of the page to view governance role assignments for this collection.
+1. Inside Data Map select **Domains (1)** to open the Collections management page.On the **Collections** page, locate and select the root collection **purview-<inject key="DeploymentID" enableCopy="false"/> (2)**. Click on the collection name to open its configuration view.
 
-1. Scroll down to the **Data curators (5)** section and verify whether your user account appears in the list. Ensure that your display name and email ID are visible and that the **Type** column shows **User**.
+1. On the selected collection page, click on the **Role assignments (3)** tab located near the top of the page to view governance role assignments for this collection.
+
+1. Scroll down to the **Data curators (4)** section and verify whether your user account appears in the list. Ensure that your display name and email ID are visible and that the **Type** column shows **ODL_User<inject key="DeploymentID" enableCopy="false"/> (5)**.
+
+    ![Picture](../Media/L7.png)
 
     >**Note:**If your user account does not appear under the Data curators section, follow the steps below:
 
     1. If your user account does not appear under the **Data curators** section, click on **Edit role assignments**, then click the **+ Add (User icon)** option under Data curators.
 
-    1. In the search box that appears, enter the email ID ODL_User<inject key="DeploymentID" enableCopy="false"/> of the required user, select the appropriate user account from the search results, and then click **Save** to assign the Data Curator role.
+         ![Picture](../Media/L11.png)
+
+    1. In the search box that appears, enter the email ID **ODL_User<inject key="DeploymentID" enableCopy="false"/> (1)** of the required user, select the appropriate user account from the search results, and then click **OK (2)** to assign the Data Curator role.
+
+          ![Picture](../Media/L10.png)
 
     1. Refresh the page and confirm that the user now appears under the **Data curators** section.
 
@@ -78,21 +97,25 @@ registered and scanned in Microsoft Purview.
 
 1.  Navigate back to **Azure Portal** page, in the search box at the top, enter **SQL databases (1)** and select **Azure SQL databases (2)** under services.
 
-    ![Picture 1](../Images/sql-search.png)
+    ![Picture](../Media/L9.png)
 
-1.  Click **+ Create (3)**.
+1.  Click **+ Create (1)**, expand the drop-down menu, and select **SQL database (Free Offer) (2)**.
 
-1. On the **Basics** tab of the **Create SQL Database** page, configure the required settings as follows:
+    ![Picture](../Media/L12.png)
 
-   - Under **Subscription (4)**, select the Default Azure subscription from the dropdown list.
+1. On the **Basics** tab of the **Create SQL Database** page, configure the required settings as follows: and Click **Review + Create (5)**
 
-   - Under **Resource group (5)**, select the existing resource group that was created for this lab environment.
+   - Under **Subscription (1)**, select the Default Azure subscription from the dropdown list.
 
-   - In the **Database name (6)** field, enter  
+   - Under **Resource group (2)**, select the existing resource group that was created for this lab environment.
+
+   - In the **Database name (3)** field, enter  
      **PurviewDB-<inject key="DeploymentID" enableCopy="false"/>**  
      to uniquely identify the database for this deployment.
 
-   - Under the **Server** section, click **Create new (7)** to create a new logical SQL Server that will host the database.
+   - Under the **Server** section, click **Create new (4)** to create a new logical SQL Server that will host the database.
+
+        ![Picture](../Media/L14.png)
 
 1. On the **Create SQL Server** pane that appears, configure the server settings as follows:
 
@@ -107,10 +130,15 @@ registered and scanned in Microsoft Purview.
 
    - Review the configuration and click **OK (6)** to create the SQL Server and return to the database configuration page.
 
+     ![Picture](../Media/L.png)
 
-1.  Click **Review + Create (9)**, and then select **Create (10)**.
+1.  select **Create**.
 
-1.  After deployment completes, open the created **SQL Server (11)**.
+    ![Picture](../Media/L15.png)
+
+1.  After the deployment is complete, select **Go to resource** to open the newly created **SQL Server**.
+
+    ![Picture](../Media/L17.png)
 
 1. Navigate to the **SQL Server resource**, and from the left navigation pane expand **Security (12)**, then select **Networking (13)** to open the networking configuration page.
 
