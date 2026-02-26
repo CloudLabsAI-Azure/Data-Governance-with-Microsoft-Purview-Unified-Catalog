@@ -4,9 +4,7 @@
 
 ## Lab Overview
 
-In this lab, you will configure Microsoft Purview and
-perform end-to-end registration and scanning of an Azure SQL Database
-using Microsoft Purview Data Map. You will provision the Purview
+In this lab, you will configure Microsoft Purview and perform end-to-end registration and scanning of an Azure SQL Database using Microsoft Purview Data Map. You will provision the Purview
 account, configure permissions, prepare a structured data source,
 register it, execute a scan, and validate metadata in Unified Catalog.
 
@@ -63,7 +61,7 @@ In this task, you will verify that your user account has been assigned the **Dat
 
 1. Scroll down to the **Data curators (5)** section and verify whether your user account appears in the list. Ensure that your display name and email ID are visible and that the **Type** column shows **User**.
 
-    >Note: If your user account does not appear under the **Data curators please follow the below steps :
+    >**Note:**If your user account does not appear under the Data curators section, follow the steps below:
 
     1. If your user account does not appear under the **Data curators** section, click on **Edit role assignments**, then click the **+ Add (User icon)** option under Data curators.
 
@@ -215,12 +213,13 @@ Purview.
 
 1.  Click **Test connection (7)** to validate connectivity.
 
-> **Note:** Test connection might take 5-10mins please wait until it gets completed
-> **Note:** If you face error while Test connection then run the below SQL quary in Azure Data base 
+> **Note:** Test connection may take 5–10 minutes. Wait until validation completes.
+
+> **Note:** If you encounter an error during Test connection, run the following SQL query in the Azure SQL Database
 
     ```
     -- Create user for Purview (if not already created)
-    CREATE USER [purview- <inject key="DeploymentID" enableCopy="false"/>] FROM EXTERNAL PROVIDER;
+    CREATE USER [purview-<inject key="DeploymentID" enableCopy="false"/>] FROM EXTERNAL PROVIDER;
 
     -- Required minimum roles for scanning
     ALTER ROLE db_datareader ADD MEMBER [purview-<inject key="DeploymentID" enableCopy="false"/>];
@@ -228,25 +227,22 @@ Purview.
 
     -- Optional but often required for metadata access
     GRANT VIEW DEFINITION TO [purview-<inject key="DeploymentID" enableCopy="false"/>];
-    
+
     ```
 
 1.  After successful validation, click **Run (8)**.
 
     > **Important:** The first scan is a full scan. Subsequent scans can be configured as incremental scans.
 
-
-
 ## Review
 
 In this lab, you have:
 
--   Created and configured Microsoft Purview\
--   Assigned required roles and enabled Managed Identity\
--   Created Azure SQL Database and sample data\
--   Registered the data source in Data Map\
--   Configured and executed a scan\
--   Validated metadata in Unified Catalog
+-   Created and configured Microsoft Purview
+-   Assigned required roles and enabled Managed Identity
+-   Created Azure SQL Database and sample data
+-   Registered the data source in Data Map
+-   Configured and executed a scan
 
 You have successfully completed Lab 01: Register and Scan Data Sources
 using Microsoft Purview Data Map.
