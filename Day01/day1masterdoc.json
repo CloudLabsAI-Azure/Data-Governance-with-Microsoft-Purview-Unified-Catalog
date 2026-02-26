@@ -1,0 +1,20 @@
+[
+  {
+    "Name": "Data-Governance-with-Microsoft-Purview-Unified-Catalog",
+    "Language": "English",
+    "Files": [
+      {
+        "RawFilePath": "https://docs-api.cloudlabs.ai/repos/raw.githubusercontent.com/CloudLabsAI-Azure/Data-Governance-with-Microsoft-Purview-Unified-Catalog/refs/heads/main/Day01/Lab%2001%3A%20Register%20and%20Scan%20Data%20Sources%20in%20Microsoft%20Purview.md",
+        "Order": 1
+      },
+      {
+        "RawFilePath": "https://docs-api.cloudlabs.ai/repos/raw.githubusercontent.com/CloudLabsAI-Azure/Data-Governance-with-Microsoft-Purview-Unified-Catalog/refs/heads/main/Day01/Lab%2002%3A%20Create%20and%20apply%20a%20Custom%20Classification%20in%20Microsoft%20Purview.md",
+        "Order": 2
+      },
+      {
+        "RawFilePath": "https://docs-api.cloudlabs.ai/repos/raw.githubusercontent.com/CloudLabsAI-Azure/Data-Governance-with-Microsoft-Purview-Unified-Catalog/refs/heads/main/Day01/Lab%2003%3A%20Set%20up%20Roles%20and%20Permissions%20in%20Microsoft%20Purview.md",
+        "Order": 3
+      }
+    ]
+  }
+]

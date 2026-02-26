@@ -76,7 +76,6 @@ Microsoft Purview can securely scan data sources.
 
 6.  From the left navigation pane, select **Identity (10)**.
 
-7.  Under the System assigned tab, ensure the **Status toggle (11)**    is set to **On**, and then click **Save (12)** if required.
 
     > **Important:** Managed Identity is required for secure
     > authentication when scanning Azure SQL Database.
