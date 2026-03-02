@@ -80,19 +80,19 @@ In this task, you will verify that your user account has been assigned the **Dat
 
     ![Picture](../Media/L7.png)
 
-    >**Note:**If your user account does not appear under the Data curators section, follow the steps below:
+    >**Note:** If your user account does not appear under the Data curators section, follow the below steps :
 
-    1. If your user account does not appear under the **Data curators** section, click on **Edit role assignments**, then click the **+ Add (User icon)** option under Data curators.
+    -  If your user account does not appear under the **Data curators** section, click on **Edit role assignments**, then click the **+ Add (User icon)** option under Data curators.
 
          ![Picture](../Media/L11.png)
 
-    1. In the search box that appears, enter the email ID **ODL_User<inject key="DeploymentID" enableCopy="false"/> (1)** of the required user, select the appropriate user account from the search results, and then click **OK (2)** to assign the Data Curator role.
+    -  In the search box that appears, enter the email ID **ODL_User<inject key="DeploymentID" enableCopy="false"/> (1)** of the required user, select the appropriate user account from the search results, and then click **OK (2)** to assign the Data Curator role.
 
           ![Picture](../Media/L10.png)
 
-    1. Refresh the page and confirm that the user now appears under the **Data curators** section.
+    -  Refresh the page and confirm that the user now appears under the **Data curators** section.
 
-    > **Important:** Managed Identity is required for secure authentication when scanning Azure SQL Database.
+       > **Important:** Managed Identity is required for secure authentication when scanning Azure SQL Database.
 
 ## Task 3: Create Azure SQL Database (Data Source Preparation)
 
