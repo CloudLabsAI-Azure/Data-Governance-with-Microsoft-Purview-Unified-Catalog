@@ -88,7 +88,7 @@ In this task, you will verify that your user account has been assigned the **Dat
 
     -  In the search box that appears, enter the email ID **ODL_User<inject key="DeploymentID" enableCopy="false"/> (1)** of the required user, select the appropriate user account from the search results, and then click **OK (2)** to assign the Data Curator role.
 
-          ![Picture](../Media/L10.png)
+        ![Picture](../Media/L10.png)
 
     -  Refresh the page and confirm that the user now appears under the **Data curators** section.
 
