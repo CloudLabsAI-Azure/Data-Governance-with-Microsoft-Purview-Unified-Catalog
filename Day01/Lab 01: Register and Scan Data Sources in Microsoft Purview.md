@@ -64,6 +64,10 @@ experiences in the Microsoft Purview portal.
 
 In this task, you will verify that your user account has been assigned the **Data Curator** role at the collection level in Microsoft Purview. The Data Curator role is required to register data sources, configure scans, manage metadata, and perform governance operations within the Data Map. Without this role, you will not be able to proceed with source registration and scanning tasks in this lab.
 
+1. On the **Welcome to the New Microsoft Purview portal** pop-up, select **Get Started**.
+
+     ![Picture](../Media/L40.png)
+
 1. From the left navigation pane of the **Microsoft Purview portal**, click on **Solutions (1)** and select **Data Map (1)**.
 
     ![Picture](../Media/L8.png)
