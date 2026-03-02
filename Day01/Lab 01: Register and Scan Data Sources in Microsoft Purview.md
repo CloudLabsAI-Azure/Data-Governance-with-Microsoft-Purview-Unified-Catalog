@@ -44,7 +44,7 @@ experiences in the Microsoft Purview portal.
     | Account name       | **purview-<inject key="DeploymentID" enableCopy="false"/> (3)** |
     | Region             | Select **<inject key="Region" enableCopy="false"/> (4)** |
 
-    ![Picture](../Media/.png)
+    ![Picture](../Media/L39.png)
 
 1. And once the validation passes select **Create**.
 
