@@ -33,7 +33,7 @@ rule.
     databases (2)**, and then select **SQL databases (3)** under
     services.
 
-2.  From the list of databases, select **PurviewLabDB (4)**.
+2.  From the list of databases, select ****PurviewDB-<inject key="DeploymentID" enableCopy="false"/>** (4)**.
 
 3.  From the left navigation pane of the database blade, select **Query
     editor (Preview) (5)** and sign in using your SQL credentials.

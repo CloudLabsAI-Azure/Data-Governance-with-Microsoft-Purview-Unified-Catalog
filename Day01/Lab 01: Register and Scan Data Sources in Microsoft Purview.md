@@ -41,8 +41,8 @@ experiences in the Microsoft Purview portal.
     |--------------------|-------|
     | Subscription       | Select your **Subscription (1)** |
     | Resource Group     | Select an existing **Resource Group (2)** |
-    | Account name       | `purview-<inject key="DeploymentID" enableCopy="false"/>` **(3)** |
-    | Region             | Select the default **<inject key="Region" enableCopy="false"/> (4)** |
+    | Account name       | **purview-<inject key="DeploymentID" enableCopy="false"/> (3)** |
+    | Region             | Select **<inject key="Region" enableCopy="false"/> (4)** |
 
     ![Picture](../Media/.png)
 
@@ -245,7 +245,7 @@ Purview.
 
 > **Note:** If you encounter an error during Test connection, run the following SQL query in the Azure SQL Database
 
-    ```
+```
     -- Create user for Purview (if not already created)
     CREATE USER [purview-<inject key="DeploymentID" enableCopy="false"/>] FROM EXTERNAL PROVIDER;
 
@@ -256,7 +256,7 @@ Purview.
     -- Optional but often required for metadata access
     GRANT VIEW DEFINITION TO [purview-<inject key="DeploymentID" enableCopy="false"/>];
 
-    ```
+```
 
 1.  After successful validation, click **Run (8)**.
 
