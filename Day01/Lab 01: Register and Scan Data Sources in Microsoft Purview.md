@@ -39,7 +39,7 @@ experiences in the Microsoft Purview portal.
 
     | Setting            | Value |
     |--------------------|-------|
-    | Subscription       | Select your **Subscription (1)** |
+    | Subscription       | Select the default **Subscription (1)** |
     | Resource Group     | Select an existing **Resource Group (2)** |
     | Account name       | **purview-<inject key="DeploymentID" enableCopy="false"/> (3)** |
     | Region             | Select **<inject key="Region" enableCopy="false"/> (4)** |
