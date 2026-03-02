@@ -58,7 +58,7 @@ experiences in the Microsoft Purview portal.
 
 1. On the **Overview** page, scroll to the bottom and select **Microsoft Purview governance portal (New)**. 
 
-    ![Picture](../Media/L5.png)
+    ![Picture](../Media/L05.png)
 
 ## Task 2: Verify and Assign Data Curator Role in Microsoft Purview
 
@@ -113,9 +113,7 @@ registered and scanned in Microsoft Purview.
 
    - Under **Resource group (2)**, select the existing resource group that was created for this lab environment.
 
-   - In the **Database name (3)** field, enter  
-     **PurviewDB-<inject key="DeploymentID" enableCopy="false"/>**  
-     to uniquely identify the database for this deployment.
+   - In the **Database name (3)** field, enter **PurviewDB-<inject key="DeploymentID" enableCopy="false"/>** to uniquely identify the database for this deployment.
 
    - Under the **Server** section, click **Create new (4)** to create a new logical SQL Server that will host the database.
 
