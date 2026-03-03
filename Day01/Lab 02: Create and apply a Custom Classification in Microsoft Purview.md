@@ -36,24 +36,38 @@ rule.
 
 4.  In the query editor window, paste the following SQL script:
 
-    ``` sql
-    ALTER TABLE Customers
-    ADD EmployeeID NVARCHAR(20);
+    - **Step 1 :** Before modifying the table, verify that the EmployeeID column does not already exist.Run the below SQL comand:
 
-    UPDATE Customers
-    SET EmployeeID = 'EMP-1001'
-    WHERE CustomerID = 1;
+        ```SQL
+        SELECT COLUMN_NAME
+        FROM INFORMATION_SCHEMA.COLUMNS
+        WHERE TABLE_NAME = 'Customers';
+        ```
+    > **Note:** If EmployeeID does NOT appear in the result, continue with next steps.
 
-    UPDATE Customers
-    SET EmployeeID = 'EMP-1002'
-    WHERE CustomerID = 2;
-    ```
+    > If it already exists, skip Step 2 and proceed to Step 3.
+
+    - **Step 2:** Add the EmployeeID Column Run the following command:(This adds a new column to store the Employee ID values.)
+
+        ```SQL
+        ALTER TABLE Customers
+        ADD EmployeeID NVARCHAR(20);
+        ```
+    - **Step 3:** Insert Sample Employee ID Values Run the following SQL statements:
+
+        ``` sql
+        UPDATE Customers
+        SET EmployeeID = 'EMP-1001'
+        WHERE CustomerID = 1;
+
+        UPDATE Customers
+        SET EmployeeID = 'EMP-1002'
+        WHERE CustomerID = 2;
+        ```
 
 5.  Click **Run (6)** to execute the script.
 
-    > **Important:** The EmployeeID column is required so that the
-    > custom classification rule can detect a business-specific
-    > identifier.
+    > **Important:** The EmployeeID column is required so that the custom classification rule can detect a business-specific identifier.
 
 ## Task 2: Create a Custom Classification Rule
 
