@@ -107,7 +107,7 @@ registered and scanned in Microsoft Purview.
 
     ![Picture](../Media/L12.png)
 
-1. On the **Basics** tab of the **Create SQL Database** page, configure the required settings as follows: and Click **Review + Create (5)**
+1. On the **Basics** tab of the **Create SQL Database** page, configure the required settings as follows: and Click **Review + Create**
 
     | Setting          | Value |
     |------------------|-------|
@@ -116,7 +116,7 @@ registered and scanned in Microsoft Purview.
     | Database name    | Enter **PurviewDB-<inject key="DeploymentID" enableCopy="false"/> (3)** to uniquely identify the database for this deployment. |
     | Server           | Click **Create new (4)** to create a new logical SQL Server that will host the database. |
 
-    ![Picture](../Media/L14.png)
+    ![Picture](../Media/L42.png)
 
 1. On the **Create SQL Server** pane that appears, configure the server settings as follows:
 
@@ -124,10 +124,10 @@ registered and scanned in Microsoft Purview.
     |--------------------------|-------|
     | Server name              | Enter **purviewserver-<inject key="DeploymentID" enableCopy="false"/> (1)** in the Server name field |
     | Location                 | Select **<inject key="Region" enableCopy="false"/> (2)** |
-    | Authentication method    | Under **Authentication method, ensure **Use Microsoft Entra-only authentication (3)** is selected to enable Microsoft Entra ID–based authentication instead of SQL authentication. |
-    | Finalize configuration   | Review the configuration and click **OK (6)** to create the SQL Server and return to the database configuration page. |
+    | Authentication method    | Under Authentication method, ensure **Use Microsoft Entra-only authentication (3)** is selected to enable Microsoft Entra ID–based authentication instead of SQL authentication. |
+    | Finalize configuration   | Review the configuration and click **OK (4)** to create the SQL Server and return to the database configuration page. |
 
-     ![Picture](../Media/L.png)
+     ![Picture](../Media/L41.png)
 
 1.  select **Create**.
 
