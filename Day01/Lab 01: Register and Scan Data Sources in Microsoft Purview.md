@@ -137,18 +137,18 @@ registered and scanned in Microsoft Purview.
 
     ![Picture](../Media/L17.png)
 
-1. Navigate to the **SQL Server resource**, and from the left navigation pane expand **Security (12)**, then select **Networking (13)** to open the networking configuration page.
+1. Navigate to the **SQL Server resource**, and from the left navigation pane expand **Security (1)**, then select **Networking (2)** to open the networking configuration page.
 
-1. On the same **Networking** page, scroll down to the **Firewall rules** section and click **+ Add your client IPv4 address (14)** to allow your current machine to connect to the SQL Server.
+1. On the same **Networking** page, scroll down to the **Firewall rules** section and click **+ Add your client IPv4 address (3)** to allow your current machine to connect to the SQL Server.
 
-1. Scroll further down to the **Exceptions** section and ensure that the checkbox **Allow Azure services and resources to access this server (15)** is selected. Then click **Save (16)** to apply the changes.
+1. Scroll further down to the **Exceptions** section and ensure that the checkbox **Allow Azure services and resources to access this server (4)** is selected. Then click **Save (5)** to apply the changes.
 
 ## Task 4: Create Sample Tables and Insert Data
 
 In this task, you will create a sample table and insert data to ensure
 Microsoft Purview has metadata available to discover during scanning.
 
-1. Open the  **purviewserver-<inject key="DeploymentID" enableCopy="false"/> (1)**.
+1. Open the  **PurviewDB-<inject key="DeploymentID" enableCopy="false"/> (1)**.
 
 1. From the left navigation pane, select **Query editor (Preview) (2)** and sign in using Microsoft Entra authentication option
 
@@ -177,7 +177,7 @@ INSERT INTO Customers VALUES
 In this task, you will grant the Microsoft Purview managed identity
 access to the SQL database so that it can perform metadata scanning.
 
-1.  Open the **PurviewDB-<inject key="DeploymentID" enableCopy="false"/> database (1)**.
+1.  Open the **purviewserver-<inject key="DeploymentID" enableCopy="false"/> (1)**.
 
 1.  From the left navigation pane, select **Access control (IAM) (2)**.
 
@@ -218,6 +218,26 @@ inside Microsoft Purview Data Map.
 
     ![Picture 1](../Images/register-sql.png)
 
+1. Run the following in Azure SQL → Query Editor before starting the scan:
+
+    ```SQL
+    -- Create user for Microsoft Purview Managed Identity
+    CREATE USER [purview-<inject key="DeploymentID" enableCopy="false"/>] FROM EXTERNAL PROVIDER;
+
+    -- Allow Purview to read database metadata
+    ALTER ROLE db_datareader ADD MEMBER [purview-<inject key="DeploymentID" enableCopy="false"/>];
+
+    -- Allow Purview to read object definitions
+    GRANT VIEW DEFINITION TO [purview-<inject key="DeploymentID" enableCopy="false"/>];
+
+    -- Allow Purview to monitor database activity
+    GRANT VIEW DATABASE STATE TO [purview-<inject key="DeploymentID" enableCopy="false"/>];
+
+    -- Required to enable lineage tracking
+    GRANT ALTER ANY DATABASE EVENT SESSION TO [purview-<inject key="DeploymentID" enableCopy="false"/>];
+
+    ```
+- We run this script to give Microsoft Purview permission to read information about the database and track how data moves between tables. When lineage is enabled, Purview needs special access to observe database activity and understand data flow. Without these permissions, the scan cannot collect lineage information and will fail.
 
 ## Task 7: Configure and Run a Scan
 
@@ -239,21 +259,6 @@ Purview.
 1.  Click **Test connection (7)** to validate connectivity.
 
 > **Note:** Test connection may take 5–10 minutes. Wait until validation completes.
-
-> **Note:** If you encounter an error during Test connection, run the following SQL query in the Azure SQL Database
-
-```
-    -- Create user for Purview (if not already created)
-    CREATE USER [purview-<inject key="DeploymentID" enableCopy="false"/>] FROM EXTERNAL PROVIDER;
-
-    -- Required minimum roles for scanning
-    ALTER ROLE db_datareader ADD MEMBER [purview-<inject key="DeploymentID" enableCopy="false"/>];
-    ALTER ROLE db_ddladmin ADD MEMBER [purview-<inject key="DeploymentID" enableCopy="false"/>];
-
-    -- Optional but often required for metadata access
-    GRANT VIEW DEFINITION TO [purview-<inject key="DeploymentID" enableCopy="false"/>];
-
-```
 
 1.  After successful validation, click **Run (8)**.
 
