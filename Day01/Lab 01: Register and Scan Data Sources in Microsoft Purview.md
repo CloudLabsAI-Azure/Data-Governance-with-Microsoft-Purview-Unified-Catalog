@@ -109,28 +109,23 @@ registered and scanned in Microsoft Purview.
 
 1. On the **Basics** tab of the **Create SQL Database** page, configure the required settings as follows: and Click **Review + Create (5)**
 
-   - Under **Subscription (1)**, select the Default Azure subscription from the dropdown list.
+    | Setting          | Value |
+    |------------------|-------|
+    | Subscription     | Select the **Default Azure subscription (1)** from the dropdown list. |
+    | Resource Group   | Select the existing **Resource group (2)** created for this lab environment. |
+    | Database name    | Enter **PurviewDB-<inject key="DeploymentID" enableCopy="false"/> (3)** to uniquely identify the database for this deployment. |
+    | Server           | Click **Create new (4)** to create a new logical SQL Server that will host the database. |
 
-   - Under **Resource group (2)**, select the existing resource group that was created for this lab environment.
-
-   - In the **Database name (3)** field, enter **PurviewDB-<inject key="DeploymentID" enableCopy="false"/>** to uniquely identify the database for this deployment.
-
-   - Under the **Server** section, click **Create new (4)** to create a new logical SQL Server that will host the database.
-
-        ![Picture](../Media/L14.png)
+    ![Picture](../Media/L14.png)
 
 1. On the **Create SQL Server** pane that appears, configure the server settings as follows:
 
-   - In the **Server name (1)** field, enter  
-     **purviewserver-<inject key="DeploymentID" enableCopy="false"/> (2)**  
-     to ensure the server name is unique within Azure.
-
-   - Under **Location (3)**, keep the default region selected (this should match the region of your resource group unless otherwise required).
-
-   - Under **Authentication method (4)**, ensure that **Use Microsoft Entra-only authentication (5)** is selected.  
-     This ensures that authentication to the SQL Server will be managed through Microsoft Entra ID and not through SQL authentication.
-
-   - Review the configuration and click **OK (6)** to create the SQL Server and return to the database configuration page.
+    | Setting                 | Value |
+    |--------------------------|-------|
+    | Server name              | Enter **purviewserver-<inject key="DeploymentID" enableCopy="false"/> (1)** in the Server name field |
+    | Location                 | Select **<inject key="Region" enableCopy="false"/> (2)** |
+    | Authentication method    | Under **Authentication method, ensure **Use Microsoft Entra-only authentication (3)** is selected to enable Microsoft Entra ID–based authentication instead of SQL authentication. |
+    | Finalize configuration   | Review the configuration and click **OK (6)** to create the SQL Server and return to the database configuration page. |
 
      ![Picture](../Media/L.png)
 

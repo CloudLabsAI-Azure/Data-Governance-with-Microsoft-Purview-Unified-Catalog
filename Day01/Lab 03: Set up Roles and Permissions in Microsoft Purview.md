@@ -1,6 +1,6 @@
 # Day 1 - Lab 03: Set up Roles and Permissions in Microsoft Purview
 
-## Estimated Duration: 90 Minutes
+## Estimated Duration: 40 Minutes
 
 ## Lab Overview
 

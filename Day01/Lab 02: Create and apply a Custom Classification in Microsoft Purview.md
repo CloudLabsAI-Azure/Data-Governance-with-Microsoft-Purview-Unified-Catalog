@@ -1,15 +1,11 @@
 # Day 1 - Lab 02: Create and Apply a Custom Classification in Microsoft Purview
 
-## Estimated Duration: 120 Minutes
+## Estimated Duration: 90 Minutes
 
 ## Lab Overview
 
 In this lab, you will create and apply a custom classification rule in
-Microsoft Purview Data Map. You will modify the existing Azure SQL data
-source (configured in Lab 01) to include a custom business identifier
-pattern, create a regex-based classification rule, configure a scan rule
-set, execute a new scan, and validate that the classification is
-successfully applied in Unified Catalog.
+Microsoft Purview Data Map. You will modify the existing Azure SQL data source (configured in Lab 01) to include a custom business identifier pattern, create a regex-based classification rule, configure a scan rule set, execute a new scan, and validate that the classification is successfully applied in Unified Catalog.
 
 ## Lab Objectives
 
