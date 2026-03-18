@@ -1,4 +1,4 @@
-## Lab 3: Connect Databricks Unity Catalog to Purview (60 min)
+# Lab 3: Connect Databricks Unity Catalog to Purview (60 min)
 
 ### Objective
 Register the Databricks workspace, configure the Unity Catalog connector, scan all catalogs/schemas/tables, and validate assets in the Unified Catalog.
