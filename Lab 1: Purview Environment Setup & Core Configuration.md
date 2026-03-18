@@ -1,5 +1,81 @@
 # Lab 1: Purview Environment Setup & Core Configuration 
 
+### Objective:
+Configure Microsoft Purview by validating access roles, organizing governance structure using collections and domains, and enabling the Unified Catalog experience.
+
+### Estimated Duration: 20 minutes
+
+### Task 1: Validate Microsoft Purview Account and Access Roles
+
+In this task, you will verify access to the Microsoft Purview account and confirm that the required roles are assigned.
+
+1. Navigate to the Azure portal > Resource Groups > select your resource group.
+
+1. Open the Microsoft Purview account (purview-{deploymentId}).
+
+1. In the Purview resource blade, review the following:
+
+   - Managed resource group: managed-purview-{deploymentId}
+   
+   - Managed identity: System-assigned (Enabled)
+   
+   - Atlas endpoint: https://purview-{deploymentId}.purview.azure.com
+
+1. Select Open Microsoft Purview Governance Portal (opens in a new tab).
+
+1. In the Purview portal. Go to Settings (gear icon) → Roles and permissions
+
+1. Verify your account has the following roles:
+
+   - Purview Data Curator (edit metadata and classifications)
+   
+   - Purview Data Source Administrator (register and scan data sources)
+   
+   - Purview Data Reader (browse catalog)
+   
+   - Collection Admin on the root collection
+
+1. If any role is missing. Navigate to Data Map > Collections > Root Collection
+
+1. Select Role assignments > Add.
+
+1. Assign the missing role to your user account
+
+   **>Note**: Wait 2–3 minutes for role propagation
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+===============================================================
 ## Objective:
 
 Set up and validate the Microsoft Purview environment by verifying access roles, organizing governance structure using collections and domains, and enabling the Unified Catalog experience.
@@ -28,69 +104,4 @@ In this task, you will confirm that your Microsoft Purview account is accessible
     
    - Ensure you have access to the root collection.
 
-Task 2: Configure Collections, Domains, and Ownership Model
 
-In this task, you will organize your data governance structure by creating collections and domains, and assigning ownership roles.
-
-Steps:
-Create a Collection
-
-Go to Settings → Collections.
-
-Select + Add collection.
-
-Provide a name (e.g., Fabric-Databricks-Domain).
-
-Set the parent as the root collection.
-
-Create the collection.
-
-Assign Roles
-
-Open the newly created collection.
-
-Add role assignments:
-
-Assign yourself as Collection Admin
-
-Assign yourself as Data Curator
-
-Create a Domain
-
-Navigate to Domains from the left menu.
-
-Select + Create domain.
-
-Provide:
-
-Domain name (e.g., Data Analytics Domain)
-
-Description (optional)
-
-Create the domain.
-
-Assign Domain Ownership
-
-Open the created domain.
-
-Add yourself as the Domain Owner.
-
-Task 3: Enable Unified Catalog Experience
-
-In this task, you will enable and explore the Unified Catalog to centralize data discovery and governance.
-
-Steps:
-
-From the left navigation menu, select Data Catalog.
-
-Enable the Unified Catalog experience if not already enabled.
-
-Explore the catalog interface:
-
-Browse assets
-
-View collections
-
-View domains
-
-Confirm that the created collection and domain are visible.
