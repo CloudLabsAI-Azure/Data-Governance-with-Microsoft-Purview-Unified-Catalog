@@ -44,11 +44,64 @@ In this task, you will verify access to the Microsoft Purview account and confir
    **>Note**: Wait 2–3 minutes for role propagation
 
 
+### Task 2: Configure Collections, Domains, and Ownership Model (20 min)
+
+1. Go to **Data Map** → **Collections** in the Purview portal
+2. Click on the **root collection** → **Add a sub-collection**
+3. Create the following hierarchy:
+
+   | Collection Name | Parent | Purpose |
+   |----------------|--------|---------|
+   | `Contoso Data Estate` | Root | Top-level org collection |
+   | `Fabric Sources` | Contoso Data Estate | All Fabric assets |
+   | `Databricks Sources` | Contoso Data Estate | All Databricks assets |
+   | `Shared Assets` | Contoso Data Estate | Cross-platform curated assets |
+
+
+5. **Configure Domains** (if Unified Catalog is active):
+   - Go to **Unified Catalog** → **Domains** (or **Data Map** → **Domains**)
+   - Click **+ New domain**
+   - Create two domains:
+     - **Name**: `Sales & Commerce` | **Description**: `All sales, orders, and customer data`
+     - **Name**: `Human Resources` | **Description**: `Employee PII and HR data`
+   - Assign a **Domain owner**: your user account for both
+
+6. **Set Data Ownership** on collections:
+   - Click on `Fabric Sources` collection → **Role assignments**
+   - Add yourself as **Data Source Admin** and **Data Curator**
+   - Repeat for `Databricks Sources` and `Shared Assets`
 
 
 
+### Task 3: Enable Unified Catalog Experience
 
+In this task, you will enable and explore the Unified Catalog experience.
 
+1. Navigate to https://purview.microsoft.com
+
+1. Check if Unified Catalog is visible in the left navigation
+
+1. If not visible. Go to Settings → Data Governance
+
+1. Select Activate or Start free trial
+
+   **>Note**: Wait 5–10 minutes for activation and refresh the portal
+
+1. Once enabled, explore:
+
+   - Unified Catalog → Browse (view domains and collections)
+   
+   - Unified Catalog → Search (centralized search experience)
+   
+   - Unified Catalog → Glossary (currently empty)
+   
+   - Unified Catalog → Data Products (currently empty)
+
+1. Verify:
+
+   - Domains (Sales & Commerce, Human Resources) are visible
+
+   - Collection-based browsing is available
 
 
 
