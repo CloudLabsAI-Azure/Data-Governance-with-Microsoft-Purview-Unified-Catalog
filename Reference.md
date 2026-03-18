@@ -14,3 +14,5 @@ https://learn.microsoft.com/en-us/fabric/governance/microsoft-purview-fabric
 youtude
 
 connect fabric to purview https://www.youtube.com/watch?v=P8qhCig7j1g
+
+databricks https://www.youtube.com/watch?v=dGSCjgz0U_0
