@@ -51,9 +51,9 @@ Register Fabric as a data source in Purview, connect workspace assets, scan Lake
    - **Integration runtime**: Azure AutoResolve
    - **Credential**: Delegated authentication (uses your signed-in identity)
 3. **Scope**: Expand the workspace and select:
-   - ✅ Lakehouse: `SalesLakehouse`
-   - ✅ Warehouse: `SalesWarehouse`
-   - ✅ Semantic Models
+   - Lakehouse: `SalesLakehouse`
+   - Warehouse: `SalesWarehouse`
+   - Semantic Models
 4. **Scan rule set**: Use system default **Fabric** scan rules
 5. **Scan trigger**: select **Once**
 6. Click **Save and Run**
