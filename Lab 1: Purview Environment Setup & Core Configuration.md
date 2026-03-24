@@ -98,9 +98,17 @@ In this task, you will verify access to the Microsoft Purview account and confir
 ### Task 3: Enable Unified Catalog Experience
 
 
-> **What is Unified Catalog?** Unified Catalog is the business friendly layer on top of Data Map. It lets business users discover data assets, browse data products, and access the enterprise glossary — without needing to understand the technical Data Map structure.
+> **What is Unified Catalog?** Unified Catalog is the business friendly layer on top of Data Map. It lets business users discover data assets, browse data products, and access the enterprise glossary  without needing to understand the technical Data Map structure.
 
+1. In your tenant, the **Unified Catalog** experience is already enabled. In this task, you will review its features.
 
+1. In the **Microsoft Purview portal**, from the left navigation pane, click on **Unified Catalog**. On the overview page, review the available features and explore different sections to understand the interface.
+
+     ![Picture 1](../Media/sandbox-purview-image20.png)
+    
+1. You can also navigate to **Settings** → **Account** to review the account type and configuration.
+
+    ![Picture 1](../Media/sandbox-purview-image21.png) 
 
 
 
