@@ -46,115 +46,62 @@ In this task, you will verify access to the Microsoft Purview account and confir
 
 ### Task 2: Configure Collections, Domains, and Ownership Model (20 min)
 
-1. Go to **Data Map** → **Collections** in the Purview portal
-2. Click on the **root collection** → **Add a sub-collection**
-3. Create the following hierarchy:
+1. Now pevioosult task we have cteate the purview and rolle assigneme t now let woke on creating collect and Domain and asisgne to odl user id
 
-   | Collection Name | Parent | Purpose |
-   |----------------|--------|---------|
-   | `Contoso Data Estate` | Root | Top-level org collection |
-   | `Fabric Sources` | Contoso Data Estate | All Fabric assets |
-   | `Databricks Sources` | Contoso Data Estate | All Databricks assets |
-   | `Shared Assets` | Contoso Data Estate | Cross-platform curated assets |
+1. On the **Data Map**, click on **+ New collection**, name it as **Contoso Data Estate**, in the **Collection domain** search and select the domain, then click on **Create**.
 
+    ![Picture 1](../Media/sandbox-purview-image10.png)
 
-5. **Configure Domains** (if Unified Catalog is active):
-   - Go to **Unified Catalog** → **Domains** (or **Data Map** → **Domains**)
-   - Click **+ New domain**
-   - Create two domains:
-     - **Name**: `Sales & Commerce` | **Description**: `All sales, orders, and customer data`
-     - **Name**: `Human Resources` | **Description**: `Employee PII and HR data`
-   - Assign a **Domain owner**: your user account for both
+1. Once Contoso Data Estate is created, you will see it under **Collections**. Select the ellipsis (**...**) **(1)** next to Contoso Data Estate, then click **+ New sub-collection (2)**.
 
-6. **Set Data Ownership** on collections:
-   - Click on `Fabric Sources` collection → **Role assignments**
-   - Add yourself as **Data Source Admin** and **Data Curator**
-   - Repeat for `Databricks Sources` and `Shared Assets`
+    ![Picture 1](../Media/sandbox-purview-image11.png)
 
+1. On the **New collection** pane, provide **Collection Name** as Fabric Sources, then under **Collection domain** search and select the domain, and click on **Create**.
 
+    ![Picture 1](../Media/sandbox-purview-image12.png)
+
+1. Repeat the same steps to create the following collections:   
+
+    | Collection Name | 
+    |----------------|
+    | `Databricks Sources`| 
+    | `Shared Assets` |
+
+   ![Picture 1](../Media/sandbox-purview-image13.png)
+
+   ![Picture 1](../Media/sandbox-purview-image14.png)
+
+5. Now you should be able to see all **Collections (1)**. Next, let’s create domains. Click on **+ New domain (Preview) (2)**.
+
+   ![Picture 1](../Media/sandbox-purview-image15.png)
+   
+7. Create the following domains with the given values:
+
+     - **Name**: Sales & Commerce | **Description**: All sales, orders, and customer data | under **Collection domain**, search and select the domain, then click on **Create**.
+
+        ![Picture 1](../Media/sandbox-purview-image16.png)
+       
+    - **Name**: Human Resources | **Description**: Employee PII and HR data | under **Collection domain**, search and select the domain, then click on **Create**.
+
+        ![Picture 1](../Media/sandbox-purview-image17.png)
+
+9. Now **Set Data Ownership**. This has already been done by assigning ownership to your user account while creating the collections and domains. Now, you can explore the assigned roles and permissions.  
+
+1. Click on any of the **Collections** or **Domain**  and select **Role assignments**. You should see your user account listed, as ownership was assigned during the creation of the collection.
+
+    ![Picture 1](../Media/sandbox-purview-image18.png)
+
+    ![Picture 1](../Media/sandbox-purview-image19.png) 
+    
+  **> Note:** You can assign ownership either while creating a collection or domain, or after creation by editing the collection or domain and updating the ownership settings. 
 
 ### Task 3: Enable Unified Catalog Experience
 
-In this task, you will enable and explore the Unified Catalog experience.
 
-1. Navigate to https://purview.microsoft.com
-
-1. Check if Unified Catalog is visible in the left navigation
-
-1. If not visible. Go to Settings → Data Governance
-
-1. Select Activate or Start free trial
-
-   **>Note**: Wait 5–10 minutes for activation and refresh the portal
-
-1. Once enabled, explore:
-
-   - Unified Catalog → Browse (view domains and collections)
-   
-   - Unified Catalog → Search (centralized search experience)
-   
-   - Unified Catalog → Glossary (currently empty)
-   
-   - Unified Catalog → Data Products (currently empty)
-
-1. Verify:
-
-   - Domains (Sales & Commerce, Human Resources) are visible
-
-   - Collection-based browsing is available
+> **What is Unified Catalog?** Unified Catalog is the business friendly layer on top of Data Map. It lets business users discover data assets, browse data products, and access the enterprise glossary — without needing to understand the technical Data Map structure.
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-===============================================================
-## Objective:
-
-Set up and validate the Microsoft Purview environment by verifying access roles, organizing governance structure using collections and domains, and enabling the Unified Catalog experience.
-
-### Estimated Duration: 20 minutes
-
-### Task 1: Validate Microsoft Purview Account and Access Roles
-
-In this task, you will confirm that your Microsoft Purview account is accessible and that you have the required permissions to perform governance activities.
-
-1. Sign in to the Azure portal using the provided lab credentials.
-
-1. Search for and open your Microsoft Purview account.
-
-1. Launch the Microsoft Purview Governance Portal.
-
-1. Navigate to Settings → Collections.
-
-1. Verify that your user account is assigned appropriate roles such as:
-
-   - Collection Admin
-    
-   - Data Curator
-    
-   - Data Reader
-    
-   - Ensure you have access to the root collection.
 
 
