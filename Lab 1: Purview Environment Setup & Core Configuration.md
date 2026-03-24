@@ -9,19 +9,41 @@ Configure Microsoft Purview by validating access roles, organizing governance st
 
 In this task, you will verify access to the Microsoft Purview account and confirm that the required roles are assigned.
 
-1. Navigate to the Azure portal > Resource Groups > select your resource group.
+1. In the **Azure portal** home page, scroll down and select **Resource groups**.
 
-1. Open the Microsoft Purview account (purview-{deploymentId}).
+    ![Picture 1](../Media/sandbox-purview-image1.png)
 
-1. In the Purview resource blade, review the following:
+1. In the **Resource groups** pane, review the list and select **rg-purview-governance-lab**.
 
-   - Managed resource group: managed-purview-{deploymentId}
+     ![Picture 1](../Media/sandbox-purview-image2.png)
+
+1. Locate **purview-2146201** and click on it.
+
+    ![Picture 1](../Media/sandbox-purview-image3.png)
+
+1. Click **Open Microsoft Purview Governance Portal** to launch the portal in a new tab.
+
+    ![Picture 1](../Media/sandbox-purview-image4.png)
+
+1. When **Welcome to the new Microsoft Purview portal!** pop-up appears, click on **Get started**.
+
+   ![Picture 1](../Media/sandbox-purview-image6.png)
    
-   - Managed identity: System-assigned (Enabled)
-   
-   - Atlas endpoint: https://purview-{deploymentId}.purview.azure.com
+1. On the **Microsoft Purview** portal, from the left navigation pane select **Solutions** (1) and then select **Data Map** (2).
 
-1. Select Open Microsoft Purview Governance Portal (opens in a new tab).
+   ![Picture 1](../Media/sandbox-purview-image7.png)
+
+1. Under **Data Map**, select **Domains (1)**, ensure **purview (2)** is listed, and then click on **Role assignments (3)**.
+
+   ![Picture 1](../Media/sandbox-purview-image5.png)
+
+1. Review all the roles assigned to your user account.
+
+   ![Picture 1](../Media/sandbox-purview-image8.png)
+   
+   ![Picture 1](../Media/sandbox-purview-image9.png)
+
+
 
 1. In the Purview portal. Go to Settings (gear icon) → Roles and permissions
 
