@@ -44,28 +44,6 @@ In this task, you will verify access to the Microsoft Purview account and confir
    ![Picture 1](../Media/sandbox-purview-image9.png)
 
 
-
-1. In the Purview portal. Go to Settings (gear icon) → Roles and permissions
-
-1. Verify your account has the following roles:
-
-   - Purview Data Curator (edit metadata and classifications)
-   
-   - Purview Data Source Administrator (register and scan data sources)
-   
-   - Purview Data Reader (browse catalog)
-   
-   - Collection Admin on the root collection
-
-1. If any role is missing. Navigate to Data Map > Collections > Root Collection
-
-1. Select Role assignments > Add.
-
-1. Assign the missing role to your user account
-
-   **>Note**: Wait 2–3 minutes for role propagation
-
-
 ### Task 2: Configure Collections, Domains, and Ownership Model (20 min)
 
 1. Go to **Data Map** → **Collections** in the Purview portal
