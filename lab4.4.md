@@ -154,29 +154,6 @@
 
 11. Key governance takeaway: Different platforms, different schemas, but **one unified catalog** — searchable, classified, and governed from a single place.
 
-**Expected Result**: Fabric lineage shows the 3-layer data flow. Databricks lineage is limited for the read-only `samples` catalog. Cross-platform comparison works.
 
----
 
-## Lab 4 Summary
 
-| Task | What You Did | Time |
-|------|-------------|------|
-| 1 | Verified scans across Fabric and Databricks, reviewed combined data map | 15 min |
-| 2 | Reviewed built-in classifications on both platforms, compared cross-platform | 20 min |
-| 3 | Explored technical lineage for Fabric (3-layer) and Databricks, compared platforms | 15 min |
-| | **Total** | **50 min** |
-
----
-
-## Day 1 Complete
-
-You have successfully:
-- Set up Purview with collections, domains, and roles (Lab 1)
-- Connected Microsoft Fabric and scanned Lakehouse, Warehouse, and Semantic Model assets (Lab 2)
-- Connected Databricks Unity Catalog and scanned the `samples` catalog (Lab 3)
-- Verified scan results and reviewed the combined data map (Lab 4)
-- Reviewed auto-applied PII classifications across both platforms (Lab 4)
-- Explored technical data lineage from Fabric's 3-layer architecture (Lab 4)
-
-**Next**: Day 2 — Governance Domains, Data Products & Business Glossary
