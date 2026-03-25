@@ -1,22 +1,39 @@
 # Day 1 — Lab 3: Connect Databricks Unity Catalog to Purview
 
-**Duration**: 60 min
-
----
-
-## Before You Begin
-
-Your lab environment includes a pre-deployed Azure Databricks workspace (`dbw-purview-{deploymentId}`) with Unity Catalog enabled and a SQL Warehouse. Databricks comes with a built-in **samples** catalog containing ready-to-use datasets — no data loading required.
 
 **Verify your Databricks workspace:**
 
-1. In the Azure portal, search for `dbw-purview` → click on the Databricks workspace
-2. Click **Launch Workspace** → verify you can access it
-3. In the left sidebar, click **SQL Warehouses** → verify a warehouse exists (Starter Warehouse)
-4. Click on the warehouse → **Connection details** → note the **HTTP path** (e.g., `/sql/1.0/warehouses/xxxxxxxxxx`) — you'll need this later
-5. Make sure the warehouse is **Running** (start it if it's stopped)
+1. In the Azure portal, from the search bar, search for and select **Azure Databricks**.
 
----
+    ![Picture 1](./Media/sandbox-purview-image47.png)
+
+1. Review the pre-created Azure Databricks workspace named **dbw-purview-<inject key="DeploymentID" enableCopy="false"/>**. You will use this Databricks workspace for this lab and continue using the same resource throughout. Click on it.
+
+    ![Picture 1](./Media/sandbox-purview-image53.png)
+   
+1. From the Overview page, click on **Launch Workspace** to verify access.
+
+   ![Picture 1](./Media/sandbox-purview-image22.png)
+   
+1. On the **Databricks** page, from the left sidebar, click **SQL Warehouses (1)** and verify that a warehouse (e.g., Starter Warehouse) exists. Then click on it **(2)**.
+   
+   ![Picture 1](./Media/sandbox-purview-image48.png)
+
+1. Verify that the status is in a Running state.
+   
+   ![Picture 1](./Media/sandbox-purview-image49.png)
+
+1. Click on **Connection details (1)**, then copy and record the **Server hostname (2)** and **HTTP path (3)**.
+
+   ![Picture 1](./Media/sandbox-purview-image50.png)
+   
+1. In the Databricks workspace, click **Catalog (1)** in the left sidebar. In the Catalog Explorer, click on the **Settings icon (2)** and select the **Metastore (3)** name.
+
+   ![Picture 1](./Media/sandbox-purview-image51.png)
+
+1. On the metastore details page, locate and copy the Metastore ID.
+
+   ![Picture 1](./Media/sandbox-purview-image52.png)
 
 ## Task 1: Register Databricks Workspace as a Data Source (10 min)
 
