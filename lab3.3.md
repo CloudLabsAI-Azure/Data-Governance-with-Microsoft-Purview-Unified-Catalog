@@ -19,7 +19,7 @@
    
    ![Picture 1](./Media/sandbox-purview-image48.png)
 
-1. Verify that the status is in a Running state.
+1. Verify that the status is in a **Running state**.
    
    ![Picture 1](./Media/sandbox-purview-image49.png)
 
@@ -37,31 +37,24 @@
 
 ## Task 1: Register Databricks Workspace as a Data Source (10 min)
 
-> Purview has a dedicated **Azure Databricks Unity Catalog** source type that connects to the Unity Catalog metastore and discovers catalogs, schemas, tables, and views.
+1. Switch to the **Purview portal** then click **Data Map** > **Data sources**.
 
-**Step 1: Get the Metastore ID**
+   ![Picture 1](./Media/sandbox-purview-image53.png)
 
-1. In the **Databricks workspace**, click **Catalog** in the left sidebar
-2. In the Catalog Explorer, look at the top of the catalog tree — click the **metastore name** (above the catalog list)
-3. On the metastore details page, find and copy the **Metastore ID** (a GUID like `95ab32cf-91a4-4ab0-...`)
-   > **Alternative**: If you can't find it in the UI, click **SQL Editor** in the left sidebar, run: `SELECT current_metastore()` — this returns the metastore ID
+1. On the **Data sources** page, click **Register (1)**. Search for and select **Azure Databricks Unity Catalog (2)**, then click **Continue (3)**.
 
-**Step 2: Register in Purview**
+   ![Picture 1](./Media/sandbox-purview-image25.png)
+   
+1. On the **Register data source (Azure Databricks Unity Catalog)** window, specify the following values, then click **Register (4)**:
+    - Name: **Purview-Databricks-UC** **(2)**
+    - Metastore ID: Paste the **Metastore** ID which you recorded in notepad **(3)**
+    - Collection: Select **Databricks Sources (4)** (the sub-collection created in Lab 1)
 
-4. Switch to the **Purview portal** (`https://purview.microsoft.com`)
-5. Click **Data Map** → **Data sources** → **Register**
-6. Search for and select **Azure Databricks Unity Catalog** → click **Continue**
-   > Make sure you select "Azure Databricks **Unity Catalog**" — NOT the plain "Azure Databricks" (which is for Hive Metastore)
-7. Configure:
-   - **Name**: `Purview-Databricks-UC`
-   - **Metastore ID**: paste the metastore ID from step 3
-   - **Collection**: select `Databricks Sources` (the sub-collection you created in Lab 1)
-8. Click **Register**
-9. Verify `Purview-Databricks-UC` appears under `Databricks Sources` in the data map
+      ![Picture 1](./Media/sandbox-purview-image26.png)
+      
+1. Verify **Purview-Databricks-UC** appears under **Databricks Sources** in the data map.
 
-**Expected Result**: Azure Databricks Unity Catalog registered as a source in Purview.
-
----
+    ![Picture 1](./Media/sandbox-purview-image55.png)
 
 ## Task 2: Configure Unity Catalog Connector (20 min)
 
