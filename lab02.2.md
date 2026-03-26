@@ -1,8 +1,5 @@
 # Day 1 — Lab 2: Connect Microsoft Fabric to Purview
 
-**Duration**: 60 min
-
----
 
 ## Before You Begin: Create a Fabric Workspace with Data
 
@@ -10,16 +7,26 @@
 
 **Step 1: Open Fabric Portal and Create a Workspace**
 
-1. In a new browser tab, navigate to `https://app.fabric.microsoft.com`
-2. Sign in with your lab credentials (`odl_user_{deploymentId}@...`)
-3. If prompted to start a **Fabric trial**, click **Start trial** → **Activate** (a 60-day trial is sufficient for this workshop)
-4. In the left sidebar, click **Workspaces** → **+ New workspace**
-5. Configure:
+1. In a new browser tab, navigate to **`https://app.fabric.microsoft.com`**
+
+1. You will see the Sign in tab. Here, enter your credentials:
+
+     - **Email/Username:** <inject key="AzureAdUserEmail" enableCopy="true"/>
+
+1. Next, provide your password:
+ 
+     - **Password:** <inject key="AzureAdUserPassword" enableCopy="true"/>
+
+4. If prompted to start a **Fabric trial**, click **Start trial** → **Activate** (a 60-day trial is sufficient for this workshop)
+
+5. In the left sidebar, click **Workspaces** → **+ New workspace**
+
+6. Configure:
    - **Name**: `Purview-Lab-WS`
    - **Description**: `Workspace for Purview governance lab`
-6. Expand **Advanced** → verify the **License mode** is set to **Trial** (or Fabric capacity if available)
-7. Click **Apply**
-8. You should now be inside the `Purview-Lab-WS` workspace
+7. Expand **Advanced** → verify the **License mode** is set to **Trial** (or Fabric capacity if available)
+8. Click **Apply**
+9. You should now be inside the `Purview-Lab-WS` workspace
 
 **Step 2: Create a Lakehouse with Sample Data**
 
