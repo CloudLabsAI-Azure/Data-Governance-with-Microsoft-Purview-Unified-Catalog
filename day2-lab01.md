@@ -68,50 +68,31 @@ Search and discover data assets across both Fabric and Databricks from a single 
 
 ## Task 3: Identify Ownership and Documentation Gaps (15 min)
 
-**Step 1: Check Data Estate Insights**
-
-1. In the left sidebar, click **Data Estate Insights**
-2. Click **Assets** → review:
-   - **Total assets** discovered
-   - **Assets with classifications** vs **without classifications**
-   - **Assets with owners** vs **without owners**
-3. Note the percentage of assets missing owners — this should be close to 100% since no owners have been assigned yet
-
-**Step 2: Review Stewardship Coverage**
-
-4. In Data Estate Insights, look for stewardship or governance metrics:
-   - **Assets with description**: likely 0% or very low
-   - **Assets with glossary terms**: 0%
-   - **Assets with contacts/owners**: 0%
-5. These gaps are the starting point for Day 2 curation work
-
-**Step 3: Assign Ownership to Key Assets**
-
 6. Go to **Unified Catalog** → **Discovery** → **Data assets**
 7. Search for `dimension_customer` → click on the **Fabric Lakehouse** version
 8. Click **Edit** (pencil icon)
+   
+10. In the **Description** field, enter: `Customer dimension table from Wide World Importers retail dataset. Contains customer names, categories, buying groups, and postal codes.`
 9. In the **Contacts** section:
+
    - **Owner**: add your lab user account
    - **Expert**: add your lab user account
-10. In the **Description** field, enter: `Customer dimension table from Wide World Importers retail dataset. Contains customer names, categories, buying groups, and postal codes.`
-11. Click **Save**
-12. Repeat for `samples.tpch.customer` (Databricks):
+   - Click **Save**
+
+      ![Picture 1](./Media/sandbox-purview-image75.png)
+
+      ![Picture 1](./Media/sandbox-purview-image76.png)
+
+12. Repeat for any for Databricks:
     - **Owner**: add your lab user account
-    - **Description**: `TPC-H benchmark customer table. Contains customer key, name, address, phone, nation, account balance, and market segment.`
+    - **Description**: Auto filled
     - Click **Save**
 
-**Step 4: Verify Updates**
+## Task 3:1: Verify Updates**
 
 13. Search for `customer` again → click on each asset → verify:
     - Owner now shows your account
     - Description is populated
     - These fields persist across searches and are visible to all catalog users
-
-**Step 5: Review Remaining Gaps**
-
-14. Go back to **Data Estate Insights** → **Assets** → note:
-    - Owner coverage improved slightly (2 assets now have owners)
-    - Description coverage improved slightly
-    - The vast majority of assets still need curation → this will be addressed with **Data Products** (Lab 6) and **Glossary Terms** (Lab 7)
 
 
