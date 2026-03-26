@@ -1,36 +1,22 @@
 # Lab 5: Unified Search & Discovery Across Platforms
 
-**Duration**: 50 minutes
-**Day**: 2 — Unified Catalog, Discovery & Data Products
-
 ## Objective
 
 Search and discover data assets across both Fabric and Databricks from a single Unified Catalog, compare metadata completeness between platforms, and identify ownership and documentation gaps.
 
-> **Prerequisites**: Labs 1–4 completed. Fabric Lakehouse (`SalesLakehouse` in `Purview-Lab-WS`) and Databricks Unity Catalog (`samples` catalog) scanned and visible in Purview.
-
----
-
 ## Task 1: Search Data Assets Across Fabric and Databricks (20 min)
 
-**Step 1: Open Unified Catalog Discovery**
+1. Navigate back to the **Purview portal**.
+2. In the left sidebar, click **Unified Catalog** > **Discovery** > **Data assets**.
+   
+4. Now lets serach for Data Assets dimension_customer then press **Enter**
 
-1. Navigate to the **Purview portal** (`https://purview.microsoft.com`)
-2. In the left sidebar, click **Unified Catalog** → **Discovery** → **Data assets**
-
-**Step 2: Cross-Platform Keyword Search**
-
-3. In the search bar, type `customer` → press Enter
-4. Review results — you should see assets from **both** platforms:
+5. Review results — you should see assets from **both** platforms:
 
    | Asset | Source | Type |
    |-------|--------|------|
    | `dimension_customer` | Fabric — SalesLakehouse | Lakehouse table |
-   | `dimension_customer` | Fabric — SQL analytics endpoint | SQL view |
-   | `dimension_customer` | Fabric — Semantic model | Power BI Dataset |
    | `samples.tpch.customer` | Databricks Unity Catalog | UC table |
-
-   > You should also see your `employees` table (uploaded in Lab 4) if you search for `employees`
 
 5. Click on the **Fabric** `dimension_customer` → review the asset detail page:
    - **Overview**: source type, workspace, collection path
@@ -40,37 +26,6 @@ Search and discover data assets across both Fabric and Databricks from a single 
 6. Click **Back** → click on the **Databricks** `samples.tpch.customer` → review:
    - **Schema**: `c_custkey`, `c_name`, `c_address`, `c_phone`, `c_nationkey`, `c_acctbal`, `c_mktsegment`, `c_comment`
    - **Properties**: catalog path (`samples` → `tpch` → `customer`), workspace URL
-
-**Step 3: Search by Different Criteria**
-
-7. Search for `sale` → review results:
-   - Fabric: `fact_sale` (Lakehouse table, SQL view, semantic model)
-   - Databricks: no direct match (TPC-H uses `orders`/`lineitem` not `sale`)
-8. Search for `orders` → review results:
-   - Databricks: `samples.tpch.orders` (UC table)
-   - Fabric: may not have a direct match (WWI uses `fact_sale`, not `orders`)
-9. Search for `employees` → verify your uploaded employee table appears (Fabric Lakehouse)
-10. Search for `trips` → verify only Databricks `samples.nyctaxi.trips` appears
-
-**Step 4: Use Filters to Narrow Results**
-
-10. In the search results page, use the left filter panel:
-    - **Source type**: select `Fabric` → only Fabric assets shown
-    - Clear filter → select `Azure Databricks Unity Catalog` → only Databricks assets shown
-    - Clear filter
-11. Filter by **Classification**: select `Person's Name` → see which assets across both platforms have name-related PII detected
-12. Filter by **Collection**: select `Fabric Sources` or `Databricks Sources` to scope by your collection hierarchy
-
-**Step 5: Browse by Source Type**
-
-13. Go to **Unified Catalog** → **Discovery** → **Browse**
-14. Select **By source type** → click **Fabric** → explore the workspace → artifact hierarchy
-15. Go back → click **Azure Databricks Unity Catalog** → explore catalog → schema → table hierarchy
-16. Note how **Browse** gives a hierarchical view while **Search** gives a flat cross-platform view
-
-**Expected Result**: Cross-platform search returns assets from both Fabric and Databricks in a single result set. Filters allow narrowing by source type, classification, and collection. Browse provides hierarchical navigation per source.
-
----
 
 ## Task 2: Compare Metadata Completeness (15 min)
 
@@ -102,21 +57,6 @@ Search and discover data assets across both Fabric and Databricks from a single 
    | Glossary terms | ❌ (none linked) |
    | Contacts (Expert / Owner) | ❌ (not set) |
 
-**Step 2: Compare Fact Table Assets**
-
-5. Search for `fact_sale` (Fabric) → check metadata completeness
-6. Search for `samples.tpch.orders` (Databricks) → check metadata completeness
-7. Note: TPC-H tables in Databricks `samples` catalog may have built-in descriptions from Unity Catalog, while Fabric Lakehouse tables from sample data typically have no descriptions
-
-**Step 3: Compare Semantic Model Metadata**
-
-8. Search for `SalesLakehouse` → click on the **Power BI Dataset** / **Semantic model** asset
-9. Check metadata:
-   - Schema shows tables + columns with BI-friendly data types
-   - Relationships between dimension and fact tables may be visible
-   - Description and owner are typically empty
-10. Note: Semantic models have richer structural metadata (relationships, measures) but still lack business descriptions
-
 **Step 4: Document Completeness Summary**
 
 11. Based on your review, note the pattern:
@@ -132,8 +72,6 @@ Search and discover data assets across both Fabric and Databricks from a single 
 > **Key takeaway**: Scanning gives you schema and classifications automatically. Descriptions, ownership, and glossary terms require manual curation — which is what Labs 6 and 7 address.
 
 **Expected Result**: Metadata completeness compared across Fabric Lakehouse, Fabric Semantic Model, and Databricks Unity Catalog. Common gaps identified: missing descriptions, owners, and glossary terms.
-
----
 
 ## Task 3: Identify Ownership and Documentation Gaps (15 min)
 
