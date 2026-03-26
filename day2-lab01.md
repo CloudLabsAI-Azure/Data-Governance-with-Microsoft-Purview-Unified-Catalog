@@ -180,14 +180,4 @@ Search and discover data assets across both Fabric and Databricks from a single 
     - Description coverage improved slightly
     - The vast majority of assets still need curation → this will be addressed with **Data Products** (Lab 6) and **Glossary Terms** (Lab 7)
 
-**Expected Result**: Data Estate Insights shows governance gaps (missing owners, descriptions, glossary terms). Two key customer assets now have owners and descriptions assigned. Remaining gaps identified for Labs 6 and 7.
 
----
-
-## Lab 5 Summary
-
-| Task | What You Did | Key Takeaway |
-|------|-------------|--------------|
-| 1 | Searched across Fabric + Databricks | Unified Catalog provides single search across all registered sources |
-| 2 | Compared metadata completeness | Scanning provides schema + classifications; descriptions, owners, glossary terms need manual curation |
-| 3 | Identified and started fixing gaps | Data Estate Insights tracks governance coverage; ownership and descriptions assigned to key assets |
