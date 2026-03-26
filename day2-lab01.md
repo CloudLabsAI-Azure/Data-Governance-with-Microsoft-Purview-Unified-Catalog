@@ -7,25 +7,24 @@ Search and discover data assets across both Fabric and Databricks from a single 
 ## Task 1: Search Data Assets Across Fabric and Databricks (20 min)
 
 1. Navigate back to the **Purview portal**.
-2. In the left sidebar, click **Unified Catalog** > **Discovery** > **Data assets**.
+
+3. In the left sidebar, click **Unified Catalog** > **Discovery** > **Data assets**.
+
+     ![Picture 1](./Media/sandbox-purview-image67.png)
    
-4. Now lets serach for Data Assets dimension_customer then press **Enter**
+5. Now lets serach for **Data Assets** **dimension_customer** then press **Enter**.
 
-5. Review results — you should see assets from **both** platforms:
+    ![Picture 1](./Media/sandbox-purview-image68.png)
+   
+1. This will take you to a page where you can search and review data assets across **Fabric** and **Databricks**.
+    
+1. From the left navigation pane, under Filters, expand **Data source** and select either **Fabric, Databricks**, or both to review the assets.
 
-   | Asset | Source | Type |
-   |-------|--------|------|
-   | `dimension_customer` | Fabric — SalesLakehouse | Lakehouse table |
-   | `samples.tpch.customer` | Databricks Unity Catalog | UC table |
+    ![Picture 1](./Media/sandbox-purview-image69.png)
+       
+6. If you select both, review the results—you should see assets from both platforms:
 
-5. Click on the **Fabric** `dimension_customer` → review the asset detail page:
-   - **Overview**: source type, workspace, collection path
-   - **Schema**: columns — Customer, Category, Buying Group, Postal Code, etc.
-   - **Classifications**: any classifications you applied in Lab 4 (Person's Name, Zip Code)
-   - **Properties**: OneLake path, format (Delta)
-6. Click **Back** → click on the **Databricks** `samples.tpch.customer` → review:
-   - **Schema**: `c_custkey`, `c_name`, `c_address`, `c_phone`, `c_nationkey`, `c_acctbal`, `c_mktsegment`, `c_comment`
-   - **Properties**: catalog path (`samples` → `tpch` → `customer`), workspace URL
+   ![Picture 1](./Media/sandbox-purview-image70.png)
 
 ## Task 2: Compare Metadata Completeness (15 min)
 
@@ -33,45 +32,39 @@ Search and discover data assets across both Fabric and Databricks from a single 
 
 **Step 1: Compare Customer Assets**
 
-1. Search for `customer` → open the **Fabric** `dimension_customer` (Lakehouse table)
-2. On the asset detail page, check these metadata fields:
+1. Seelct **Fabric** then click `dimension_customer` (Lakehouse table).
+
+   ![Picture 1](./Media/sandbox-purview-image71.png)
+
+3. On the asset detail page, check these metadata fields:
 
    | Metadata Field | Present? |
    |---------------|----------|
-   | Schema (columns + types) | ✅ |
-   | Classifications | ✅ (if detected during scan) |
-   | Description | ❌ (empty — not auto-populated) |
-   | Owner | ❌ (not assigned) |
-   | Glossary terms | ❌ (none linked) |
-   | Contacts (Expert / Owner) | ❌ (not set) |
+   | Schema (columns + types) | Yes |
+   | Classifications | No |
+   | Assest Description | (empty — not auto-populated) |
+   | Owner |  (not assigned) |
+   | Glossary terms |  (none linked) |
+   | Contacts (Expert / Owner) | (not set) |
 
-3. Click **Back** → open the **Databricks** `samples.tpch.customer`
-4. Check the same metadata fields:
+   ![Picture 1](./Media/sandbox-purview-image72.png)
+
+4. Click **Back** and select the checkbox to filter the **Databricks** then choose **`customer`**.
+
+    ![Picture 1](./Media/sandbox-purview-image73.png)
+   
+6. Check the same metadata fields:
 
    | Metadata Field | Present? |
    |---------------|----------|
-   | Schema (columns + types) | ✅ |
-   | Classifications | ✅ (if detected during scan) |
-   | Description | ✅ or ❌ (may have UC-provided description) |
-   | Owner | ❌ (not assigned in Purview) |
-   | Glossary terms | ❌ (none linked) |
-   | Contacts (Expert / Owner) | ❌ (not set) |
+   | Schema (columns + types) | Yes |
+   | Classifications | No |
+   | Assest Description | (empty — not auto-populated) |
+   | Owner |  (not assigned) |
+   | Glossary terms |  (none linked) |
+   | Contacts (Expert / Owner) | (not set) ||
 
-**Step 4: Document Completeness Summary**
-
-11. Based on your review, note the pattern:
-
-    | Metadata | Fabric Lakehouse | Fabric Semantic Model | Databricks UC |
-    |----------|-----------------|----------------------|---------------|
-    | Schema | ✅ Auto-discovered | ✅ Auto-discovered | ✅ Auto-discovered |
-    | Classifications | ✅ Manual (Lab 4) | ❌ Not scanned | ✅ Manual (Lab 4) |
-    | Description | ❌ Manual needed | ❌ Manual needed | Partial (UC may have) |
-    | Owner | ❌ Manual needed | ❌ Manual needed | ❌ Manual needed |
-    | Glossary terms | ❌ Manual needed | ❌ Manual needed | ❌ Manual needed |
-
-> **Key takeaway**: Scanning gives you schema and classifications automatically. Descriptions, ownership, and glossary terms require manual curation — which is what Labs 6 and 7 address.
-
-**Expected Result**: Metadata completeness compared across Fabric Lakehouse, Fabric Semantic Model, and Databricks Unity Catalog. Common gaps identified: missing descriptions, owners, and glossary terms.
+   ![Picture 1](./Media/sandbox-purview-image74.png)
 
 ## Task 3: Identify Ownership and Documentation Gaps (15 min)
 
