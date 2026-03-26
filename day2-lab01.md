@@ -30,10 +30,12 @@ Search and discover data assets across both Fabric and Databricks from a single 
    | `dimension_customer` | Fabric — Semantic model | Power BI Dataset |
    | `samples.tpch.customer` | Databricks Unity Catalog | UC table |
 
+   > You should also see your `employees` table (uploaded in Lab 4) if you search for `employees`
+
 5. Click on the **Fabric** `dimension_customer` → review the asset detail page:
    - **Overview**: source type, workspace, collection path
    - **Schema**: columns — Customer, Category, Buying Group, Postal Code, etc.
-   - **Classifications**: any auto-detected PII (Person's Name, Postal Code)
+   - **Classifications**: any classifications you applied in Lab 4 (Person's Name, Zip Code)
    - **Properties**: OneLake path, format (Delta)
 6. Click **Back** → click on the **Databricks** `samples.tpch.customer` → review:
    - **Schema**: `c_custkey`, `c_name`, `c_address`, `c_phone`, `c_nationkey`, `c_acctbal`, `c_mktsegment`, `c_comment`
@@ -45,9 +47,10 @@ Search and discover data assets across both Fabric and Databricks from a single 
    - Fabric: `fact_sale` (Lakehouse table, SQL view, semantic model)
    - Databricks: no direct match (TPC-H uses `orders`/`lineitem` not `sale`)
 8. Search for `orders` → review results:
-   - Fabric: `fact_order` (Lakehouse)
    - Databricks: `samples.tpch.orders` (UC table)
-9. Search for `trips` → verify only Databricks `samples.nyctaxi.trips` appears
+   - Fabric: may not have a direct match (WWI uses `fact_sale`, not `orders`)
+9. Search for `employees` → verify your uploaded employee table appears (Fabric Lakehouse)
+10. Search for `trips` → verify only Databricks `samples.nyctaxi.trips` appears
 
 **Step 4: Use Filters to Narrow Results**
 
@@ -121,7 +124,7 @@ Search and discover data assets across both Fabric and Databricks from a single 
     | Metadata | Fabric Lakehouse | Fabric Semantic Model | Databricks UC |
     |----------|-----------------|----------------------|---------------|
     | Schema | ✅ Auto-discovered | ✅ Auto-discovered | ✅ Auto-discovered |
-    | Classifications | ✅ Auto-applied | ❌ Not scanned | ✅ Auto-applied |
+    | Classifications | ✅ Manual (Lab 4) | ❌ Not scanned | ✅ Manual (Lab 4) |
     | Description | ❌ Manual needed | ❌ Manual needed | Partial (UC may have) |
     | Owner | ❌ Manual needed | ❌ Manual needed | ❌ Manual needed |
     | Glossary terms | ❌ Manual needed | ❌ Manual needed | ❌ Manual needed |
