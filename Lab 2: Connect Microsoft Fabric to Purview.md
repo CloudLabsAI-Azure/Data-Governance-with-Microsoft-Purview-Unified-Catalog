@@ -82,33 +82,33 @@
    
 **Step 2: Upload Employee Data to Fabric Lakehouse**
 
-4. Go to the **Fabric portal** (`https://app.fabric.microsoft.com`)
-5. Navigate to your workspace (`Purview-Lab-WS`) → click **Purview-Lakehouse**
-6. In the Lakehouse Explorer, click the **Files** section (not Tables)
-7. Click **Upload** → **Upload files**
-8. Click **Browse** → on your lab machine, create or locate a file named `employees.csv` with this content:
+1. Now, add another file that contains vendors tables.
 
-```csv
-employee_id,full_name,email,ssn,date_of_birth,department,salary,hire_date,phone,address
-E001,John Smith,john.smith@contoso.com,123-45-6789,1985-03-15,Engineering,95000,2020-01-10,555-012-3456,123 Main St Seattle WA 98101
-E002,Jane Doe,jane.doe@contoso.com,234-56-7890,1990-07-22,Marketing,82000,2021-03-15,555-023-4567,456 Oak Ave Portland OR 97201
-E003,Carlos Garcia,carlos.garcia@contoso.com,345-67-8901,1988-11-30,Sales,78000,2019-06-01,555-034-5678,789 Pine Rd Austin TX 78701
-E004,Priya Patel,priya.patel@contoso.com,456-78-9012,1992-04-18,Engineering,105000,2022-01-20,555-045-6789,321 Elm St San Jose CA 95101
-E005,Wei Zhang,wei.zhang@contoso.com,567-89-0123,1987-09-05,Finance,88000,2020-08-15,555-056-7890,654 Cedar Ln Chicago IL 60601
-E006,Sarah Johnson,sarah.johnson@contoso.com,678-90-1234,1993-12-10,Marketing,76000,2021-11-01,555-067-8901,987 Birch Dr Miami FL 33101
-E007,Ahmed Hassan,ahmed.hassan@contoso.com,789-01-2345,1986-04-25,Engineering,110000,2018-04-01,555-078-9012,147 Maple Way Denver CO 80201
-E008,Maria Santos,maria.santos@contoso.com,890-12-3456,1991-08-14,Sales,72000,2022-05-20,555-089-0123,258 Walnut Ct Boston MA 02101
-E009,David Kim,david.kim@contoso.com,901-23-4567,1989-01-30,Finance,92000,2019-09-15,555-090-1234,369 Spruce Pl Atlanta GA 30301
-E010,Lisa Brown,lisa.brown@contoso.com,012-34-5678,1994-06-08,HR,68000,2023-02-01,555-001-2345,741 Poplar Rd Phoenix AZ 85001
-```
+2. Click on **Files**, then select **Get data**, and click on **Upload files**.
 
-   > **Tip**: Open Notepad → paste the CSV content → **File** → **Save As** → File name: `employees.csv` → Save as type: All Files → Encoding: UTF-8 → save to Desktop. Then upload from Desktop.
+   ![Picture 1](./Media/sandbox-purview-image107.png)
+    
+3. Click the **file icon**, then select the `vendors.csv` file.
 
-9. Once uploaded, you should see `employees.csv` in the Files section
-10. Right-click `employees.csv` → select **Load to Tables** → **New table**
-11. Table name: `employees` → click **Load**
-12. Wait for the load to complete — the `employees` table now appears under **Tables**
-13. Click on `employees` → verify the data: 10 rows with columns like full_name, email, ssn, phone, address
+4. Verify the file then click on **Upload**.
+
+6. Once the upload is complete, click **Close** from the top-right corner.
+
+9. Once uploaded, you should see `vendors.csv` in the Files section.
+   
+11. Right-click **`vendors.csv` (1)** > select **Load to Tables (2)** > **New table (3)**.
+
+     ![Picture 1](./Media/sandbox-purview-image112.png)
+    
+1. On **Load file to new table**  keep all settings as it is then click **Load**.
+
+   ![Picture 1](./Media/sandbox-purview-image113.png)
+   
+1. Wait for the load to complete — the `vendors` table now appears under **Tables**
+
+     ![Picture 1](./Media/sandbox-purview-image114.png)
+
+1. Click on `vendors` → verify the data: 10 rows with columns.
 
 **Step 3: Re-Scan Fabric to Discover the New Table**
 
