@@ -110,6 +110,128 @@
 
 1. Click on `vendors` → verify the data: 10 rows with columns.
 
+
+**Step 4: Create a Semantic Model from the Lakehouse**
+
+1. While still in the Lakehouse, click **New semantic model** in the top toolbar. Provide **Name**: `PurviewLakehouse` (same name as the Lakehouse). In the table selection, **select all tables**, then click **Create**.
+
+    ![Picture 1](./Media/sandbox-purview-image115.png)
+    
+    - Wait for the semantic model to be created (a few seconds)
+    - This creates the BI/reporting layer on top of the Lakehouse Delta tables
+
+**Step 5: Create a Warehouse with Sales Data**
+
+1. Go back to the workspace click **+ New item (1)** then search and select **Warehouse (2) (3)**.
+
+    ![Picture 1](./Media/sandbox-purview-image116.png)
+    
+1. On the **New warehouse** window, provide **Name**: **`PurviewsWarehouse` (1)**, then click **Create (2)**.
+
+    ![Picture 1](./Media/sandbox-purview-image117.png)
+
+1. Once the Warehouse opens, click **New SQL query** (top toolbar). Copy and paste the entire SQL script from the file **warehouse-sales-orders.sql** (provided with the lab materials). Click **Run (▶)** and wait for the query to complete.
+
+    ![Picture 1](./Media/sandbox-purview-image118.png)
+
+1. In the **Explorer** pane, right-click **Tables**, click **Refresh**, expand **dbo**, then **Tables**, and verify that the `sales_orders` table appears with 15 records.
+
+    ![Picture 1](./Media/sandbox-purview-image119.png)
+
+**Step 6: Create a Data Pipeline**
+
+> This pipeline moves vendor data from the Lakehouse to the Warehouse. You'll use it in Lab 4 to demonstrate data lineage in Purview.
+
+30. Go back to the workspace → click **+ New item** → select **Pipeline**
+31. **Name**: `Vendor-ETL-Pipeline` → click **Create**
+32. In the pipeline canvas, click **Copy data** (from the activity toolbar)
+33. Click on the Copy data activity to configure it:
+
+   - **Source** tab:
+     - Click **+ New** next to Connection
+     - Select **Microsoft Fabric Lakehouse** → select `SalesLakehouse`
+     - Under **Table**, browse and select: `vendors`
+
+   - **Destination** tab:
+     - Click **+ New** next to Connection
+     - Select **Microsoft Fabric Warehouse** → select `SalesWarehouse`
+     - Under **Table option**, select **Auto create table**
+     - Enter **Table name**: `stg_vendors`
+
+34. Click **Run** → click **Save and run** if prompted
+35. Wait for the pipeline to complete (1-2 minutes) → verify **Status: Succeeded**
+36. Go back to the workspace → click **SalesWarehouse** → expand **dbo** → **Tables** → verify `stg_vendors` appears with 10 vendor records
+
+**Expected Result**: `Purview-Lab-WS` workspace now contains 6 items:
+- `SalesLakehouse` — Wide World Importers retail data + vendors table (Lakehouse)
+- `SalesLakehouse` — SQL analytics endpoint (auto-created)
+- `SalesLakehouse` — Semantic model (includes vendors table)
+- `SalesWarehouse` — Sample warehouse data + stg_vendors (Warehouse)
+- `Vendor-ETL-Pipeline` — Data pipeline (Lakehouse → Warehouse)
+- `vendors.csv` — Uploaded file in Lakehouse Files
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=============================================================================================================
 **Step 3: Re-Scan Fabric to Discover the New Table**
 
 14. Switch to **Purview portal** → **Data Map** → **Data sources** → click `Purview-Fabric`
