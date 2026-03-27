@@ -80,7 +80,7 @@
 
       ![Picture 1](./Media/sandbox-purview-image106.png)
    
-**Step 2: Upload Employee Data to Fabric Lakehouse**
+**Step 2: Upload Vendors Data to Fabric Lakehouse**
 
 1. Now, add another file that contains vendors tables.
 
@@ -109,7 +109,6 @@
      ![Picture 1](./Media/sandbox-purview-image114.png)
 
 1. Click on `vendors` → verify the data: 10 rows with columns.
-
 
 **Step 4: Create a Semantic Model from the Lakehouse**
 
@@ -142,10 +141,17 @@
 
 > This pipeline moves vendor data from the Lakehouse to the Warehouse. You'll use it in Lab 4 to demonstrate data lineage in Purview.
 
-30. Go back to the workspace → click **+ New item** → select **Pipeline**
-31. **Name**: `Vendor-ETL-Pipeline` → click **Create**
-32. In the pipeline canvas, click **Copy data** (from the activity toolbar)
-33. Click on the Copy data activity to configure it:
+1. Go back to the workspace, click **+ New item (1)**, search for and select **Pipeline (2) (3)**.
+
+    ![Picture 1](./Media/sandbox-purview-image120.png)
+    
+1. On the **New pipeline** pane, provide **Name** **`Vendor-ETL-Pipeline` (2)**, then click **Create (2)**.
+
+    ![Picture 1](./Media/sandbox-purview-image121.png)
+
+
+33. In the pipeline canvas, click **Copy data** (from the activity toolbar)
+34. Click on the Copy data activity to configure it:
 
    - **Source** tab:
      - Click **+ New** next to Connection
