@@ -1,11 +1,21 @@
 # Lab 1: Purview Environment Setup & Core Configuration 
 
+## Overview 
+
+This lab introduces you to setting up and validating your governance environment in Microsoft Purview. You will ensure that access roles are correctly assigned, organize your data estate using collections and domains, and explore the Unified Catalog experience.
+
+The focus is on laying the foundation for data governance, ensuring that users, structure, and access controls are properly configured before working with actual data assets.
+
 ### Objective:
-Configure Microsoft Purview by validating access roles, organizing governance structure using collections and domains, and enabling the Unified Catalog experience.
 
 ### Estimated Duration: 20 minutes
 
 ### Task 1: Validate Microsoft Purview Account and Access Roles
+
+In this task, before working with governance features, you will verify that you have the correct permissions. You will access the Microsoft Purview portal and review assigned roles to ensure you can perform governance operations.
+
+**Why it matters:**
+Without proper roles, you won’t be able to create collections, domains, or manage data access.
 
 In this task, you will verify access to the Microsoft Purview account and confirm that the required roles are assigned.
 
@@ -43,8 +53,9 @@ In this task, you will verify access to the Microsoft Purview account and confir
    
    ![Picture 1](./Media/sandbox-purview-image9.png)
 
-
 ### Task 2: Configure Collections, Domains, and Ownership Model (20 min)
+
+This task focuses on structuring your data environment logically using collections and domains. You will organize data sources (like Fabric and Databricks) and categorize them into business domains.
 
 1. Now pevioosult task we have cteate the purview and rolle assigneme t now let woke on creating collect and Domain and asisgne to odl user id
 
@@ -97,6 +108,7 @@ In this task, you will verify access to the Microsoft Purview account and confir
 
 ### Task 3: Enable Unified Catalog Experience
 
+In this task, you explore the Unified Catalog, a business-friendly interface that sits on top of the technical Data Map.
 
 > **What is Unified Catalog?** Unified Catalog is the business friendly layer on top of Data Map. It lets business users discover data assets, browse data products, and access the enterprise glossary  without needing to understand the technical Data Map structure.
 
