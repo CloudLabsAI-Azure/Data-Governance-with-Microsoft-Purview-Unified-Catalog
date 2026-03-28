@@ -267,22 +267,35 @@
 
 **Expected Result**: Fabric tenant registered as a source in Purview Data Map.
 
-1. In **Purview portal** → **Data Map** → **Data sources** → click on your Fabric source
-2. Click **+ New scan** and configure:
-   - **Name**: `Scan-Fabric-Full`
-   - **Credential**: verify it shows **Microsoft Purview MSI (system)**
-   - **Integration runtime**: Azure AutoResolveIntegrationRuntime
-3. Click **Continue** → **Scope**: expand the tree and select your `Purview-Lab-WS` workspace
-   - The scope is at the **workspace level** — you select the workspace, and Purview automatically scans all items inside it (Lakehouse, Warehouse, semantic models, etc.)
-   - ✅ Check the box next to `Purview-Lab-WS`
-   > If the workspace doesn't appear, wait 15 minutes and retry — Fabric Admin API indexing takes time for new workspaces
-4. Click **Continue** → **Scan rule set**: select **System default** (Fabric)
-5. **Scan trigger**: select **Once**
-6. Click **Continue** → review → click **Save and Run**
-7. Go to **Data sources** → `Purview-Fabric` → **Recent scans**
-8. Wait for **Completed** status (typically 3-5 minutes)
-9. Review scan summary — it should show ~20 assets discovered:
+1. Under **Data sources**, locate **Purview-Fabric** and click the **Scan (1)** icon.
 
+   - In the **Scan Purview-Fabric** pane, provide **Name (2)**: **`Fabric-DataMap-Scan`**.
+
+   - Under **Personal workspaces (3)**, select **Exclude**.
+
+   - For **Connect with integration runtime (4)**, ensure **Azure AutoResolveIntegrationRuntime** is selected.
+
+   - Under **Credential (5)**, select **Microsoft Purview MSI (system)**.
+
+   - For **Collection (6)**, select **Fabric Sources**.
+
+   - Click **Test connection (7)**.
+
+     ![Picture 1](./Media/sandbox-purview-image144.png)
+
+1. Once the **Test connection** is successful (**Success – View report (1)**), click **Continue (2)**.
+
+   ![Picture 1](./Media/sandbox-purview-image145.png)
+
+1. On the **Scope your scan** page, select **No**, then click **Continue**.
+
+1. On the **Set a scan trigger** page, select **Once**, then click **Continue**.
+
+1. On the **Review your scan** page, click **Save and run**.
+
+1. Back on the **Data sources** page, under **Fabric**, click on **View details**.
+
+   ![Picture 1](./Media/sandbox-purview-image146.png)
 
    > **Known limitation**: Per [Microsoft documentation](https://learn.microsoft.com/en-us/purview/register-scan-fabric-tenant), *"For all Fabric items besides Power BI, only item level metadata and lineage can be scanned. For Lakehouse tables and files, sub-item level metadata scanning is available but sub-item level lineage isn’t supported."* This means: Lakehouse tables appear individually, but Warehouse tables do not — only the Warehouse container is cataloged.
 
