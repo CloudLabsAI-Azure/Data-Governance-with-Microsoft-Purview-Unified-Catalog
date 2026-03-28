@@ -5,7 +5,7 @@
 
 > **What is Microsoft Fabric?** Fabric is Microsoft's unified analytics platform. A single workspace can contain Lakehouses (for data engineering), Warehouses (for SQL analytics), Notebooks, Pipelines, and Semantic Models — all stored in OneLake.
 
-### Task 1: Open Fabric Portal and Create a Workspace
+### Task 1: Register Microsoft Fabric as a data source
 
 ## Creating Security Group
 
@@ -240,6 +240,8 @@
       - `PurviewWarehouse`:  Sample warehouse data + stg_vendors (Warehouse)
       - `Vendor-ETL-Pipeline`:  Data pipeline (Lakehouse → Warehouse)
       - `vendors.csv`:  Uploaded file in Lakehouse Files
+
+### Task 2: Configure and validate Fabric scan connection
       
 **Step 1: Register Fabric in Purview**
 
