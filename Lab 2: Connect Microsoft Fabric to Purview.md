@@ -192,13 +192,49 @@
       - `Vendor-ETL-Pipeline`:  Data pipeline (Lakehouse → Warehouse)
       - `vendors.csv`:  Uploaded file in Lakehouse Files
       
-      
+### Creating sceciirty grouo 
+
+1. Open the **Azure portal** in a new browser tab. Use the search bar to find and select **Groups**.
+
+    ![Picture 1](./Media/sandbox-purview-image130.png)
+
+3. On the **Groups overview (1)** page, click on **+ New group (2)**.
+
+    ![Picture 1](./Media/sandbox-purview-image131.png)
+   
+5. Fill in the following details:
+
+   - **Group type (1)**: Security  
+   - **Group name (2)**: `Purview-security-Group`  
+   - **Microsoft Entra roles can be assigned to the group (3)**: Yes  
+
+      ![Picture 1](./Media/sandbox-purview-image132.png)
+     
+6. Under **Owners**, click **No owner selected**, then in the search bar, search for and select your user account **<inject key="AzureAdUserEmail" enableCopy="true"/>**.
+
+   ![Picture 1](./Media/sandbox-purview-image133.png)
+
+8. Under **Members**, click **No member selected**, then search for and select the managed identity: **Purview-<inject key="DeploymentID" enableCopy="false"/>**.
+
+   ![Picture 1](./Media/sandbox-purview-image134.png)
+
+10. Click **Create** to finish creating the group.
+
+    ![Picture 1](./Media/sandbox-purview-image135.png)
+
+12. When prompted by the pop-up, select **Yes**.
+
+    ![Picture 1](./Media/sandbox-purview-image136.png)
+
+1. Back on the **Groups | Overview** page, from the left navigation pane, select **All groups** and review the newly created group.
+
+   ![Picture 1](./Media/sandbox-purview-image137.png)
 
 
-
-
-
-
+### Assign  
+                           
+                                                                                           
+               
 
 
 
