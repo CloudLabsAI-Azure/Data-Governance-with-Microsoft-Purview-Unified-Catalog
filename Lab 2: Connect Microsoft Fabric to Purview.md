@@ -5,6 +5,7 @@
 
 > **What is Microsoft Fabric?** Fabric is Microsoft's unified analytics platform. A single workspace can contain Lakehouses (for data engineering), Warehouses (for SQL analytics), Notebooks, Pipelines, and Semantic Models — all stored in OneLake.
 
+
 **Step 1: Open Fabric Portal and Create a Workspace**
 
 1. In a new browser tab, navigate to **`https://app.fabric.microsoft.com`**
@@ -17,22 +18,33 @@
    
     ![Picture 1](./Media/sandbox-purview-image94.png)
    
-3. On the **Activate your 60-day free Fabric trial capacity** window, click on **Activate**.
+1. On the **Activate your 60-day free Fabric trial capacity** window, click on **Activate**.
 
    ![Picture 1](./Media/sandbox-purview-image95.png)
 
-5. When the **Successfully upgraded to a free Microsoft Fabric trial** message appears, click on **OK**.
+1. When the **Successfully upgraded to a free Microsoft Fabric trial** message appears, click on **OK**.
 
    ![Picture 1](./Media/sandbox-purview-image96.png)
 
-7. When the **Invite teammates to try Fabric to extend your trial** pop-up appears, click on **Cancel (X)**.
+1. When the **Invite teammates to try Fabric to extend your trial** pop-up appears, click on **Cancel (X)**.
+                           
+1. At the top of the page, click on **Settings (1)**. Under **Governance and administration**, select **Admin portal (2)**.
 
-1. At the top of the page, click on **Settings (1)**. From the dropdown, under **Governance and Insights**, select **Admin portal (2)**.
+    ![Picture 1](./Media/sandbox-purview-image138.png)
+   
+1. Ensure you are in **Tenant settings (1)**. In the search bar, search for **Admin API (2)**, press **Enter**, and make sure you are in the **Admin API settings** pane.
 
-   ![Picture 1](./Media/sandbox-purview-image97.png)
+    ![Picture 1](./Media/sandbox-purview-image139.png)
+   
+1. Expand all four settings and enable the toggles. Verify that all four related settings are **enabled (3)**.
 
-3. Ensure you are in **Tenant settings (1)**. In the search bar, search for **Admin API (2)** and verify that all four related settings.
-4. Expand each and enable the toggle for all 4 
+1. For the first two settings, select **Specific security group**, search for and select **Purview-security-Group**.
+
+1. For the remaining two settings, select **Entire organization**.
+
+1. Click **Apply** to save the changes after enabling the toggles.
+
+   ![Picture 1](./Media/sandbox-purview-image140.png)
    
 1. In the left sidebar, click **Workspaces** → **+ New workspace**.
 
@@ -48,7 +60,7 @@
 
        ![Picture 1](./Media/sandbox-purview-image100.png)
 
-13. You should now be inside the `Purview-Lab-WS` workspace.
+1. You should now be inside the `Purview-Lab-WS` workspace.
 
      ![Picture 1](./Media/sandbox-purview-image101.png)
 
