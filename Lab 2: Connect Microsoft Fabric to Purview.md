@@ -149,34 +149,50 @@
 
     ![Picture 1](./Media/sandbox-purview-image121.png)
 
+1. In the pipeline canvas from the top menu, click **Copy data (1)** and select **Add copy data activity (2)**
 
-33. In the pipeline canvas, click **Copy data** (from the activity toolbar)
-34. Click on the Copy data activity to configure it:
+   ![Picture 1](./Media/sandbox-purview-image122.png)
+   
+1. Click on the **Source (1)** tab. For **Connection**, select the dropdown **(2)**, then click on **Browse all (2)**.
+   
+   ![Picture 1](./Media/sandbox-purview-image123.png)
+   
+     - Select **Microsoft Fabric Lakehouse** named **`PurviewLakehouse`**
+     - Under **Table**, browse and select: **`dbovendors`**
 
-   - **Source** tab:
-     - Click **+ New** next to Connection
-     - Select **Microsoft Fabric Lakehouse** → select `SalesLakehouse`
-     - Under **Table**, browse and select: `vendors`
+       ![Picture 1](./Media/sandbox-purview-image124.png)
 
-   - **Destination** tab:
-     - Click **+ New** next to Connection
-     - Select **Microsoft Fabric Warehouse** → select `SalesWarehouse`
+1. Click on **Destination** tab. Next to **Connection**, select the dropdown, then click on **Browse all (2)**.
+
+   ![Picture 1](./Media/sandbox-purview-image125.png)
+   
+     - Select **Microsoft Fabric Warehouse** → select **`PurviewWarehouse`**
      - Under **Table option**, select **Auto create table**
-     - Enter **Table name**: `stg_vendors`
+     - Enter **Table name**: **`stg_vendors`**
 
-34. Click **Run** → click **Save and run** if prompted
-35. Wait for the pipeline to complete (1-2 minutes) → verify **Status: Succeeded**
-36. Go back to the workspace → click **SalesWarehouse** → expand **dbo** → **Tables** → verify `stg_vendors` appears with 10 vendor records
+       ![Picture 1](./Media/sandbox-purview-image126.png)
 
-**Expected Result**: `Purview-Lab-WS` workspace now contains 6 items:
-- `SalesLakehouse` — Wide World Importers retail data + vendors table (Lakehouse)
-- `SalesLakehouse` — SQL analytics endpoint (auto-created)
-- `SalesLakehouse` — Semantic model (includes vendors table)
-- `SalesWarehouse` — Sample warehouse data + stg_vendors (Warehouse)
-- `Vendor-ETL-Pipeline` — Data pipeline (Lakehouse → Warehouse)
-- `vendors.csv` — Uploaded file in Lakehouse Files
+1. Click **Run** → click **Save and run** if prompted.
 
----
+    ![Picture 1](./Media/sandbox-purview-image127.png)
+    
+1. Wait for the pipeline to complete (1-2 minutes) → verify **Status: Succeeded**.
+
+     ![Picture 1](./Media/sandbox-purview-image128.png)
+    
+1. Go back to the workspace → click **PurviewWarehouse** → expand **dbo** → **Tables** → verify `stg_vendors` appears with 10 vendor records.
+
+    ![Picture 1](./Media/sandbox-purview-image129.png)
+
+      **Expected Result**: **`Purview-Lab-WS**` workspace now contains 6 items:
+      - `PurviewLakehouse`:  Wide World Importers retail data + vendors table (Lakehouse)
+      - `PurviewLakehouse`:  SQL analytics endpoint (auto-created)
+      - `PurviewLakehouse`:  Semantic model (includes vendors table)
+      - `PurviewWarehouse`:  Sample warehouse data + stg_vendors (Warehouse)
+      - `Vendor-ETL-Pipeline`:  Data pipeline (Lakehouse → Warehouse)
+      - `vendors.csv`:  Uploaded file in Lakehouse Files
+      
+      
 
 
 
