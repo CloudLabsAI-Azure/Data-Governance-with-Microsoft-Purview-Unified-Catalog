@@ -402,17 +402,3 @@
 9. Key governance takeaway: Purview discovers **all Fabric layers** from a single workspace scan — storage, SQL, BI, and container assets. Each has different metadata depth. In Lab 3, you'll add Databricks assets to search across both platforms.
 
 **Expected Result**: Semantic model (Power BI Dataset) visible in Unified Catalog with full schema. All Fabric asset types browseable.
-
----
-
-## Lab 2 Summary
-
-| Task | What You Did | Time |
-|------|-------------|------|
-| 1 | Registered Fabric tenant as a data source | 10 min |
-| 2 | Created security group, configured Fabric admin APIs, tested connection | 15 min |
-| 3 | Scanned Fabric workspace — discovered Lakehouse tables, Warehouse, and all assets | 20 min |
-| 4 | Discovered semantic model (Power BI Dataset) and browsed all Fabric asset types | 15 min |
-| | **Total** | **60 min** |
-
-**Next**: Lab 3 — Connect Databricks Unity Catalog to Purview
