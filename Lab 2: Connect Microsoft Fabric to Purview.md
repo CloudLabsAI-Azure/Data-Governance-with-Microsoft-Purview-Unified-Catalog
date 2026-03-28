@@ -297,35 +297,53 @@
 
    ![Picture 1](./Media/sandbox-purview-image146.png)
 
+1. Monitor the scan. Once it completes, you will see the status as **Completed with exceptions**, as shown below.
+
+   ![Picture 1](./Media/sandbox-purview-image147.png)
+
    > **Known limitation**: Per [Microsoft documentation](https://learn.microsoft.com/en-us/purview/register-scan-fabric-tenant), *"For all Fabric items besides Power BI, only item level metadata and lineage can be scanned. For Lakehouse tables and files, sub-item level metadata scanning is available but sub-item level lineage isn’t supported."* This means: Lakehouse tables appear individually, but Warehouse tables do not — only the Warehouse container is cataloged.
 
 **Step 3: Verify Lakehouse Assets**
 
-10. Go to **Unified Catalog** → **Discovery** → **Data assets**
-11. Search for `dimension_customer` → click on the **Lakehouse Table** result
-12. Review:
-    - **Schema**: column names and data types (Customer Key, Customer, Category, Buying Group, Postal Code, etc.)
-    - **Properties**: OneLake path, format (Delta), workspace name
-    - **Hierarchy** (right side): Fabric Capacity → Purview-Lab-WS → Purview-Lakehouse → dimension_customer
-13. Go back → search for `fact_sale` → review the sales fact table
+1. Go to **Unified Catalog**, expand **Discovery (1)**, and select **Data assets (2)**. In the search bar, search for **`dimension_customer` (3)**, then select it from the results list **(4)**.
+
+    ![Picture 1](./Media/sandbox-purview-image148.png)
+
+1. You are now on the **Overview** page for the Fabric asset. Review the details to understand how the asset is integrated with Fabric. You can also review it in the Purview portal.
+
+    - Review:
+        - **Hierarchy** (right side): Fabric Capacity → Purview-Lab-WS → Purview-Lakehouse → dimension_customer
+        - **Schema**: column names and data types (Customer Key, Customer, Category, Buying Group, Postal Code, etc.)
+        - **Properties**: OneLake path, format (Delta), workspace name
+
+          ![Picture 1](./Media/sandbox-purview-image149.png)
+
+          ![Picture 1](./Media/sandbox-purview-image150.png)
+
+          ![Picture 1](./Media/sandbox-purview-image151.png)
+    
+1. Now, review another asset from Fabric. Go back and, in the same way, search for `fact_sales`, then select it and review the sales fact table.
 
 **Step 4: Verify Warehouse Assets**
 
-14. In the asset list, click on **Purview-Warehouse** (asset type: **Warehouses**)
-15. Review the Warehouse asset page:
+1. In the asset list, type and select **Warehouse**. 
+1. Review the Warehouse asset page:
     - **Overview**: fully qualified name (Fabric URL)
     - **Collection path** (right side): purview-{deploymentId} → Contoso Data Estate → Fabric Sources
     - **Hierarchy** (right side): Purview-Lab-WS (Fabric Workspace) → Purview-Warehouse (Warehouses)
-    - Click through **Properties**, **Lineage**, **Related** tabs
-16. Note: Individual Warehouse tables (Date, Trip, Geography, etc.) are **not** listed as separate assets. This is a [known Microsoft limitation](https://learn.microsoft.com/en-us/purview/register-scan-fabric-tenant) — Warehouse scanning is **item level only**. Sub-item scanning is only supported for Lakehouse.
-17. Compare the two scan results:
-    - **Lakehouse** → Purview shows each table as a separate asset with full schema (columns, data types)
-    - **Warehouse** → Purview shows only the Warehouse container as a single asset
-    - This is an important governance insight: different Fabric item types have different levels of catalog granularity
 
-**Expected Result**: Scan discovers ~20 assets. Lakehouse tables are individually cataloged with schemas. Warehouse is cataloged as a container asset. All visible in Unified Catalog.
+        ![Picture 1](./Media/sandbox-purview-image152.png)
+      
+    **>Note**: Individual Warehouse tables (Date, Trip, Geography, etc.) are **not** listed as separate assets.
+      > This is a [known Microsoft limitation](https://learn.microsoft.com/en-us/purview/register-scan-fabric-tenant)  Warehouse scanning is **item level only**. Sub-item scanning is only supported for Lakehouse.
+      
+1. Compare the two scan results:
+    - **Lakehouse**:  Purview shows each table as a separate asset with full schema (columns, data types)
+    - **Warehouse**: Purview shows only the Warehouse container as a single asset
+   
+       **>Note**This is an important governance insight: different Fabric item types have different levels of catalog granularity
 
----
+**Expected Result**: Scan discovers assets. Lakehouse tables are individually cataloged with schemas. Warehouse is cataloged as a container asset. All visible in Unified Catalog.
 
 ## Task 4: Discover Fabric Semantic Models in Unified Catalog (15 min)
 
@@ -333,41 +351,37 @@
 
 **Step 1: Find the Semantic Model**
 
-1. In **Unified Catalog** → **Discovery** → **Data assets**
-2. Search for `Purview-Lakehouse` → you should see 3 asset types:
+1. In **Unified Catalog** > **Discovery** > **Data assets**
+
+2. Search for **`Purview-Lakehouse`**, you should see below mentioned asset types:
    - `Purview-Lakehouse` (Lakehouse)
-   - `Purview-Lakehouse` (SQL analytics endpoint)
-   - `Purview-Lakehouse` (**Power BI Dataset**) ← this is the semantic model
-3. Click on the **Power BI Dataset** asset
-4. Review the asset detail page:
+   - `Purview-Lakehouse` (**Power BI Dataset**) this is the semantic model
+   - Click on the **Power BI Dataset** asset
+
+    ![Picture 1](./Media/sandbox-purview-image153.png)
+   
+5. Review the asset detail page:
+   
    - **Fully qualified name**: Power BI URL (e.g., `https://app.powerbi.com/groups/.../datasets/...`)
    - **Collection path**: purview-{deploymentId} → Contoso Data Estate → Fabric Sources
    - **Hierarchy**: Fabric Capacity → Purview-Lab-WS → Purview-Lakehouse (Power BI Dataset)
 
+      ![Picture 1](./Media/sandbox-purview-image154.png)
+
 **Step 2: Explore Semantic Model Schema**
 
 5. Click the **Schema** tab on the semantic model asset
-6. Review the tables and columns — these mirror the Lakehouse tables you selected:
+
+6. Review the tables and columns these mirror the Lakehouse tables you selected:
+
    - `dimension_customer`, `dimension_city`, `dimension_employee`, `fact_sale`, etc.
+
    - Each table shows columns with Power BI data types (text, whole number, decimal, date)
-7. Note: The semantic model is the **business-friendly view** of the same data:
-   - Lakehouse = raw Delta storage layer
-   - SQL analytics endpoint = SQL query layer
-   - Semantic model (Power BI Dataset) = BI/reporting layer
 
-**Step 3: Browse All Fabric Asset Types**
+    ![Picture 1](./Media/sandbox-purview-image155.png)
+   
 
-8. Go back to **Data assets** → use the **Asset type** filter to explore each type:
-
-   | Asset Type in Purview | Example | What You See |
-   |----------------------|---------|-------------|
-   | **Lakehouse Table** | `dimension_customer`, `fact_sale` | Schema with columns and data types |
-   | **Lakehouse Path** | `city_safety_seattle.csv` | File path, format |
-   | **Warehouses** | `Purview-Warehouse` | Container asset |
-   | **SQL analytics endpoint** | `Purview-Lakehouse` | Endpoint with Fabric URL |
-   | **Power BI Dataset** | `Purview-Lakehouse` | Semantic model with schema |
-   | **Fabric Workspace** | `Purview-Lab-WS` | Workspace container |
-
-9. Key governance takeaway: Purview discovers **all Fabric layers** from a single workspace scan — storage, SQL, BI, and container assets. Each has different metadata depth. In Lab 3, you'll add Databricks assets to search across both platforms.
-
-**Expected Result**: Semantic model (Power BI Dataset) visible in Unified Catalog with full schema. All Fabric asset types browseable.
+   **>Note:** The semantic model is the **business-friendly view** of the same data:
+       - Lakehouse = raw Delta storage layer
+       - SQL analytics endpoint = SQL query layer
+       - Semantic model (Power BI Dataset) = BI/reporting layer
