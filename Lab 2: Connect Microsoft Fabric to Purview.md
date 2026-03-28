@@ -252,170 +252,31 @@
    ![Picture 1](./Media/sandbox-purview-image140.png)
                
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-=============================================================================================================
-**Step 3: Re-Scan Fabric to Discover the New Table**
-
-14. Switch to **Purview portal** → **Data Map** → **Data sources** → click `Purview-Fabric`
-15. Click **+ New scan** (or re-run the existing scan):
-    - **Name**: `Scan-Fabric-Updated`
-    - **Credential**: Microsoft Purview MSI (system)
-    - Scope: `Purview-Lab-WS` workspace
-    - Scan rule set: System default
-    - Trigger: Once
-16. Click **Save and Run**
-17. Wait for **Completed** status (3-5 minutes)
-
-**Step 4: Verify All Assets in the Data Catalog**
-
-18. Go to **Data Catalog** → search for `employees`
-19. Confirm the new `employees` table appears (source: Microsoft Fabric)
-20. Also search for `dimension_customer` and `fact_sale` — all existing WWI tables should still be there
-21. Search for `customer` → confirm Databricks `samples.tpch.customer` also appears
-
-**Step 3: Create a Semantic Model from the Lakehouse**
-
-14. While still in the Lakehouse, click **New semantic model** in the top toolbar
-15. **Name**: `Purview-Lakehouse` (same name as the Lakehouse)
-16. In the table selection, **select all tables** (dimension_city, dimension_customer, fact_sale, etc.)
-17. Click **Create**
-    - Wait for the semantic model to be created (a few seconds)
-    - This creates the BI/reporting layer on top of the Lakehouse Delta tables
-
-**Step 4: Create a Warehouse with Sample Data**
-
-18. Go back to the workspace → click **+ New item** → select **Warehouse**
-19. **Name**: `Purview-Warehouse` → click **Create**
-20. Once the Warehouse opens, click **Sample warehouse** (or **Load sample data**)
-    - This loads a **NYC Taxi** sample dataset
-    - Wait for the data loading to complete (1-2 minutes)
-21. After loading, expand **dbo** → **Tables** in the Explorer pane. You should see tables like:
-    - `Date`, `Geography`, `HackneyLicense`, `Medallion`, `Time`, `Trip`, `Weather`
-
-**Expected Result**: `Purview-Lab-WS` workspace now contains 4 items:
-- `Purview-Lakehouse` — Wide World Importers retail data (Lakehouse)
-- `Purview-Lakehouse` — SQL analytics endpoint (auto-created)
-- `Purview-Lakehouse` — Semantic model (you just created this)
-- `Purview-Warehouse` — NYC Taxi transportation data (Warehouse)
-
----
-
-## Task 1: Register Microsoft Fabric as a Data Source (10 min)
-
-> **How Fabric registration works**: Fabric is registered at the **tenant level** — one registration covers all workspaces in your tenant. You don't register individual workspaces or items.
-
 **Step 1: Register Fabric in Purview**
 
-1. Switch to the **Purview portal** tab (`https://purview.microsoft.com`)
-2. Click **Data Map** in the left sidebar
-3. Click **Data sources** → click **Register**
-4. In the source type list, search for and select **Fabric** → click **Continue**
-5. Configure the registration:
-   - **Name**: `Purview-Fabric`
-   - **Tenant**: your Azure AD tenant (auto-populated)
-   - **Collection**: select `Fabric Sources` (the sub-collection you created in Lab 1)
-6. Click **Register**
-7. Verify `Purview-Fabric` appears under `Fabric Sources` in the data map
+1. Switch to the **Purview portal**.
+
+2. From the left navigation pane, click **Solutions (1)**, then select **Data Map (2)**.
+
+   ![Picture 1](./Media/sandbox-purview-image7.png)
+
+4. On the **Data sources** page click **Register (1)** In the source type list, search for and select **Fabric (2) (3)** then click **Continue (4)**.
+
+   ![Picture 1](./Media/sandbox-purview-image141.png)
+   
+6. Configure the registration:
+   - **Name**: **`Purview-Fabric` (1)**
+   - **Domain**: **purview-<inject key="DeploymentID" enableCopy="false"/> (2)**
+   - **Collection**: select **`Fabric Sources` (3)**
+   - Click **Register (4)**
+
+     ![Picture 1](./Media/sandbox-purview-image142.png)
+     
+8. Verify **`Purview-Fabric`** appears under **`Fabric Sources`** in the data map.
+
+   ![Picture 1](./Media/sandbox-purview-image143.png)
 
 **Expected Result**: Fabric tenant registered as a source in Purview Data Map.
-
----
-
-## Task 2: Configure Fabric Workspace Connection (15 min)
-
-> **Authentication**: Purview uses its Managed Identity to scan Fabric via admin APIs. The Fabric Admin Portal requires a **security group** for service principal API access — the "Entire organization" option is greyed out. You must create a group containing the Purview MSI.
-
-**Step 1: Create a Security Group for Purview in Entra ID**
-
-1. Open a new tab → navigate to **Microsoft Entra admin center** (`https://entra.microsoft.com`)
-2. In the left sidebar, click **Groups** → **All groups** → **+ New group**
-3. Configure:
-   - **Group type**: **Security**
-   - **Group name**: `Purview-Scan-Group`
-   - **Group description**: `Security group for Purview MSI to access Fabric admin APIs`
-   - **Membership type**: **Assigned**
-4. Click **No members selected** → in the search box, type `purview-{deploymentId}`
-   - Select the **Purview Managed Identity** service principal (it will appear as the Purview account name)
-   - Click **Select**
-5. Click **Create**
-6. Wait ~1 minute for the group to be created
-
-**Step 2: Configure Fabric Admin Portal**
-
-7. Go to **Fabric portal** (`https://app.fabric.microsoft.com`)
-8. Click **Settings** (gear icon, top right) → **Admin portal**
-   > If you don't see Admin portal, ask your lab instructor — the lab account should have Fabric Admin privileges
-9. Go to **Tenant settings** → scroll to **Admin API settings**
-10. Enable **Allow service principals to use read-only admin APIs**:
-    - Toggle to **Enabled**
-    - Select **Specific security groups**
-    - In the **Enter security groups** box, type `Purview-Scan-Group` → select it
-    - Click **Apply**
-11. Enable **Enhance admin APIs responses with detailed metadata**:
-    - Toggle to **Enabled**
-    - Select **Specific security groups** → enter `Purview-Scan-Group` → select it
-    - Click **Apply**
-12. Enable **Enhance admin APIs responses with DAX and mashup expressions**:
-    - Toggle to **Enabled**
-    - Select **Specific security groups** → enter `Purview-Scan-Group` → select it
-    - Click **Apply**
-13. Scroll to **OneLake settings** → enable **Users can access data stored in OneLake with apps external to Fabric**:
-    - Toggle to **Enabled** → apply to **The entire organization** (this setting allows org-wide)
-    - Click **Apply**
-
-> **Important**: After changing tenant settings, wait **~15 minutes** for them to propagate before testing the scan connection.
 
 **Step 3: Test the Connection**
 
