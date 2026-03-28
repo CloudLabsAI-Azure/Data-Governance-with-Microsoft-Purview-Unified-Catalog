@@ -233,7 +233,23 @@
 
 ### Assign  
                            
-                                                                                           
+1. At the top of the page, click on **Settings (1)**. Under **Governance and administration**, select **Admin portal (2)**.
+
+    ![Picture 1](./Media/sandbox-purview-image138.png)
+   
+1. Ensure you are in **Tenant settings (1)**. In the search bar, search for **Admin API (2)**, press **Enter**, and make sure you are in the **Admin API settings** pane.
+
+    ![Picture 1](./Media/sandbox-purview-image139.png)
+   
+3. Expand all four settings and enable the toggles. Verify that all four related settings are **enabled (3)**.
+
+4. For the first two settings, select **Specific security group**, search for and select **Purview-security-Group**.
+
+5. For the remaining two settings, select **Entire organization**.
+
+6. Click **Apply** to save the changes after enabling the toggles.
+
+   ![Picture 1](./Media/sandbox-purview-image140.png)
                
 
 
