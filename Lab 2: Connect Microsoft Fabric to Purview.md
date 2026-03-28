@@ -1,12 +1,49 @@
-# Day 1 Lab 2: Connect Microsoft Fabric to Purview
+# Day 1 - Lab 2: Connect Microsoft Fabric to Purview
 
 
 ## Before You Begin: Create a Fabric Workspace with Data
 
 > **What is Microsoft Fabric?** Fabric is Microsoft's unified analytics platform. A single workspace can contain Lakehouses (for data engineering), Warehouses (for SQL analytics), Notebooks, Pipelines, and Semantic Models — all stored in OneLake.
 
+### Task 1: Open Fabric Portal and Create a Workspace
 
-**Step 1: Open Fabric Portal and Create a Workspace**
+## Creating Security Group
+
+1. Open the **Azure portal** in a new browser tab. Use the search bar to find and select **Groups**.
+
+    ![Picture 1](./Media/sandbox-purview-image130.png)
+
+1. On the **Groups overview (1)** page, click on **+ New group (2)**.
+
+    ![Picture 1](./Media/sandbox-purview-image131.png)
+   
+1. Fill in the following details:
+
+   - **Group type (1)**: Security  
+   - **Group name (2)**: `Purview-security-Group`  
+   - **Microsoft Entra roles can be assigned to the group (3)**: Yes  
+
+      ![Picture 1](./Media/sandbox-purview-image132.png)
+     
+1. Under **Owners**, click **No owner selected**, then in the search bar, search for and select your user account **<inject key="AzureAdUserEmail" enableCopy="true"/>**.
+
+   ![Picture 1](./Media/sandbox-purview-image133.png)
+
+1. Under **Members**, click **No member selected**, then search for and select the managed identity: **Purview-<inject key="DeploymentID" enableCopy="false"/>**.
+
+   ![Picture 1](./Media/sandbox-purview-image134.png)
+
+1. Click **Create** to finish creating the group.
+
+    ![Picture 1](./Media/sandbox-purview-image135.png)
+
+1. When prompted by the pop-up, select **Yes**.
+
+    ![Picture 1](./Media/sandbox-purview-image136.png)
+
+1. Back on the **Groups | Overview** page, from the left navigation pane, select **All groups** and review the newly created group.
+
+   ![Picture 1](./Media/sandbox-purview-image137.png)
 
 1. In a new browser tab, navigate to **`https://app.fabric.microsoft.com`**
 
@@ -64,7 +101,7 @@
 
      ![Picture 1](./Media/sandbox-purview-image101.png)
 
-**Step 2: Create a Lakehouse with Sample Data**
+### Task 2: Create a Lakehouse with Sample Data
 
 1. Click **+ New item** then search and select **Lakehouse**.
     
@@ -92,7 +129,7 @@
 
       ![Picture 1](./Media/sandbox-purview-image106.png)
    
-**Step 2: Upload Vendors Data to Fabric Lakehouse**
+### Task 2.1: Upload Vendors Data to Fabric Lakehouse
 
 1. Now, add another file that contains vendors tables.
 
@@ -122,7 +159,7 @@
 
 1. Click on `vendors` → verify the data: 10 rows with columns.
 
-**Step 4: Create a Semantic Model from the Lakehouse**
+**Task 3: Create a Semantic Model from the Lakehouse**
 
 1. While still in the Lakehouse, click **New semantic model** in the top toolbar. Provide **Name**: `PurviewLakehouse` (same name as the Lakehouse). In the table selection, **select all tables**, then click **Create**.
 
@@ -131,7 +168,7 @@
     - Wait for the semantic model to be created (a few seconds)
     - This creates the BI/reporting layer on top of the Lakehouse Delta tables
 
-**Step 5: Create a Warehouse with Sales Data**
+### Task 3.1: Create a Warehouse with Sales Data**
 
 1. Go back to the workspace click **+ New item (1)** then search and select **Warehouse (2) (3)**.
 
@@ -149,7 +186,7 @@
 
     ![Picture 1](./Media/sandbox-purview-image119.png)
 
-**Step 6: Create a Data Pipeline**
+### Task 3.2: Create a Data Pipeline**
 
 > This pipeline moves vendor data from the Lakehouse to the Warehouse. You'll use it in Lab 4 to demonstrate data lineage in Purview.
 
@@ -204,66 +241,6 @@
       - `Vendor-ETL-Pipeline`:  Data pipeline (Lakehouse → Warehouse)
       - `vendors.csv`:  Uploaded file in Lakehouse Files
       
-### Creating sceciirty grouo 
-
-1. Open the **Azure portal** in a new browser tab. Use the search bar to find and select **Groups**.
-
-    ![Picture 1](./Media/sandbox-purview-image130.png)
-
-3. On the **Groups overview (1)** page, click on **+ New group (2)**.
-
-    ![Picture 1](./Media/sandbox-purview-image131.png)
-   
-5. Fill in the following details:
-
-   - **Group type (1)**: Security  
-   - **Group name (2)**: `Purview-security-Group`  
-   - **Microsoft Entra roles can be assigned to the group (3)**: Yes  
-
-      ![Picture 1](./Media/sandbox-purview-image132.png)
-     
-6. Under **Owners**, click **No owner selected**, then in the search bar, search for and select your user account **<inject key="AzureAdUserEmail" enableCopy="true"/>**.
-
-   ![Picture 1](./Media/sandbox-purview-image133.png)
-
-8. Under **Members**, click **No member selected**, then search for and select the managed identity: **Purview-<inject key="DeploymentID" enableCopy="false"/>**.
-
-   ![Picture 1](./Media/sandbox-purview-image134.png)
-
-10. Click **Create** to finish creating the group.
-
-    ![Picture 1](./Media/sandbox-purview-image135.png)
-
-12. When prompted by the pop-up, select **Yes**.
-
-    ![Picture 1](./Media/sandbox-purview-image136.png)
-
-1. Back on the **Groups | Overview** page, from the left navigation pane, select **All groups** and review the newly created group.
-
-   ![Picture 1](./Media/sandbox-purview-image137.png)
-
-
-### Assign  
-                           
-1. At the top of the page, click on **Settings (1)**. Under **Governance and administration**, select **Admin portal (2)**.
-
-    ![Picture 1](./Media/sandbox-purview-image138.png)
-   
-1. Ensure you are in **Tenant settings (1)**. In the search bar, search for **Admin API (2)**, press **Enter**, and make sure you are in the **Admin API settings** pane.
-
-    ![Picture 1](./Media/sandbox-purview-image139.png)
-   
-3. Expand all four settings and enable the toggles. Verify that all four related settings are **enabled (3)**.
-
-4. For the first two settings, select **Specific security group**, search for and select **Purview-security-Group**.
-
-5. For the remaining two settings, select **Entire organization**.
-
-6. Click **Apply** to save the changes after enabling the toggles.
-
-   ![Picture 1](./Media/sandbox-purview-image140.png)
-               
-
 **Step 1: Register Fabric in Purview**
 
 1. Switch to the **Purview portal**.
@@ -290,29 +267,6 @@
 
 **Expected Result**: Fabric tenant registered as a source in Purview Data Map.
 
-**Step 3: Test the Connection**
-
-14. Switch back to **Purview portal** → **Data Map** → **Data sources** → click on your Fabric source
-15. Click **+ New scan**:
-    - **Credential**: verify it shows **Microsoft Purview MSI (system)** (this is the default — no change needed)
-    - Click **Test connection**
-16. Wait for result — all checks should pass:
-    - **Access**: ✅ Passed
-    - **Assets (+lineage)**: ✅ Passed
-    - **Detailed metadata (Enhanced)**: ✅ Passed
-    > If any test fails, go back to Step 2, verify the security group contains the Purview MSI, and wait 15 more minutes
-17. **Do not proceed with the scan yet** — click **Cancel** (we'll configure the full scan in Task 3)
-
-**Expected Result**: Security group created with Purview MSI. Admin API settings enabled for the security group. Connection test passes all 3 checks.
-
----
-
-## Task 3: Scan Fabric Lakehouse and Warehouse (20 min)
-
-> Your workspace contains 2 items: **Purview-Lakehouse** (Delta tables) and **Purview-Warehouse** (SQL tables). Purview scans at the **workspace level** — select the workspace and it scans all items inside.
-
-**Step 1: Create the Scan**
-
 1. In **Purview portal** → **Data Map** → **Data sources** → click on your Fabric source
 2. Click **+ New scan** and configure:
    - **Name**: `Scan-Fabric-Full`
@@ -325,20 +279,10 @@
 4. Click **Continue** → **Scan rule set**: select **System default** (Fabric)
 5. **Scan trigger**: select **Once**
 6. Click **Continue** → review → click **Save and Run**
-
-**Step 2: Monitor Scan Progress**
-
 7. Go to **Data sources** → `Purview-Fabric` → **Recent scans**
 8. Wait for **Completed** status (typically 3-5 minutes)
 9. Review scan summary — it should show ~20 assets discovered:
 
-   | Artifact | What Purview Discovers |
-   |----------|----------------------|
-   | **Purview-Lakehouse** (Lakehouse) | Lakehouse item + Delta tables at sub-item level: `dimension_customer`, `dimension_city`, `dimension_date`, `dimension_employee`, `dimension_stock_item`, `fact_sale` |
-   | **Purview-Lakehouse** (Lakehouse Paths) | Files at sub-item level: `city_safety_seattle.csv`, `nyc_taxi_green_2020_11.parquet`, `public_holidays.parquet`, etc. |
-   | **Purview-Lakehouse** (SQL analytics endpoint) | Auto-created SQL endpoint (item level) |
-   | **Purview-Warehouse** (Warehouse) | Warehouse container asset (item level only — individual SQL tables are NOT shown as separate assets) |
-   | **Purview-Lab-WS** | Fabric Workspace (container asset) |
 
    > **Known limitation**: Per [Microsoft documentation](https://learn.microsoft.com/en-us/purview/register-scan-fabric-tenant), *"For all Fabric items besides Power BI, only item level metadata and lineage can be scanned. For Lakehouse tables and files, sub-item level metadata scanning is available but sub-item level lineage isn’t supported."* This means: Lakehouse tables appear individually, but Warehouse tables do not — only the Warehouse container is cataloged.
 
