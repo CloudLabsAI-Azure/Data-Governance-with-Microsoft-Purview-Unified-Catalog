@@ -15,24 +15,12 @@ In this lab you will apply classifications to the vendor and customer data you s
 
 **Step 1: Verify Scan Status**
 
-1. Go to **Purview portal** (`https://purview.microsoft.com`) → **Data Map** → **Data sources**
-2. Click your Fabric source (`Contoso-Fabric`) → **Recent scans** → confirm **Completed** status
-3. Go back → click your Databricks source (`Purview-Databricks-UC`) → **Recent scans** → confirm **Completed** status
-   > If either scan failed or is still running, re-run it before proceeding
+1. Navigate back to the **Purview portal**, then select **Data Map** → **Monitoring**.
 
-**Step 2: Verify All Assets in the Data Catalog**
+2. Verify that you see two scans: one for **Fabric** and another for **Databricks**. Ensure both scans have executed successfully. The Fabric scan should show the status **Completed with exceptions**, and the Databricks scan should show the status **Completed**.
 
-4. Go to **Data Catalog** → search for `vendors`
-5. Confirm the `vendors` table appears (source: Microsoft Fabric) — this is the vendor data you uploaded in Lab 2
-6. Also search for `dimension_customer` and `fact_sale` — all existing WWI tables should still be there
-7. Search for `customer` → confirm Databricks `samples.tpch.customer` also appears
-8. Search for `stg_vendors` → confirm the Warehouse staging table appears (created by the pipeline in Lab 2)
+    ![Picture 1](./Media/sandbox-purview-image157.png)
 
-   > If `vendors` or `stg_vendors` don't appear, re-scan your Fabric source: **Data Map** → **Data sources** → `Contoso-Fabric` → **+ New scan** → scope `Purview-Lab-WS` → **Save and Run** → wait for **Completed**
-
-**Expected Result**: Both Fabric and Databricks scans completed. All assets discoverable — WWI sample data, vendors table, stg_vendors, and Databricks catalog assets.
-
----
 
 ## Task 2: Apply Built-in Classifications (20 min)
 
