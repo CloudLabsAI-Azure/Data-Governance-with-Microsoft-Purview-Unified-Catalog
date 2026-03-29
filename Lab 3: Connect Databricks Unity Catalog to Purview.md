@@ -31,7 +31,7 @@
 
    ![Picture 1](./Media/sandbox-purview-image51.png)
 
-1. On the metastore details page, locate and copy the Metastore ID.
+1. On the metastore details page, locate and copy the **Metastore ID**.
 
    ![Picture 1](./Media/sandbox-purview-image52.png)
 
@@ -39,7 +39,7 @@
 
 1. Switch to the **Purview portal** then click **Data Map** > **Data sources**.
 
-   ![Picture 1](./Media/sandbox-purview-image53.png)
+   ![Picture 1](./Media/sandbox-purview-image54.png)
 
 1. On the **Data sources** page, click **Register (1)**. Search for and select **Azure Databricks Unity Catalog (2)**, then click **Continue (3)**.
 
