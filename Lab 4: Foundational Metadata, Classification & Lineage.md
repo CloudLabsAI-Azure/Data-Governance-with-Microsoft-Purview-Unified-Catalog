@@ -21,7 +21,6 @@ In this lab you will apply classifications to the vendor and customer data you s
 
     ![Picture 1](./Media/sandbox-purview-image157.png)
 
-
 ## Task 2: Apply Built-in Classifications (20 min)
 
 > Purview does **not** auto-classify data during Fabric or Databricks scans. Auto-classification (data sampling with ML/regex rules) only works for sources like Azure SQL, ADLS, and Blob Storage. For Fabric and Databricks, governance teams apply classifications **manually** — this is standard practice in enterprise environments.
@@ -37,48 +36,21 @@ In this lab you will apply classifications to the vendor and customer data you s
 
     | Column | Classification to Apply |
     |--------|------------------------|
-    | `contact_name` | **Person's Name** |
-    | `contact_email` | **Email Address** |
-    | `tax_id` | **U.S. Individual Taxpayer Identification (ITIN)** |
-    | `date_established` | **Date of Birth** |
-    | `phone` | **U.S. Phone Number** |
-    | `address` | **U.S. Street Address** (or **Person's Address** if available) |
+    | `full_name` | **All Full Names** |
+    | `email` | **Email Address** |
+    | `ssn` | **U.S. Social Security Number (SSN)** |
+    | `date_of_birth` | **Date of Birth** |
 
-6. Click **Save**
-7. Verify the classification tags now appear on those columns
+        > **Note**: Columns like `employee_id`, `department`, and `salary` do not need classifications — they are not PII. Focus classifications on columns that contain personally identifiable information.
 
-**Step 2: Classify the Dimension Customer Table (Fabric)**
+7. Click **Save**.
 
-8. Search for `dimension_customer` → click the Fabric Lakehouse table
-9. Click **Schema** → **Edit**
-10. On the `Customer` column → add classification: **Person's Name**
-11. On the `Postal Code` column → add classification: **U.S. Zip Code**
-12. Click **Save**
+   ![Picture 1](./Media/sandbox-purview-image160.png)
+   
+9. Verify the classification tags now appear on those columns.
 
-**Step 3: Classify the Databricks Customer Table**
+    ![Picture 1](./Media/sandbox-purview-image161.png)
 
-13. Search for `customer` → click the result from the Databricks `samples.tpch` schema
-14. Click **Schema** → **Edit**
-15. On the `c_name` column → add classification: **Person's Name**
-16. On the `c_address` column → add classification: **Person's Address** (or **All Full Names** if Address isn't available)
-17. On the `c_phone` column → add classification: **U.S. Phone Number**
-18. Click **Save**
-
-**Step 4: Cross-Platform Classification Comparison**
-
-19. Compare the classified assets across all sources:
-
-    | Asset | Source | Classifications Applied |
-    |-------|--------|------------------------|
-    | `vendors` | Fabric Lakehouse | Tax ID, Email, Name, Phone, Date, Address (6 columns) |
-    | `dimension_customer` | Fabric Lakehouse | Person's Name, Zip Code (2 columns) |
-    | `tpch.customer` | Databricks UC | Person's Name, Address, Phone (3 columns) |
-
-20. Key takeaway: The same classification labels (Person's Name, Phone Number, etc.) apply across both Fabric and Databricks — enabling unified governance policies regardless of where the data lives. In enterprise environments, auto-classification handles ADLS/SQL sources while manual classification covers Fabric and Databricks.
-
-**Expected Result**: Classifications applied to vendor and customer tables across Fabric and Databricks. Same governance labels used consistently across platforms.
-
----
 
 ## Task 3: Review Technical Lineage Across Platforms (20 min)
 
