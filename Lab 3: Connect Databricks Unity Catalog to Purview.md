@@ -37,7 +37,7 @@
 
 ### Task 1: Register Databricks Workspace as a Data Source (10 min)
 
-1. Switch to the **Purview portal** then click **Data Map** > **Data sources**.
+1. Switch to the **Purview portal** then click **Data Map (1)** > **Data sources (2)**.
 
    ![Picture 1](./Media/sandbox-purview-image54.png)
 
