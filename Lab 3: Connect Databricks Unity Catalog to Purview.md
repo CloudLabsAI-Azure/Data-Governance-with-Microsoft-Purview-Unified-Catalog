@@ -120,10 +120,13 @@
     ![Picture 1](./Media/sandbox-purview-image57.png)
 
 1. On the Manage Key Vault connections window, click **+ New** and specify the following:
-    - **Name**: **`Purview-KeyVault`**
-    - **Subscription**: **select your subscription**
-    - **Key Vault name**: **`kv-purview-<inject key="DeploymentID" enableCopy="false"/>`**
-    -  Click **Create**.
+    - **Name**: **Purview-KeyVault (1)**
+    - **Domain**: **purview-<inject key="DeploymentID" enableCopy="false"/> (2)**
+    - **Subscription**: **select your subscription (3)**
+    - **Key Vault name**: **kv-purview-<inject key="DeploymentID" enableCopy="false"/> (4)**
+    -  Click **Create (5)**.
+
+ 1. Review the **Manage Key Vault connections** recently created. When the pop-up appears, click **Close**.
       
 ### Task 2.4: Create a Credential in Purview
 
