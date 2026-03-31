@@ -2,6 +2,8 @@
 
 ### Task 1: Search Data Assets Across Fabric and Databricks
 
+In this task, you will search and explore data assets across Microsoft Fabric and Databricks using the Microsoft Purview Unified Catalog, and compare their schema and metadata.
+
 1. In the **Purview portal** select **Unified Catalog (1)** expand **Discovery (2)**  choose **Data assets (3)**.
 
    ![Picture 1](./Media/sandbox-purview-image67.png)
