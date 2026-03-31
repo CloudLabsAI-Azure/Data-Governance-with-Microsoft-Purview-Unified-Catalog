@@ -72,12 +72,10 @@ In this task, you will explore technical lineage in Microsoft Purview to underst
    ![Picture 1](./Media/sandbox-purview-image184.png)
    
 4. You should see:
-
     ┌──────────────────┐          ┌──────────────────────┐
-    │ PurviewLakehouse  │ ──────→ │ Vendor-ETL-Pipeline   │
-    │  (Lakehouse)      │          │  (Data pipeline)      │
+    │ PurviewLakehouse │ ──────→  │ Vendor-ETL-Pipeline  │
+    │  (Lakehouse)     │          │  (Data pipeline)     │
     └──────────────────┘          └──────────────────────┘
-
    - **Source**: PurviewLakehouse — the Lakehouse parent item (not an individual table)
    - **Process**: Vendor-ETL-Pipeline — the pipeline you created in Lab 2
    - Click on each node to view its asset details
