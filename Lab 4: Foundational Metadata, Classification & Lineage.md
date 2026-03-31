@@ -1,38 +1,39 @@
 # Day 1 - Lab 4: Classification, Lineage & Cross-Platform Governance
 
 
-## Overview
+## Task 1: Review and Verify initial scans across Fabric and Databricks
 
-In Labs 2 and 3, you connected Fabric and Databricks to Purview and discovered schemas and tables. But you may have noticed:
-- **No classifications** appeared on any columns
-- **No lineage** (data flow diagrams) appeared on any assets
+### Task 1.1: Verify Scan Status
 
-In this lab you will apply classifications to the vendor and customer data you set up in Lab 2, review the data lineage captured by the pipeline, and compare governance features across Fabric and Databricks.
+1. On the **Purview portal**, then select **Data Map** → **Monitoring**.
 
-## Task 1: Verify Scans and Assets (10 min)
-
-> Before working with classifications and lineage, confirm that the scans from Labs 2 and 3 completed successfully and that all assets — including the `vendors` table you uploaded in Lab 2 — are discoverable in the catalog.
-
-**Step 1: Verify Scan Status**
-
-1. Navigate back to the **Purview portal**, then select **Data Map** → **Monitoring**.
-
-2. Verify that you see two scans: one for **Fabric** and another for **Databricks**. Ensure both scans have executed successfully. The Fabric scan should show the status **Completed with exceptions**, and the Databricks scan should show the status **Completed**.
+2. Verify that you see two scans, one for **Fabric** and another for **Databricks**. Ensure both scans have executed successfully. The Fabric scan should show the status **Completed with exceptions**, and the Databricks scan should show the status **Completed**.
 
     ![Picture 1](./Media/sandbox-purview-image157.png)
 
-## Task 2: Apply Built-in Classifications (20 min)
+## Task 2: Apply Built-in Classifications 
 
-> Purview does **not** auto-classify data during Fabric or Databricks scans. Auto-classification (data sampling with ML/regex rules) only works for sources like Azure SQL, ADLS, and Blob Storage. For Fabric and Databricks, governance teams apply classifications **manually** — this is standard practice in enterprise environments.
+In this task, you will learn how to apply built-in classifications in Microsoft Purview to identify sensitive data and enforce governance practices across Fabric and Databricks assets.
 
-**Step 1: Classify the Vendors Table (Fabric)**
+**Objective:** Apply built-in classifications to sensitive columns and understand how manual classification is used for governance in Fabric and Databricks.
 
-1. In the **Data Catalog**, search for `vendors`
-2. Click on the **vendors** Lakehouse table (source: Microsoft Fabric)
-3. Click the **Schema** tab — note that **no classifications** appear (expected for Fabric)
-4. Click the **Edit** button (pencil icon) at the top of the schema section
-   > If you don't see Edit, verify you have **Data Curator** role on the `Fabric Sources` collection (Lab 1)
-5. Apply classifications to the following columns:
+**> Note:** Microsoft Purview does not automatically classify data during scans for Fabric or Databricks sources.
+  > Auto-classification (using ML or regex rules) is supported for sources like Azure SQL, ADLS, and Blob Storage.
+  > For Fabric and Databricks, classifications are typically applied manually, which is a common practice in enterprise environments.
+
+1. In the **Purview portal**, select **Unified Catalog (1)**, expand **Discovery (2)**, then select **Data assets (3)**. In the search bar, search for **`vendors`** and select it from the results.
+
+   ![Picture 1](./Media/sandbox-purview-image179.png)
+   
+1. Navigate to the **Schema** tab.
+
+1. Observe that no classifications are currently applied to the columns.
+
+5. Click the **Edit** button (pencil icon) at the top of the schema section.
+
+   ![Picture 1](./Media/sandbox-purview-image180.png)
+   
+7. Apply classifications to the following columns then click **Save**.
 
     | Column | Classification to Apply |
     |--------|------------------------|
@@ -41,16 +42,14 @@ In this lab you will apply classifications to the vendor and customer data you s
     | `ssn` | **U.S. Social Security Number (SSN)** |
     | `date_of_birth` | **Date of Birth** |
 
-        > **Note**: Columns like `employee_id`, `department`, and `salary` do not need classifications — they are not PII. Focus classifications on columns that contain personally identifiable information.
+    ![Picture 1](./Media/sandbox-purview-image160.png)
 
-7. Click **Save**.
-
-   ![Picture 1](./Media/sandbox-purview-image160.png)
+    >**Note**: Columns such as employee_id, department, and salary do not require classification, as they are not considered personally identifiable information (PII).
+Focus on classifying sensitive data fields.
    
 9. Verify the classification tags now appear on those columns.
 
     ![Picture 1](./Media/sandbox-purview-image161.png)
-
 
 ## Task 3: Review Technical Lineage Across Platforms (20 min)
 
