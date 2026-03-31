@@ -1,9 +1,17 @@
 # Day 1 - Lab 4: Classification, Lineage & Cross-Platform Governance
 
+## Lab Overview
+In this lab, you will explore how Microsoft Purview enables data governance across Microsoft Fabric and Databricks. You will verify scan results, apply built-in classifications to identify sensitive data, and understand how manual classification is used when automatic classification is not supported.
+
+You will also review data lineage to understand how data flows across systems and enhance it by adding manual relationships. This lab provides an end-to-end view of data discovery, classification, and lineage tracking across modern data platforms.
+
+## Lab Objectives
+
+- Task 1: Review and Verify initial scans across Fabric and Databricks
+- Task 2: Apply Built-in Classifications
+- Task 3: Review technical lineage across platforms 
 
 ## Task 1: Review and Verify initial scans across Fabric and Databricks
-
-### Task 1.1: Verify Scan Status
 
 1. On the **Purview portal**, then select **Data Map** → **Monitoring**.
 
@@ -51,62 +59,66 @@ Focus on classifying sensitive data fields.
 
     ![Picture 1](./Media/sandbox-purview-image161.png)
 
-## Task 3: Review Technical Lineage Across Platforms (20 min)
+## Task 3: Review technical lineage across platforms 
 
-> Lineage in Purview tracks **data movement**. When data flows from one asset to another via a pipeline or copy activity, Purview captures it as a lineage diagram. In Lab 2, you created and ran a pipeline that moved vendor data from the Lakehouse to the Warehouse. Now you'll view the lineage Purview captured.
+In this task, you will explore technical lineage in Microsoft Purview to understand how data flows across platforms such as Microsoft Fabric. You will review lineage generated from data pipelines, examine asset relationships, and enhance lineage by adding manual connections where automatic lineage is not available.
 
-**Step 1: View the Lineage Diagram**
+1. In the Purview portal, click **Unified Catalog** → **Discovery** → **Data assets**. In the search bar, type `Vendor-ETL-Pipeline` > click on the Pipeline result
 
-1. Go to **Data Catalog** → search for `stg_vendors`
-2. Click on the **stg_vendors** asset (in the Warehouse)
-3. Click the **Lineage** tab
-4. You should see a lineage diagram:
+    ![Picture 1](./Media/sandbox-purview-image181.png)
 
-    ```
-    ┌──────────────┐     ┌───────────────────────┐     ┌──────────────┐
-    │    vendors    │ ──→ │  Vendor-ETL-Pipeline   │ ──→ │  stg_vendors  │
-    │  (Lakehouse)  │     │  (Data Pipeline)       │     │  (Warehouse)  │
-    └──────────────┘     └───────────────────────┘     └──────────────┘
-    ```
+1. Click the **Lineage** tab.
 
-    - **Left**: `vendors` — the source table you uploaded and classified
-    - **Middle**: `Vendor-ETL-Pipeline` — the pipeline you created in Lab 2
-    - **Right**: `stg_vendors` — the destination staging table
+   ![Picture 1](./Media/sandbox-purview-image184.png)
+   
+4. You should see:
 
-5. Click on each node to see details — source links to the Lakehouse table, destination links to the Warehouse table
+    ┌──────────────────┐          ┌──────────────────────┐
+    │ PurviewLakehouse  │ ──────→ │ Vendor-ETL-Pipeline   │
+    │  (Lakehouse)      │          │  (Data pipeline)      │
+    └──────────────────┘          └──────────────────────┘
 
-6. Go back → search for `vendors` → click the Lakehouse table → **Lineage** tab
-7. You should see the same lineage from the source side (arrow going OUT to the pipeline)
+   - **Source**: PurviewLakehouse — the Lakehouse parent item (not an individual table)
+   - **Process**: Vendor-ETL-Pipeline — the pipeline you created in Lab 2
+   - Click on each node to view its asset details
 
-    > **Note**: If lineage doesn't appear immediately, re-scan your Fabric source and wait 10-15 minutes. Purview processes lineage asynchronously.
+        > **Note**: The Warehouse destination does NOT appear in the lineage diagram. This is a known Microsoft limitation. Purview captures only the source-side connection for Fabric pipelines. Sub-item level lineage (individual table → pipeline → destination table) is not supported for Fabric.
+        
+        > If lineage shows "Not available", re-scan your Fabric source and wait 10-15 minutes.
 
-**Step 2: Compare Lineage Across All Sources**
+1. In the lineage view, select the Lakehouse asset (e.g., Purview Lakehouse), then click **Switch to asset**.
 
-8. Check lineage on the **Semantic model**: search for the Power BI Dataset → **Lineage** tab
-    - May show SQL analytics endpoint → Semantic model connection
+     ![Picture 1](./Media/sandbox-purview-image182.png)
 
-9. Check lineage on a Databricks asset: search for `tpch.customer` → **Lineage** tab
-    - Shows **"Not available"** — the `samples` catalog is read-only, no data was moved
+     ![Picture 1](./Media/sandbox-purview-image183.png)
 
-10. Lineage summary across all sources:
+1. In the asset view, review how the Lakehouse connections are displayed.
 
-    | Asset | Lineage Visible? | Why? |
-    |-------|-----------------|------|
-    | `vendors` (Lakehouse) | ✅ Yes — arrow to Pipeline | Pipeline copies data FROM this table |
-    | `stg_vendors` (Warehouse) | ✅ Yes — arrow from Pipeline | Pipeline copies data TO this table |
-    | `Vendor-ETL-Pipeline` | ✅ Yes — connects source to destination | Pipeline is the data movement activity |
-    | Semantic model | ✅ May show SQL endpoint → Dataset | Fabric tracks item-level connections |
-    | `tpch.customer` (Databricks) | ❌ Not available | No data movement — read-only catalog |
+   ![Picture 1](./Media/sandbox-purview-image183.png)
 
-11. Key takeaway: **Lineage requires data movement.** Purview captures it automatically when you use Fabric Pipelines, Dataflows, or Databricks notebooks that write data. No lineage appears for static/read-only data.
+   **>Note**: This shows how the Lakehouse is connected to other assets such as pipelines, SQL endpoints.
 
-**Expected Result**: Lineage diagram visible showing vendors (Lakehouse) → Vendor-ETL-Pipeline → stg_vendors (Warehouse). Databricks shows no lineage (read-only).
+1. Click the Edit button. Scroll to the Lineage section at the bottom.
 
----
+1. Click Add manual lineage. In the Value field, enter:
 
-**All three Purview core capabilities demonstrated with your own data:**
-- **Discovery**: Vendor data uploaded to Fabric in Lab 2, discovered alongside existing assets from Fabric and Databricks
-- **Classification**: Applied to vendors table + customer tables across both platforms
-- **Lineage**: Vendor data flow from Lakehouse → Pipeline → Warehouse tracked and visualized
+   ```
+   vendors
+   ```
 
-**Next**: Day 2 — Unified Catalog, Discovery & Data Products
+1. Click Save.
+
+1. Observe how the new lineage connection is added and linked to the existing lineage graph.
+
+   **>Note**: Manual lineage allows you to define relationships that are not automatically captured by Purview.
+
+### Summary  
+
+In this lab, you:
+
+- Verified scan execution for Fabric and Databricks data sources
+- Applied built-in classifications to identify sensitive data such as PII
+- Understood why manual classification is required for certain platforms
+- Explored technical lineage to track data movement across assets
+- Identified platform limitations in lineage visibility
+Enhanced lineage by adding manual lineage connections
