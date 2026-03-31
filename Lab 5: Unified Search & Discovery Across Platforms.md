@@ -2,32 +2,62 @@
 
 ### Task 1: Search Data Assets Across Fabric and Databricks
 
-1. In the Purview portal select Unified Catalog > Discovery > Data assets.
+1. In the **Purview portal** select **Unified Catalog (1)** expand **Discovery (2)**  choose **Data assets (3)**.
 
-1. In the search bar, search for:
-   ```
+   ![Picture 1](./Media/sandbox-purview-image67.png)
+
+1. In the search bar, search for the item, then select it from the search results.
+
+    ```
    dimension_customer
    ```
-1. Open the Fabric Lakehouse table and review schema and properties
 
+   ![Picture 1](./Media/sandbox-purview-image174.png)
 
-2. Search for:
+1. Open the Fabric Lakehouse table. Review the following:
+
+    - Schema (columns and data types)
+    - Asset properties
+
+   **>Note:** This step demonstrates how to locate and inspect a specific asset.
+
+1. Search for:
 
    ```
    customer
    ```
-1. Select Databricks samples.tpch.customer and review schema
+
+   ![Picture 1](./Media/sandbox-purview-image175.png)
+
+1. Review the list of returned assets.
+
+1. Select the Databricks customer asset.
+
+1. Review its schema and properties.
+
+   **>Note:** Observe how similar data entities exist across different platforms.
 
 1. Search for:
-   - sale → observe results from both Fabric and Databricks
-   - orders → observe Databricks results
-   - vendors → verify Fabric table
 
-1. Use filters:
- 
-   - Filter by Source type (Fabric / Azure Databricks Unity Catalog)
+   - sale: observe results from both Fabric and Databricks
 
-1. Expected Result: Assets from both Fabric and Databricks are visible in search results. You can identify differences based on source type
+     [Picture 1](./Media/sandbox-purview-image176.png)
+
+     **>Note**: This highlights unified data discovery across both Fabric and Databricks.
+
+1. Search for **`customer`**, then press **Enter** to navigate to the results pane, where you can select and review multiple related assets in one place. 
+
+1. Notice that assets from both **Fabric and Databricks** are visible in the search results. You can identify differences based on the source type.
+
+   [Picture 1](./Media/sandbox-purview-image177.png)
+
+   **>Note:** Assets from both Fabric and Databricks are displayed together.
+     - You can compare:
+       1. Source type
+       2. Asset names
+       3. Metadata
+
+    - This view helps in efficiently comparing and analyzing related assets.
 
 ## Task 2: Compare Metadata Completeness
 
