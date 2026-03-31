@@ -1,6 +1,5 @@
 # Getting Started – Data Governance with Microsoft Purview Across Fabric & Databricks
 
-
 ## Overview
 
 This hands-on workshop provides a comprehensive, end-to-end experience in implementing enterprise data governance using **Microsoft Purview** across a multi-platform data estate that includes **Microsoft Fabric** and **Azure Databricks**.
@@ -202,8 +201,8 @@ CloudLabs support is available 24/7 to assist learners and instructors.
 - **Email:** cloudlabs-support@spektrasystems.com  
 - **Live Chat:** https://cloudlabs.ai/labs-support  
 
-Click **Next** to begin **Lab 01**.
+### Click Next to begin **Lab 01**.
 
-![](./Media/nextpage1.png)
+![](./Media/GS0001.png)
 
 ### Happy Learning!!

@@ -1,12 +1,20 @@
 # Lab 1: Purview Environment Setup & Core Configuration 
 
-## Overview 
+## Lab Overview
 
-This lab introduces you to setting up and validating your governance environment in Microsoft Purview. You will ensure that access roles are correctly assigned, organize your data estate using collections and domains, and explore the Unified Catalog experience.
+In this lab, you will explore how to set up and validate your data governance environment using Microsoft Purview. You will begin by verifying access roles and permissions, then organize your data estate using collections and domains. Finally, you will explore the Unified Catalog experience to understand how business users interact with governed data.
 
-The focus is on laying the foundation for data governance, ensuring that users, structure, and access controls are properly configured before working with actual data assets.
+This lab focuses on building the foundational structure required for effective data governance, ensuring that access, organization, and discoverability are properly configured before working with actual data assets.
 
-### Objective:
+> **Note:** This lab involves guided configuration steps, but some components may already be preconfigured to simulate a real-world governance environment.
+
+## Lab Objectives
+
+In this lab, you will perform the following:
+
+- **Task 1:** Validate Microsoft Purview account and access roles  
+- **Task 2:** Configure collections, domains, and ownership model  
+- **Task 3:** Explore and understand the Unified Catalog experience  
 
 ### Estimated Duration: 20 minutes
 
@@ -33,13 +41,13 @@ In this task, you will verify access to the Microsoft Purview account and confir
 
 1. Click **Open Microsoft Purview Governance Portal** to launch the portal in a new tab.
 
-    ![Picture 1](./Media/sandbox-purview-image4.png)
+    ![Picture 1](./Media/DG16.png)
 
 1. When **Welcome to the new Microsoft Purview portal!** pop-up appears, click on **Get started**.
 
-   ![Picture 1](./Media/sandbox-purview-image6.png)
+   ![Picture 1](./Media/DG1.png)
    
-1. On the **Microsoft Purview** portal, from the left navigation pane select **Solutions** (1) and then select **Data Map** (2).
+1. On the **Microsoft Purview** portal, from the left navigation pane select **Solutions (1)** and then select **Data Map (2)**.
 
    ![Picture 1](./Media/sandbox-purview-image7.png)
 
@@ -59,7 +67,7 @@ This task focuses on structuring your data environment logically using collectio
 
 1. Now pevioosult task we have cteate the purview and rolle assigneme t now let woke on creating collect and Domain and asisgne to odl user id
 
-1. On the **Data Map**, click on **+ New collection**, name it as **Contoso Data Estate**, in the **Collection domain** search and select the domain, then click on **Create**.
+1. In the **Domains** page, click **New collection (1)**, enter **Contoso Data Estate (2)**, under **Collection admins (3)** search for **ODL-User** and select **<inject key="AzureAdUserEmail" enableCopy="true"/>**, ensure **ODL_User<inject key="DeploymentID" enableCopy="false"/> (4)** is selected, and then click **Create (5)**.
 
     ![Picture 1](./Media/sandbox-purview-image10.png)
 
@@ -67,61 +75,67 @@ This task focuses on structuring your data environment logically using collectio
 
     ![Picture 1](./Media/sandbox-purview-image11.png)
 
-1. On the **New collection** pane, provide **Collection Name** as Fabric Sources, then under **Collection domain** search and select the domain, and click on **Create**.
 
-    ![Picture 1](./Media/sandbox-purview-image12.png)
+1. On the **New collection** pane, provide **Collection Name** as **Fabric Sources (1)**,  under **Collection admins (2)** search for **ODL-User** and select **<inject key="AzureAdUserEmail" enableCopy="true"/>**, ensure **ODL_User<inject key="DeploymentID" enableCopy="false"/> (3)** is selected, and then click **Create (4)**
+
+    ![Picture 1](./Media/DG06.png)
 
 1. Repeat the same steps to create the following collections:   
 
-    | Collection Name | 
-    |----------------|
-    | `Databricks Sources`| 
-    | `Shared Assets` |
+    | Collection Name        |
+    |------------------------|
+    | `Databricks Sources`   |
+    | `Shared Assets`        |
 
-   ![Picture 1](./Media/sandbox-purview-image13.png)
+   ![Picture 1](./Media/DG011.png)
 
-   ![Picture 1](./Media/sandbox-purview-image14.png)
+   ![Picture 1](./Media/DG12.png)
 
-5. Now you should be able to see all **Collections (1)**. Next, let’s create domains. Click on **+ New domain (Preview) (2)**.
+1. Verify that the collections **Databricks Sources**, **Fabric Sources**, and **Shared Assets** are successfully created under **Contoso Data Estate**.
 
-   ![Picture 1](./Media/sandbox-purview-image15.png)
-   
-7. Create the following domains with the given values:
+     ![Picture 1](./Media/DG7.png)
 
-     - **Name**: Sales & Commerce | **Description**: All sales, orders, and customer data | under **Collection domain**, search and select the domain, then click on **Create**.
 
-        ![Picture 1](./Media/sandbox-purview-image16.png)
+1. In the **Domains** page, click **New domain (1)**, enter **Sales & Commerce (2)**, provide the description as **All sales, orders, and customer data (3)**, verify the user under **Domain admins (4)** is selected as **ODL_User<inject key="DeploymentID" enableCopy="false"/> (5)**, and then click **Create (6)**.
+
+    ![Picture 1](./Media/DG8.png)
        
-    - **Name**: Human Resources | **Description**: Employee PII and HR data | under **Collection domain**, search and select the domain, then click on **Create**.
+1. In the **Domains** page, click **New domain (1)**, enter **Human Resources (2)**, provide the description as **Employee PII and HR data (3)**, verify the user under **Domain admins (4)** is selected as **ODL_User<inject key="DeploymentID" enableCopy="false"/> (5)**, and then click **Create (6)**.
 
-        ![Picture 1](./Media/sandbox-purview-image17.png)
+    ![Picture 1](./Media/DG10.png)
 
-9. Now **Set Data Ownership**. This has already been done by assigning ownership to your user account while creating the collections and domains. Now, you can explore the assigned roles and permissions.  
+1. Now **Set Data Ownership**. This has already been done by assigning ownership to your user account while creating the collections and domains. Now, you can explore the assigned roles and permissions.  
 
-1. Click on any of the **Collections** or **Domain**  and select **Role assignments**. You should see your user account listed, as ownership was assigned during the creation of the collection.
-
-    ![Picture 1](./Media/sandbox-purview-image18.png)
+1. Click on any of the **Collections** or **Domain (1)**  and select **Role assignments (2)**. You should see your **user account (3)** listed, as ownership was assigned during the creation of the collection.
 
     ![Picture 1](./Media/sandbox-purview-image19.png) 
     
-  **> Note:** You can assign ownership either while creating a collection or domain, or after creation by editing the collection or domain and updating the ownership settings. 
+    >**Note:** You can assign ownership either while creating a collection or domain, or after creation by editing the collection or domain and updating the ownership settings. 
 
 ### Task 3: Enable Unified Catalog Experience
 
 In this task, you explore the Unified Catalog, a business-friendly interface that sits on top of the technical Data Map.
 
-> **What is Unified Catalog?** Unified Catalog is the business friendly layer on top of Data Map. It lets business users discover data assets, browse data products, and access the enterprise glossary  without needing to understand the technical Data Map structure.
+> **What is Unified Catalog?** 
+> Unified Catalog is the business friendly layer on top of Data Map. It lets business users discover data assets, browse data products, and access the enterprise glossary  without needing to understand the technical Data Map structure.
 
 1. In your tenant, the **Unified Catalog** experience is already enabled. In this task, you will review its features.
 
-1. In the **Microsoft Purview portal**, from the left navigation pane, click on **Unified Catalog**. On the overview page, review the available features and explore different sections to understand the interface.
+1. In the **Microsoft Purview portal**, from the left navigation pane select **Solutions (1)** and click **Unified Catalog (2)**. On the overview page, **review** the available features and explore the interface.
 
-     ![Picture 1](./Media/sandbox-purview-image20.png)
+     ![Picture 1](./Media/DG13.png)
+
+     ![Picture 1](./Media/DG15.png)
     
-1. You can also navigate to **Settings** → **Account** to review the account type and configuration.
+    
+1. In the **Microsoft Purview portal**, from the left navigation pane select **Settings (1)**, click **Account (2)**, and review the **Account type (3)** on the overview page.
 
-    ![Picture 1](./Media/sandbox-purview-image21.png) 
+    ![Picture 1](./Media/DG14.png) 
 
+## Summary
 
+In this lab, you set up and validated your Microsoft Purview governance environment by verifying access roles and permissions, organizing the data estate using collections and domains, assigning ownership for governance control, and exploring the Unified Catalog experience for business-friendly data discovery.
 
+## Click Next to continue to the next lab.
 
+![](./Media/GS0001.png)
