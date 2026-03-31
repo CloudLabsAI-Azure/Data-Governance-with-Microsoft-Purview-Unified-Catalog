@@ -9,7 +9,7 @@
 
 ## Creating Security Group
 
-1. Open the **Azure portal** in a new browser tab. Use the search bar to find and select **Groups**.
+1. In the Azure portal search bar, type **Groups (1)** and select **Groups (2)** from the results.
 
     ![Picture 1](./Media/sandbox-purview-image130.png)
 
@@ -24,12 +24,12 @@
    - **Microsoft Entra roles can be assigned to the group (3)**: Yes  
 
       ![Picture 1](./Media/sandbox-purview-image132.png)
-     
-1. Under **Owners**, click **No owner selected**, then in the search bar, search for and select your user account **<inject key="AzureAdUserEmail" enableCopy="true"/>**.
+
+1. In the **New Group** page, under **Owners (1)** click **No owners selected**, in the **Add owners** pane select **<inject key="AzureAdUserEmail" enableCopy="true"/> (2)**, and then click **Select (3)**.
 
    ![Picture 1](./Media/sandbox-purview-image133.png)
 
-1. Under **Members**, click **No member selected**, then search for and select the managed identity: **Purview-<inject key="DeploymentID" enableCopy="false"/>**.
+1. In the **New Group** page, under **Members (1)** click **No members selected**, in the **Add members** pane search for **purview (2)**, select the **Purview-<inject key="DeploymentID" enableCopy="false"/> (3)**, and then click **Select (4)**.
 
    ![Picture 1](./Media/sandbox-purview-image134.png)
 
@@ -41,13 +41,17 @@
 
     ![Picture 1](./Media/sandbox-purview-image136.png)
 
-1. Back on the **Groups | Overview** page, from the left navigation pane, select **All groups** and review the newly created group.
+1. Back on the **Groups | Overview** page, from the left navigation pane, select **All groups (1)** and review the newly created **Purview-security-Group (2)**.
 
    ![Picture 1](./Media/sandbox-purview-image137.png)
 
-1. In a new browser tab, navigate to **`https://app.fabric.microsoft.com`**
+1. Open a new browser tab and navigate to the following URL:
 
-1. On **Enter your email, we'll check if you need to create a new account.** enter your **Email/Username:** <inject key="AzureAdUserEmail" enableCopy="true"/>.
+    ```
+    https://app.fabric.microsoft.com
+    ```
+
+1. On the **Enter your email, we'll check if you need to create a new account** page, enter your **Email/Username (1)** as **<inject key="AzureAdUserEmail" enableCopy="true"/>**, and then click **Submit (2)**.
 
    ![Picture 1](./Media/sandbox-purview-image93.png)
 
@@ -73,17 +77,17 @@
 
     ![Picture 1](./Media/sandbox-purview-image139.png)
    
-1. Expand all four settings and enable the toggles. Verify that all four related settings are **enabled (3)**.
+1. Expand each of the four settings and turn the toggle to **Enabled (1)**, ensuring all settings are enabled.
 
-1. For the first two settings, select **Specific security group**, search for and select **Purview-security-Group**.
+1. For the first two settings, select **Specific security groups (2)** and choose **purview-security-group (3)**.
 
 1. For the remaining two settings, select **Entire organization**.
 
-1. Click **Apply** to save the changes after enabling the toggles.
+1. Click **Apply (4)** to save the changes.
 
    ![Picture 1](./Media/sandbox-purview-image140.png)
    
-1. In the left sidebar, click **Workspaces** → **+ New workspace**.
+1. In the **Power BI** portal, click **Workspaces (1)** from the left navigation pane, and then click **New workspace (2)**.
 
     ![Picture 1](./Media/sandbox-purview-image98.png)
 
@@ -103,7 +107,7 @@
 
 ### Task 2: Create a Lakehouse with Sample Data
 
-1. Click **+ New item** then search and select **Lakehouse**.
+1. In the workspace, click **New item (1)**, search for **Lakehouse (2)**, and then select **Lakehouse (3)**.
     
     ![Picture 1](./Media/sandbox-purview-image102.png)
    
@@ -121,7 +125,7 @@
     
     - Wait for the data loading to complete (1 - 2 minutes)
 
-15. After loading, expand **Tables** in the Explorer pane. You should see tables like:
+1. After loading, expand **Tables** in the Explorer pane. You should see tables like:
     
     - `dimension_city`, `dimension_customer`, `dimension_employee`, `dimension_stock_item`
     - `fact_sale`, `fact_order`, `fact_purchase`
@@ -133,35 +137,39 @@
 
 1. Now, add another file that contains vendors tables.
 
-2. Click on **Files**, then select **Get data**, and click on **Upload files**.
+1. In the Lakehouse explorer, expand **Files (1)**, click **Get data (2)**, and then select **Upload files (3)**.
 
    ![Picture 1](./Media/sandbox-purview-image107.png)
     
-3. Click the **file icon**, then select the `vendors.csv` file.
+1. In the **Upload files** pane, click the folder icon (1), navigate to **Documents (2)**, select the **vendor file (3)**, and then click **Open (4)**.
 
-4. Verify the file then click on **Upload**.
+    ![Picture 1](./Media/DG19.png)
 
-6. Once the upload is complete, click **Close** from the top-right corner.
+1. Verify the file then click on **Upload**.
 
-9. Once uploaded, you should see `vendors.csv` in the Files section.
+    ![Picture 1](./Media/DG18.png)
+
+1. Once the upload is complete, click **Close** from the top-right corner.
+
+    ![Picture 1](./Media/DG17.png)
+
+1. Once uploaded, you should see `vendors.csv` in the Files section.
    
-11. Right-click **`vendors.csv` (1)** > select **Load to Tables (2)** > **New table (3)**.
+1. In the **Files** section, right-click the **vendors.csv file (1)**, select **Load to Tables (2)**, and then choose **New table (3)**.
 
-     ![Picture 1](./Media/sandbox-purview-image112.png)
+     ![Picture 1](./Media/DG20.png)
     
 1. On **Load file to new table**  keep all settings as it is then click **Load**.
 
    ![Picture 1](./Media/sandbox-purview-image113.png)
    
-1. Wait for the load to complete — the `vendors` table now appears under **Tables**
+1. Wait for the load to complete the `vendors` table now appears under **Tables** and verify the data: 10 rows with columns.
 
      ![Picture 1](./Media/sandbox-purview-image114.png)
 
-1. Click on `vendors` → verify the data: 10 rows with columns.
-
 **Task 3: Create a Semantic Model from the Lakehouse**
 
-1. While still in the Lakehouse, click **New semantic model** in the top toolbar. Provide **Name**: `PurviewLakehouse` (same name as the Lakehouse). In the table selection, **select all tables**, then click **Create**.
+1. In the Lakehouse, click **New semantic model (1)**, enter **PurviewLakehouse (2)** as the name, select **Select all (3)** to include all tables, and then click **Confirm (4)**.
 
     ![Picture 1](./Media/sandbox-purview-image115.png)
     
@@ -170,7 +178,7 @@
 
 ### Task 3.1: Create a Warehouse with Sales Data**
 
-1. Go back to the workspace click **+ New item (1)** then search and select **Warehouse (2) (3)**.
+1. Go back to the workspace click **+ New item (1)** then search **Warehouse (2)** and select **Warehouse (3)**.
 
     ![Picture 1](./Media/sandbox-purview-image116.png)
     
@@ -178,50 +186,62 @@
 
     ![Picture 1](./Media/sandbox-purview-image117.png)
 
-1. Once the Warehouse opens, click **New SQL query** (top toolbar). Copy and paste the entire SQL script from the file **warehouse-sales-orders.sql** (provided with the lab materials). Click **Run (▶)** and wait for the query to complete.
+1. In the warehouse page, under **Start getting data**, click **Practice with sample data**.
 
     ![Picture 1](./Media/sandbox-purview-image118.png)
 
-1. In the **Explorer** pane, right-click **Tables**, click **Refresh**, expand **dbo**, then **Tables**, and verify that the `sales_orders` table appears with 15 records.
+1. In the warehouse, click **New SQL query (1)**.
 
-    ![Picture 1](./Media/sandbox-purview-image119.png)
+     ![Picture 1](./Media/DG022.png)
 
-### Task 3.2: Create a Data Pipeline**
+1. In the SQL editor, paste the provided **SQL script (2)** and click **Run (3)** to execute the query.
+
+    ![Picture 1](./Media/DG23.png)
+
+1. In the **Explorer** pane, expand **Schemas (1)**, then **dbo (2)**, then **Tables (3)**, select **sales_orders (4)**, and verify that the table displays data with **15 records (5)**.
+
+    ![Picture 1](./Media/DG24.png)
+
+    > **Note:** If you do not see the `sales_orders` table, right-click **Schemas (1)** and select **Refresh (2)**, then check again.
+
+     ![Picture 1](./Media/DG25.png)
+
+### Task 3.2: Create a Data Pipeline
 
 > This pipeline moves vendor data from the Lakehouse to the Warehouse. You'll use it in Lab 4 to demonstrate data lineage in Purview.
 
-1. Go back to the workspace, click **+ New item (1)**, search for and select **Pipeline (2) (3)**.
+1. Go back to the workspace, click **+ New item (1)**, search for **Pipeline (2)** and select **Pipeline (3)**.
 
-    ![Picture 1](./Media/sandbox-purview-image120.png)
+    ![Picture 1](./Media/sandbox-purview-image121.png)
     
 1. On the **New pipeline** pane, provide **Name** **`Vendor-ETL-Pipeline` (2)**, then click **Create (2)**.
 
-    ![Picture 1](./Media/sandbox-purview-image121.png)
+    ![Picture 1](./Media/DG26.png)
 
 1. In the pipeline canvas from the top menu, click **Copy data (1)** and select **Add copy data activity (2)**
 
    ![Picture 1](./Media/sandbox-purview-image122.png)
    
-1. Click on the **Source (1)** tab. For **Connection**, select the dropdown **(2)**, then click on **Browse all (2)**.
+1. Click on the **Source (1)** tab. For **Connection**, select the dropdown **(2)**, then click on **Browse all (3)**.
    
    ![Picture 1](./Media/sandbox-purview-image123.png)
    
-     - Select **Microsoft Fabric Lakehouse** named **`PurviewLakehouse`**
-     - Under **Table**, browse and select: **`dbovendors`**
+     - Select **Microsoft Fabric Lakehouse** named **`PurviewLakehouse` (4)**
+     - Under **Table**, browse and select: **`dbovendors`(5)**
 
        ![Picture 1](./Media/sandbox-purview-image124.png)
 
-1. Click on **Destination** tab. Next to **Connection**, select the dropdown, then click on **Browse all (2)**.
+1. Click on **Destination (1)** tab. Next to **Connection**, select the dropdown, then click on **Browse all (2)**.
 
    ![Picture 1](./Media/sandbox-purview-image125.png)
    
-     - Select **Microsoft Fabric Warehouse** → select **`PurviewWarehouse`**
-     - Under **Table option**, select **Auto create table**
-     - Enter **Table name**: **`stg_vendors`**
+     - Select **Microsoft Fabric Warehouse** and select **`PurviewWarehouse` (2)**
+     - Under **Table option**, select **Auto create table (3)**
+     - Enter **Table name**: **`stg_vendors`(4)**
 
        ![Picture 1](./Media/sandbox-purview-image126.png)
 
-1. Click **Run** → click **Save and run** if prompted.
+1. Click **Save (1)** and click **Run (2)** 
 
     ![Picture 1](./Media/sandbox-purview-image127.png)
     
@@ -229,7 +249,7 @@
 
      ![Picture 1](./Media/sandbox-purview-image128.png)
     
-1. Go back to the workspace → click **PurviewWarehouse** → expand **dbo** → **Tables** → verify `stg_vendors` appears with 10 vendor records.
+1. Go back to the workspace and click **PurviewWarehouse** and expand **dbo**, **Tables**, verify `stg_vendors` appears with 10 vendor records.
 
     ![Picture 1](./Media/sandbox-purview-image129.png)
 
