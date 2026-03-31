@@ -13,7 +13,7 @@
 
 2. Search for:
 
-   ``
+   ```
    customer
    ```
 1. Select Databricks samples.tpch.customer and review schema
