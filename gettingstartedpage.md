@@ -94,7 +94,7 @@ All assets are unified within the **Unified Catalog**, enabling both technical a
 
 ## Architecture Diagram
 
-*(Insert architecture diagram here as per standard format)*
+![](./Media/arch1.png)
 
 ## Explanation of Components
 
