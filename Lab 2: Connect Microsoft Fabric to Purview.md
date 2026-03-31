@@ -249,9 +249,9 @@
 
      ![Picture 1](./Media/sandbox-purview-image128.png)
     
-1. Go back to the workspace and click **PurviewWarehouse** and expand **dbo**, **Tables**, verify `stg_vendors` appears with 10 vendor records.
+1. In the **Explorer** pane, expand **Tables (1)**, select **stg_vendors (2)**, and verify that the table displays data **(3)**.
 
-    ![Picture 1](./Media/sandbox-purview-image129.png)
+    ![Picture 1](./Media/DG27.png)
 
       **Expected Result**: **`Purview-Lab-WS**` workspace now contains 6 items:
       - `PurviewLakehouse`:  Wide World Importers retail data + vendors table (Lakehouse)
