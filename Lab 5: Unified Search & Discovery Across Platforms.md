@@ -1,8 +1,20 @@
-# Lab 5: Unified Search & Discovery Across Platforms
+# Day 2 - Lab 5: Unified Search & Discovery Across Platforms
+
+## Lab Overview 
+In this lab, you will use Microsoft Purview to search and discover data assets across Microsoft Fabric and Databricks. You will compare metadata across platforms, identify gaps in data documentation, and improve asset quality by adding descriptions, classifications, ownership, and lineage.
+
+This lab demonstrates how unified discovery combined with metadata enrichment enables effective data governance across modern data platforms.
+
+## Lab Objective
+You will be able to complete the following tasks:
+
+- Task 1: Search Data Assets Across Fabric and Databricks
+- Task 2: Compare Metadata Completeness
+- Task 3: Identify Ownership and Documentation Gaps
 
 ### Task 1: Search Data Assets Across Fabric and Databricks
 
-In this task, you will search and explore data assets across Microsoft Fabric and Databricks using the Microsoft Purview Unified Catalog, and compare their schema and metadata.
+In this task, you will use the Microsoft Purview Unified Catalog to search and explore data assets across Microsoft Fabric and Databricks. You will review asset details and understand how unified search enables cross-platform data discovery.
 
 1. In the **Purview portal** select **Unified Catalog (1)** expand **Discovery (2)**  choose **Data assets (3)**.
 
@@ -43,7 +55,7 @@ In this task, you will search and explore data assets across Microsoft Fabric an
 
    - sale: observe results from both Fabric and Databricks
 
-     [Picture 1](./Media/sandbox-purview-image176.png)
+     ![Picture 1](./Media/sandbox-purview-image176.png)
 
      **>Note**: This highlights unified data discovery across both Fabric and Databricks.
 
@@ -51,7 +63,7 @@ In this task, you will search and explore data assets across Microsoft Fabric an
 
 1. Notice that assets from both **Fabric and Databricks** are visible in the search results. You can identify differences based on the source type.
 
-   [Picture 1](./Media/sandbox-purview-image177.png)
+   ![Picture 1](./Media/sandbox-purview-image177.png)
 
    **>Note:** Assets from both Fabric and Databricks are displayed together.
      - You can compare:
@@ -63,39 +75,128 @@ In this task, you will search and explore data assets across Microsoft Fabric an
 
 ## Task 2: Compare Metadata Completeness
 
-1. Search for dimension_customer → open the Fabric table
+In this task, you will compare metadata across Fabric and Databricks assets to identify gaps in documentation, ownership, and classification, and understand differences in metadata availability between platforms.
+
+1. On the search results page, you can switch the filter from **Databricks to Fabric** to filter the assets.
+
+1. Select **Fabric** then choose `dimension_customer` to open the Fabric table.
+
+   ![Picture 1](./Media/sandbox-purview-image190.png)
+   
    - Review:
 
-      - Schema → Present
-      - Description → Missing
-      - Owner → Missing
-      - Classifications → Present (if applied)
+      - Schema: Present
+      - Description: Missing
+      - Owner: Missing
+      - Classifications: Missing
 
-1. Search for customer → open Databricks samples.tpch.customer
+        ![Picture 1](./Media/sandbox-purview-image189.png)
+
+1. Now uncheck **Fabric** and select **Databricks**. Search for `customer`, then select it to open the Databricks asset.
+ 
    - Review:
-     - Schema → Present
-     - Description → Present (default from Unity Catalog)
-     - Owner → Missing
-     - Classifications → Present (if applied)
+     - Schema: Present
+     - Description: Missing
+     - Owner: Missing
+     - Classifications: Present (if applied)
+
+       ![Picture 1](./Media/sandbox-purview-image191.png)
+
+       ![Picture 1](./Media/sandbox-purview-image192.png)
 
 1. Compare both assets:
-   - Fabric → requires manual metadata enrichment
-   - Databricks → includes some default metadata
+   
+   - Fabric: requires manual metadata enrichment
+   - Databricks: includes some default metadata
 
 1. Expected Result: You understand differences in metadata availability between Fabric and Databricks
 
 ### Task 3: Identify Ownership and Documentation Gaps
 
+In this task, you will enhance asset metadata by adding descriptions, classifications, ownership, and optional lineage. You will improve data quality and governance by filling gaps identified in previous steps.
+
 1. From previous task observations, identify missing metadata:
-      - Description → Missing
-      - Owner → Missing
-      - Glossary terms → Missing
 
-1. Open Fabric dimension_customer
-   - Click Edit and update:
-   - Add description
-   - Assign Owner
-   - Assign Expert
+1. Now check **Fabric** and select **`dimension_customer**.
 
-1. Save changes and verify updates on the asset page
-1. Attempt to edit Databricks customer
+1. In the **`dimension_customer`** asset page, click **Edit (1)**.
+
+   ![Picture 1](./Media/sandbox-purview-image193.png)
+   
+1. In the **Overview (1)** tab, update the **Asset description (2)** with relevant with below details.
+
+   - **Asset description**: `Retail customer dimension table from Wide World Importers. Contains customer name, category, buying group, postal code, and delivery details. Source of truth for retail customer profiles in Fabric.`
+
+   - Under **Classifications (3)**, select **All Full Names**.
+
+     ![Picture 1](./Media/sandbox-purview-image194.png)
+     
+1. Navigate to the **Schema (1)** tab.
+
+1. Apply classifications to the following columns:
+   - `PrimaryContact` → **All Full Names**
+   - `PostalCode` → **U.S. Zip Codes**
+
+     ![Picture 1](./Media/sandbox-purview-image195.png)
+
+1. Navigate to the **Lineage (1)** tab. You can add linege manual as we perform task in prevate lab by  Clicking **+ Add manual lineage (2)** to define lineage (optional for this lab).
+
+   ![Picture 1](./Media/sandbox-purview-image196.png)
+
+1. Navigate to the **Contacts (1)** tab. Under **Experts (2)** and **Owners (3)**, verify or add the appropriate user.
+   
+   - **Expert**: <inject key="AzureAdUserEmail" enableCopy="true"/>
+   - **Owner**: <inject key="AzureAdUserEmail" enableCopy="true"/>
+   - Click **Save (4)** to apply all changes.
+
+    ![Picture 1](./Media/sandbox-purview-image197.png)
+
+1. Now uncheck **Fabric** and select **Databricks**. Search for `customer`, click **Edit** and update.
+
+   ![Picture 1](./Media/sandbox-purview-image198.png)
+   
+1. In the **Overview (1)** tab, update the **Asset description (2)** with relevant with below details.  
+
+   - **Asset Description**: `TPC-H benchmark customer table from Databricks Unity Catalog samples. Contains customer key, name, address, phone, nation, account balance, and market segment. Read-only reference dataset.`
+     
+   - Under **Classifications (3)**, select **All Full Names**.
+  
+     ![Picture 1](./Media/sandbox-purview-image199.png)
+    
+1. Apply classifications to the following columns:
+   - `c_firstname`: **All Full Names**
+   - `c_lasttname`:  **All Full Names**
+
+     ![Picture 1](./Media/sandbox-purview-image200.png)
+
+1. Navigate to the **Lineage (1)** tab. You can add linege manual as we perform task in prevate lab by  Clicking **+ Add manual lineage (2)** to define lineage (optional for this lab).
+
+   ![Picture 1](./Media/sandbox-purview-image201.png)
+
+1. Navigate to the **Contacts (1)** tab. Under **Experts (2)** and **Owners (3)**, verify or add the appropriate user.
+   
+   - **Expert**: <inject key="AzureAdUserEmail" enableCopy="true"/>
+   - **Owner**: <inject key="AzureAdUserEmail" enableCopy="true"/>
+   - Click **Save (4)** to apply all changes.
+
+      ![Picture 1](./Media/sandbox-purview-image202.png)
+     
+1. Compare the two assets now:
+
+   | Metadata Field | Fabric `dimension_customer` | Databricks `tpch.customer` |
+   |---|---|---|
+   | Description |  Added | Added |
+   | Owner |  Added |  Added |
+   | Glossary terms | Not yet | Not yet |
+
+   > **Note**: Glossary terms (e.g., "Customer", "Revenue", "Order") will be created and linked to assets in **Lab 7: Business Metadata & Glossary Management** on Day 2. Glossary terms require a governance domain and enterprise glossary setup, which you'll configure in Labs 6 - 7.
+
+### Summary
+
+In this lab, you:
+
+- Searched and discovered data assets across Fabric and Databricks
+- Compared metadata completeness between platforms
+- Identified gaps in descriptions, ownership, and classifications
+- Enriched assets by adding metadata, classifications, and contacts
+- Improved data governance through standardized documentation
