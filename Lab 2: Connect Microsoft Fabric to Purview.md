@@ -1,5 +1,22 @@
 # Day 1 - Lab 2: Connect Microsoft Fabric to Purview
 
+## Lab Overview
+
+In this lab, you will connect Microsoft Fabric to Microsoft Purview and enable data discovery across your Fabric environment. You will begin by creating and configuring a Fabric workspace with sample and custom data, including Lakehouse, Warehouse, and Semantic Models. You will then register Microsoft Fabric as a data source in Purview, configure and run a scan, and validate how different Fabric assets are discovered and cataloged in the Unified Catalog.
+
+This lab demonstrates how Microsoft Purview integrates with Microsoft Fabric to provide centralized data governance, visibility, and lineage across analytics workloads.
+
+## Lab Objectives
+
+In this lab, you will perform the following:
+
+- **Task 1:** Create and configure a Microsoft Fabric workspace with data  
+- **Task 2:** Register Microsoft Fabric as a data source in Purview  
+- **Task 3:** Configure and run a scan for Fabric data  
+- **Task 4:** Validate discovered assets in Unified Catalog  
+- **Task 5:** Explore Semantic Models and understand asset representation  
+
+### Estimated Duration: 120 minutes
 
 ## Before You Begin: Create a Fabric Workspace with Data
 
@@ -262,20 +279,24 @@
       - `vendors.csv`:  Uploaded file in Lakehouse Files
 
 ### Task 2: Configure and validate Fabric scan connection
-      
+
 **Step 1: Register Fabric in Purview**
 
-1. Switch to the **Purview portal**.
+1. Navigate back to the **Microsoft Purview** home page using the URL below.
 
-2. From the left navigation pane, click **Solutions (1)**, then select **Data Map (2)**.
+   ```
+   https://purview.microsoft.com/
+   ```
+
+1. From the left navigation pane, click **Solutions (1)**, then select **Data Map (2)**.
 
    ![Picture 1](./Media/sandbox-purview-image7.png)
 
-4. On the **Data sources** page click **Register (1)** In the source type list, search for and select **Fabric (2) (3)** then click **Continue (4)**.
+1. On the **Data sources** page click **Register (1)** In the source type list, search for and select **Fabric (2) (3)** then click **Continue (4)**.
 
    ![Picture 1](./Media/sandbox-purview-image141.png)
    
-6. Configure the registration:
+1. Configure the registration:
    - **Name**: **`Purview-Fabric` (1)**
    - **Domain**: **purview-<inject key="DeploymentID" enableCopy="false"/> (2)**
    - **Collection**: select **`Fabric Sources` (3)**
@@ -283,11 +304,11 @@
 
      ![Picture 1](./Media/sandbox-purview-image142.png)
      
-8. Verify **`Purview-Fabric`** appears under **`Fabric Sources`** in the data map.
+1. Verify **`Purview-Fabric`** appears under **`Fabric Sources`** in the data map.
 
    ![Picture 1](./Media/sandbox-purview-image143.png)
 
-**Expected Result**: Fabric tenant registered as a source in Purview Data Map.
+    - **Expected Result**: Fabric tenant registered as a source in Purview Data Map.
 
 1. Under **Data sources**, locate **Purview-Fabric** and click the **Scan (1)** icon.
 
@@ -307,13 +328,19 @@
 
 1. Once the **Test connection** is successful (**Success – View report (1)**), click **Continue (2)**.
 
-   ![Picture 1](./Media/sandbox-purview-image145.png)
+   ![Picture 1](./Media/DG030.png)
 
-1. On the **Scope your scan** page, select **No**, then click **Continue**.
+1. On the **Scope your scan** page, select **No (1)**, then click **Continue (2)**.
 
-1. On the **Set a scan trigger** page, select **Once**, then click **Continue**.
+    ![Picture 1](./Media/DG28.png)
+
+1. On the **Set a scan trigger** page, select **Once (1)**, then click **Continue (2)**.
+
+    ![Picture 1](./Media/DG29.png)
 
 1. On the **Review your scan** page, click **Save and run**.
+
+    ![Picture 1](./Media/DG31.png)
 
 1. Back on the **Data sources** page, under **Fabric**, click on **View details**.
 
@@ -325,7 +352,7 @@
 
    > **Known limitation**: Per [Microsoft documentation](https://learn.microsoft.com/en-us/purview/register-scan-fabric-tenant), *"For all Fabric items besides Power BI, only item level metadata and lineage can be scanned. For Lakehouse tables and files, sub-item level metadata scanning is available but sub-item level lineage isn’t supported."* This means: Lakehouse tables appear individually, but Warehouse tables do not — only the Warehouse container is cataloged.
 
-**Step 3: Verify Lakehouse Assets**
+**Step 2: Verify Lakehouse Assets**
 
 1. Go to **Unified Catalog**, expand **Discovery (1)**, and select **Data assets (2)**. In the search bar, search for **`dimension_customer` (3)**, then select it from the results list **(4)**.
 
@@ -346,7 +373,7 @@
     
 1. Now, review another asset from Fabric. Go back and, in the same way, search for `fact_sales`, then select it and review the sales fact table.
 
-**Step 4: Verify Warehouse Assets**
+**Step 3: Verify Warehouse Assets**
 
 1. In the asset list, type and select **Warehouse**. 
 1. Review the Warehouse asset page:
@@ -356,16 +383,16 @@
 
         ![Picture 1](./Media/sandbox-purview-image152.png)
       
-    **>Note**: Individual Warehouse tables (Date, Trip, Geography, etc.) are **not** listed as separate assets.
+        >**Note**: Individual Warehouse tables (Date, Trip, Geography, etc.) are **not** listed as separate assets.
       > This is a [known Microsoft limitation](https://learn.microsoft.com/en-us/purview/register-scan-fabric-tenant)  Warehouse scanning is **item level only**. Sub-item scanning is only supported for Lakehouse.
       
 1. Compare the two scan results:
     - **Lakehouse**:  Purview shows each table as a separate asset with full schema (columns, data types)
     - **Warehouse**: Purview shows only the Warehouse container as a single asset
    
-       **>Note**This is an important governance insight: different Fabric item types have different levels of catalog granularity
+       >**Note**This is an important governance insight: different Fabric item types have different levels of catalog granularity
 
-**Expected Result**: Scan discovers assets. Lakehouse tables are individually cataloged with schemas. Warehouse is cataloged as a container asset. All visible in Unified Catalog.
+        >**Expected Result**: Scan discovers assets. Lakehouse tables are individually cataloged with schemas. Warehouse is cataloged as a container asset. All visible in Unified Catalog.
 
 ## Task 4: Discover Fabric Semantic Models in Unified Catalog (15 min)
 
@@ -375,14 +402,14 @@
 
 1. In **Unified Catalog** > **Discovery** > **Data assets**
 
-2. Search for **`Purview-Lakehouse`**, you should see below mentioned asset types:
+1. Search for **`Purview-Lakehouse`**, you should see below mentioned asset types:
    - `Purview-Lakehouse` (Lakehouse)
    - `Purview-Lakehouse` (**Power BI Dataset**) this is the semantic model
    - Click on the **Power BI Dataset** asset
 
     ![Picture 1](./Media/sandbox-purview-image153.png)
    
-5. Review the asset detail page:
+1. Review the asset detail page:
    
    - **Fully qualified name**: Power BI URL (e.g., `https://app.powerbi.com/groups/.../datasets/...`)
    - **Collection path**: purview-{deploymentId} → Contoso Data Estate → Fabric Sources
@@ -392,9 +419,9 @@
 
 **Step 2: Explore Semantic Model Schema**
 
-5. Click the **Schema** tab on the semantic model asset
+1. Click the **Schema** tab on the semantic model asset
 
-6. Review the tables and columns these mirror the Lakehouse tables you selected:
+1. Review the tables and columns these mirror the Lakehouse tables you selected:
 
    - `dimension_customer`, `dimension_city`, `dimension_employee`, `fact_sale`, etc.
 
@@ -402,8 +429,15 @@
 
     ![Picture 1](./Media/sandbox-purview-image155.png)
    
-
-   **>Note:** The semantic model is the **business-friendly view** of the same data:
+   >**Note:** The semantic model is the **business-friendly view** of the same data:
        - Lakehouse = raw Delta storage layer
        - SQL analytics endpoint = SQL query layer
        - Semantic model (Power BI Dataset) = BI/reporting layer
+
+## Summary
+
+In this lab, you created and configured a Microsoft Fabric workspace, built a Lakehouse with sample and custom data, created a Warehouse and Semantic Model, and implemented a data pipeline. You then registered Microsoft Fabric in Microsoft Purview, configured and executed a scan, and validated discovered assets including Lakehouse tables, Warehouse, and Semantic Models within the Unified Catalog.
+
+## Click Next to continue to the next lab.
+
+![](./Media/GS0001.png)
