@@ -29,7 +29,7 @@ In this lab, you will perform the following:
 
 1. In the Azure portal search bar, type **Groups (1)** and select **Groups (2)** from the results.
 
-    ![Picture 1](./Media/sandbox-purview-image130.png)
+    ![Picture 1](./Media/sandbox-purview-image227.png)
 
 1. On the **Groups overview (1)** page, click on **+ New group (2)**.
 
