@@ -61,6 +61,24 @@ In this task, you will verify access to the Microsoft Purview account and confir
    
    ![Picture 1](./Media/sandbox-purview-image9.png)
 
+## Assign User to Data Governance Role Group
+
+1. In the **Microsoft Purview portal**, go to **Settings (1)** → expand **Roles and scopes (2)** → select **Role groups (3)**.
+
+    ![Picture 1](./Media/DG02.png)
+
+1. Search for **Data Governance (1)**, select the **Data Governance role group (2)**, and click **Edit (3)**.
+
+    ![Picture 1](./Media/DG3.png)
+
+1. Click **Choose users (1)**, select the required user (2), and click **Select (3)**.
+
+      ![Picture 1](./Media/DG4.png)
+
+1. Review the details and click **Save** to assign the user to the role group.
+
+      ![Picture 1](./Media/DG5.png)
+
 ### Task 2: Configure Collections, Domains, and Ownership Model (20 min)
 
 This task focuses on structuring your data environment logically using collections and domains. You will organize data sources (like Fabric and Databricks) and categorize them into business domains.
