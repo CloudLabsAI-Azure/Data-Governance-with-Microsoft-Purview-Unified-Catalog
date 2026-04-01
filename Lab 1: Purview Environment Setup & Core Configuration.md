@@ -43,6 +43,10 @@ In this task, you will verify access to the Microsoft Purview account and confir
 
     ![Picture 1](./Media/DG16.png)
 
+   **>Important**: If you are unable to launch the **Open Microsoft Purview Governance Portal**, use the portal link https://purview.microsoft.com/. From the new Purview portal, follow the steps below to enable the unified portal experience:
+
+    - From the left navigation pane, select **Settings** → **Account**, then click the **Upgrade** button to update the portal experience from **Classic** to **Enterprise**.
+
 1. When **Welcome to the new Microsoft Purview portal!** pop-up appears, click on **Get started**.
 
    ![Picture 1](./Media/DG1.png)
@@ -61,19 +65,21 @@ In this task, you will verify access to the Microsoft Purview account and confir
    
    ![Picture 1](./Media/sandbox-purview-image9.png)
 
-## Assign User to Data Governance Role Group
+### Task 1.1: Assign User to Data Governance Role Group
 
-1. In the **Microsoft Purview portal**, go to **Settings (1)** → expand **Roles and scopes (2)** → select **Role groups (3)**.
+1. In the **Microsoft Purview portal**, go to **Settings (1)** > expand **Roles and scopes (2)** → select **Role groups (3)**.
 
     ![Picture 1](./Media/DG02.png)
 
-1. Search for **Data Governance (1)**, select the **Data Governance role group (2)**, and click **Edit (3)**.
+1. Search for **Data Governance (1)**, then press **Enter** to view the results. Select the **Data Governance role group (2)**, and click **Edit (3)**.
 
     ![Picture 1](./Media/DG3.png)
 
 1. Click **Choose users (1)**, select the required user (2), and click **Select (3)**.
 
       ![Picture 1](./Media/DG4.png)
+
+1. On the **Edit members of the role group** page, click on **Next** 
 
 1. Review the details and click **Save** to assign the user to the role group.
 
