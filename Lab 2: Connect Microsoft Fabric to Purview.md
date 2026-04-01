@@ -19,7 +19,10 @@ In this lab, you will perform the following:
 
 ### Task 1: Create and configure a Microsoft Fabric workspace with data  
 
-> **What is Microsoft Fabric?** Fabric is Microsoft's unified analytics platform. A single workspace can contain Lakehouses (for data engineering), Warehouses (for SQL analytics), Notebooks, Pipelines, and Semantic Models all stored in OneLake.
+In this task, you will set up a workspace in Microsoft Fabric and prepare it with data assets including Lakehouse, Warehouse, and Semantic Models.
+
+**Why it matters:**
+A properly configured workspace provides the foundation for data ingestion, transformation, and governance in later steps.
 
 1. Open a new browser tab and navigate to the following URL:
 
@@ -83,6 +86,11 @@ In this lab, you will perform the following:
 
 ### Task 1.1: Create a Lakehouse with Sample Data
 
+In this task, you will create a Lakehouse and load sample data into it.
+
+**Why it matters:**
+The Lakehouse acts as the primary storage layer where structured data is stored and later discovered by governance tools.
+
 1. In the workspace, click **New item (1)**, search for **Lakehouse (2)**, and then select **Lakehouse (3)**.
     
     ![Picture 1](./Media/sandbox-purview-image102.png)
@@ -110,6 +118,12 @@ In this lab, you will perform the following:
       ![Picture 1](./Media/sandbox-purview-image106.png)
    
 ### Task 1.2: Upload Vendors Data to Fabric Lakehouse
+
+In this task, you will upload a custom dataset and convert it into a table.
+
+**Why it matters:**
+
+Adding custom data simulates real-world scenarios and helps demonstrate how different data sources are governed.
 
 1. Now, add another file that contains **vendors** tables.
 
@@ -145,6 +159,11 @@ In this lab, you will perform the following:
 
 ### Task 1.3: Create a Semantic Model from the Lakehouse
 
+In this task, you will create a semantic model from the Lakehouse.
+
+**Why it matters:**
+The semantic model represents the business layer used for reporting and analytics, making data easier to consume.
+
 1. In the Lakehouse, click **New semantic model (1)**, enter **PurviewLakehouse (2)** as the name, select **Select all (3)** to include all tables, and then click **Confirm (4)**.
 
     ![Picture 1](./Media/sandbox-purview-image115.png)
@@ -153,6 +172,11 @@ In this lab, you will perform the following:
     - This creates the BI/reporting layer on top of the Lakehouse Delta tables
 
 ### Task 1.4: Create a Warehouse with Sales Data
+
+In this task, you will create a Warehouse and populate it with sample data.
+
+**Why it matters:**
+The Warehouse represents the structured analytics layer used for SQL-based workloads.
 
 1. Go back to the workspace click **+ New item (1)** then search **Warehouse (2)** and select **Warehouse (3)**.
 
@@ -182,9 +206,15 @@ In this lab, you will perform the following:
 
      ![Picture 1](./Media/DG25.png)
 
-#### Task 1.4: Create a Data Pipeline
+#### Task 1.5: Create a Data Pipeline
 
-> This pipeline moves vendor data from the Lakehouse to the Warehouse. You'll use it in Lab 4 to demonstrate data lineage in Purview.
+In this task, you will create a pipeline to move data from the Lakehouse to the Warehouse.
+
+**Why it matters:**
+
+Pipelines enable data movement and are essential for demonstrating data lineage in governance solutions.
+
+> This pipeline moves vendor data from the Lakehouse to the Warehouse. You will use it in Lab 4 to demonstrate data lineage in Purview.
 
 1. Go back to the workspace, click **+ New item (1)**, search for **Pipeline (2)** and select **Pipeline (3)**.
 
@@ -239,7 +269,17 @@ In this lab, you will perform the following:
 
 ## Task 2: Configure Fabric workspace connection 
 
+In this task, you will register your Fabric environment in Microsoft Purview.
+
+**Why it matters:**
+Registration allows Purview to connect to Fabric and discover metadata for governance.
+
 ### Task 2.1: Register Fabric in Purview
+
+In this task, you will register your Microsoft Fabric environment as a data source in Microsoft Purview. This establishes the connection required for Purview to access and discover metadata from your Fabric workspace.
+
+**Why it matters:**
+Registering Fabric enables Purview to identify and connect to your data environment, allowing governance capabilities such as scanning, cataloging, and lineage tracking.
 
 1. Navigate back to the **Microsoft Purview** home page using the URL below.
 
@@ -270,6 +310,11 @@ In this lab, you will perform the following:
     - **Expected Result**: Fabric tenant registered as a source in Purview Data Map.
 
 ### Task 3: Scan Fabric Lakehouse and Warehouse 
+
+In this task, you will configure and run a scan to discover Fabric assets.
+
+**Why it matters:**
+Scanning enables automatic metadata ingestion, making data assets visible in the catalog.
 
 1. Under **Data sources**, locate **Purview-Fabric** and click the **Scan (1)** icon.
 
@@ -315,6 +360,11 @@ In this lab, you will perform the following:
 
 ### Task 3.1: Verify Lakehouse Assets
 
+In this task, you will validate that Lakehouse tables are discovered in the Unified Catalog.
+
+**Why it matters:**
+Verifying assets ensures that metadata and schema details are correctly captured.
+
 1. Go to **Unified Catalog**, expand **Discovery (1)**, and select **Data assets (2)**. In the search bar, search for **`dimension_customer` (3)**, then select it from the results list **(4)**.
 
     ![Picture 1](./Media/sandbox-purview-image148.png)
@@ -335,6 +385,11 @@ In this lab, you will perform the following:
 1. Now, review another asset from Fabric. Go back and, in the same way, search for `fact_sales`, then select it and review the sales fact table.
 
 ### Task 3.2: Verify Warehouse Assets
+
+In this task, you will review how Warehouse assets are represented in Purview.
+
+**Why it matters:**
+Understanding differences in asset representation helps set correct expectations for governance.
 
 1. In the asset list, type and select **Warehouse**. 
 1. Review the Warehouse asset page:
@@ -357,9 +412,19 @@ In this lab, you will perform the following:
 
 ## Task 4: Discover Fabric Semantic Models in Unified Catalog 
 
+In this task, you will explore how semantic models appear in the Unified Catalog.
+
+**Why it matters:**
+Semantic models provide a business-friendly view of data used in reporting and analytics.
+
 > **What is a Semantic Model?** A semantic model (shown as **Power BI Dataset** in Purview) is the BI/reporting layer on top of Lakehouse Delta tables. You created one in "Before You Begin". Purview discovers it automatically during the workspace scan.
 
 ## Task 4.1: Find the Semantic Model
+
+In this task, you will locate the semantic model in the catalog.
+
+**Why it matters:**
+This helps users understand how BI assets are discovered and organized.
 
 1. In **Unified Catalog** > **Discovery** > **Data assets**
 
@@ -380,6 +445,11 @@ In this lab, you will perform the following:
 
 ## Task 4.2: Explore Semantic Model Schema
 
+In this task, you will review the schema of the semantic model.
+
+**Why it matters:**
+Understanding schema helps users interpret how business data is structured and consumed.
+
 1. Click the **Schema** tab on the semantic model asset
 
 1. Review the tables and columns these mirror the Lakehouse tables you selected:
@@ -397,7 +467,9 @@ In this lab, you will perform the following:
 
 ## Summary
 
-In this lab, you created and configured a Microsoft Fabric workspace, built a Lakehouse with sample and custom data, created a Warehouse and Semantic Model, and implemented a data pipeline. You then registered Microsoft Fabric in Microsoft Purview, configured and executed a scan, and validated discovered assets including Lakehouse tables, Warehouse, and Semantic Models within the Unified Catalog.
+In this lab, you created and configured a workspace in Microsoft Fabric, including a Lakehouse, Warehouse, Semantic Model, and data pipeline to simulate an end-to-end data environment. You then connected Fabric to Microsoft Purview by registering it as a data source and running a scan to discover metadata.
+
+Finally, you validated how different Fabric assets such as Lakehouse tables, Warehouse, and Semantic Models are cataloged and represented in the Unified Catalog, gaining insight into data discovery, governance, and lineage across the platform.
 
 ## Click Next to continue to the next lab.
 
