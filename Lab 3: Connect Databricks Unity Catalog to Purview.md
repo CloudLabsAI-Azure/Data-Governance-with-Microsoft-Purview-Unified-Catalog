@@ -1,7 +1,24 @@
 # Day 1 Lab 3: Connect Databricks Unity Catalog to Purview
 
+## Lab Overview
 
-**Verify your Databricks workspace:**
+In this lab, you will connect Azure Databricks Unity Catalog to Microsoft Purview to enable governance and discovery of Databricks data assets. You will begin by verifying the Databricks workspace and required connection details, then register Unity Catalog as a data source in Purview. You will configure secure authentication using a Personal Access Token (PAT) stored in Azure Key Vault, create a credential in Purview, and run a scan to discover Databricks assets.
+
+Finally, you will validate the discovered assets in the Unified Catalog and explore how Databricks tables, schemas, and catalogs are represented within Microsoft Purview.
+
+## Lab Objectives
+
+In this lab, you will perform the following:
+
+- **Task 1:** Register Azure Databricks Unity Catalog as a data source in Purview  
+- **Task 2:** Configure Unity Catalog connector using PAT and Key Vault  
+- **Task 3:** Create and run a scan for Databricks assets  
+- **Task 4:** Validate discovered Databricks assets in Unified Catalog  
+- **Task 5:** Explore Databricks catalog hierarchy and schema representation  
+
+## Estimated Duration 60 minutes
+
+### Verify your Databricks workspace:
 
 1. In the Azure portal, from the search bar, search for and select **Azure Databricks**.
 
@@ -37,9 +54,17 @@
 
 ### Task 1: Register Databricks Workspace as a Data Source (10 min)
 
-1. Switch to the **Purview portal** then click **Data Map (1)** > **Data sources (2)**.
+1. Navigate back to the **Microsoft Purview** home page using the URL below.
 
-   ![Picture 1](./Media/sandbox-purview-image54.png)
+   ```
+   https://purview.microsoft.com/
+   ```
+
+1. From the left navigation pane, click **Solutions (1)**, then select **Data Map (2)**.Under **Data Map** select **Data sources (3)**
+
+   ![Picture 1](./Media/sandbox-purview-image7.png)
+
+   ![Picture 1](./Media/sandbox-purview-image541.png)
 
 1. On the **Data sources** page, click **Register (1)**. Search for and select **Azure Databricks Unity Catalog (2)**, then click **Continue (3)**.
 
@@ -62,7 +87,7 @@
 
 ### Task 2.1: Generate a Personal Access Token in Databricks
 
-1. In the **Databricks workspace**, click your **username (2)** (top-right corner) > **Settings (1)**.
+1. Naviagte back to the **Databricks workspace**, click your **username (2)** (top-right corner) and select **Settings (1)**.
 
    ![Picture 1](./Media/sandbox-purview-image27.png)
    
@@ -85,11 +110,11 @@
 
     ![Picture 1](./Media/sandbox-purview-image31.png)
 
-   > Record it **Notepad** later ypu will store it in Key Vault next
+   > Record it **Notepad** later you will use it in next taks
 
 ### Task 2.2: Store the PAT in Azure Key Vault**
 
-1. In the Azure portal, from the search bar, search for and select **Key vaults**.
+1. Naviagte back to Azure portal and from the search bar, search for and select **Key vaults**.
 
     ![Picture 1](./Media/sandbox-purview-image32.png)
 
@@ -97,13 +122,13 @@
 
    ![Picture 1](./Media/sandbox-purview-image33.png)
 
-1. From the left navigation pane, under **Objects (1)** select **Secrets (2)**, then click on **+ Generate/Import (3)**.
+1. In the Key Vault, expand **Objects (1)**, select **Secrets (2)**, and then click **Generate/Import (3)**.
 
    ![Picture 1](./Media/sandbox-purview-image34.png)
 
 1. Configure:
    - **Name**: **`databricks-pat` (1)**
-   - **Secret value**: paste the **PAT (2)** from step 6.
+   - **Secret value**: paste the **PAT (2)** from Taks 2.1, step 5.
    - Click **Create (3)**.
 
      ![Picture 1](./Media/sandbox-purview-image35.png)
@@ -126,7 +151,13 @@
     - **Key Vault name**: **kv-purview-<inject key="DeploymentID" enableCopy="false"/> (4)**
     -  Click **Create (5)**.
 
- 1. Review the **Manage Key Vault connections** recently created. When the pop-up appears, click **Close**.
+       ![Picture 1](./Media/DG33.png)
+
+        ![Picture 1](./Media/DG32.png)
+
+1. Review the **Manage Key Vault connections (1)** recently created. When the pop-up appears, click **Close (2)**.
+
+   ![Picture 1](./Media/DG34.png)
       
 ### Task 2.4: Create a Credential in Purview
 
@@ -140,27 +171,27 @@
 
       ![Picture 1](./Media/sandbox-purview-image40.png)
 
-### Task 2.5: Test the Connection**
+### Task 2.5: Test the Connection
 
-1. Go to **Data Map** click on **Data sources (1)** then under **Purview-Databricks-UC** select **+ New scan (2)**.
+1. In **Data Map** click on **Data sources (1)** then under **Purview-Databricks-UC** select **+ New scan (2)**.
 
     ![Picture 1](./Media/sandbox-purview-image42.png)
 
 1. On Scan **Purview-Databricks-UC** window, specify the following details.
     - **Name**: **`Scan-Databricks-UC` (1)**
-    - **Connect via integration runtime**: **Azure AutoResolveIntegrationRuntime (2)**
+    - **Connect via integration runtime**: Azure AutoResolveIntegrationRuntime **(2)**
     - **Credential**: **`Databricks-PAT-Credential` (3)**
-    - **Workspace URL**: paste the SQL Warehouse Server hostname `https://adb-xxxxxxxxxx.xx.azuredatabricks.net` **(4)**
-    - **HTTP path**: paste the SQL Warehouse HTTP path **(5)**
+    - **Workspace URL**: paste the SQL Warehouse Server hostname which is copied into the notepad `adb-xxxxxxxxxx.xx.azuredatabricks.net` **(4)**
+    - **HTTP path**: paste the SQL Warehouse HTTP path which is copied into the notepad **(5)**
     -  Click on **Test connection (6)**.
   
       ![Picture 1](./Media/sandbox-purview-image43.png)
 
-1. Wait for **Connection successful** then click on **Continue**.
+1. Wait for **Connection successful (1)** then click on **Continue (2)**.
 
     ![Picture 1](./Media/sandbox-purview-image44.png)
 
-1. On the **Set a Scan trigger** select **Once**.
+1. On the **Set a Scan trigger** select **Once (1)** then click on **Continue (2)**.
 
    ![Picture 1](./Media/sandbox-purview-image45.png)
    
@@ -168,13 +199,13 @@
 
    ![Picture 1](./Media/sandbox-purview-image46.png)
 
-### Task 2.6: Monitor Scan Progress**
+### Task 2.6: Monitor Scan Progress
 
-1. Go back to **Data sources** page then under **Purview-Databricks-UC** click on **View details**.
+1. In **Data sources** page, under **Purview-Databricks-UC** click on **View details**.
 
    ![Picture 1](./Media/sandbox-purview-image58.png)
    
-1. Wait for **Completed** status (typically 3-5 minutes)
+1. Wait for the deployment status to show **Completed** (about 3–5 minutes).
 
     ![Picture 1](./Media/sandbox-purview-image59.png)
 
@@ -186,10 +217,14 @@
 
 > Now verify that Databricks Unity Catalog assets appear in Purview alongside the Fabric assets from Lab 2.
 
-### Task 4.1: Search for Databricks Tables**
+### Task 4.1: Search for Databricks Tables
 
-1. Go to **Unified Catalog** → **Discovery** → **Data assets**
-1. Search for `trips` (from nyctaxi schema) → click on the table asset
+1. From the left navigation pane, click **Solutions (1)**, then select **Unified Catalog (2)**.
+
+   ![Picture 1](./Media/DG13.png)
+
+
+1. In the **Unified Catalog** portal, expand **Discovery (1)**, select **Data assets (2)**, search for **trips (3)**, and then select the **trips asset (4)**.
 
     ![Picture 1](./Media/sandbox-purview-image61.png)
 
@@ -202,18 +237,28 @@
      
      ![Picture 1](./Media/sandbox-purview-image63.png)
 
-### Task 4.2: Explore the Catalog Hierarchy**
+### Task 4.2: Explore the Catalog Hierarchy
 
-1. Go back → search for `tpch` → explore the TPC-H benchmark tables:
-   - `customer`, `orders`, `lineitem`, `nation`, `part`, `region`, `supplier`, `partsupp`
+1. In the **Unified Catalog** portal, select **Data assets (1)**, search for **tpch (2)**, and then select the **tpch asset (3)** to explore under **Related** section with the available TPC-H tables such as `customer`, `orders`, `lineitem`, `nation`, `part`, `region`, `supplier`, and `partsupp`.
 
-   ![Picture 1](./Media/sandbox-purview-image64.png)
+   ![Picture 1](./Media/DG36.png)
+
+   ![Picture 1](./Media/sandbox-purview-image65.png)
    
-1. Click on `customer` → review the **Schema** tab:
-   - Columns like `c_custkey`, `c_name`, `c_address`, `c_nationkey`, `c_phone`, etc.
+1. In the **tpch** asset page, select **Related (1)**, click on the **customer table (2)**, and review the **Schema** tab to explore columns such as `c_custkey`, `c_name`, `c_address`, `c_nationkey`, and `c_phone`.
 
-      ![Picture 1](./Media/sandbox-purview-image65.png)
+      ![Picture 1](./Media/DG37.png)
+
+      ![Picture 1](./Media/DG38.png)
     
-1. Note the hierarchy: **Metastore** → **Schema** (`tpch`) → **Table** (`customer`)
+   > **Note:** The hierarchy: **Metastore** → **Schema** (`tpch`) → **Table** (`customer`)
     
     - This mirrors the Unity Catalog 3-level namespace: `catalog.schema.table`
+
+## Summary
+
+In this lab, you connected Azure Databricks Unity Catalog to Microsoft Purview by registering it as a data source, configuring secure authentication using a Personal Access Token stored in Azure Key Vault, creating a credential, and running a scan. You then validated the discovered Databricks assets in the Unified Catalog and explored the catalog hierarchy, schemas, and table-level metadata.
+
+## Click Next to continue to the next lab.
+
+![](./Media/GS0001.png)

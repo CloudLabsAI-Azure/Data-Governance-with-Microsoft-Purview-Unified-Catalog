@@ -1,17 +1,24 @@
 # Lab 7: Business Metadata & Glossary Management
 
-**Duration**: 50 minutes
-**Day**: 2 — Unified Catalog, Discovery & Data Products
+## Lab Overview
 
-## Objective
+In this lab, you will create and manage business glossary terms in Microsoft Purview to establish a standardized business vocabulary. You will define glossary terms, map them to data assets across Microsoft Fabric and Azure Databricks, and validate how business terminology aligns with technical data assets in the Unified Catalog.
 
-Create business glossary terms that define standard enterprise terminology, map those terms to technical assets in both Fabric and Databricks, and validate that business-to-technical alignment is visible in the Unified Catalog.
+This lab demonstrates how business glossary terms act as a bridge between business concepts and technical metadata, enabling improved data discovery and governance across platforms. :contentReference[oaicite:0]{index=0}
+
+## Lab Objectives
+
+In this lab, you will perform the following:
+
+- **Task 1:** Create Business Glossary Terms  
+- **Task 2:** Map Glossary Terms to Fabric and Databricks Assets  
+- **Task 3:** Validate Business-to-Technical Alignment  
+
+## Estimated Duration 50 minutes
 
 > **Prerequisites**: Labs 1–6 completed. Governance domain (`Sales Analytics`) and data product (`Customer 360`) created and published.
 
----
-
-## Task 1: Create Business Glossary Terms (20 min)
+## Task 1: Create Business Glossary Terms
 
 > **What is a Business Glossary?** The glossary provides a shared business vocabulary for the organization. Each term defines a business concept (e.g., "Customer", "Revenue", "Order") with a standard definition. When glossary terms are linked to technical assets, business users can find data by searching for business concepts instead of table names.
 
@@ -70,8 +77,6 @@ Create business glossary terms that define standard enterprise terminology, map 
 
 **Expected Result**: 4 glossary terms created under the `Sales Analytics` governance domain with definitions, approved status, and stewards assigned.
 
----
-
 ## Task 2: Map Glossary Terms to Fabric and Databricks Assets (15 min)
 
 > **Why map terms?** Linking glossary terms to assets creates a bridge between business language and technical tables. When a business user searches for "Customer", they find not just the glossary definition but also all linked data assets across all platforms.
@@ -115,8 +120,6 @@ Create business glossary terms that define standard enterprise terminology, map 
 
 **Expected Result**: 4 glossary terms mapped to Fabric assets. Databricks `samples` assets are read-only and cannot be mapped. Each mapped asset shows its linked glossary terms.
 
----
-
 ## Task 3: Validate Business-to-Technical Alignment (15 min)
 
 **Step 1: Search by Glossary Term**
@@ -143,7 +146,7 @@ Create business glossary terms that define standard enterprise terminology, map 
 9. Review the mapping summary:
 
    | Glossary Term | Fabric Assets | Databricks Assets | Cross-Platform? |
-   |--------------|---------------|-------------------|-----------------|
+---|
    | Customer | `dimension_customer` | `sales_suppliers` (if editable) | Partial |
    | Revenue | `fact_sale` | — | Fabric only |
    | Order | `fact_sale` | — | Fabric only |
@@ -161,4 +164,10 @@ Create business glossary terms that define standard enterprise terminology, map 
 
 **Expected Result**: Business glossary terms serve as a bridge between business concepts and technical assets. Full governance hierarchy visible: Domain → Data Products → Assets → Glossary Terms.
 
+## Summary
 
+In this lab, you created business glossary terms in Microsoft Purview, mapped them to data assets across Microsoft Fabric and Azure Databricks, and validated the alignment between business concepts and technical metadata. You also explored how glossary terms enhance data discovery and establish a unified governance framework within the Unified Catalog.
+
+## Click Next to continue to the next lab.
+
+![](./Media/GS0001.png)
