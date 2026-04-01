@@ -38,6 +38,19 @@ Data quality in Microsoft Purview connects directly to the data source to execut
      ![Picture 1](./Media/sandbox-purview-image208.png)
 
 
+## Task 2: Define Data Quality Validation Rules for Dataset
+
+1. For each rule below, navigate to **Unified Catalog** > **Health management** > **Data quality (1)** > **Customer Intelligence (2)** domain.
+
+   ![](../media/jj9.png)
+
+1. Click on **Customer Intelligence** and select **customer_master**
+
+   ![](../media/jj10.png)
+
+1. Select **Rules** and click on **New Rule**
+
+   ![](../media/jj11.png)
 
 
 
@@ -104,55 +117,45 @@ Data quality in Microsoft Purview connects directly to the data source to execut
 2. In the left sidebar, click **Unified Catalog** → **Health management** → **Data quality**
 3. You should see the Data Quality overview page
 
-**Step 2: Create a Data Quality Rule for Fabric Customer Data**
+**Step 2: Create Rule 1 — Empty/Blank Fields**
 
-4. Click **Data quality rules** → **+ New rule**
-5. Configure the rule:
+4. Click **+ New rule** → select **Empty/blank fields**
+5. Configure:
    - **Name**: `Customer Name Completeness`
-   - **Description**: `Validates that customer name fields are not null or empty`
-   - **Rule type**: **Completeness**
+   - **Description**: `Looks for blank and empty customer name fields`
    - **Governance domain**: `Sales Analytics`
-6. Click **Create**
-7. Open the rule → click **Add columns**
-8. Search for `dimension_customer` (Fabric Lakehouse) → select the **Customer** column
-9. Click **Add**
+6. Click **Create** → open the rule → **Add columns**
+7. Search for `dimension_customer` → select the **Customer** column → click **Add**
 
-**Step 3: Create a Freshness Rule**
+**Step 3: Create Rule 2 — Freshness**
 
-10. Go back to **Data quality rules** → **+ New rule**
-11. Configure:
-    - **Name**: `Sales Data Freshness`
-    - **Description**: `Validates that sales data has been updated within expected timeframes`
-    - **Rule type**: **Freshness**
-    - **Governance domain**: `Sales Analytics`
-12. Click **Create**
-13. Open the rule → **Add columns** → search for `fact_sale` (Fabric Lakehouse) → select a date column (e.g., `Invoice Date Key` or similar date field)
-14. Click **Add**
+8. Click **+ New rule** → select **Freshness**
+9. Configure:
+   - **Name**: `Sales Data Freshness`
+   - **Description**: `Validates that sales data has been updated within expected timeframes`
+   - **Governance domain**: `Sales Analytics`
+10. Click **Create** → open the rule → **Add columns**
+11. Search for `fact_sale` → select a date column → click **Add**
 
-**Step 4: Create a Uniqueness Rule for Databricks Data**
+**Step 4: Create Rule 3 — Unique Values**
 
-15. Go back to **Data quality rules** → **+ New rule**
-16. Configure:
+12. Click **+ New rule** → select **Unique values**
+13. Configure:
     - **Name**: `Customer Key Uniqueness`
-    - **Description**: `Validates that customer key values are unique with no duplicates`
-    - **Rule type**: **Uniqueness**
+    - **Description**: `Confirms that customer key values are unique`
     - **Governance domain**: `Sales Analytics`
-17. Click **Create**
-18. Open the rule → **Add columns** → search for `samples.tpch.customer` (Databricks) → select the `c_custkey` column
-19. Click **Add**
+14. Click **Create** → open the rule → **Add columns**
+15. Search for `dimension_customer` → select **Customer Key** → click **Add**
 
-**Step 5: Create a Format Validity Rule**
+**Step 5: Create Rule 4 — String Format Match**
 
-20. Go back to **Data quality rules** → **+ New rule**
-21. Configure:
-    - **Name**: `Phone Number Format`
-    - **Description**: `Validates that phone numbers follow expected format patterns`
-    - **Rule type**: **Format** (or **Validity**)
+16. Click **+ New rule** → select **String format match**
+17. Configure:
+    - **Name**: `Vendor Email Format`
+    - **Description**: `Validates that vendor email addresses follow expected format`
     - **Governance domain**: `Sales Analytics`
-22. Click **Create**
-23. Open the rule → **Add columns** → search for `samples.tpch.customer` (Databricks) → select `c_phone`
-24. Click **Add**
-
+18. Click **Create** → open the rule → **Add columns**
+19. Search for `vendors` → select **contact_email** → click **Add**
 **Step 6: Verify Rules Created**
 
 25. Go to **Data quality rules** → verify all 4 rules appear:
