@@ -1,5 +1,7 @@
 # Day 1 - Lab 2: Connect Microsoft Fabric to Purview
 
+### Estimated Duration: 120 minutes
+ 
 ## Lab Overview
 
 In this lab, you will connect Microsoft Fabric to Microsoft Purview and enable data discovery across your Fabric environment. You will begin by creating and configuring a Fabric workspace with sample and custom data, including Lakehouse, Warehouse, and Semantic Models. You will then register Microsoft Fabric as a data source in Purview, configure and run a scan, and validate how different Fabric assets are discovered and cataloged in the Unified Catalog.
@@ -10,13 +12,12 @@ This lab demonstrates how Microsoft Purview integrates with Microsoft Fabric to 
 
 In this lab, you will perform the following:
 
-- **Task 1:** Create and configure a Microsoft Fabric workspace with data  
-- **Task 2:** Register Microsoft Fabric as a data source in Purview  
-- **Task 3:** Configure and run a scan for Fabric data  
-- **Task 4:** Validate discovered assets in Unified Catalog  
-- **Task 5:** Explore Semantic Models and understand asset representation  
+- Task 1: Create and configure a Microsoft Fabric workspace with data  
+- Task 2: Register Microsoft Fabric as a data source in Purview  
+- Task 3: Configure and run a scan for Fabric data  
+- Task 4: Validate discovered assets in Unified Catalog  
+- Task 5: Explore Semantic Models and understand asset representation  
 
-### Estimated Duration: 120 minutes
 
 ## Before You Begin: Create a Fabric Workspace with Data
 
@@ -184,7 +185,7 @@ In this lab, you will perform the following:
 
      ![Picture 1](./Media/sandbox-purview-image114.png)
 
-**Task 3: Create a Semantic Model from the Lakehouse**
+### Task 3: Create a Semantic Model from the Lakehouse
 
 1. In the Lakehouse, click **New semantic model (1)**, enter **PurviewLakehouse (2)** as the name, select **Select all (3)** to include all tables, and then click **Confirm (4)**.
 
@@ -193,7 +194,7 @@ In this lab, you will perform the following:
     - Wait for the semantic model to be created (a few seconds)
     - This creates the BI/reporting layer on top of the Lakehouse Delta tables
 
-### Task 3.1: Create a Warehouse with Sales Data**
+#### Task 3.1: Create a Warehouse with Sales Data
 
 1. Go back to the workspace click **+ New item (1)** then search **Warehouse (2)** and select **Warehouse (3)**.
 
@@ -223,7 +224,7 @@ In this lab, you will perform the following:
 
      ![Picture 1](./Media/DG25.png)
 
-### Task 3.2: Create a Data Pipeline
+#### Task 3.2: Create a Data Pipeline
 
 > This pipeline moves vendor data from the Lakehouse to the Warehouse. You'll use it in Lab 4 to demonstrate data lineage in Purview.
 
@@ -278,9 +279,9 @@ In this lab, you will perform the following:
       - `Vendor-ETL-Pipeline`:  Data pipeline (Lakehouse → Warehouse)
       - `vendors.csv`:  Uploaded file in Lakehouse Files
 
-### Task 2: Configure and validate Fabric scan connection
+### Task 4: Configure and validate Fabric scan connection
 
-**Step 1: Register Fabric in Purview**
+### Task 4.1: Register Fabric in Purview
 
 1. Navigate back to the **Microsoft Purview** home page using the URL below.
 
@@ -352,7 +353,7 @@ In this lab, you will perform the following:
 
    > **Known limitation**: Per [Microsoft documentation](https://learn.microsoft.com/en-us/purview/register-scan-fabric-tenant), *"For all Fabric items besides Power BI, only item level metadata and lineage can be scanned. For Lakehouse tables and files, sub-item level metadata scanning is available but sub-item level lineage isn’t supported."* This means: Lakehouse tables appear individually, but Warehouse tables do not — only the Warehouse container is cataloged.
 
-**Step 2: Verify Lakehouse Assets**
+### Task 4.2: Verify Lakehouse Assets
 
 1. Go to **Unified Catalog**, expand **Discovery (1)**, and select **Data assets (2)**. In the search bar, search for **`dimension_customer` (3)**, then select it from the results list **(4)**.
 
@@ -373,7 +374,7 @@ In this lab, you will perform the following:
     
 1. Now, review another asset from Fabric. Go back and, in the same way, search for `fact_sales`, then select it and review the sales fact table.
 
-**Step 3: Verify Warehouse Assets**
+### Task 4.3: Verify Warehouse Assets**
 
 1. In the asset list, type and select **Warehouse**. 
 1. Review the Warehouse asset page:
@@ -394,11 +395,11 @@ In this lab, you will perform the following:
 
         >**Expected Result**: Scan discovers assets. Lakehouse tables are individually cataloged with schemas. Warehouse is cataloged as a container asset. All visible in Unified Catalog.
 
-## Task 4: Discover Fabric Semantic Models in Unified Catalog (15 min)
+## Task 5: Discover Fabric Semantic Models in Unified Catalog 
 
 > **What is a Semantic Model?** A semantic model (shown as **Power BI Dataset** in Purview) is the BI/reporting layer on top of Lakehouse Delta tables. You created one in "Before You Begin". Purview discovers it automatically during the workspace scan.
 
-**Step 1: Find the Semantic Model**
+## Task 5.1: Find the Semantic Model
 
 1. In **Unified Catalog** > **Discovery** > **Data assets**
 
@@ -417,7 +418,7 @@ In this lab, you will perform the following:
 
       ![Picture 1](./Media/sandbox-purview-image154.png)
 
-**Step 2: Explore Semantic Model Schema**
+## Task 5.2: Explore Semantic Model Schema
 
 1. Click the **Schema** tab on the semantic model asset
 
