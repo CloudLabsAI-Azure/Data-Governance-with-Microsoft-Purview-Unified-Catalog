@@ -1,8 +1,20 @@
-# Lab 6: Create and Manage Data Products
+# Day 2 - Lab 6: Create and Manage Data Products
 
-## Objective
+## Lab Overview
 
-Create a data product that spans both Fabric and Databricks assets, assign governance metadata (domain, owner, description), and publish it to the Unified Catalog for business user discovery.
+In this lab, you will create and manage data products in Microsoft Purview by combining data assets from multiple platforms such as Microsoft Fabric and Azure Databricks. You will define governance domains, create a data product with business context, and associate relevant data assets to build a unified, business-ready dataset.
+
+You will then enrich the data product with governance metadata such as ownership, descriptions, use cases, and contacts. Finally, you will publish the data product to the Unified Catalog and validate how business users can discover and explore it through search and governance domain navigation. :contentReference[oaicite:0]{index=0}
+
+## Lab Objectives
+
+In this lab, you will perform the following:
+
+- **Task 1:** Create a Data Product Spanning Fabric and Databricks  
+- **Task 2:** Assign Domain, Owner, and Business Description  
+- **Task 3:** Publish Data Product to Unified Catalog  
+
+## Estimated Duration 60 minutes
 
 ## Task 1: Create a Data Product Spanning Fabric and Databricks (20 min)
 
@@ -53,7 +65,7 @@ Create a data product that spans both Fabric and Databricks assets, assign gover
 
 **Expected Result**: `Sales Analytics` governance domain created. `Customer 360` data product created with assets from both Fabric and Databricks (minimum 3: `dimension_customer`, `customer`, `sales_suppliers`).
 
-## Task 2: Assign Domain, Owner, and Business Description (15 min)
+## Task 2: Assign Domain, Owner, and Business Description
 
 **Step 1: Review Data Product Metadata**
 
@@ -91,7 +103,7 @@ Create a data product that spans both Fabric and Databricks assets, assign gover
 
 **Expected Result**: Data product has complete business metadata: description, use case, governance domain, owner, expert, and steward assigned. All assets accessible from within the data product.
 
-## Task 3: Publish Data Product to Unified Catalog (15 min)
+## Task 3: Publish Data Product to Unified Catalog
 
 **Step 1: Review Before Publishing**
 
@@ -143,3 +155,11 @@ Create a data product that spans both Fabric and Databricks assets, assign gover
 17. Verify both data products appear under the `Sales Analytics` domain
 
 **Expected Result**: `Customer 360` data product published and discoverable in Unified Catalog. Business users can find it via search, data products listing, and governance domain browsing. Full drill-down from domain → product → asset → schema works.
+
+## Summary
+
+In this lab, you created and managed a data product in Microsoft Purview by defining a governance domain, combining data assets from Microsoft Fabric and Azure Databricks, and assigning business metadata such as owner, description, and use case. You then published the data product to the Unified Catalog and validated its discoverability and usability from a business user perspective.
+
+## Click Next to continue to the next lab.
+
+![](./Media/GS0001.png)

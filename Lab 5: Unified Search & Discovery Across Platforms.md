@@ -16,40 +16,32 @@ You will be able to complete the following tasks:
 
 In this task, you will use the Microsoft Purview Unified Catalog to search and explore data assets across Microsoft Fabric and Databricks. You will review asset details and understand how unified search enables cross-platform data discovery.
 
-1. In the **Purview portal** select **Unified Catalog (1)** expand **Discovery (2)**  choose **Data assets (3)**.
+1. From the left navigation pane, click **Solutions (1)**, then select **Unified Catalog (2)**.
 
-   ![Picture 1](./Media/sandbox-purview-image67.png)
+   ![Picture 1](./Media/DG13.png)
 
-1. In the search bar, search for the item, then select it from the search results.
+1. From the **Unified Catalog** page, expand **Discovery (1)**, select **Data assets (2)**, search for **dimension_customer (3)**, and then select the **dimension_customer asset (4)**.
 
-    ```
-   dimension_customer
-   ```
-
-   ![Picture 1](./Media/sandbox-purview-image174.png)
+   ![Picture 1](./Media/DG44.png)
 
 1. Open the Fabric Lakehouse table. Review the following:
 
     - Schema (columns and data types)
     - Asset properties
 
-   **>Note:** This step demonstrates how to locate and inspect a specific asset.
+      >**Note:** This step demonstrates how to locate and inspect a specific asset.
 
-1. Search for:
+      ![Picture 1](./Media/DG45.png)
 
-   ```
-   customer
-   ```
+1. From the **Unified Catalog** page, select **Data assets (1)**, search for **customer (2)**, and then select the **customer asset (3)**.
 
    ![Picture 1](./Media/sandbox-purview-image175.png)
 
 1. Review the list of returned assets.
 
-1. Select the Databricks customer asset.
+   ![Picture 1](./Media/DG47.png)
 
-1. Review its schema and properties.
-
-   **>Note:** Observe how similar data entities exist across different platforms.
+   >**Note:** Observe how similar data entities exist across different platforms.
 
 1. Search for:
 
@@ -57,7 +49,7 @@ In this task, you will use the Microsoft Purview Unified Catalog to search and e
 
      ![Picture 1](./Media/sandbox-purview-image176.png)
 
-     **>Note**: This highlights unified data discovery across both Fabric and Databricks.
+     >**Note**: This highlights unified data discovery across both Fabric and Databricks.
 
 1. Search for **`customer`**, then press **Enter** to navigate to the results pane, where you can select and review multiple related assets in one place. 
 
@@ -65,7 +57,7 @@ In this task, you will use the Microsoft Purview Unified Catalog to search and e
 
    ![Picture 1](./Media/sandbox-purview-image177.png)
 
-   **>Note:** Assets from both Fabric and Databricks are displayed together.
+   >**Note:** Assets from both Fabric and Databricks are displayed together.
      - You can compare:
        1. Source type
        2. Asset names
@@ -77,9 +69,7 @@ In this task, you will use the Microsoft Purview Unified Catalog to search and e
 
 In this task, you will compare metadata across Fabric and Databricks assets to identify gaps in documentation, ownership, and classification, and understand differences in metadata availability between platforms.
 
-1. On the search results page, you can switch the filter from **Databricks to Fabric** to filter the assets.
-
-1. Select **Fabric** then choose `dimension_customer` to open the Fabric table.
+1. In the search results page, ensure **Fabric (1)** is selected under filters, and then click on **dimension_customer (2)**.
 
    ![Picture 1](./Media/sandbox-purview-image190.png)
    
@@ -92,7 +82,7 @@ In this task, you will compare metadata across Fabric and Databricks assets to i
 
         ![Picture 1](./Media/sandbox-purview-image189.png)
 
-1. Now uncheck **Fabric** and select **Databricks**. Search for `customer`, then select it to open the Databricks asset.
+1. Now uncheck **Fabric** and select **Databricks (1)**. Search for `customer`**(2)**, then select it to open the Databricks asset.
  
    - Review:
      - Schema: Present
@@ -115,10 +105,10 @@ In this task, you will compare metadata across Fabric and Databricks assets to i
 
 In this task, you will enhance asset metadata by adding descriptions, classifications, ownership, and optional lineage. You will improve data quality and governance by filling gaps identified in previous steps.
 
-1. From previous task observations, identify missing metadata:
+1. In the search results page, ensure **Fabric (1)** is selected under filters, and then click on **dimension_customer (2)**.
 
-1. Now check **Fabric** and select **`dimension_customer**.
-
+   ![Picture 1](./Media/sandbox-purview-image190.png)
+   
 1. In the **`dimension_customer`** asset page, click **Edit (1)**.
 
    ![Picture 1](./Media/sandbox-purview-image193.png)
@@ -163,7 +153,7 @@ In this task, you will enhance asset metadata by adding descriptions, classifica
   
      ![Picture 1](./Media/sandbox-purview-image199.png)
     
-1. Apply classifications to the following columns:
+1. Under **Schema (1)** apply classifications to the following columns:
    - `c_firstname`: **All Full Names**
    - `c_lasttname`:  **All Full Names**
 
@@ -200,3 +190,7 @@ In this lab, you:
 - Identified gaps in descriptions, ownership, and classifications
 - Enriched assets by adding metadata, classifications, and contacts
 - Improved data governance through standardized documentation
+
+## Click Next to continue to the next lab.
+
+![](./Media/GS0001.png)
