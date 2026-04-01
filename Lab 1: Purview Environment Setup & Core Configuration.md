@@ -65,6 +65,10 @@ In this task, you will verify access to the Microsoft Purview account and confir
    
    ![Picture 1](./Media/sandbox-purview-image9.png)
 
+1. Notice that **Domain admins** is not assigned. To assign the role, click the **+ Add (1)** icon next to **Domain admins**. In the search bar, search for and select **<inject key="AzureAdUserEmail" enableCopy="true"/> (2) (3)**, then click **OK (4)**.
+
+   ![Picture 1](./Media/sandbox-purview-image225.png)
+
 ### Task 1.1: Assign User to Data Governance Role Group
 
 1. In the **Microsoft Purview portal**, go to **Settings (1)** > expand **Roles and scopes (2)** → select **Role groups (3)**.
