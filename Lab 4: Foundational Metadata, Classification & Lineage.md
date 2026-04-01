@@ -43,7 +43,7 @@ In this task, you will learn how to apply built-in classifications in Microsoft 
 
    ![Picture 1](./Media/DG13.png)
 
-1. Under **Unified Catalog** page expand **Discovery (1)**, then select **Data assets (2)**. In the search bar, search for **`vendor` (3)** and select **vendor (4)** from the **Asset suggestions**.
+1. Under **Unified Catalog** page expand **Discovery (1)**, then select **Data assets (2)**. In the search bar, search for **`vendors` (3)** and select **vendors (4)** from the **Asset suggestions**.
 
    ![Picture 1](./Media/sandbox-purview-image179.png)
    
