@@ -85,6 +85,10 @@ In this task, you will verify access to the Microsoft Purview account and confir
 
       ![Picture 1](./Media/DG5.png)
 
+1. On the **You successfully updated the role group** page, click on **Done**.
+
+   ![Picture 1](./Media/sandbox-purview-image221.png)
+
 ### Task 2: Configure Collections, Domains, and Ownership Model (20 min)
 
 This task focuses on structuring your data environment logically using collections and domains. You will organize data sources (like Fabric and Databricks) and categorize them into business domains.
