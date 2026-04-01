@@ -4,20 +4,48 @@
     "Language": "English",
     "Files": [
       {
-        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/Data-Governance-with-Microsoft-Purview-Unified-Catalog/refs/heads/prod/Lab%201%3A%20Purview%20Environment%20Setup%20%26%20Core%20Configuration.md",
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/Data-Governance-with-Microsoft-Purview-Unified-Catalog/refs/heads/prod/gettingstartedpage.md",
         "Order": 1
       },
       {
-        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/Data-Governance-with-Microsoft-Purview-Unified-Catalog/refs/heads/prod/Lab%202%3A%20Connect%20Microsoft%20Fabric%20to%20Purview.md",
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/Data-Governance-with-Microsoft-Purview-Unified-Catalog/refs/heads/prod/Lab%201%3A%20Purview%20Environment%20Setup%20%26%20Core%20Configuration.md",
         "Order": 2
       },
       {
-        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/Data-Governance-with-Microsoft-Purview-Unified-Catalog/refs/heads/prod/Lab%203%3A%20Connect%20Databricks%20Unity%20Catalog%20to%20Purview.md",
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/Data-Governance-with-Microsoft-Purview-Unified-Catalog/refs/heads/prod/Lab%202%3A%20Connect%20Microsoft%20Fabric%20to%20Purview.md",
         "Order": 3
       },
       {
-        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/Data-Governance-with-Microsoft-Purview-Unified-Catalog/refs/heads/prod/Lab%204%3A%20Foundational%20Metadata%2C%20Classification%20%26%20Lineage.md",
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/Data-Governance-with-Microsoft-Purview-Unified-Catalog/refs/heads/prod/Lab%203%3A%20Connect%20Databricks%20Unity%20Catalog%20to%20Purview.md",
         "Order": 4
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/Data-Governance-with-Microsoft-Purview-Unified-Catalog/refs/heads/prod/Lab%204%3A%20Foundational%20Metadata%2C%20Classification%20%26%20Lineage.md",
+        "Order": 5
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/Data-Governance-with-Microsoft-Purview-Unified-Catalog/refs/heads/prod/Lab%205%3A%20Unified%20Search%20%26%20Discovery%20Across%20Platforms.md",
+        "Order": 6
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/Data-Governance-with-Microsoft-Purview-Unified-Catalog/refs/heads/prod/Lab%206%3A%20Create%20and%20Manage%20Data%20Products%20.md",
+        "Order": 7
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/Data-Governance-with-Microsoft-Purview-Unified-Catalog/refs/heads/prod/Lab%207%3A%20Business%20Metadata%20%26%20Glossary%20Management.md",
+        "Order": 8
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/Data-Governance-with-Microsoft-Purview-Unified-Catalog/refs/heads/prod/Lab%208%3A%20Data%20Quality%20Rules%20and%20Monitoring.md",
+        "Order": 9
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/Data-Governance-with-Microsoft-Purview-Unified-Catalog/refs/heads/prod/Lab%209%3A%20Data%20Quality%20Impact%20on%20Data%20Products.md",
+        "Order": 10
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/Data-Governance-with-Microsoft-Purview-Unified-Catalog/refs/heads/prod/Lab%2010%3A%20MDM%20Integration%20Scenarios.md",
+        "Order": 11
       }
     ]
   }
