@@ -131,11 +131,11 @@ Collections and domains provide a logical structure for managing data at scale. 
 
     ![Picture 1](./Media/sandbox-purview-image10.png)
 
-1. Once Contoso Data Estate is created, you will see it under **Collections**. Select the ellipsis (**...**) **(1)** next to Contoso Data Estate, then click **+ New subcollection (2)**.
+1. Once **Contoso Data Estate** is created, you will see it under **Collections**. Select the ellipsis (**...**) **(1)** next to Contoso Data Estate, then click **+ New subcollection (2)**.
 
     ![Picture 1](./Media/sandbox-purview-image11.png)
 
-1. On the **New collection** pane, provide **Collection Name** as **Fabric Sources (1)**,  under **Collection admins (2)** search for **ODL-User** and select **<inject key="AzureAdUserEmail" enableCopy="true"/>**, ensure **ODL_User<inject key="DeploymentID" enableCopy="false"/> (3)** is selected, and then click **Create (4)**
+1. On the **New collection** pane, provide **Display name** as **Fabric Sources (1)**,  under **Collection admins (2)** search for **ODL-User** and select **<inject key="AzureAdUserEmail" enableCopy="true"/>**, ensure **ODL_User<inject key="DeploymentID" enableCopy="false"/> (3)** is selected, and then click **Create (4)**
 
     ![Picture 1](./Media/DG06.png)
 
@@ -148,7 +148,7 @@ Collections and domains provide a logical structure for managing data at scale. 
 
    ![Picture 1](./Media/DG011.png)
 
-   ![Picture 1](./Media/DG12.png)
+   ![Picture 1](./Media/sandbox-purview-image226.png)
 
 1. Verify that the collections **Databricks Sources**, **Fabric Sources**, and **Shared Assets** are successfully created under **Contoso Data Estate**.
 
