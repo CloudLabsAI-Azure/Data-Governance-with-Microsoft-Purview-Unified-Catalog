@@ -131,7 +131,7 @@ Collections and domains provide a logical structure for managing data at scale. 
 
     ![Picture 1](./Media/sandbox-purview-image10.png)
 
-1. Once Contoso Data Estate is created, you will see it under **Collections**. Select the ellipsis (**...**) **(1)** next to Contoso Data Estate, then click **+ New sub-collection (2)**.
+1. Once Contoso Data Estate is created, you will see it under **Collections**. Select the ellipsis (**...**) **(1)** next to Contoso Data Estate, then click **+ New subcollection (2)**.
 
     ![Picture 1](./Media/sandbox-purview-image11.png)
 
