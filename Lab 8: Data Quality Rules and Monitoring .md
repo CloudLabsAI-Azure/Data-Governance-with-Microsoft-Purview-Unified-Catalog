@@ -9,6 +9,89 @@ Define data quality rules on Fabric and Databricks assets, execute quality check
 
 > **Prerequisites**: Labs 1–7 completed. Fabric Lakehouse and Databricks Unity Catalog assets scanned, data products and glossary terms created.
 
+
+## Task 1: Configure Data Quality Source Connections for Fabric and Databricks
+
+Data quality in Microsoft Purview connects directly to the data source to execute rule queries. For Fabric Lakehouse tables, Purview uses the SQL analytics endpoint.
+
+**For Microsoft Fabric (customer_master):**
+
+1. In the **Fabric portal**, navigate to the workspace and open the **Lakehouse**. 
+
+    ![Picture 1](./Media/sandbox-purview-image205.png)
+
+1. Copy the **workspace ID** from the URL (1), as shown below, as it will be required in later steps. Then, from the same URL, copy the **Lakehouse ID (2)** that appears after `lakehouse/`.
+
+    ![Picture 1](./Media/sandbox-purview-image207.png)
+
+1. In the purview portal, open **Unified Catalog**, expand **Health management (1)**, select **Data quality (1)** > **Sales Analytics**. And from the top menu click on **Manage**
+   
+      ![Picture 1](./Media/sandbox-purview-image203.png)
+
+1. Select **+ New** then provide the following connection details:
+   - **Connection name**: **fabric-dq-connection (1)**
+   - **Source Type**:Choose **Fabric (2)**
+   - **Worksapce id**: paste the id you copied in the previous step(3)
+   - **Lakehouse id**: paste the id you copied in the previous step(4)
+   - Click **Submit (5)** after the connection is tested
+
+     ![Picture 1](./Media/sandbox-purview-image208.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*******************************************************************************************************************
 ---
 
 ## Task 1: Define Data Quality Rules on Selected Assets (20 min)
