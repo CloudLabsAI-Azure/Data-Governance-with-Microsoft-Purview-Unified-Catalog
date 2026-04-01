@@ -31,15 +31,27 @@ In this lab, you will perform the following:
 
    ![Picture 1](./Media/DG13.png)
 
-1. Click **Unified Catalog** → **Catalog management** → **Governance domains**
-1. Click **+ New governance domain**
-1. On the **Basic details** step:
-   - **Name**: `Sales Analytics`
-   - **Description**: `Governance domain for sales-related data assets across Fabric and Databricks platforms`
-   - **Type**: select `Data domain`
-1. Click **Next** → on **Custom attributes**, skip (no changes needed) → click **Create**
-1. Once created, add your lab user account as a **Domain owner** if prompted
-1. Verify the `Sales Analytics` domain appears in the list
+1. In the **Unified Catalog** page, expand **Catalog management (1)**, select **Governance domains (2)**, and click **Create governance domain (3)**.
+
+   ![Picture 1](./Media/DG53.png)
+
+1. In the **New governance domain** page, enter the following details and click **Next (4)**:
+
+      | Field        | Value                                                                |
+      |--------------|----------------------------------------------------------------------|
+      | Name         | Sales Analytics **(1)**                                              |
+      | Description  | Governance domain for sales-related data assets across Fabric and Databricks platforms **(2)**|
+      | Type     | Data domain **(3)**                                                      |
+
+      ![Picture 1](./Media/DG54.png)
+
+1. On the **Custom attributes** step, leave the default settings and click **Create (5)**.
+
+   ![Picture 1](./Media/DG56.png)
+
+1. Verify that the **Sales Analytics** governance domain appears in the list.
+
+   ![Picture 1](./Media/DG55.png)
 
 **Step 2: Create the Data Product**
 
@@ -91,25 +103,8 @@ In this lab, you will perform the following:
    - **Use case**: `Customer analytics, segmentation, sales reporting, cross-platform customer matching`
    - **Update frequency**: `Fabric data refreshes daily via Lakehouse; Databricks data is static reference (TPC-H benchmark)`
    - **Quality notes**: `Fabric customer data sourced from Wide World Importers sample. Databricks customer data is TPC-H standard benchmark. Both scanned and classified by Purview.`
+   
 1. Click **Save**
-
-**Step 3: Add Contacts**
-
-1. In the data product, go to the **Contacts** or **People** section
-1. Add:
-   - **Owner**: your lab user account (if not already set)
-   - **Expert**: your lab user account
-   - **Steward**: your lab user account
-1. These roles determine who business users contact for questions about this data product
-
-**Step 4: Review Asset-Level Metadata**
-
-1. Click into each asset within the data product:
-   - Verify the asset still shows its individual schema, classifications, and properties
-   - Note that the asset now also shows it belongs to the `Customer 360` data product
-1. The data product provides a **business layer** on top of the technical assets — business users find the data product, then drill into individual assets
-
-**Expected Result**: Data product has complete business metadata: description, use case, governance domain, owner, expert, and steward assigned. All assets accessible from within the data product.
 
 ## Task 3: Publish Data Product to Unified Catalog
 
