@@ -89,6 +89,26 @@ In this task, you will verify access to the Microsoft Purview account and confir
 
    ![Picture 1](./Media/sandbox-purview-image221.png)
 
+1. Now, access the **Data Governance Administrators** role to review and explore additional options in the **Unified Catalog**.
+
+2. From the portal, click the **Settings (1)** icon in the top-right corner, then select **Unified Catalog (2)**.
+
+    ![Picture 1](./Media/sandbox-purview-image222.png)
+   
+4. You will be navigated to the **Unified Catalog**. Review the **Roles and permissions** pane.
+
+    ![Picture 1](./Media/sandbox-purview-image223.png)
+   
+6. Under the **Roles and permissions** pane, review each role. For **Data Governance Administrators**, click the **+ Add (1)** icon, search for and select your ODL user **(2) (3)**, then click **Add (4)**.
+
+    ![Picture 1](./Media/sandbox-purview-image224.png)
+
+7. Repeat the same steps for the remaining roles:
+   - **Governance Domain Creators**
+   - **Global Catalog Readers**
+   - **Data Health Owners**
+   - **Data Health Readers**
+
 ### Task 2: Configure Collections, Domains, and Ownership Model (20 min)
 
 This task focuses on structuring your data environment logically using collections and domains. You will organize data sources (like Fabric and Databricks) and categorize them into business domains.
