@@ -53,26 +53,53 @@ In this lab, you will perform the following:
 
    ![Picture 1](./Media/DG55.png)
 
+1. Once verified, select the domain and click **Publish**.
+
+   ![Picture 1](./Media/DG70.png)
+
 **Step 2: Create the Data Product**
 
-1. Click **Unified Catalog** → **Catalog management** → **Data products**
-1. Click **+ New data product**
-1. On the **Basic details** step:
-   - **Name**: `Customer 360`
-   - **Description**: `Unified customer data product spanning Fabric Lakehouse and Databricks Unity Catalog for customer analytics and reporting.`
-   - **Type**: select `Dataset`
-1. Click **Next** → on **Business details**:
-    - **Governance domain**: select `Sales Analytics`
-    - **Description** (if available): `Customer data product that consolidates customer profiles, geographic data, and sales transactions from Fabric and Databricks for unified analytics.`
-    - **Owners**: add your lab user account
-1. Click **Next** → on **Custom attributes**, skip → click **Create**
+1. In **Unified Catalog**, expand **Catalog management (1)** → select **Data products (2)** → click **+ New data product (3)**.
+
+   ![Picture 1](./Media/DG57.png)
+
+1. In the **Basic details** step, enter the following details and click **Next (5)**:
+
+      | Field       | Value                                                                 |
+      |-------------|----------------------------------------------------------------------|
+      | Name        | Customer 360 **(1)**                                                 |
+      | Description | Unified customer data product spanning Fabric Lakehouse and Databricks Unity Catalog for customer analytics and reporting **(2)** |
+      | Type        | Dataset **(3)**                                                      |
+      | Owner       | Ensure **ODL_User<inject key="DeploymentID" enableCopy="false"/> (4)** is selected |
+
+      ![Picture 1](./Media/DG58.png)
+
+1. In the **Business details** step, enter the following and click **Next (3)**:
+
+      | Field               | Value                                                                 |
+      |---------------------|----------------------------------------------------------------------|
+      | Governance domain   | Sales Analytics **(1)**                              |
+      | Use cases           | Customer data product that consolidates customer profiles, geographic data, and sales transactions from Fabric and Databricks for unified analytics **(2)** |
+
+      ![Picture 1](./Media/DG59.png)
+
+1. In the **Custom attributes** step, skip (no changes required) and click **Create**.
+
+   ![Picture 1](./Media/DG60.png)
 
 **Step 3: Add Assets to the Data Product**
 
-1. After creation, select **Add data assets** → the **Find and select** panel opens with a search box, Collection filters (Databricks Sources, Fabric Sources), and Classification filters
-1. Search for and add these **core assets** (you can select multiple before clicking **Add**):
-    - **Fabric assets**: `dimension_customer` (Lakehouse Table)
-    - **Databricks assets**: `customer` (Azure Databricks Table), `sales_suppliers` (Azure Databricks Table)
+1. After creating the data product, select **Add data assets (1)** and click **Done (2)**.
+
+   ![Picture 1](./Media/DG61.png)
+
+1. In the **Find and select** pane, select **Databricks Sources (1)**, choose at least four relevant tables such as `customer`, `sales_customers`, `sales_suppliers`, and `sales_franchises` (2), verify them in the **Selected (3)** pane, and click **Add (4)**.
+
+   ![Picture 1](./Media/DG62.png)
+
+1. Repeat the same process for **Fabric Sources (1)**, select at least four relevant tables such as `dimension_customer`, `vendors`, `dimension_city`, and `dimension_stock_item` (2), verify them in the **Selected (3)** pane, and click **Add (4)**.
+
+   ![Picture 1](./Media/DG64.png)
 
    > **Tip**: Use the **Collection** filter to narrow results to just Fabric Sources or Databricks Sources when multiple results appear.
 
@@ -83,61 +110,87 @@ In this lab, you will perform the following:
 
    > **Note**: This data product spans two platforms (Fabric + Databricks) — demonstrating Purview's ability to package cross-platform assets into a single business unit.
 
-   **Expected Result**: `Sales Analytics` governance domain created. `Customer 360` data product created with assets from both Fabric and Databricks (minimum 3: `dimension_customer`, `customer`, `sales_suppliers`).
+   **Expected Result**: `Sales Analytics` governance domain created. `Customer 360` data product created with assets from both Fabric and Databricks (minimum 4: `dimension_customer`, `customer`, `sales_suppliers`,`dimension_city`).
 
 ## Task 2: Assign Domain, Owner, and Business Description
 
 **Step 1: Review Data Product Metadata**
 
-1. Open the `Customer 360` data product
-1. Review the metadata already set:
-   - **Name**: Customer 360
-   - **Description**: cross-platform customer data product description
-   - **Governance domain**: Sales Analytics
-   - **Owner**: your lab user account
+1. Open the **Customer 360** data product and review the metadata:
+
+      | Field              | Value                                                                 |
+      |--------------------|----------------------------------------------------------------------|
+      | Name               | Customer 360 **(1)**                                                 |
+      | Description        | Unified customer data product spanning Fabric Lakehouse and Databricks Unity Catalog for customer analytics and reporting **(2)** |
+      | Governance domain  | Sales Analytics **(3)**                                              |
+      | Owner              | **ODL_User<inject key="DeploymentID" enableCopy="false"/> (4)**      |
+
+      ![Picture 1](./Media/DG65.png)
+
+      ![Picture 1](./Media/DG63.png)
 
 **Step 2: Add Additional Business Context**
 
-1. Click **Edit** on the data product
-1. Add or update:
-   - **Use case**: `Customer analytics, segmentation, sales reporting, cross-platform customer matching`
-   - **Update frequency**: `Fabric data refreshes daily via Lakehouse; Databricks data is static reference (TPC-H benchmark)`
-   - **Quality notes**: `Fabric customer data sourced from Wide World Importers sample. Databricks customer data is TPC-H standard benchmark. Both scanned and classified by Purview.`
-   
-1. Click **Save**
+1. Click **Edit** on the data product.
+
+   ![Picture 1](./Media/DG66.png)
+
+2. Navigate to **Business details (1)**, update the **Use cases (2)** field with  
+   `Customer analytics, segmentation, sales reporting, cross-platform customer matching`, and click **Save (3)**.
+
+   ![Picture 1](./Media/DG68.png)
 
 ## Task 3: Publish Data Product to Unified Catalog
 
 **Step 1: Review Before Publishing**
 
-1. Open the `Customer 360` data product
-1. Verify all required fields are populated:
-   - Name and description
-   - Governance domain (`Sales Analytics`)
-   - Owner assigned
-   - At least one data asset added
-1. Review the data product status — it should be in **Draft** state
+1. Open the **Customer 360** data product and verify that the name, description, governance domain (**Sales Analytics**), owner (**ODL_User<inject key="DeploymentID" enableCopy="false"/>**), and required data assets (minimum of 4) are correctly populated.
+
+1. Confirm that the data product status is **Draft**.
+
+   ![Picture 1](./Media/DG69.png)
 
 **Step 2: Publish the Data Product**
 
 1. Click **Publish** (or change status to **Published**)
+
+   ![Picture 1](./Media/DG71.png)
+
 1. Confirm the publish action
-1. The data product status changes to **Published**
 
    > **What happens when you publish?** Published data products become visible to all users with catalog reader permissions. Business users can discover them through search, browse, and governance domain navigation. Draft products are only visible to owners and admins.
 
+1. When prompted, select **Set up workflow (1)** and click **OK (2)**.
+
+   ![Picture 1](./Media/DG73.png)
+
+2. In the **Manage access policies** pane, set the **Access time limit (1)** to **5 Days**, ensure **ODL_User<inject key="DeploymentID" enableCopy="false"/> (2)** is added as the approver, and click **Save changes (3)**.
+
+   ![Picture 1](./Media/DG72.png)
+
+1. The data product status changes to **Published**
+
+   ![Picture 1](./Media/DG74.png)
+
 **Step 3: Verify Discovery as a Business User**
 
-1. Go to **Unified Catalog** → **Discovery** → **Data products**
-1. Verify `Customer 360` appears in the data products list
-1. Click on it → confirm all metadata is visible:
-   - Description, use case, governance domain
-   - Owner and contacts
-   - List of included assets (6 assets from Fabric + Databricks)
+1. In **Unified Catalog**, expand **Discovery (1)** and select **Data products (2)** and verify that **Customer 360 (3)** appears in the list.
+
+   ![Picture 1](./Media/DG75.png)
+
+2. Select **Customer 360** and confirm that the description, use cases, governance domain (**Sales Analytics**), owner (**ODL_User<inject key="DeploymentID" enableCopy="false"/>**), and included data assets are correctly displayed.
+
+   ![Picture 1](./Media/DG76.png)
+
+   ![Picture 1](./Media/DG77.png)
+
+
 1. Go to **Unified Catalog** → **Discovery** → **Data assets** → search for `Customer 360`
     - The data product should appear as a searchable entity
-1. Go to **Unified Catalog** → **Catalog management** → **Governance domains** → click `Sales Analytics`
-    - The `Customer 360` data product should appear under this domain
+
+1. Expand **Catalog management (1)**, select **Governance domains (2)**, choose **Sales Analytics (3)**, and click **View all (4)** under **Business concepts**.
+
+    ![Picture 1](./Media/DG78.png)
 
 **Step 4: Browse by Governance Domain**
 
