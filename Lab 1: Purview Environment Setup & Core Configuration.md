@@ -154,6 +154,10 @@ Collections and domains provide a logical structure for managing data at scale. 
 
      ![Picture 1](./Media/DG7.png)
 
+### Task 2.2: (Optional) Explore Domain Creation and Ownership
+
+In this optional step, you will see how to create business domains in Microsoft Purview and understand how ownership is assigned.
+
 1. In the **Domains** page, click **New domain (1)**, enter **Sales & Commerce (2)**, provide the description as **All sales, orders, and customer data (3)**, verify the user under **Domain admins (4)** is selected as **ODL_User<inject key="DeploymentID" enableCopy="false"/> (5)**, and then click **Create (6)**.
 
     ![Picture 1](./Media/DG8.png)
