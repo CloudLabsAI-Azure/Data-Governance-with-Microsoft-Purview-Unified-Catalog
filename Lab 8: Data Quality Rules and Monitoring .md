@@ -1,13 +1,10 @@
 # Lab 8: Data Quality Rules and Monitoring
 
-**Duration**: 50 minutes
-**Day**: 3 — Data Quality & MDM Integration Use Cases
 
 ## Objective
 
 Define data quality rules on Fabric and Databricks assets, execute quality checks, and review quality metrics in the Unified Catalog.
 
-> **Prerequisites**: Labs 1–7 completed. Fabric Lakehouse and Databricks Unity Catalog assets scanned, data products and glossary terms created.
 
 
 ## Task 1: Configure Data Quality Source Connections for Fabric and Databricks
