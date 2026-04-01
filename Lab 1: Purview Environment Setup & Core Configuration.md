@@ -1,10 +1,12 @@
 # Lab 1: Purview Environment Setup & Core Configuration 
 
+### Estimated Duration: 40 Minutes
+
 ## Lab Overview
 
-In this lab, you will explore how to set up and validate your data governance environment using Microsoft Purview. You will begin by verifying access roles and permissions, then organize your data estate using collections and domains. Finally, you will explore the Unified Catalog experience to understand how business users interact with governed data.
+In this lab, you will explore how to set up and validate your data governance environment using Microsoft Purview. You will begin by verifying access roles and permissions, then organize your data estate using collections and domains. Finally, you will explore the Unified Catalog to understand how business users interact with governed data.
 
-This lab focuses on building the foundational structure required for effective data governance, ensuring that access, organization, and discoverability are properly configured before working with actual data assets.
+This lab focuses on establishing the foundational structure for effective data governance, ensuring that access, organization, and discoverability are properly configured before working with data assets.
 
 > **Note:** This lab involves guided configuration steps, but some components may already be preconfigured to simulate a real-world governance environment.
 
@@ -16,16 +18,13 @@ In this lab, you will perform the following:
 - **Task 2:** Configure collections, domains, and ownership model  
 - **Task 3:** Explore and understand the Unified Catalog experience  
 
-### Estimated Duration: 20 minutes
 
 ### Task 1: Validate Microsoft Purview Account and Access Roles
 
-In this task, before working with governance features, you will verify that you have the correct permissions. You will access the Microsoft Purview portal and review assigned roles to ensure you can perform governance operations.
+In this task, you will verify that you have the required permissions in Microsoft Purview before working with governance features. You will access the portal and review assigned roles.
 
 **Why it matters:**
-Without proper roles, you won’t be able to create collections, domains, or manage data access.
-
-In this task, you will verify access to the Microsoft Purview account and confirm that the required roles are assigned.
+Proper roles are required to create collections, domains, and manage data access.
 
 1. In the **Azure portal** home page, scroll down and select **Resource groups**.
 
@@ -71,6 +70,12 @@ In this task, you will verify access to the Microsoft Purview account and confir
 
 ### Task 1.1: Assign User to Data Governance Role Group
 
+In this task, you will assign a user to the Data Governance role group in Microsoft Purview. This ensures the user has the necessary permissions to manage governance features and access capabilities within the Unified Catalog.
+
+**Why it matters:**
+
+Role groups simplify permission management by granting a predefined set of governance capabilities. Assigning users to the correct role groups ensures they can perform tasks such as managing domains, accessing the Unified Catalog, and maintaining data governance processes.
+
 1. In the **Microsoft Purview portal**, go to **Settings (1)** > expand **Roles and scopes (2)** → select **Role groups (3)**.
 
     ![Picture 1](./Media/DG02.png)
@@ -113,11 +118,14 @@ In this task, you will verify access to the Microsoft Purview account and confir
    - **Data Health Owners**
    - **Data Health Readers**
 
-### Task 2: Configure Collections, Domains, and Ownership Model (20 min)
+### Task 2: Configure Collections, Domains, and Ownership Model
 
-This task focuses on structuring your data environment logically using collections and domains. You will organize data sources (like Fabric and Databricks) and categorize them into business domains.
+In this task, you will structure your data environment in Microsoft Purview by creating collections and domains. You will organize data sources (such as Fabric and Databricks) and group them into business domains, while assigning ownership for governance.
 
-1. Now pevioosult task we have cteate the purview and rolle assigneme t now let woke on creating collect and Domain and asisgne to odl user id
+**Why it matters:**
+Collections and domains provide a logical structure for managing data at scale. Proper organization and ownership ensure clear accountability, easier data discovery, and effective governance across the data estate.
+
+1. In the previous task, you validated roles and access. Now, you will create collections and domains to organize your data estate.
 
 1. In the **Domains** page, click **New collection (1)**, enter **Contoso Data Estate (2)**, under **Collection admins (3)** search for **ODL-User** and select **<inject key="AzureAdUserEmail" enableCopy="true"/>**, ensure **ODL_User<inject key="DeploymentID" enableCopy="false"/> (4)** is selected, and then click **Create (5)**.
 
@@ -126,7 +134,6 @@ This task focuses on structuring your data environment logically using collectio
 1. Once Contoso Data Estate is created, you will see it under **Collections**. Select the ellipsis (**...**) **(1)** next to Contoso Data Estate, then click **+ New sub-collection (2)**.
 
     ![Picture 1](./Media/sandbox-purview-image11.png)
-
 
 1. On the **New collection** pane, provide **Collection Name** as **Fabric Sources (1)**,  under **Collection admins (2)** search for **ODL-User** and select **<inject key="AzureAdUserEmail" enableCopy="true"/>**, ensure **ODL_User<inject key="DeploymentID" enableCopy="false"/> (3)** is selected, and then click **Create (4)**
 
@@ -165,10 +172,13 @@ This task focuses on structuring your data environment logically using collectio
 
 ### Task 3: Enable Unified Catalog Experience
 
-In this task, you explore the Unified Catalog, a business-friendly interface that sits on top of the technical Data Map.
+In this task, you will explore the Unified Catalog in Microsoft Purview, a business-friendly interface built on top of the Data Map.
 
-> **What is Unified Catalog?** 
-> Unified Catalog is the business friendly layer on top of Data Map. It lets business users discover data assets, browse data products, and access the enterprise glossary  without needing to understand the technical Data Map structure.
+**What is Unified Catalog?**
+Unified Catalog provides a simplified, business-friendly view of your data. It enables users to discover data assets, browse data products, and access the enterprise glossary without needing to understand the underlying technical structure.
+
+**Why it matters:**
+Unified Catalog enables business users to easily find, understand, and use trusted data, improving data accessibility and collaboration across the organization.
 
 1. In your tenant, the **Unified Catalog** experience is already enabled. In this task, you will review its features.
 
@@ -184,7 +194,7 @@ In this task, you explore the Unified Catalog, a business-friendly interface tha
 
 ## Summary
 
-In this lab, you set up and validated your Microsoft Purview governance environment by verifying access roles and permissions, organizing the data estate using collections and domains, assigning ownership for governance control, and exploring the Unified Catalog experience for business-friendly data discovery.
+In this lab, you set up and validated your data governance environment in Microsoft Purview by verifying access roles and permissions, organizing the data estate using collections and domains, assigning ownership for governance control, and exploring the Unified Catalog for business-friendly data discovery.
 
 ## Click Next to continue to the next lab.
 
