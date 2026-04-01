@@ -35,7 +35,7 @@ In this task, you will verify access to the Microsoft Purview account and confir
 
      ![Picture 1](./Media/sandbox-purview-image2.png)
 
-1. Locate **purview-2146201** and click on it.
+1. Locate **purview-<inject key="DeploymentID" enableCopy="false"/>** and click on it.
 
     ![Picture 1](./Media/sandbox-purview-image3.png)
 
@@ -45,7 +45,7 @@ In this task, you will verify access to the Microsoft Purview account and confir
 
    **>Important**: If you are unable to launch the **Open Microsoft Purview Governance Portal**, use the portal link https://purview.microsoft.com/. From the new Purview portal, follow the steps below to enable the unified portal experience:
 
-    - From the left navigation pane, select **Settings** → **Account**, then click the **Upgrade** button to update the portal experience from **Classic** to **Enterprise**.
+    - From the left navigation pane, select **Settings** > **Account**, then click the **Upgrade** button to update the portal experience from **Classic** to **Enterprise**.
 
 1. When **Welcome to the new Microsoft Purview portal!** pop-up appears, click on **Get started**.
 
@@ -59,7 +59,7 @@ In this task, you will verify access to the Microsoft Purview account and confir
 
    ![Picture 1](./Media/sandbox-purview-image5.png)
 
-1. Review all the roles assigned to your user account.
+1. Review all the roles assigned to your <inject key="AzureAdUserEmail" enableCopy="true"/> account.
 
    ![Picture 1](./Media/sandbox-purview-image8.png)
    
@@ -99,7 +99,7 @@ In this task, you will verify access to the Microsoft Purview account and confir
 
     ![Picture 1](./Media/sandbox-purview-image223.png)
    
-6. Under the **Roles and permissions** pane, review each role. For **Data Governance Administrators**, click the **+ Add (1)** icon, search for and select your ODL user **(2) (3)**, then click **Add (4)**.
+6. Under the **Roles and permissions** pane, review each role. For **Data Governance Administrators**, click the **+ Add (1)** icon, search for and select your <inject key="AzureAdUserEmail" enableCopy="true"/> **(2) (3)**, then click **Add (4)**.
 
     ![Picture 1](./Media/sandbox-purview-image224.png)
 
@@ -143,7 +143,6 @@ This task focuses on structuring your data environment logically using collectio
 
      ![Picture 1](./Media/DG7.png)
 
-
 1. In the **Domains** page, click **New domain (1)**, enter **Sales & Commerce (2)**, provide the description as **All sales, orders, and customer data (3)**, verify the user under **Domain admins (4)** is selected as **ODL_User<inject key="DeploymentID" enableCopy="false"/> (5)**, and then click **Create (6)**.
 
     ![Picture 1](./Media/DG8.png)
@@ -174,7 +173,6 @@ In this task, you explore the Unified Catalog, a business-friendly interface tha
      ![Picture 1](./Media/DG13.png)
 
      ![Picture 1](./Media/DG15.png)
-    
     
 1. In the **Microsoft Purview portal**, from the left navigation pane select **Settings (1)**, click **Account (2)**, and review the **Account type (3)** on the overview page.
 
