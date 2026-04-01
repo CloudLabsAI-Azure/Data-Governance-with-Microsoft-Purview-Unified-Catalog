@@ -40,160 +40,73 @@ Data quality in Microsoft Purview connects directly to the data source to execut
 
 ## Task 2: Define Data Quality Validation Rules for Dataset
 
-1. For each rule below, navigate to **Unified Catalog** > **Health management** > **Data quality (1)** > **Customer Intelligence (2)** domain.
+1. For each rule below, navigate to **Unified Catalog** > **Health management** > **Sales Analytics (1)** > **Customer 360 (2)**.
 
-   ![](../media/jj9.png)
+   ![Picture 1](./Media/sandbox-purview-image210.png)
 
-1. Click on **Customer Intelligence** and select **customer_master**
+1. Click on **Customer 360** and select **dimension_customer**
 
-   ![](../media/jj10.png)
+   ![Picture 1](./Media/sandbox-purview-image211.png)
 
 1. Select **Rules** and click on **New Rule**
 
-   ![](../media/jj11.png)
+   ![Picture 1](./Media/sandbox-purview-image212.png)
 
 
+### Task 2.1: Create Rule 1 — Empty/Blank Fields
 
+4. Select **Empty/blank fields** scroll down clcik on NExt.
 
+     ![Picture 1](./Media/sandbox-purview-image213.png)
 
+6. Configure:
+   - **Column**: **Customer (1)**
+   - **Description**: **Looks for blank and empty customer name fields (2)**
+   - Click on **Score threshold (3)** just review the details.
+   - Click on **Create (4)**
+  
+     ![Picture 1](./Media/sandbox-purview-image214.png)
 
+     ![Picture 1](./Media/sandbox-purview-image216.png)
+   
+1. Back on **`dimension_customer`**, review the newly created rule **(1)**, then click **Run quality scan (2)**.
 
+    ![Picture 1](./Media/sandbox-purview-image215.png)
+ 
+1. On the **Scan run configuration** page, configure the settings as required. For now, keep the default settings selected, then click **Run quality scan**.
 
+    ![Picture 1](./Media/sandbox-purview-image217.png)
 
 
+### Task 2.2: Create Rule 2 - String Format Match
 
+1. Back on **Customer 360** page, search and select **vendors**.
 
+    ![Picture 1](./Media/sandbox-purview-image218.png)
 
+1. In the rule configuration pane, provide the following details:
 
+   - **Column (1)**: `email (String)`  
+   - **Description (2)**: Validates that vendor email addresses follow the expected format  
+   - **Validation type (3)**: Regular expression  
+   - **Validation criteria (4)**: `@.*\.com`
+   - click **Create (5)**.
 
+     ![Picture 1](./Media/sandbox-purview-image219.png)
 
+1. Back on **`vendors`**, review the newly created rule **(1)**, then click **Run quality scan (2)**.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-*******************************************************************************************************************
----
-
-## Task 1: Define Data Quality Rules on Selected Assets (20 min)
-
-> **What is Data Quality in Purview?** Microsoft Purview Data Quality lets you define rules that validate data correctness, completeness, and consistency. Rules run against scanned assets and produce quality scores visible in the Unified Catalog.
-
-**Step 1: Navigate to Data Quality**
-
-1. Navigate to the **Purview portal** (`https://purview.microsoft.com`)
-2. In the left sidebar, click **Unified Catalog** → **Health management** → **Data quality**
-3. You should see the Data Quality overview page
-
-**Step 2: Create Rule 1 — Empty/Blank Fields**
-
-4. Click **+ New rule** → select **Empty/blank fields**
-5. Configure:
-   - **Name**: `Customer Name Completeness`
-   - **Description**: `Looks for blank and empty customer name fields`
-   - **Governance domain**: `Sales Analytics`
-6. Click **Create** → open the rule → **Add columns**
-7. Search for `dimension_customer` → select the **Customer** column → click **Add**
-
-**Step 3: Create Rule 2 — Freshness**
-
-8. Click **+ New rule** → select **Freshness**
-9. Configure:
-   - **Name**: `Sales Data Freshness`
-   - **Description**: `Validates that sales data has been updated within expected timeframes`
-   - **Governance domain**: `Sales Analytics`
-10. Click **Create** → open the rule → **Add columns**
-11. Search for `fact_sale` → select a date column → click **Add**
-
-**Step 4: Create Rule 3 — Unique Values**
-
-12. Click **+ New rule** → select **Unique values**
-13. Configure:
-    - **Name**: `Customer Key Uniqueness`
-    - **Description**: `Confirms that customer key values are unique`
-    - **Governance domain**: `Sales Analytics`
-14. Click **Create** → open the rule → **Add columns**
-15. Search for `dimension_customer` → select **Customer Key** → click **Add**
-
-**Step 5: Create Rule 4 — String Format Match**
-
-16. Click **+ New rule** → select **String format match**
-17. Configure:
-    - **Name**: `Vendor Email Format`
-    - **Description**: `Validates that vendor email addresses follow expected format`
-    - **Governance domain**: `Sales Analytics`
-18. Click **Create** → open the rule → **Add columns**
-19. Search for `vendors` → select **contact_email** → click **Add**
-**Step 6: Verify Rules Created**
-
-25. Go to **Data quality rules** → verify all 4 rules appear:
+    ![Picture 1](./Media/sandbox-purview-image220.png)
+ 
+1. On the **Scan run configuration** page, configure the settings as required. For now, keep the default settings selected, then click **Run quality scan**.
 
     | Rule | Type | Target Asset | Target Column |
     |------|------|-------------|---------------|
     | Customer Name Completeness | Completeness | Fabric `dimension_customer` | Customer |
-    | Sales Data Freshness | Freshness | Fabric `fact_sale` | Date column |
-    | Customer Key Uniqueness | Uniqueness | Databricks `tpch.customer` | `c_custkey` |
-    | Phone Number Format | Format | Databricks `tpch.customer` | `c_phone` |
+    | Sales Data Freshness | Freshness | Fabric `vendors` | Date column |
 
-**Expected Result**: 4 data quality rules created covering completeness, freshness, uniqueness, and format validation across both Fabric and Databricks assets.
+**Expected Result**: 2 data quality rules created covering completeness, freshness, in Fabric assets.
 
----
-
-## Task 2: Execute Data Quality Checks (15 min)
-
-**Step 1: Run Quality Scan on Fabric Assets**
-
-1. In **Data quality**, select the `Customer Name Completeness` rule
-2. Click **Run** (or **Evaluate**)
-3. Wait for the quality check to complete — this samples the data and evaluates against the rule
-4. Review the result:
-   - **Pass rate**: percentage of rows where customer name is not null/empty
-   - **Rows evaluated**: total rows sampled
-   - **Failed rows**: count of rows that violated the rule
-5. Repeat for `Sales Data Freshness` rule → run and review results
-
-**Step 2: Run Quality Scan on Databricks Assets**
-
-6. Select the `Customer Key Uniqueness` rule → click **Run**
-7. Review results:
-   - **Pass rate**: should be 100% (TPC-H `c_custkey` is a primary key, all values unique)
-   - This confirms the benchmark data has no duplicate keys
-8. Select the `Phone Number Format` rule → click **Run**
-9. Review results:
-   - Pass rate depends on how many phone values match the expected format
-   - TPC-H phone numbers follow a `XX-XXX-XXX-XXXX` pattern
 
 **Step 3: Review Quality Run History**
 
@@ -211,12 +124,11 @@ Data quality in Microsoft Purview connects directly to the data source to execut
     |------|-------|-----------|-------|
     | Customer Name Completeness | Fabric `dimension_customer` | Expected ~100% | Sample data is complete |
     | Sales Data Freshness | Fabric `fact_sale` | Varies | Static sample data — freshness may show as stale |
-    | Customer Key Uniqueness | Databricks `tpch.customer` | Expected 100% | Primary key — no duplicates |
-    | Phone Number Format | Databricks `tpch.customer` | Varies | TPC-H format `XX-XXX-XXX-XXXX` |
+
+   
 
 **Expected Result**: All 4 quality rules executed successfully. Pass rates visible for each rule. Quality evaluation history recorded.
 
----
 
 ## Task 3: Review Quality Metrics in Unified Catalog (15 min)
 
