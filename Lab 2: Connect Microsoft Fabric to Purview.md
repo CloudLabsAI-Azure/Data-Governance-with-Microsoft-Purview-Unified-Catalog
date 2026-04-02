@@ -30,7 +30,7 @@ A properly configured workspace provides the foundation for data ingestion, tran
     https://app.fabric.microsoft.com
     ```
 
-1. On the **Enter your email, we'll check if you need to create a new account** page, enter your **Email/Username (1)** as **<inject key="AzureAdUserEmail" enableCopy="true"/>**, and then click **Submit (2)**.
+1. On the **Enter your email, we'll check if you need to create a new account** page, enter your **Email(1)** as **<inject key="AzureAdUserEmail" enableCopy="true"/>**, and then click **Submit (2)**.
 
    ![Picture 1](./Media/sandbox-purview-image93.png)
 
