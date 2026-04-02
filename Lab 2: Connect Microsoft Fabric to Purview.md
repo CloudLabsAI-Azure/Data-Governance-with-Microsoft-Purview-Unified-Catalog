@@ -388,19 +388,19 @@ Scanning enables automatic metadata ingestion, making data assets visible in the
 
 1. Once the **Test connection** is successful (**Success – View report (1)**), click **Continue (2)**.
 
-   ![Picture 1](./Media/DG030.png)
+   ![Picture 1](./Media/sandbox-purview-image249.png)
 
 1. On the **Scope your scan** page, select **No (1)**, then click **Continue (2)**.
 
-    ![Picture 1](./Media/DG28.png)
+    ![Picture 1](./Media/sandbox-purview-image250.png)
 
 1. On the **Set a scan trigger** page, select **Once (1)**, then click **Continue (2)**.
 
-    ![Picture 1](./Media/DG29.png)
+    ![Picture 1](./Media/sandbox-purview-image251.png)
 
 1. On the **Review your scan** page, click **Save and run**.
 
-    ![Picture 1](./Media/DG31.png)
+    ![Picture 1](./Media/sandbox-purview-image252.png)
 
 1. Back on the **Data sources** page, under **Fabric**, click on **View details**.
 
@@ -410,7 +410,7 @@ Scanning enables automatic metadata ingestion, making data assets visible in the
 
    ![Picture 1](./Media/sandbox-purview-image147.png)
 
-   > **Known limitation**: Per [Microsoft documentation](https://learn.microsoft.com/en-us/purview/register-scan-fabric-tenant), *"For all Fabric items besides Power BI, only item level metadata and lineage can be scanned. For Lakehouse tables and files, sub-item level metadata scanning is available but sub-item level lineage isn’t supported."* This means: Lakehouse tables appear individually, but Warehouse tables do not — only the Warehouse container is cataloged.
+   > **Known limitation**: Per [Microsoft documentation](https://learn.microsoft.com/en-us/purview/register-scan-fabric-tenant), *"For all Fabric items besides Power BI, only item level metadata and lineage can be scanned. For Lakehouse tables and files, sub-item level metadata scanning is available but sub-item level lineage isn’t supported."* This means: Lakehouse tables appear individually, but Warehouse tables do not only the Warehouse container is cataloged.
 
 ### Task 3.1: Verify Lakehouse Assets
 
