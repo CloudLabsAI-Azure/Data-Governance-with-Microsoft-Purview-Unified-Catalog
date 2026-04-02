@@ -13,6 +13,8 @@ You will also review data lineage to understand how data flows across systems an
 
 ## Task 1: Review and Verify initial scans across Fabric and Databricks
 
+In this task, you will learn how to review and verify initial scan results in **Microsoft Purview** to ensure both **Fabric** and **Databricks** scans have completed successfully.
+
 1. Navigate back to the **Microsoft Purview** home page using the URL below.
 
    ```
@@ -30,6 +32,7 @@ You will also review data lineage to understand how data flows across systems an
     ![Picture 1](./Media/sandbox-purview-image157.png)
 
 ## Task 2: Apply Built-in Classifications 
+
 
 In this task, you will learn how to apply built-in classifications in Microsoft Purview to identify sensitive data and enforce governance practices across Fabric and Databricks assets.
 

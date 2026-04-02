@@ -6,19 +6,20 @@ In this lab, you will connect Azure Databricks Unity Catalog to Microsoft Purvie
 
 Finally, you will validate the discovered assets in the Unified Catalog and explore how Databricks tables, schemas, and catalogs are represented within Microsoft Purview.
 
-## Lab Objectives
+## Lab Objectives  
 
 In this lab, you will perform the following:
 
-- **Task 1:** Register Azure Databricks Unity Catalog as a data source in Purview  
-- **Task 2:** Configure Unity Catalog connector using PAT and Key Vault  
-- **Task 3:** Create and run a scan for Databricks assets  
+- **Task 1:** Verify Azure Databricks workspace and capture required details  
+- **Task 2:** Register Azure Databricks Unity Catalog as a data source in Purview  
+- **Task 3:** Configure Unity Catalog connector using PAT and Key Vault  
 - **Task 4:** Validate discovered Databricks assets in Unified Catalog  
-- **Task 5:** Explore Databricks catalog hierarchy and schema representation  
 
 ## Estimated Duration 60 minutes
 
-### Verify your Databricks workspace:
+### Task 1: Verify your Databricks workspace:
+
+In this task, you will access and validate the pre-created **Azure Databricks** workspace. You will verify the **SQL Warehouse** status, review connection details, and capture the **Metastore ID** for further use in the lab.
 
 1. In the Azure portal, from the search bar, search for and select **Azure Databricks**.
 
@@ -52,7 +53,9 @@ In this lab, you will perform the following:
 
    ![Picture 1](./Media/sandbox-purview-image52.png)
 
-### Task 1: Register Databricks Workspace as a Data Source (10 min)
+### Task 2: Register Databricks Workspace as a Data Source
+
+In this task, you register the **Azure Databricks Unity Catalog** as a data source in **Microsoft Purview** by providing the Metastore ID and assigning it to a collection.
 
 1. Navigate back to the **Microsoft Purview** home page using the URL below.
 
@@ -81,11 +84,13 @@ In this lab, you will perform the following:
 
     ![Picture 1](./Media/sandbox-purview-image55.png)
 
-## Task 2: Configure Unity Catalog Connector (20 min)
+## Task 3: Configure Unity Catalog Connector
 
-> Purview authenticates to Databricks Unity Catalog using a **Personal Access Token (PAT)**. You'll generate a PAT in Databricks, store it in Azure Key Vault, then create a credential in Purview that references the Key Vault secret.
+In this task, you configure the connection between **Microsoft Purview** and **Azure Databricks Unity Catalog** by generating a PAT, storing it in **Azure Key Vault**, creating a credential, and validating the connection using a scan.
 
-### Task 2.1: Generate a Personal Access Token in Databricks
+### Task 3.1: Generate a Personal Access Token in Databricks
+
+In this task, you generate a **Personal Access Token (PAT)** in the **Databricks workspace**, which will be used by **Microsoft Purview** to authenticate and access the Unity Catalog.
 
 1. Naviagte back to the **Databricks workspace**, click your **username (2)** (top-right corner) and select **Settings (1)**.
 
@@ -112,7 +117,9 @@ In this lab, you will perform the following:
 
    > Record it **Notepad** later you will use it in next taks
 
-### Task 2.2: Store the PAT in Azure Key Vault**
+### Task 3.2: Store the PAT in Azure Key Vault**
+
+In this task, you store the generated **Personal Access Token (PAT)** in **Azure Key Vault** as a secret to securely manage authentication for **Microsoft Purview**.
 
 1. Naviagte back to Azure portal and from the search bar, search for and select **Key vaults**.
 
@@ -137,7 +144,9 @@ In this lab, you will perform the following:
 
      ![Picture 1](./Media/sandbox-purview-image56.png)
     
-### Task 2.3: Connect Key Vault to Purview**
+### Task 3.3: Connect Key Vault to Purview**
+
+In this task, you connect **Azure Key Vault** to **Microsoft Purview** by creating a Key Vault connection, enabling secure access to stored secrets.
 
 1. Navigate back to **Purview portal**.
 1. Click **Data Map (1)** then expand **Source management (2)** then select **Credentials (3)** and click on **Manage Key Vault connections (4)**.
@@ -159,7 +168,9 @@ In this lab, you will perform the following:
 
    ![Picture 1](./Media/DG34.png)
       
-### Task 2.4: Create a Credential in Purview
+### Task 3.4: Create a Credential in Purview
+
+In this task, you create a credential in **Microsoft Purview** using the stored **PAT** from **Azure Key Vault** to enable authentication for accessing the Databricks data source.
 
 1. Back on **Credentials** page, click on **+ New (1)** then specify the following details:
 
@@ -171,7 +182,9 @@ In this lab, you will perform the following:
 
       ![Picture 1](./Media/sandbox-purview-image40.png)
 
-### Task 2.5: Test the Connection
+### Task 3.5: Test the Connection
+
+In this task, you test the connection by configuring and running a scan in **Microsoft Purview** to validate access to the **Azure Databricks Unity Catalog**.
 
 1. In **Data Map** click on **Data sources (1)** then under **Purview-Databricks-UC** select **+ New scan (2)**.
 
@@ -199,7 +212,9 @@ In this lab, you will perform the following:
 
    ![Picture 1](./Media/sandbox-purview-image46.png)
 
-### Task 2.6: Monitor Scan Progress
+### Task 3.6: Monitor Scan Progress
+
+In this task, you monitor the scan progress in **Microsoft Purview** and verify that the scan completes successfully.
 
 1. In **Data sources** page, under **Purview-Databricks-UC** click on **View details**.
 
@@ -215,9 +230,11 @@ In this lab, you will perform the following:
 
 ## Task 4: Validate Databricks Assets in Unified Catalog (15 min)
 
-> Now verify that Databricks Unity Catalog assets appear in Purview alongside the Fabric assets from Lab 2.
+In this task, you validate that **Azure Databricks Unity Catalog** assets appear in **Microsoft Purview Unified Catalog** by searching and exploring tables and their hierarchy.
 
 ### Task 4.1: Search for Databricks Tables
+
+In this task, you search for and explore **Databricks tables** in the **Microsoft Purview Unified Catalog**, reviewing schema, properties, and hierarchy.
 
 1. From the left navigation pane, click **Solutions (1)**, then select **Unified Catalog (2)**.
 
@@ -238,6 +255,8 @@ In this lab, you will perform the following:
      ![Picture 1](./Media/sandbox-purview-image63.png)
 
 ### Task 4.2: Explore the Catalog Hierarchy
+
+In this task, you explore the **catalog hierarchy** in the **Microsoft Purview Unified Catalog** by navigating schemas and tables to understand their structure and relationships.
 
 1. In the **Unified Catalog** portal, select **Data assets (1)**, search for **tpch (2)**, and then select the **tpch asset (3)** to explore under **Related** section with the available TPC-H tables such as `customer`, `orders`, `lineitem`, `nation`, `part`, `region`, `supplier`, and `partsupp`.
 
