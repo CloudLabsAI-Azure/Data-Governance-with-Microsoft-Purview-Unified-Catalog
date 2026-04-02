@@ -54,7 +54,7 @@ Proper roles are required to create collections, domains, and manage data access
 
    ![Picture 1](./Media/sandbox-purview-image7.png)
 
-1. Under **Data Map**, select **Domains (1)**, ensure **purview (2)** is listed, and then click on **Role assignments (3)**.
+1. Under **Data Map**, select **Domains (1)**, ensure **purview-<inject key="DeploymentID" enableCopy="false"/>** (2)** is listed, and then click on **Role assignments (3)**.
 
    ![Picture 1](./Media/sandbox-purview-image5.png)
 
