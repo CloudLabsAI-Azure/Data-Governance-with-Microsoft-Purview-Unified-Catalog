@@ -129,16 +129,15 @@ In this task, you will explore technical lineage in Microsoft Purview to underst
 
    ![Picture 1](./Media/DG43.png)
 
-### Summary  
+### Summary
 
 In this lab, you:
 
-- Verified scan execution for Fabric and Databricks data sources
-- Applied built-in classifications to identify sensitive data such as PII
-- Understood why manual classification is required for certain platforms
-- Explored technical lineage to track data movement across assets
-- Identified platform limitations in lineage visibility
-Enhanced lineage by adding manual lineage connections
+- Verified scan results for Fabric and Databricks
+- Applied built-in classifications to identify sensitive data
+- Explored data lineage across platforms
+- Identified limitations in lineage visibility
+- Enhanced lineage by adding manual relationships
 
 ## You have successfully completed Day 1 labs, click next to continue to the next Day 2 labs.
 

@@ -213,9 +213,15 @@ In this task, you will learn how to publish a data product in **Microsoft Purvie
 
    >**Expected Result**: `Customer 360` data product published and discoverable in Unified Catalog. Business users can find it via search, data products listing, and governance domain browsing. Full drill-down from domain → product → asset → schema works.
 
-## Summary
+### Summary
 
-In this lab, you created and managed a data product in Microsoft Purview by defining a governance domain, combining data assets from Microsoft Fabric and Azure Databricks, and assigning business metadata such as owner, description, and use case. You then published the data product to the Unified Catalog and validated its discoverability and usability from a business user perspective.
+In this lab, you:
+
+- Created a data product combining assets from Fabric and Databricks  
+- Defined governance domain, ownership, and business context  
+- Added and organized data assets into a unified dataset  
+- Published the data product to the Unified Catalog  
+- Validated data product discovery and navigation for business users  
 
 ## Click Next to continue to the next lab.
 

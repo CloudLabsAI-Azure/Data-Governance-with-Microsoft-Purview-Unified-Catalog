@@ -204,9 +204,15 @@ Unified Catalog enables business users to easily find, understand, and use trust
 
     ![Picture 1](./Media/DG14.png) 
 
-## Summary
+### Summary
 
-In this lab, you set up and validated your data governance environment in Microsoft Purview by verifying access roles and permissions, organizing the data estate using collections and domains, assigning ownership for governance control, and exploring the Unified Catalog for business-friendly data discovery.
+In this lab, you:
+
+- Verified Microsoft Purview access roles and permissions
+- Configured collections, domains, and ownership structure
+- Organized data estate for governance
+- Explored the Unified Catalog experience
+- Enabled business-friendly data discovery and access
 
 ## Click Next to continue to the next lab.
 

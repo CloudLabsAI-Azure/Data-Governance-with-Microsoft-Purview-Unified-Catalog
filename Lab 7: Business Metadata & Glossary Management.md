@@ -1,4 +1,4 @@
-# Lab 7: Business Metadata & Glossary Management
+# Day 2 - Lab 7: Business Metadata & Glossary Management
 
 ## Lab Overview
 
@@ -421,9 +421,15 @@ In this task, you will learn how to validate business-to-technical alignment in 
     - **Glossary terms**: `Customer`, `Revenue`, `Order`, `PII` (from this lab)
 1. Everything is now connected: Domain → Data Products → Assets → Glossary Terms
 
-## Summary
+### Summary
 
-In this lab, you created business glossary terms in Microsoft Purview, mapped them to data assets across Microsoft Fabric and Azure Databricks, and validated the alignment between business concepts and technical metadata. You also explored how glossary terms enhance data discovery and establish a unified governance framework within the Unified Catalog.
+In this lab, you:
+
+- Created business glossary terms to define key business concepts  
+- Mapped glossary terms to Fabric and Databricks assets  
+- Linked business context with technical metadata  
+- Explored glossary-based search and navigation  
+- Validated business-to-technical alignment across platforms  
 
 ## Click Next to continue to the next lab.
 

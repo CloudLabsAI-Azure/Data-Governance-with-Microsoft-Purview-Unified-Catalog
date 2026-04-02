@@ -1,10 +1,8 @@
-# Lab 8: Data Quality Rules and Monitoring
-
+# Day 2 - Lab 8: Data Quality Rules and Monitoring
 
 ## Objective
 
 Define data quality rules on Fabric and Databricks assets, execute quality checks, and review quality metrics in the Unified Catalog.
-
 
 
 ## Task 1: Configure Data Quality Source Connections for Fabric and Databricks
@@ -169,3 +167,6 @@ Data quality in Microsoft Purview connects directly to the data source to execut
 | 2 | Executed quality checks on Fabric + Databricks assets | Quality evaluation produces pass rates and identifies issues |
 | 3 | Reviewed quality metrics in Unified Catalog and Insights | Quality scores visible on assets and in governance dashboards |
 
+## Click Next to continue to the next lab.
+
+![](./Media/GS0001.png)

@@ -520,11 +520,15 @@ Understanding schema helps users interpret how business data is structured and c
       2. SQL analytics endpoint = SQL query layer
       3. Semantic model (Power BI Dataset) = BI/reporting layer
 
-## Summary
+### Summary
 
-In this lab, you created and configured a workspace in Microsoft Fabric, including a Lakehouse, Warehouse, Semantic Model, and data pipeline to simulate an end-to-end data environment. You then connected Fabric to Microsoft Purview by registering it as a data source and running a scan to discover metadata.
+In this lab, you:
 
-Finally, you validated how different Fabric assets such as Lakehouse tables, Warehouse, and Semantic Models are cataloged and represented in the Unified Catalog, gaining insight into data discovery, governance, and lineage across the platform.
+- Registered Microsoft Fabric as a data source in Microsoft Purview
+- Created and configured a Fabric workspace with Lakehouse, Warehouse, and Semantic Model
+- Performed a scan to discover Fabric assets
+- Validated how Lakehouse and Warehouse assets are represented in Unified Catalog
+- Explored Semantic Models for business-friendly data consumption
 
 ## Click Next to continue to the next lab.
 
