@@ -298,8 +298,10 @@ In this task, you search for and explore Databricks tables in the Microsoft Purv
 
 1. From the left navigation pane, click Solutions (1), then select Unified Catalog (2).
 
-1. In the Unified Catalog portal > expand **Discovery (1)** > Select **Data assets (2)**. Search for and select **customer_transactions (3) (4)**
+1. In the Unified Catalog portal > expand **Discovery** > Select **Data assets (1)**. Search for and select **customer_transactions (2) (3)**.
 
+   ![Picture 1](./Media/sandbox-purview-image253.png)
+   
 1. Review the following:
 
    - Schema: Column names and data types
@@ -309,6 +311,8 @@ In this task, you search for and explore Databricks tables in the Microsoft Purv
    - Table: customer_transactions
    - Properties: Table type, storage location, and catalog details
 
+     ![Picture 1](./Media/sandbox-purview-image254.png)
+     
 ## Summary
 
 In this lab, you connected Azure Databricks Unity Catalog with Microsoft Purview to enable data discovery and governance. You started by preparing the Databricks workspace, verifying the SQL Warehouse, and capturing essential connection details such as the server hostname, HTTP path, and metastore ID.
