@@ -63,7 +63,7 @@ In this task, you will access and validate the pre-created **Azure Databricks** 
 
 1. In the **Create a new schema** panel, enter the **Schema name** as `governance_schema` **(1)** and select **Create** **(2)**.
 
-   ![Picture 1](./Media/sandbox-purview-image234.png)
+    ![Picture 1](./Media/sandbox-purview-image234.png)
 
     > Databricks is fully provisioned with Unity Catalog, SQL Warehouse, and the target catalog and schema ready for data seeding.
 
