@@ -4,7 +4,7 @@
 
 In this lab, you will create and manage data products in Microsoft Purview by combining data assets from multiple platforms such as Microsoft Fabric and Azure Databricks. You will define governance domains, create a data product with business context, and associate relevant data assets to build a unified, business-ready dataset.
 
-You will then enrich the data product with governance metadata such as ownership, descriptions, use cases, and contacts. Finally, you will publish the data product to the Unified Catalog and validate how business users can discover and explore it through search and governance domain navigation. :contentReference[oaicite:0]{index=0}
+You will then enrich the data product with governance metadata such as ownership, descriptions, use cases, and contacts. Finally, you will publish the data product to the Unified Catalog and validate how business users can discover and explore it through search and governance domain navigation.
 
 ## Lab Objectives
 
