@@ -10,6 +10,7 @@ In this lab, you will learn how to create and configure Sensitivity labels in Mi
 
 In this lab, you will perform the following:
 - Task 1: Create sensitivity labels in Microsoft Purview
+- Task 2: Configure and Apply Sensitivity Labels  
 
 ### Task 1: Create sensitivity labels in Microsoft Purview
 
@@ -120,7 +121,9 @@ In this task, you will create two Sensitivity labels, **Highly-Confidential**, t
    > **Note**: Once you have created sensitivity labels in the next lab, you'll configure label policies, and then you can start using them and learn how to manage sensitivity labels. You'll also learn to apply sensitivity labels to emails and files in upcoming labs.
 
 
-## Task 2: 
+## Task 2: Configure and Apply Sensitivity Labels  
+
+In this task, you will learn how to enable sensitivity label settings in the **Microsoft Purview Admin portal** and apply a **Highly-Confidential** label to a Fabric semantic model to enforce data protection and governance.
 
 1. In the Microsoft Purview portal, select **Settings (1)** from the top right corner and then select **Admin portal (2)**
 
@@ -164,9 +167,15 @@ In this task, you will create two Sensitivity labels, **Highly-Confidential**, t
 
    ![](./Media/DG706.png)
 
-## Summary
+### Summary
 
-In this lab, you learned to create and configure sensitivity labels in Microsoft Purview to classify and protect sensitive data. This process helps ensure data security, compliance, and responsible handling within an organization.
+In this lab, you:
+
+- Created sensitivity labels in Microsoft Purview to classify data  
+- Configured protection settings such as content marking and auto-labeling  
+- Enabled sensitivity label settings in the Admin portal  
+- Applied a sensitivity label to a Fabric semantic model  
+- Enforced data protection and governance across organizational data  
 
 ## Click Next to continue to the next lab.
 
