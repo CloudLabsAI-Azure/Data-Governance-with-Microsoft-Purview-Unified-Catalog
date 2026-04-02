@@ -80,6 +80,8 @@ A properly configured workspace provides the foundation for data ingestion, tran
 
        ![Picture 1](./Media/sandbox-purview-image100.png)
 
+1. When the **Introducing task flows** window appears, click **Got it**.
+
 1. You should now be inside the **`Purview-Lab-WS`** workspace.
 
      ![Picture 1](./Media/sandbox-purview-image101.png)
@@ -95,11 +97,11 @@ The Lakehouse acts as the primary storage layer where structured data is stored 
     
     ![Picture 1](./Media/sandbox-purview-image102.png)
    
-1. On the **New Lakehouse** pane, provide **Name**- **`PurviewLakehouse` (1)**, then click **Create (2)**.
+1. On the **New Lakehouse** pane, provide **Name** as **`PurviewLakehouse` (1)**, and **Location** as **Purview-Lab-WS (2)** then click **Create (3)**.
 
    ![Picture 1](./Media/sandbox-purview-image103.png)
    
-1. Once the Lakehouse opens, click **Start with a sample**.
+1. Once the Lakehouse opens, click **Start with sample data**.
 
    ![Picture 1](./Media/sandbox-purview-image104.png)
    
@@ -107,7 +109,7 @@ The Lakehouse acts as the primary storage layer where structured data is stored 
 
     ![Picture 1](./Media/sandbox-purview-image105.png)
     
-    - Wait for the data loading to complete (1 - 2 minutes)
+    **>Note**: Wait for the data loading to complete (1-2 minutes).
 
 1. After loading, expand **Tables** in the Explorer pane. You should see tables like:
     
