@@ -12,17 +12,90 @@ This lab demonstrates how Microsoft Purview integrates with Microsoft Fabric to 
 
 In this lab, you will perform the following:
 
-- Task 1: Create and configure a Microsoft Fabric workspace with data
-- Task 2: Configure Fabric workspace connection
+- Task 1: Register Fabric in Purview
+- Task 2: Create and configure a Microsoft Fabric workspace with data
 - Task 3: Scan Fabric Lakehouse and Warehouse
 - Task 4: Discover Fabric Semantic Models in Unified Catalog   
 
-### Task 1: Create and configure a Microsoft Fabric workspace with data  
+
+### Task 1: Register Fabric in Purview
+
+In this task, you will register your Microsoft Fabric environment as a data source in Microsoft Purview. This establishes the connection required for Purview to access and discover metadata from your Fabric workspace.
+
+**Why it matters:**
+Registering Fabric enables Purview to identify and connect to your data environment, allowing governance capabilities such as scanning, cataloging, and lineage tracking.
+
+1. Navigate back to the **Microsoft Purview** home page using the URL below.
+
+   ```
+   https://purview.microsoft.com/
+   ```
+
+1. From the left navigation pane, click **Solutions (1)**, then select **Data Map (2)**.
+
+   ![Picture 1](./Media/sandbox-purview-image7.png)
+
+1. On the **Data sources** page click **Register (1)** In the source type list, search for and select **Fabric (2) (3)** then click **Continue (4)**.
+
+   ![Picture 1](./Media/sandbox-purview-image141.png)
+   
+1. Configure the registration:
+   - **Name**: **`Purview-Fabric` (1)**
+   - **Domain**: **purview-<inject key="DeploymentID" enableCopy="false"/> (2)**
+   - **Collection**: select **`Fabric Sources` (3)**
+   - Click **Register (4)**
+
+     ![Picture 1](./Media/sandbox-purview-image142.png)
+     
+1. Verify **`Purview-Fabric`** appears under **`Fabric Sources`** in the data map.
+
+   ![Picture 1](./Media/sandbox-purview-image143.png)
+
+    - **Expected Result**: Fabric tenant registered as a source in Purview Data Map.
+
+### Task 2: Create and configure a Microsoft Fabric workspace with data  
 
 In this task, you will set up a workspace in Microsoft Fabric and prepare it with data assets including Lakehouse, Warehouse, and Semantic Models.
 
 **Why it matters:**
 A properly configured workspace provides the foundation for data ingestion, transformation, and governance in later steps.
+
+### Creating Security Group
+ 
+1. In the Azure portal search bar, type **Groups (1)** and select **Groups (2)** from the results.
+ 
+    ![Picture 1](./Media/sandbox-purview-image227.png)
+ 
+1. On the **Groups overview (1)** page, click on **+ New group (2)**.
+ 
+    ![Picture 1](./Media/sandbox-purview-image131.png)
+1. Fill in the following details:
+ 
+   - **Group type (1)**: Security  
+   - **Group name (2)**: `Purview-security-Group`  
+   - **Microsoft Entra roles can be assigned to the group (3)**: Yes  
+ 
+      ![Picture 1](./Media/sandbox-purview-image132.png)
+ 
+1. In the **New Group** page, under **Owners (1)** click **No owners selected**, in the **Add owners** pane select **<inject key="AzureAdUserEmail" enableCopy="true"/> (2)**, and then click **Select (3)**.
+ 
+   ![Picture 1](./Media/sandbox-purview-image133.png)
+ 
+1. In the **New Group** page, under **Members (1)** click **No members selected**, in the **Add members** pane search for **purview (2)**, select the **Purview-<inject key="DeploymentID" enableCopy="false"/> (3)**, and then click **Select (4)**.
+ 
+   ![Picture 1](./Media/sandbox-purview-image134.png)
+ 
+1. Click **Create** to finish creating the group.
+ 
+    ![Picture 1](./Media/sandbox-purview-image135.png)
+ 
+1. When prompted by the pop-up, select **Yes**.
+ 
+    ![Picture 1](./Media/sandbox-purview-image136.png)
+ 
+1. Back on the **Groups | Overview** page, from the left navigation pane, select **All groups (1)** and review the newly created **Purview-security-Group (2)**.
+ 
+   ![Picture 1](./Media/sandbox-purview-image137.png)
 
 1. Open a new browser tab and navigate to the following URL:
 
@@ -65,7 +138,8 @@ A properly configured workspace provides the foundation for data ingestion, tran
 1. Click **Apply (4)** to save the changes.
 
    ![Picture 1](./Media/sandbox-purview-image140.png)
-   
+
+ 
 1. In the **Power BI** portal, click **Workspaces (1)** from the left navigation pane, and then click **New workspace (2)**.
 
     ![Picture 1](./Media/sandbox-purview-image98.png)
@@ -86,7 +160,23 @@ A properly configured workspace provides the foundation for data ingestion, tran
 
      ![Picture 1](./Media/sandbox-purview-image101.png)
 
-### Task 1.1: Create a Lakehouse with Sample Data
+1. From the workspace, click **Manage access**.
+
+    ![Picture 1](./Media/sandbox-purview-image245.png)
+
+1. In the **Manage access** pane, click **+ Add people or groups**.
+
+   ![Picture 1](./Media/sandbox-purview-image246.png)
+
+1. In the search bar, search for **`purview` (1)**, then select **purview-security-Group** and **purview-<inject key="DeploymentID" enableCopy="false"/>** **(2)**from the results.
+
+   ![Picture 1](./Media/sandbox-purview-image247.png)
+   
+1. Set the role to **Contributor (1)**, then click **Add (2)**.
+
+    ![Picture 1](./Media/sandbox-purview-image248.png)
+
+### Task 2.1: Create a Lakehouse with Sample Data
 
 In this task, you will create a Lakehouse and load sample data into it.
 
@@ -119,7 +209,7 @@ The Lakehouse acts as the primary storage layer where structured data is stored 
 
       ![Picture 1](./Media/sandbox-purview-image106.png)
    
-### Task 1.2: Upload Vendors Data to Fabric Lakehouse
+### Task 2.2: Upload Vendors Data to Fabric Lakehouse
 
 In this task, you will upload a custom dataset and convert it into a table.
 
@@ -159,7 +249,7 @@ Adding custom data simulates real-world scenarios and helps demonstrate how diff
 
      ![Picture 1](./Media/sandbox-purview-image114.png)
 
-### Task 1.3: Create a Semantic Model from the Lakehouse
+### Task 2.3: Create a Semantic Model from the Lakehouse
 
 In this task, you will create a semantic model from the Lakehouse.
 
@@ -173,7 +263,7 @@ The semantic model represents the business layer used for reporting and analytic
     - Wait for the semantic model to be created (a few seconds)
     - This creates the BI/reporting layer on top of the Lakehouse Delta tables
 
-### Task 1.4: Create a Warehouse with Sales Data
+### Task 2.4: Create a Warehouse with Sales Data
 
 In this task, you will create a Warehouse and populate it with sample data.
 
@@ -212,7 +302,7 @@ The Warehouse represents the structured analytics layer used for SQL-based workl
 
      ![Picture 1](./Media/DG25.png)
 
-#### Task 1.5: Create a Data Pipeline
+#### Task 2.5: Create a Data Pipeline
 
 In this task, you will create a pipeline to move data from the Lakehouse to the Warehouse.
 
@@ -272,48 +362,6 @@ Pipelines enable data movement and are essential for demonstrating data lineage 
       - `PurviewWarehouse`:  Sample warehouse data + stg_vendors (Warehouse)
       - `Vendor-ETL-Pipeline`:  Data pipeline (Lakehouse → Warehouse)
       - `vendors.csv`:  Uploaded file in Lakehouse Files
-
-## Task 2: Configure Fabric workspace connection 
-
-In this task, you will register your Fabric environment in Microsoft Purview.
-
-**Why it matters:**
-Registration allows Purview to connect to Fabric and discover metadata for governance.
-
-### Task 2.1: Register Fabric in Purview
-
-In this task, you will register your Microsoft Fabric environment as a data source in Microsoft Purview. This establishes the connection required for Purview to access and discover metadata from your Fabric workspace.
-
-**Why it matters:**
-Registering Fabric enables Purview to identify and connect to your data environment, allowing governance capabilities such as scanning, cataloging, and lineage tracking.
-
-1. Navigate back to the **Microsoft Purview** home page using the URL below.
-
-   ```
-   https://purview.microsoft.com/
-   ```
-
-1. From the left navigation pane, click **Solutions (1)**, then select **Data Map (2)**.
-
-   ![Picture 1](./Media/sandbox-purview-image7.png)
-
-1. On the **Data sources** page click **Register (1)** In the source type list, search for and select **Fabric (2) (3)** then click **Continue (4)**.
-
-   ![Picture 1](./Media/sandbox-purview-image141.png)
-   
-1. Configure the registration:
-   - **Name**: **`Purview-Fabric` (1)**
-   - **Domain**: **purview-<inject key="DeploymentID" enableCopy="false"/> (2)**
-   - **Collection**: select **`Fabric Sources` (3)**
-   - Click **Register (4)**
-
-     ![Picture 1](./Media/sandbox-purview-image142.png)
-     
-1. Verify **`Purview-Fabric`** appears under **`Fabric Sources`** in the data map.
-
-   ![Picture 1](./Media/sandbox-purview-image143.png)
-
-    - **Expected Result**: Fabric tenant registered as a source in Purview Data Map.
 
 ### Task 3: Scan Fabric Lakehouse and Warehouse 
 
