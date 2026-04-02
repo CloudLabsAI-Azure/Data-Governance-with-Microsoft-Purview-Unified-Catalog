@@ -70,11 +70,10 @@ Proper roles are required to create collections, domains, and manage data access
 
 ### Task 1.1: Assign User to Data Governance Role Group
 
-In this task, you will assign a user to the Data Governance role group in Microsoft Purview. This ensures the user has the necessary permissions to manage governance features and access capabilities within the Unified Catalog.
+In this task, you will assign a user to the Data Governance role group in Microsoft Purview. This ensures the user has the required permissions to access governance features and manage data effectively.
 
 **Why it matters:**
-
-Role groups simplify permission management by granting a predefined set of governance capabilities. Assigning users to the correct role groups ensures they can perform tasks such as managing domains, accessing the Unified Catalog, and maintaining data governance processes.
+Role groups simplify permission management by providing a predefined set of governance capabilities. Assigning users to the correct role group ensures they can perform key tasks such as managing domains, accessing the Unified Catalog, and supporting data governance processes.
 
 1. In the **Microsoft Purview portal**, go to **Settings (1)** > expand **Roles and scopes (2)** → select **Role groups (3)**.
 
@@ -97,6 +96,13 @@ Role groups simplify permission management by granting a predefined set of gover
 1. On the **You successfully updated the role group** page, click on **Done**.
 
    ![Picture 1](./Media/sandbox-purview-image221.png)
+
+### Task 1.2: Configure Unified Catalog Roles
+
+In this task, you will configure role-based access within the Unified Catalog by assigning users to key governance roles. This enables controlled access to catalog features and governance capabilities.
+
+**Why it matters:**
+The Unified Catalog uses role-based access control to manage who can view, create, and manage governance assets. Proper role assignment ensures secure access, improves collaboration, and maintains data governance standards across the organization.
 
 1. Now, access the **Data Governance Administrators** role to review and explore additional options in the **Unified Catalog**.
 
@@ -153,6 +159,8 @@ Collections and domains provide a logical structure for managing data at scale. 
 1. Verify that the collections **Databricks Sources**, **Fabric Sources**, and **Shared Assets** are successfully created under **Contoso Data Estate**.
 
      ![Picture 1](./Media/DG7.png)
+
+   > **Note:** The collections created in this task (Fabric Sources and Databricks Sources) will be used in later labs to register and scan data sources such as Azure Databricks and Microsoft Fabric.
 
 ### Task 2.2: (Optional) Explore Domain Creation and Ownership
 
