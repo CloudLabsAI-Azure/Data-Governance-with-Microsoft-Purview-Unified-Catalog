@@ -284,7 +284,6 @@ In this task, you will learn how to map business glossary terms to **Fabric** an
 
    ![Picture 1](./Media/DG109.png)
 
-
 1. Click **Data assets (1)**, search for **sales_suppliers (2)**, and select the asset **sales_suppliers (3)**
 
    ![Picture 1](./Media/DG200.png)
