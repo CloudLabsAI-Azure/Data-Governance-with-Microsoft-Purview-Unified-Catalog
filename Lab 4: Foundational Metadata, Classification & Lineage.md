@@ -93,19 +93,13 @@ In this task, you will explore technical lineage in Microsoft Purview to underst
    ![Picture 1](./Media/sandbox-purview-image184.png)
    
 4. You should see:
-
-    ┌──────────────────┐          ┌──────────────────────┐
-    │ PurviewLakehouse │ ──────→  │ Vendor-ETL-Pipeline  │
-    │  (Lakehouse)     │          │  (Data pipeline)     │
-    └──────────────────┘          └──────────────────────┘
-
-   - **Source**: PurviewLakehouse — the Lakehouse parent item (not an individual table)
-   - **Process**: Vendor-ETL-Pipeline — the pipeline you created in Lab 2
+   - **Source**: PurviewLakehouse - the Lakehouse parent item (not an individual table)
+   - **Process**: Vendor-ETL-Pipeline - the pipeline you created in Lab 2
    - Click on each node to view its asset details
 
-        > **Note**: The Warehouse destination does NOT appear in the lineage diagram. This is a known Microsoft limitation. Purview captures only the source-side connection for Fabric pipelines. Sub-item level lineage (individual table → pipeline → destination table) is not supported for Fabric.
+     > **Note**: The Warehouse destination does NOT appear in the lineage diagram. This is a known Microsoft limitation. Purview captures only the source-side connection for Fabric pipelines. Sub-item level lineage (individual table → pipeline → destination table) is not supported for Fabric.
         
-        > If lineage shows "Not available", re-scan your Fabric source and wait 10-15 minutes.
+     > If lineage shows "Not available", re-scan your Fabric source and wait 10-15 minutes.
 
 1. In the lineage view, select the Lakehouse asset (e.g., Purview Lakehouse), then click **Switch to asset**.
 
