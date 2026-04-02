@@ -47,23 +47,23 @@ In this task, you will access and validate the pre-created **Azure Databricks** 
 
 1. In the Databricks workspace, select **Catalog(1)** in the left navigation (the data explorer icon).Click on **Create(2)** and select **+ Create catalog** **(3)**.
 
-    ![](../media/gs8.png)
+    ![](./Media/gs8.png)
 
 1. In the **Create a new catalog** panel, enter the **Catalog name** as `governance_catalog` **(1)**, for **Storage location (2)** select from the workspace from the dropdown, and select **Create** **(3)**.
 
-   ![](../media/gs9.png)
+   ![](./Media/gs9.png)
 
 1. Click on  **View Catalog**
 
-   ![](../media/fx4.png)
+   ![](./Media/fx4.png)
 
 1. Open **governance_catalog** **(1)**, then select **Create schema** **(2)**.
 
-   ![](../media/gs10.png)
+   ![](./Media/gs10.png)
 
 1. In the **Create a new schema** panel, enter the **Schema name** as `governance_schema` **(1)** and select **Create** **(2)**.
 
-   ![](../media/gs11.png)
+   ![](./Media/gs11.png)
 
     > Databricks is fully provisioned with Unity Catalog, SQL Warehouse, and the target catalog and schema ready for data seeding.
 
@@ -79,11 +79,11 @@ In this task, you will access and validate the pre-created **Azure Databricks** 
    
 1. Select SQL Editor
    
-   ![](../media/gs24.png)
+   ![](./Media/gs24.png)
    
 1. Select the correct Unity Catalog **governance catalog(1)** and **governance schema (2)**.
 
-   ![](../media/gs24.png)
+   ![](./Media/gs24.png)
    
 1. Paste the Databricks SQL script below.
    
@@ -112,11 +112,11 @@ In this task, you will access and validate the pre-created **Azure Databricks** 
    ```
 1. Refer to the image below
 
-   ![](../media/gs26.png)
+   ![](./Media/gs26.png)
 
 1. Click on **Start,attach and run**
 
-   ![](../media/gs27.png)   
+   ![](./Media/gs27.png)   
 
 ### Task 2: Register Databricks Workspace as a Data Source
 
