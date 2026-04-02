@@ -11,15 +11,13 @@ This lab demonstrates how business glossary terms act as a bridge between busine
 
 In this lab, you will perform the following:
 
-- **Task 1:** Create Business Glossary Terms  
-- **Task 2:** Map Glossary Terms to Fabric and Databricks Assets  
-- **Task 3:** Validate Business-to-Technical Alignment  
+- Task 1: Create Business Glossary Terms  
+- Task 2: Map Glossary Terms to Fabric and Databricks Assets  
+- Task 3: Validate Business-to-Technical Alignment  
 
-## Estimated Duration 50 minutes
-
-1. Create Business Glossary Terms
+## Task 1: Create Business Glossary Terms  
    
-### Management Glossary  classic Types option 
+In this task, you will create a classic glossary in Microsoft Purview and define four business terms that represent key business concepts. These terms will later be mapped to technical data assets.
 
 1. Navigate back to the **Microsoft Purview** home page using the URL below.
 
@@ -224,47 +222,36 @@ In this task, you will learn how to map business glossary terms to **Fabric** an
 
    ![Picture 1](./Media/DG302.png)
 
-**Step 5: Verify Term Mappings**
-
-1. Go to **Enterprise glossary** → click on the `Customer` term
-1. On the term detail page, look for **Related assets** or **Linked assets**
-1. Verify `dimension_customer` (Fabric) appears as a linked asset
-1. Click on the `Revenue` term → verify `fact_sale` (Fabric) appears
-
-**Expected Result**: 4 glossary terms mapped to Fabric assets. Databricks `samples` assets are read-only and cannot be mapped. Each mapped asset shows its linked glossary terms.
 
 ## Task 3: Validate Business-to-Technical Alignment
 
 In this task, you will learn how to validate business-to-technical alignment in **Microsoft Purview** by exploring glossary-linked assets and cross-platform relationships.
 
-**Step 1: Search by Glossary Term**  
-
 1. Go to **Unified Catalog** > **Discovery** > **Data assets**. In the search bar, type `Customer`, then press **Enter**.
 
    ![Picture 1](./Media/sandbox-purview-image264.png)
 
-3. On the results page, expand **Assigned terms**. You should see all four created glossary terms.
+1. On the results page, expand **Assigned terms**. You should see all four created glossary terms.
 
    ![Picture 1](./Media/sandbox-purview-image265.png)
 
-5. Select one term to filter the results. Notice that only the assets associated with the selected glossary term are displayed.
+1. Select one term to filter the results. Notice that only the assets associated with the selected glossary term are displayed.
 
    ![Picture 1](./Media/sandbox-purview-image266.png)
    
-7. Repeat the same for other terms to observe how filtering works. This demonstrates how glossary terms help refine and organize search results effectively.
+1. Repeat the same for other terms to observe how filtering works. This demonstrates how glossary terms help refine and organize search results effectively.
 
    ![Picture 1](./Media/sandbox-purview-image267.png)
    
-
 ### Summary
 
 In this lab, you:
 
-- Created business glossary terms to define key business concepts  
-- Mapped glossary terms to Fabric and Databricks assets  
-- Linked business context with technical metadata  
-- Explored glossary-based search and navigation  
-- Validated business-to-technical alignment across platforms  
+- Created business glossary terms to define key business concepts
+- Mapped glossary terms to Fabric and Databricks assets
+- Linked business context with technical metadata
+- Explored glossary-based search and navigation
+- Validated business-to-technical alignment across platforms
 
 ## Click Next to continue to the next lab.
 
