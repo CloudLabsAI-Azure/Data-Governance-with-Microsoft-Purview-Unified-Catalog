@@ -22,20 +22,15 @@ In this task, you will learn how to create a data product in **Microsoft Purview
 
 > **What is a Data Product?** A data product is a curated, business-ready collection of data assets packaged for consumption. It groups related assets from any source (Fabric, Databricks, ADLS, etc.) into a single discoverable unit with business context, ownership, and access policies.
 
-**Step 1: Create a Governance Domain**
+## Task 1.1: Create a Governance Domain
 
-1. Navigate to the **Purview portal** 
-
-   ```
-   https://purview.microsoft.com
-   ```
-1. From the left navigation pane, click **Solutions (1)**, then select **Unified Catalog (2)**.
+1. In the **Purview portal**, from the left navigation pane, click **Solutions (1)**, then select **Unified Catalog (2)**.
 
    ![Picture 1](./Media/DG13.png)
 
 1. In the **Unified Catalog** page, expand **Catalog management (1)**, select **Governance domains (2)**, and click **Create governance domain (3)**.
 
-   ![Picture 1](./Media/DG53.png)
+   ![Picture 1](./Media/sandbox-purview-image255.png)
 
 1. In the **New governance domain** page, enter the following details and click **Next (4)**:
 
@@ -53,13 +48,13 @@ In this task, you will learn how to create a data product in **Microsoft Purview
 
 1. Verify that the **Sales Analytics** governance domain appears in the list.
 
-   ![Picture 1](./Media/DG55.png)
+   ![Picture 1](./Media/sandbox-purview-image256.png)
 
 1. Once verified, select the domain and click **Publish**.
 
-   ![Picture 1](./Media/DG70.png)
+   ![Picture 1](./Media/sandbox-purview-image257.png)
 
-**Step 2: Create the Data Product**
+## Task 1.2: Create the Data Product
 
 1. In **Unified Catalog**, expand **Catalog management (1)** → select **Data products (2)** → click **+ New data product (3)**.
 
