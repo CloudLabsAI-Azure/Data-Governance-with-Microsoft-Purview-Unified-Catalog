@@ -37,7 +37,7 @@ In this task, you will prepare the Databricks workspace by verifying required co
    
    ![Picture 1](./Media/sandbox-purview-image48.png)
 
-1. 1. Verify that the status is **Running**. If it is **Stopped**, click **Start**.
+1. Verify that the status is **Running**. If it is **Stopped**, click **Start**.
    
    ![Picture 1](./Media/sandbox-purview-image229.png)
 
@@ -51,11 +51,11 @@ In this task, you will prepare the Databricks workspace by verifying required co
 
 1. In the **Create a new catalog** panel, enter the **Catalog name** as `governance_catalog` **(1)**, for **Storage location (2)** select from the workspace from the dropdown, and select **Create** **(3)**.
 
-   ![Picture 1](./Media/sandbox-purview-image231.png)
+    ![Picture 1](./Media/sandbox-purview-image231.png)
 
 1. Click on  **View Catalog**
 
-  ![Picture 1](./Media/sandbox-purview-image232.png)
+   ![Picture 1](./Media/sandbox-purview-image232.png)
 
 1. Open **governance_catalog** **(1)**, then select **Create schema** **(2)**.
 
@@ -156,7 +156,7 @@ In this task, you configure the connection between **Microsoft Purview** and **A
 
 In this task, you generate a **Personal Access Token (PAT)** in the **Databricks workspace**, which will be used by **Microsoft Purview** to authenticate and access the Unity Catalog.
 
-1. Naviagte back to the **Databricks workspace**, click your **username (2)** (top-right corner) and select **Settings (1)**.
+1. Navigate back to the **Databricks workspace**, click your **username (2)** (top-right corner) and select **Settings (1)**.
 
    ![Picture 1](./Media/sandbox-purview-image27.png)
    
@@ -179,7 +179,7 @@ In this task, you generate a **Personal Access Token (PAT)** in the **Databricks
 
     ![Picture 1](./Media/sandbox-purview-image31.png)
 
-   > Record it **Notepad** later you will use it in next taks
+   > Record it in the **Notepad**, later you will use this value in the next task.
 
 ### Task 3.2: Store the PAT in Azure Key Vault**
 
