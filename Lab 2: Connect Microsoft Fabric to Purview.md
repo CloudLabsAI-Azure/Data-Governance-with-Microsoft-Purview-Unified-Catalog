@@ -322,7 +322,7 @@ In this task, you will configure and run a scan to discover Fabric assets.
 **Why it matters:**
 Scanning enables automatic metadata ingestion, making data assets visible in the catalog.
 
-1. Under **Data sources**, locate **Purview-Fabric** and click the **Scan (1)** icon.
+1. Navigate back to **Purview portal** then under **Data sources**, locate **Purview-Fabric** and click the **Scan (1)** icon.
 
    - In the **Scan Purview-Fabric** pane, provide **Name (2)**: **`Fabric-DataMap-Scan`**.
 
