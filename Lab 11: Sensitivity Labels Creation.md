@@ -119,6 +119,51 @@ In this task, you will create two Sensitivity labels, **Highly-Confidential**, t
 
    > **Note**: Once you have created sensitivity labels in the next lab, you'll configure label policies, and then you can start using them and learn how to manage sensitivity labels. You'll also learn to apply sensitivity labels to emails and files in upcoming labs.
 
+
+## Task 2: 
+
+1. In the Microsoft Purview portal, select **Settings (1)** from the top right corner and then select **Admin portal (2)**
+
+   ![](./Media/DG700.png)
+
+1. In the **Admin portal**, use the search bar to search for **Sensitivity Labels (1)** and review the **Information protection** section (2)
+
+   ![](./Media/DG701.png)
+
+1. In **Information protection**, select **Allow users to apply sensitivity labels for content (1)** to open the setting
+
+1. Turn on **Enabled (2)**, select **The entire organization (3)**, and click **Apply (4)**
+
+    ![](./Media/DG702.png)
+
+1. Repeat the same steps for all remaining **sensitivity label settings**
+
+1. Once enabled then verify all show **Enabled for the entire organization**
+
+    ![](./Media/DG704.png)
+
+1. In the Fabric portal, select **Workspaces (1)** from the left navigation and open **Purview-Lab (2)**
+
+   ![](./Media/DG708.png)
+
+1. In the workspace, select the **PurviewLakehouse** semantic model
+
+   ![](./Media/DG709.png)
+
+1. Click **Select a label (1)**, open the dropdown (2), and choose **Highly-Confidential (3)**
+
+   ![](./Media/DG710.png)
+
+1. Verify that the **Sensitivity label** is updated to **Highly-Confidential** in the overview
+
+   ![](./Media/DG711.png)
+
+   > **Note:** If the Fabric view is not enabled, select **Power BI (1)** and switch to **Fabric (2)**
+
+   ![](./Media/DG707.png)
+
+   ![](./Media/DG706.png)
+
 ## Summary
 
 In this lab, you learned to create and configure sensitivity labels in Microsoft Purview to classify and protect sensitive data. This process helps ensure data security, compliance, and responsible handling within an organization.
