@@ -426,7 +426,7 @@ Verifying assets ensures that metadata and schema details are correctly captured
 1. You are now on the **Overview** page for the Fabric asset. Review the details to understand how the asset is integrated with Fabric. You can also review it in the Purview portal.
 
     - Review:
-        - **Hierarchy** (right side): Fabric Capacity → Purview-Lab-WS → Purview-Lakehouse → dimension_customer
+        - **Hierarchy** (right side): Fabric Capacity > Purview-Lab-WS > Purview-Lakehouse > dimension_customer
         - **Schema**: column names and data types (Customer Key, Customer, Category, Buying Group, Postal Code, etc.)
         - **Properties**: OneLake path, format (Delta), workspace name
 
@@ -436,7 +436,7 @@ Verifying assets ensures that metadata and schema details are correctly captured
 
           ![Picture 1](./Media/sandbox-purview-image151.png)
     
-1. Now, review another asset from Fabric. Go back and, in the same way, search for `fact_sales`, then select it and review the sales fact table.
+1. Now, review another asset from Fabric. Go back and, in the same way, search for **`fact_sales`**, then select it and review the sales fact table.
 
 ### Task 3.2: Verify Warehouse Assets
 
@@ -448,8 +448,8 @@ Understanding differences in asset representation helps set correct expectations
 1. In the asset list, type and select **Warehouse**. 
 1. Review the Warehouse asset page:
     - **Overview**: fully qualified name (Fabric URL)
-    - **Collection path** (right side): purview-{deploymentId} → Contoso Data Estate → Fabric Sources
-    - **Hierarchy** (right side): Purview-Lab-WS (Fabric Workspace) → Purview-Warehouse (Warehouses)
+    - **Collection path** (right side): purview-<inject key="DeploymentID" enableCopy="false"/> > Contoso Data Estate > Fabric Sources
+    - **Hierarchy** (right side): Purview-Lab-WS (Fabric Workspace) > Purview-Warehouse (Warehouses)
 
         ![Picture 1](./Media/sandbox-purview-image152.png)
       
@@ -457,12 +457,12 @@ Understanding differences in asset representation helps set correct expectations
       > This is a [known Microsoft limitation](https://learn.microsoft.com/en-us/purview/register-scan-fabric-tenant)  Warehouse scanning is **item level only**. Sub-item scanning is only supported for Lakehouse.
       
 1. Compare the two scan results:
-    - **Lakehouse**:  Purview shows each table as a separate asset with full schema (columns, data types)
+   
+    - **Lakehouse**: Purview shows each table as a separate asset with full schema (columns, data types)
     - **Warehouse**: Purview shows only the Warehouse container as a single asset
    
        >**Note**This is an important governance insight: different Fabric item types have different levels of catalog granularity
-
-        >**Expected Result**: Scan discovers assets. Lakehouse tables are individually cataloged with schemas. Warehouse is cataloged as a container asset. All visible in Unified Catalog.
+       >**Expected Result**: Scan discovers assets. Lakehouse tables are individually cataloged with schemas. Warehouse is cataloged as a container asset. All visible in Unified Catalog.
 
 ## Task 4: Discover Fabric Semantic Models in Unified Catalog 
 
@@ -492,8 +492,8 @@ This helps users understand how BI assets are discovered and organized.
 1. Review the asset detail page:
    
    - **Fully qualified name**: Power BI URL (e.g., `https://app.powerbi.com/groups/.../datasets/...`)
-   - **Collection path**: purview-{deploymentId} → Contoso Data Estate → Fabric Sources
-   - **Hierarchy**: Fabric Capacity → Purview-Lab-WS → Purview-Lakehouse (Power BI Dataset)
+   - **Collection path**: purview-<inject key="DeploymentID" enableCopy="false"/> > Contoso Data Estate > Fabric Sources
+   - **Hierarchy**: Fabric Capacity > Purview-Lab-WS > Purview-Lakehouse (Power BI Dataset)
 
       ![Picture 1](./Media/sandbox-purview-image154.png)
 
@@ -515,6 +515,7 @@ Understanding schema helps users interpret how business data is structured and c
     ![Picture 1](./Media/sandbox-purview-image155.png)
    
    >**Note:** The semantic model is the **business-friendly view** of the same data:
+
        - Lakehouse = raw Delta storage layer
        - SQL analytics endpoint = SQL query layer
        - Semantic model (Power BI Dataset) = BI/reporting layer
