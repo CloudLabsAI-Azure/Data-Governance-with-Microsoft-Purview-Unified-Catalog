@@ -4,7 +4,7 @@
 
 In this lab, you will create and manage business glossary terms in Microsoft Purview to establish a standardized business vocabulary. You will define glossary terms, map them to data assets across Microsoft Fabric and Azure Databricks, and validate how business terminology aligns with technical data assets in the Unified Catalog.
 
-This lab demonstrates how business glossary terms act as a bridge between business concepts and technical metadata, enabling improved data discovery and governance across platforms. :contentReference[oaicite:0]{index=0}
+This lab demonstrates how business glossary terms act as a bridge between business concepts and technical metadata, enabling improved data discovery and governance across platforms.
 
 ## Lab Objectives
 
