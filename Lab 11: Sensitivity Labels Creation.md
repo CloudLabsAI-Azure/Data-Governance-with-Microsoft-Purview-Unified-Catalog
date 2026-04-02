@@ -120,7 +120,6 @@ In this task, you will create two Sensitivity labels, **Highly-Confidential**, t
 
    > **Note**: Once you have created sensitivity labels in the next lab, you'll configure label policies, and then you can start using them and learn how to manage sensitivity labels. You'll also learn to apply sensitivity labels to emails and files in upcoming labs.
 
-
 ## Task 2: Configure and Apply Sensitivity Labels  
 
 In this task, you will learn how to enable sensitivity label settings in the **Microsoft Purview Admin portal** and apply a **Highly-Confidential** label to a Fabric semantic model to enforce data protection and governance.
