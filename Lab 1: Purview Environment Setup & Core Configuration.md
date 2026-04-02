@@ -75,7 +75,7 @@ In this task, you will assign a user to the Data Governance role group in Micros
 **Why it matters:**
 Role groups simplify permission management by providing a predefined set of governance capabilities. Assigning users to the correct role group ensures they can perform key tasks such as managing domains, accessing the Unified Catalog, and supporting data governance processes.
 
-1. In the **Microsoft Purview portal**, go to **Settings (1)** > expand **Roles and scopes (2)** → select **Role groups (3)**.
+1. In the **Microsoft Purview portal**, go to **Settings (1)** > expand **Roles and scopes (2)** > select **Role groups (3)**.
 
     ![Picture 1](./Media/DG02.png)
 
