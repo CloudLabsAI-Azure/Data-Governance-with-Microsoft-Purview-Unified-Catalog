@@ -1,4 +1,4 @@
-# Lab 1: Purview Environment Setup & Core Configuration 
+# Day 1 - Lab 1: Purview Environment Setup & Core Configuration 
 
 ### Estimated Duration: 40 Minutes
 
