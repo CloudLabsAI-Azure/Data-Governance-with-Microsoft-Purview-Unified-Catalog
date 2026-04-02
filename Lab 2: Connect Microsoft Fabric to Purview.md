@@ -73,7 +73,7 @@ A properly configured workspace provides the foundation for data ingestion, tran
 1. Configure:
 
    - **Name**: **`Purview-Lab-WS` (1)**
-   - Expand **Advanced** then select the **License mode** to **Trial (2)**.
+   - Expand **Advanced** then select the **License mode** to **Fabric Trial (2)**.
    - Click **Apply (3)**
 
        ![Picture 1](./Media/sandbox-purview-image99.png)
