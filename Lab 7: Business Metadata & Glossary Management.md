@@ -1,5 +1,6 @@
 # Day 2 - Lab 7: Business Metadata & Glossary Management
 
+
 ## Lab Overview
 
 In this lab, you will create and manage business glossary terms in Microsoft Purview to establish a standardized business vocabulary. You will define glossary terms, map them to data assets across Microsoft Fabric and Azure Databricks, and validate how business terminology aligns with technical data assets in the Unified Catalog.
@@ -16,154 +17,9 @@ In this lab, you will perform the following:
 
 ## Estimated Duration 50 minutes
 
-## Task 1: Create Business Glossary Terms
-
-In this task, you will learn how to create business glossary terms in **Microsoft Purview** to define key business concepts and establish a shared vocabulary.
-
-> **What is a Business Glossary?** The glossary provides a shared business vocabulary for the organization. Each term defines a business concept (e.g., "Customer", "Revenue", "Order") with a standard definition. When glossary terms are linked to technical assets, business users can find data by searching for business concepts instead of table names.
-
-**Step 1: Navigate to the Glossary**
-
-1. Navigate back to the **Microsoft Purview** home page using the URL below.
-
-   ```
-   https://purview.microsoft.com/
-   ```
-
-1. From the left navigation pane, click **Solutions (1)**, then select **Unified Catalog (2)**.
-
-   ![Picture 1](./Media/DG13.png)
-
-1. Under **Unified Catalog**, expand **Catalog management (1)**, select **Governance domains (2)**, choose **Sales Analytics (3)**, and click **View all (4)** under **Glossary terms**.
-
-   ![Picture 1](./Media/DG79.png)
-
-1. You should see the **Glossary terms** page for the **Sales Analytics** domain, which is currently empty.
-
-   ![Picture 1](./Media/DG80.png)
-
-**Step 2: Create Glossary Terms**
-
-1. Click **+ New term**
-
-   ![Picture 1](./Media/DG81.png)
-
-1. On the **Basic details** step, enter the following:
-
-      | Field | Value |
-      |------|------|
-      | Name | Customer **(1)** |
-      | Description | A person or organization that purchases goods or services. In the retail context (Fabric), this includes buying group and category. In the benchmark context (Databricks), this includes market segment and account balance. **(2)** |
-      | Owner | ODL_User<inject key="DeploymentID" enableCopy="false"/> **(3)** |
-      | Expert | ODL_User<inject key="DeploymentID" enableCopy="false"/> **(4)** |
-      | Parent term | Leave empty |
-
-      ![Picture 1](./Media/DG82.png)
-
-1. Click **Next**, skip Acronyms, Resources, and Custom attributes, then click **Create**
-
-   ![Picture 1](./Media/DG92.png)
-
-1. After creation, click **Publish**
-
-   ![Picture 1](./Media/DG86.png)
-
-1. Click **Glossary terms** at the top left to go back and add a new term
-
-   ![Picture 1](./Media/DG91.png)
-
-1. Click **+ New term**
-
-   ![Picture 1](./Media/DG81.png)
-
-1. On the **Basic details** step, enter the following:
-
-      | Field | Value |
-      |------|------|
-      | Name | Revenue **(1)** |
-      | Description | The total income generated from sales transactions before deductions. Calculated from unit price multiplied by quantity, excluding tax and returns. **(2)** |
-      | Owner | ODL_User<inject key="DeploymentID" enableCopy="false"/> **(3)** |
-      | Expert | ODL_User<inject key="DeploymentID" enableCopy="false"/> **(4)** |
-      | Parent term | Leave empty |
-
-      ![Picture 1](./Media/DG83.png)
-
-1. Click **Next**, skip Acronyms, Resources, and Custom attributes, then click **Create**
-
-   ![Picture 1](./Media/DG92.png)
-
-1. After creation, click **Publish**
-
-   ![Picture 1](./Media/DG88.png)
-
-1. Click **Glossary terms** at the top left to go back and add a new term
-
-   ![Picture 1](./Media/DG91.png)
-
-1. Click **+ New term**
-
-   ![Picture 1](./Media/DG81.png)
-
-1. On the **Basic details** step, enter the following:
-
-      | Field | Value |
-      |------|------|
-      | Name | Order **(1)** |
-      | Description | A confirmed request from a customer to purchase one or more items. Includes order date, status, total price, and priority. Tracked across both retail (Fabric) and benchmark (Databricks) systems. **(2)** |
-      | Owner | ODL_User<inject key="DeploymentID" enableCopy="false"/> **(3)** |
-      | Expert | ODL_User<inject key="DeploymentID" enableCopy="false"/> **(4)** |
-      | Parent term | Leave empty |
-
-      ![Picture 1](./Media/DG84.png)
-
-1. Click **Next**, skip Acronyms, Resources, and Custom attributes, then click **Create**
-
-   ![Picture 1](./Media/DG92.png)
-
-1. After creation, click **Publish**
-
-   ![Picture 1](./Media/DG87.png)
-
-1. Click **Glossary terms** at the top left to go back and add a new term
-
-   ![Picture 1](./Media/DG91.png)
-
-1. Click **+ New term**
-
-   ![Picture 1](./Media/DG81.png)
-
-1. On the **Basic details** step, enter the following:
-
-      | Field | Value |
-      |------|------|
-      | Name | Personally Identifiable Information (PII) **(1)** |
-      | Description | Any data that can identify a specific individual, including names, addresses, phone numbers, email addresses, and government-issued identifiers. Subject to data protection regulations. **(2)** |
-      | Owner | ODL_User<inject key="DeploymentID" enableCopy="false"/> **(3)** |
-      | Expert | ODL_User<inject key="DeploymentID" enableCopy="false"/> **(4)** |
-      | Parent term | Leave empty |
-
-      ![Picture 1](./Media/DG85.png)
-
-1. Click **Next**, skip Acronyms, Resources, and Custom attributes, then click **Create**
-
-   ![Picture 1](./Media/DG92.png)
-
-1. After creation, click **Publish**
-
-   ![Picture 1](./Media/DG89.png)
-
-**Step 3: Verify Glossary Terms**
-
-1. Verify that all created glossary terms show the **Status** as Published
-
-    - `Customer` — Published
-    - `Revenue` — Published
-    - `Order` — Published
-    - `Personally Identifiable Information (PII)` — Published
-
-       ![Picture 1](./Media/DG90.png)
-
-### Management Glossary - via clasic Types option 
+1. Create Business Glossary Terms
+   
+### Management Glossary  classic Types option 
 
 1. Navigate back to the **Microsoft Purview** home page using the URL below.
 
@@ -381,45 +237,24 @@ In this task, you will learn how to map business glossary terms to **Fabric** an
 
 In this task, you will learn how to validate business-to-technical alignment in **Microsoft Purview** by exploring glossary-linked assets and cross-platform relationships.
 
-**Step 1: Search by Glossary Term**
+**Step 1: Search by Glossary Term**  
 
-1. Go to **Unified Catalog** → **Discovery** → **Data assets**
-1. In the search bar, type `Customer` → review results
-1. You should now see:
-   - The `Customer` glossary term itself
-   - All data assets linked to the `Customer` term: `dimension_customer` (Fabric), `samples.tpch.customer` (Databricks)
-   - Other assets with "customer" in their name
-1. Note how the glossary term provides **business context** alongside technical search results
+1. Go to **Unified Catalog** > **Discovery** > **Data assets**. In the search bar, type `Customer`, then press **Enter**.
 
-**Step 2: Navigate from Glossary to Assets**
+   ![Picture 1](./Media/sandbox-purview-image264.png)
 
-1. Go to **Enterprise glossary** → click `Customer`
-1. Click on a linked asset (e.g., `dimension_customer` from Fabric)
-1. On the asset page, verify:
-   - The glossary term `Customer` appears in the asset metadata
-   - You can navigate from the glossary term to the asset and back
-1. This creates a two-way link: Term ↔ Asset
+3. On the results page, expand **Assigned terms**. You should see all four created glossary terms.
 
-**Step 3: Validate Cross-Platform Term Coverage**
+   ![Picture 1](./Media/sandbox-purview-image265.png)
 
-1. Review the mapping summary:
+5. Select one term to filter the results. Notice that only the assets associated with the selected glossary term are displayed.
 
-   | Glossary Term | Fabric Assets | Databricks Assets | Cross-Platform? |
----|
-   | Customer | `dimension_customer` | `sales_suppliers` (if editable) | Partial |
-   | Revenue | `fact_sale` | — | Fabric only |
-   | Order | `fact_sale` | — | Fabric only |
-   | PII | `vendors`, `dimension_customer` | — | Fabric only |
+   ![Picture 1](./Media/sandbox-purview-image266.png)
+   
+7. Repeat the same for other terms to observe how filtering works. This demonstrates how glossary terms help refine and organize search results effectively.
 
-1. Note: Databricks `samples` catalog assets are read-only in Purview and cannot have glossary terms mapped. Assets from your custom Databricks catalog (e.g., `sales_suppliers`) may be editable. In production with your own Databricks catalogs, full cross-platform mapping would work
-
-**Step 4: Verify Governance Domain Alignment**
-
-1. Go to **Catalog management** → **Governance domains** → click `Sales Analytics`
-1. Review the domain page:
-    - **Data products**: `Customer 360` (from Lab 6)
-    - **Glossary terms**: `Customer`, `Revenue`, `Order`, `PII` (from this lab)
-1. Everything is now connected: Domain → Data Products → Assets → Glossary Terms
+   ![Picture 1](./Media/sandbox-purview-image267.png)
+   
 
 ### Summary
 
