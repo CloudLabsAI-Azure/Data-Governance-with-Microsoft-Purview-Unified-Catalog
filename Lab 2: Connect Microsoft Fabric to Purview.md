@@ -129,21 +129,21 @@ Adding custom data simulates real-world scenarios and helps demonstrate how diff
 
 1. Now, add another file that contains **vendors** tables.
 
-1. In the Lakehouse explorer, expand **Files (1)**, click **Get data (2)**, and then select **Upload files (3)**.
-
+1. In the **Lakehouse explorer**, expand and select **Files (1)**. Click the dropdown next to **Get data (2)**, then select **Upload files (3)**.
+   
    ![Picture 1](./Media/sandbox-purview-image107.png)
     
-1. In the **Upload files** pane, click the folder icon (1), navigate to **Documents (2)**, select the **vendor file (3)**, and then click **Open (4)**.
+1. In the **Upload files** pane, click the folder icon (1), navigate to **C:\LabFiles\Files (2)**, select the **vendors.csv file (3)**, and then click **Open (4)**.
 
-    ![Picture 1](./Media/DG19.png)
+    ![Picture 1](./Media/sandbox-purview-image238.png)
 
 1. Verify the file then click on **Upload**.
 
-    ![Picture 1](./Media/DG18.png)
+    ![Picture 1](./Media/sandbox-purview-image239.png)
 
 1. Once the upload is complete, click **Close** from the top-right corner.
 
-    ![Picture 1](./Media/DG17.png)
+    ![Picture 1](./Media/sandbox-purview-image240.png)
 
 1. Once uploaded, you should see `vendors.csv` in the Files section.
    
@@ -153,7 +153,7 @@ Adding custom data simulates real-world scenarios and helps demonstrate how diff
     
 1. On **Load file to new table**  keep all settings as it is then click **Load**.
 
-   ![Picture 1](./Media/sandbox-purview-image113.png)
+   ![Picture 1](./Media/sandbox-purview-image241.png)
    
 1. Wait for the load to complete the `vendors` table now appears under **Tables** and verify the data: 10 rows with columns.
 
