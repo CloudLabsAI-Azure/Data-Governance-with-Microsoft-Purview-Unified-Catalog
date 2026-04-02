@@ -21,49 +21,49 @@ In this lab, you will perform the following:
 
 In this task, you will access and validate the pre-created **Azure Databricks** workspace. You will verify the **SQL Warehouse** status, review connection details, and capture the **Metastore ID** for further use in the lab.
 
-1. In the Azure portal, from the search bar, search for and select **Azure Databricks**.
+1. Navigate back to **Azure portal**, in **Search resources, services and docs (G+/)** box at the top of the portal, enter **Azure Databricks (1)**, and then select **Azure Databricks (2)** under services.
 
     ![Picture 1](./Media/sandbox-purview-image47.png)
 
-1. Review the pre-created Azure Databricks workspace named **dbw-purview-<inject key="DeploymentID" enableCopy="false"/>**. You will use this Databricks workspace for this lab and continue using the same resource throughout. Click on it.
+1. Review the pre-created Azure Databricks workspace named **dbw-purview-<inject key="DeploymentID" enableCopy="false"/>**. You will use this **Databricks** workspace for this lab and continue using the same resource throughout. Click on it.
 
     ![Picture 1](./Media/sandbox-purview-image53.png)
    
-1. From the Overview page, click on **Launch Workspace** to verify access.
+1. From the **Overview** page, click **Launch workspace** to open the workspace.
 
    ![Picture 1](./Media/sandbox-purview-image22.png)
    
-1. On the **Databricks** page, from the left sidebar, click **SQL Warehouses (1)** and verify that a warehouse (e.g., Starter Warehouse) exists. Then click on it **(2)**.
+1. On the **Databricks** page, from the left sidebar, click **SQL Warehouses (1)** and verify that a warehouse **Serverless Starter Warehouse** exists. Then click on it **(2)**.
    
    ![Picture 1](./Media/sandbox-purview-image48.png)
 
-1. Verify that the status is in a **Running state**.
+1. 1. Verify that the status is **Running**. If it is **Stopped**, click **Start**.
    
-   ![Picture 1](./Media/sandbox-purview-image49.png)
+   ![Picture 1](./Media/sandbox-purview-image229.png)
 
-1. Click on **Connection details (1)**, then copy and record the **Server hostname (2)** and **HTTP path (3)**.
+1. Click on **Connection details (1)**, then copy and record the **Server hostname (2)** and **HTTP path (3)** in Notepad. You will need these values in upcoming tasks.
 
    ![Picture 1](./Media/sandbox-purview-image50.png)
 
-1. In the Databricks workspace, select **Catalog(1)** in the left navigation (the data explorer icon).Click on **Create(2)** and select **+ Create catalog** **(3)**.
+1. In the **Databricks workspace**, select **Catalog (1)** in the left navigation (the data explorer icon).Click on **Create (2)** and select **+ Create catalog (3)**.
 
-    ![](./Media/gs8.png)
+    ![Picture 1](./Media/sandbox-purview-image230.png)
 
 1. In the **Create a new catalog** panel, enter the **Catalog name** as `governance_catalog` **(1)**, for **Storage location (2)** select from the workspace from the dropdown, and select **Create** **(3)**.
 
-   ![](./Media/gs9.png)
+   ![Picture 1](./Media/sandbox-purview-image231.png)
 
 1. Click on  **View Catalog**
 
-   ![](./Media/fx4.png)
+  ![Picture 1](./Media/sandbox-purview-image232.png)
 
 1. Open **governance_catalog** **(1)**, then select **Create schema** **(2)**.
 
-   ![](./Media/gs10.png)
+   ![Picture 1](./Media/sandbox-purview-image233.png)
 
 1. In the **Create a new schema** panel, enter the **Schema name** as `governance_schema` **(1)** and select **Create** **(2)**.
 
-   ![](./Media/gs11.png)
+   ![Picture 1](./Media/sandbox-purview-image234.png)
 
     > Databricks is fully provisioned with Unity Catalog, SQL Warehouse, and the target catalog and schema ready for data seeding.
 
@@ -76,16 +76,14 @@ In this task, you will access and validate the pre-created **Azure Databricks** 
    ![Picture 1](./Media/sandbox-purview-image52.png)
 
 ### Sample Data
-   
-1. Select SQL Editor
-   
-   ![](./Media/gs24.png)
-   
-1. Select the correct Unity Catalog **governance catalog(1)** and **governance schema (2)**.
 
-   ![](./Media/gs24.png)
-   
-1. Paste the Databricks SQL script below.
+1. In **Databricks**, from the left navigation pane, select **SQL Editor (1)**. Click the **+ (2)** icon, then select **New query (3)**.
+
+     ![Picture 1](./Media/sandbox-purview-image235.png)
+
+3. In the query editor, ensure the following are selected. Copy and paste the provided **SQL script into the editor (3)**. Then Click **Run all (4)** to execute the query.
+   - **Catalog (1)**: `governance_catalog`
+   - **Schema (2)**: `governance_schema`
    
    ```sql
    CREATE TABLE IF NOT EXISTS customer_transactions (
@@ -110,13 +108,14 @@ In this task, you will access and validate the pre-created **Azure Databricks** 
    ('T009','C009','PX99',69.00,'2026-03-06'),
    ('T010','C010','P010',-79.99,'2026-03-06');
    ```
-1. Refer to the image below
 
-   ![](./Media/gs26.png)
+1. Refer the screenshot.
 
-1. Click on **Start,attach and run**
+   ![Picture 1](./Media/sandbox-purview-image236.png)
+ 
+1. Click on **Attach and run**
 
-   ![](./Media/gs27.png)   
+   ![Picture 1](./Media/sandbox-purview-image237.png)
 
 ### Task 2: Register Databricks Workspace as a Data Source
 
