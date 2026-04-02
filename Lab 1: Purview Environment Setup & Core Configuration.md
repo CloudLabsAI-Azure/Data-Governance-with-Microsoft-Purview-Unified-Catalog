@@ -28,7 +28,7 @@ Proper roles are required to create collections, domains, and manage data access
 
 1. In the **Azure portal** home page, scroll down and select **Resource groups**.
 
-    ![Picture 1](./Media/sandbox-purview-image1.png)
+    ![Picture 1](./Media/sandbox-purview-image228.png)
 
 1. In the **Resource groups** pane, review the list and select **rg-purview-governance-lab**.
 
