@@ -1,4 +1,4 @@
-# Day 1 Lab 3: Connect Databricks Unity Catalog to Purview
+# Day 1 - Lab 3: Connect Databricks Unity Catalog to Purview
 
 ## Lab Overview
 
