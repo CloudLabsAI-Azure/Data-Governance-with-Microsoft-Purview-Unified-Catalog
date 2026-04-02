@@ -69,7 +69,7 @@ In this task, you will learn how to create a data product in **Microsoft Purview
       | Type        | Dataset **(3)**                                                      |
       | Owner       | Ensure **ODL_User<inject key="DeploymentID" enableCopy="false"/> (4)** is selected |
 
-      ![Picture 1](./Media/DG58.png)
+      ![Picture 1](./Media/sandbox-purview-image258.png)
 
 1. In the **Business details** step, enter the following and click **Next (3)**:
 
@@ -88,24 +88,28 @@ In this task, you will learn how to create a data product in **Microsoft Purview
 
 1. After creating the data product, select **Add data assets (1)** and click **Done (2)**.
 
-   ![Picture 1](./Media/DG61.png)
+   ![Picture 1](./Media/sandbox-purview-image259.png)
 
-1. In the **Find and select** pane, select **Databricks Sources (1)**, choose at least four relevant tables such as `customer`, `sales_customers`, `sales_suppliers`, and `sales_franchises` (2), verify them in the **Selected (3)** pane, and click **Add (4)**.
+1. In the **Find and select** pane, select **Databricks Sources (1)**, choose at least four relevant tables such as `customer`, `sales_customers`, `sales_suppliers`, and `sales_franchises` (2), verify them in the **Selected (2)** pane.
 
-   ![Picture 1](./Media/DG62.png)
+   ![Picture 1](./Media/sandbox-purview-image260.png)
+
+1. Now uncheck **Databricks** and select the checkbox for **Fabric**.
+
+   ![Picture 1](./Media/sandbox-purview-image261.png)
 
 1. Repeat the same process for **Fabric Sources (1)**, select at least four relevant tables such as `dimension_customer`, `vendors`, `dimension_city`, and `dimension_stock_item` (2), verify them in the **Selected (3)** pane, and click **Add (4)**.
 
-   ![Picture 1](./Media/DG64.png)
+   ![Picture 1](./Media/sandbox-purview-image262.png)
 
    > **Tip**: Use the **Collection** filter to narrow results to just Fabric Sources or Databricks Sources when multiple results appear.
 
-1. Optionally, add more assets to enrich the data product:
-    - **Fabric**: `dimension_city`,`dimension_customer`, `fact_sale` (if available in your Lakehouse)
-    - **Databricks**: any additional tables from your custom catalog
-1. Verify the assets appear in the data product's asset list (minimum 3 assets)
+      
+1. Verify the assets appear in the data product's asset list (minimum 3 assets).
 
-   > **Note**: This data product spans two platforms (Fabric + Databricks) — demonstrating Purview's ability to package cross-platform assets into a single business unit.
+   ![Picture 1](./Media/sandbox-purview-image263.png)
+
+   > **Note**: This data product spans two platforms (Fabric + Databricks), demonstrating Purview's ability to package cross-platform assets into a single business unit.
 
    **Expected Result**: `Sales Analytics` governance domain created. `Customer 360` data product created with assets from both Fabric and Databricks (minimum 4: `dimension_customer`, `customer`, `sales_suppliers`,`dimension_city`).
 
@@ -185,33 +189,6 @@ In this task, you will learn how to publish a data product in **Microsoft Purvie
 
    ![Picture 1](./Media/DG77.png)
 
-
-1. Go to **Unified Catalog** → **Discovery** → **Data assets** → search for `Customer 360`
-    - The data product should appear as a searchable entity
-
-1. Expand **Catalog management (1)**, select **Governance domains (2)**, choose **Sales Analytics (3)**, and click **View all (4)** under **Business concepts**.
-
-    ![Picture 1](./Media/DG78.png)
-
-**Step 4: Browse by Governance Domain**
-
-1. Go to **Unified Catalog** → **Discovery** → **Browse**
-1. Select **By governance domain** → click `Sales Analytics`
-1. Verify `Customer 360` data product is listed
-1. Click into it → navigate to individual assets → confirm the full drill-down path:
-    - Domain → Data Product → Asset → Schema → Columns
-
-**Step 5: Create a Second Data Product (Optional)**
-
-1. If time permits, create a second data product:
-    - **Name**: `Sales Transactions`
-    - **Description**: `Sales and order transaction data across Fabric and Databricks for revenue analysis`
-    - **Domain**: `Sales Analytics`
-    - **Assets**: `fact_sale` (Fabric) + any available Databricks order/sales tables
-    - **Publish** it
-1. Verify both data products appear under the `Sales Analytics` domain
-
-   >**Expected Result**: `Customer 360` data product published and discoverable in Unified Catalog. Business users can find it via search, data products listing, and governance domain browsing. Full drill-down from domain → product → asset → schema works.
 
 ### Summary
 
