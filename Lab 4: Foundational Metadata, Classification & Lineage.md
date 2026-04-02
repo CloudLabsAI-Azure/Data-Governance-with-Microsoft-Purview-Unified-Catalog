@@ -1,5 +1,7 @@
 # Day 1 - Lab 4: Classification, Lineage & Cross-Platform Governance
 
+### Estimated Duration: 40 Minutes
+
 ## Lab Overview
 In this lab, you will explore how Microsoft Purview enables data governance across Microsoft Fabric and Databricks. You will verify scan results, apply built-in classifications to identify sensitive data, and understand how manual classification is used when automatic classification is not supported.
 
