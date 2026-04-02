@@ -183,11 +183,11 @@ In this task, you generate a **Personal Access Token (PAT)** in the **Databricks
 
    > Record it in the **Notepad**, later you will use this value in the next task.
 
-### Task 3.2: Store the PAT in Azure Key Vault**
+### Task 3.2: Store the PAT in Azure Key Vault
 
 In this task, you store the generated **Personal Access Token (PAT)** in **Azure Key Vault** as a secret to securely manage authentication for **Microsoft Purview**.
 
-1. Naviagte back to Azure portal and from the search bar, search for and select **Key vaults**.
+1. Navigate back to **Azure portal** and from the search bar, search for and select **Key vaults**.
 
     ![Picture 1](./Media/sandbox-purview-image32.png)
 
@@ -201,7 +201,7 @@ In this task, you store the generated **Personal Access Token (PAT)** in **Azure
 
 1. Configure:
    - **Name**: **`databricks-pat` (1)**
-   - **Secret value**: paste the **PAT (2)** from Taks 2.1, step 5.
+   - **Secret value**: paste the **PAT (2)** from Taks 3.1, step 9.
    - Click **Create (3)**.
 
      ![Picture 1](./Media/sandbox-purview-image35.png)
