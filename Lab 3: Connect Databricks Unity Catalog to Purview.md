@@ -309,6 +309,14 @@ In this task, you search for and explore Databricks tables in the Microsoft Purv
    - Table: customer_transactions
    - Properties: Table type, storage location, and catalog details
 
+## Summary
+
+In this lab, you connected Azure Databricks Unity Catalog with Microsoft Purview to enable data discovery and governance. You started by preparing the Databricks workspace, verifying the SQL Warehouse, and capturing essential connection details such as the server hostname, HTTP path, and metastore ID.
+
+Next, you registered the Databricks Unity Catalog as a data source in Microsoft Purview and configured secure authentication using a Personal Access Token (PAT) stored in Azure Key Vault. You then created a credential and ran a scan to discover catalogs, schemas, and tables from Databricks.
+
+Finally, you validated the discovered assets in the Microsoft Purview Unified Catalog by exploring table schema, properties, and the hierarchical structure of catalog, schema, and table.
+
 
 ## Click Next to continue to the next lab.
 
