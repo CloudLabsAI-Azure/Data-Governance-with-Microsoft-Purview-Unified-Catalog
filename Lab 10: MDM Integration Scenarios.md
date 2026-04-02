@@ -27,7 +27,7 @@ Now go to Data assets > search dimension_customer > click Edit
 Under Glossary terms dropdown > select Golden Record > Save
 Repeat for dimension_city and dimension_stock_item
 
-Task 3: Link golden records to Fabric and Databricks assets
+## Task 3: Link golden records to Fabric and Databricks assets
 
 Go to Catalog management > Data products
 Click + New data product
@@ -42,7 +42,7 @@ Add: dimension_customer, dimension_city, dimension_stock_item
 Click Publish
 
 
-Task 4: Validate master data discoverability
+## Task 4: Validate master data discoverability
 
 Go to Discovery > Data assets
 Search for Golden Record (if you used glossary term approach) or Authoritative source (if you used description approach)
