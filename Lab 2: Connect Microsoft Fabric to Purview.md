@@ -516,9 +516,9 @@ Understanding schema helps users interpret how business data is structured and c
    
    >**Note:** The semantic model is the **business-friendly view** of the same data:
 
-       - Lakehouse = raw Delta storage layer
-       - SQL analytics endpoint = SQL query layer
-       - Semantic model (Power BI Dataset) = BI/reporting layer
+      1. Lakehouse = raw Delta storage layer
+      2. SQL analytics endpoint = SQL query layer
+      3. Semantic model (Power BI Dataset) = BI/reporting layer
 
 ## Summary
 
