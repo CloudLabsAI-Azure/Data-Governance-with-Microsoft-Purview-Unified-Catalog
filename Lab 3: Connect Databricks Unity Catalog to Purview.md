@@ -10,16 +10,16 @@ Finally, you will validate the discovered assets in the Unified Catalog and expl
 
 In this lab, you will perform the following:
 
-- **Task 1:** Verify Azure Databricks workspace and capture required details  
-- **Task 2:** Register Azure Databricks Unity Catalog as a data source in Purview  
-- **Task 3:** Configure Unity Catalog connector using PAT and Key Vault  
-- **Task 4:** Validate discovered Databricks assets in Unified Catalog  
+- Task 1: Verify your Databricks workspace
+- Task 2: Register Databricks workspace 
+- Task 3: Scan catalogs, schemas, and tables
+- Task 4: Validate Databricks assets in Unified Catalog
 
 ## Estimated Duration 60 minutes
 
-### Task 1: Verify your Databricks workspace:
+### Task 1: Verify your Databricks workspace
 
-In this task, you will access and validate the pre-created **Azure Databricks** workspace. You will verify the **SQL Warehouse** status, review connection details, and capture the **Metastore ID** for further use in the lab.
+In this task, you will prepare the Databricks workspace by verifying required components and collecting connection details needed to register it in Microsoft Purview.
 
 1. Navigate back to **Azure portal**, in **Search resources, services and docs (G+/)** box at the top of the portal, enter **Azure Databricks (1)**, and then select **Azure Databricks (2)** under services.
 
@@ -75,7 +75,7 @@ In this task, you will access and validate the pre-created **Azure Databricks** 
 
    ![Picture 1](./Media/sandbox-purview-image52.png)
 
-### Sample Data
+### Task 1.1: Load sample data
 
 1. In **Databricks**, from the left navigation pane, select **SQL Editor (1)**. Click the **+ (2)** icon, then select **New query (3)**.
 
@@ -117,9 +117,9 @@ In this task, you will access and validate the pre-created **Azure Databricks** 
 
    ![Picture 1](./Media/sandbox-purview-image237.png)
 
-### Task 2: Register Databricks Workspace as a Data Source
+### Task 2: Register Databricks workspace 
 
-In this task, you register the **Azure Databricks Unity Catalog** as a data source in **Microsoft Purview** by providing the Metastore ID and assigning it to a collection.
+In this task, you will register the Databricks Unity Catalog as a data source in Microsoft Purview using the metastore ID.
 
 1. Navigate back to the **Microsoft Purview** home page using the URL below.
 
@@ -148,7 +148,7 @@ In this task, you register the **Azure Databricks Unity Catalog** as a data sour
 
     ![Picture 1](./Media/sandbox-purview-image55.png)
 
-## Task 3: Configure Unity Catalog Connector
+## Task 3: Scan catalogs, schemas, and tables
 
 In this task, you configure the connection between **Microsoft Purview** and **Azure Databricks Unity Catalog** by generating a PAT, storing it in **Azure Key Vault**, creating a credential, and validating the connection using a scan.
 
@@ -292,55 +292,23 @@ In this task, you monitor the scan progress in **Microsoft Purview** and verify 
 
     ![Picture 1](./Media/sandbox-purview-image60.png)
 
-## Task 4: Validate Databricks Assets in Unified Catalog (15 min)
+## Task 4: Validate Databricks assets in Unified Catalog
 
-In this task, you validate that **Azure Databricks Unity Catalog** assets appear in **Microsoft Purview Unified Catalog** by searching and exploring tables and their hierarchy.
+In this task, you search for and explore Databricks tables in the Microsoft Purview Unified Catalog, reviewing schema, properties, and hierarchy.
 
-### Task 4.1: Search for Databricks Tables
+1. From the left navigation pane, click Solutions (1), then select Unified Catalog (2).
 
-In this task, you search for and explore **Databricks tables** in the **Microsoft Purview Unified Catalog**, reviewing schema, properties, and hierarchy.
+1. In the Unified Catalog portal > expand **Discovery (1)** > Select **Data assets (2)**. Search for and select **customer_transactions (3) (4)**
 
-1. From the left navigation pane, click **Solutions (1)**, then select **Unified Catalog (2)**.
+1. Review the following:
 
-   ![Picture 1](./Media/DG13.png)
+   - Schema: Column names and data types
+   - Hierarchy:
+   - Catalog: governance_catalog
+   - Schema: governance_schema
+   - Table: customer_transactions
+   - Properties: Table type, storage location, and catalog details
 
-
-1. In the **Unified Catalog** portal, expand **Discovery (1)**, select **Data assets (2)**, search for **trips (3)**, and then select the **trips asset (4)**.
-
-    ![Picture 1](./Media/sandbox-purview-image61.png)
-
-1. Review:
-   - **Schema**: column names and data types
-   - **Hierarchy**: Metastore → samples → nyctaxi → trips
-   - **Properties**: table type, storage location, catalog info
-
-     ![Picture 1](./Media/sandbox-purview-image62.png)
-     
-     ![Picture 1](./Media/sandbox-purview-image63.png)
-
-### Task 4.2: Explore the Catalog Hierarchy
-
-In this task, you explore the **catalog hierarchy** in the **Microsoft Purview Unified Catalog** by navigating schemas and tables to understand their structure and relationships.
-
-1. In the **Unified Catalog** portal, select **Data assets (1)**, search for **tpch (2)**, and then select the **tpch asset (3)** to explore under **Related** section with the available TPC-H tables such as `customer`, `orders`, `lineitem`, `nation`, `part`, `region`, `supplier`, and `partsupp`.
-
-   ![Picture 1](./Media/DG36.png)
-
-   ![Picture 1](./Media/sandbox-purview-image65.png)
-   
-1. In the **tpch** asset page, select **Related (1)**, click on the **customer table (2)**, and review the **Schema** tab to explore columns such as `c_custkey`, `c_name`, `c_address`, `c_nationkey`, and `c_phone`.
-
-      ![Picture 1](./Media/DG37.png)
-
-      ![Picture 1](./Media/DG38.png)
-    
-   > **Note:** The hierarchy: **Metastore** → **Schema** (`tpch`) → **Table** (`customer`)
-    
-    - This mirrors the Unity Catalog 3-level namespace: `catalog.schema.table`
-
-## Summary
-
-In this lab, you connected Azure Databricks Unity Catalog to Microsoft Purview by registering it as a data source, configuring secure authentication using a Personal Access Token stored in Azure Key Vault, creating a credential, and running a scan. You then validated the discovered Databricks assets in the Unified Catalog and explored the catalog hierarchy, schemas, and table-level metadata.
 
 ## Click Next to continue to the next lab.
 
