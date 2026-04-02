@@ -44,7 +44,29 @@ In this task, you will access and validate the pre-created **Azure Databricks** 
 1. Click on **Connection details (1)**, then copy and record the **Server hostname (2)** and **HTTP path (3)**.
 
    ![Picture 1](./Media/sandbox-purview-image50.png)
-   
+
+1. In the Databricks workspace, select **Catalog(1)** in the left navigation (the data explorer icon).Click on **Create(2)** and select **+ Create catalog** **(3)**.
+
+    ![](../media/gs8.png)
+
+1. In the **Create a new catalog** panel, enter the **Catalog name** as `governance_catalog` **(1)**, for **Storage location (2)** select from the workspace from the dropdown, and select **Create** **(3)**.
+
+   ![](../media/gs9.png)
+
+1. Click on  **View Catalog**
+
+   ![](../media/fx4.png)
+
+1. Open **governance_catalog** **(1)**, then select **Create schema** **(2)**.
+
+   ![](../media/gs10.png)
+
+1. In the **Create a new schema** panel, enter the **Schema name** as `governance_schema` **(1)** and select **Create** **(2)**.
+
+   ![](../media/gs11.png)
+
+    > Databricks is fully provisioned with Unity Catalog, SQL Warehouse, and the target catalog and schema ready for data seeding.
+
 1. In the Databricks workspace, click **Catalog (1)** in the left sidebar. In the Catalog Explorer, click on the **Settings icon (2)** and select the **Metastore (3)** name.
 
    ![Picture 1](./Media/sandbox-purview-image51.png)
@@ -52,6 +74,49 @@ In this task, you will access and validate the pre-created **Azure Databricks** 
 1. On the metastore details page, locate and copy the **Metastore ID**.
 
    ![Picture 1](./Media/sandbox-purview-image52.png)
+
+### Sample Data
+   
+1. Select SQL Editor
+   
+   ![](../media/gs24.png)
+   
+1. Select the correct Unity Catalog **governance catalog(1)** and **governance schema (2)**.
+
+   ![](../media/gs24.png)
+   
+1. Paste the Databricks SQL script below.
+   
+   ```sql
+   CREATE TABLE IF NOT EXISTS customer_transactions (
+     transaction_id STRING,
+     customer_id STRING,
+     product_id STRING,
+     transaction_amount DECIMAL(10,2),
+     transaction_date DATE
+   );
+   
+   DELETE FROM customer_transactions;
+   
+   INSERT INTO customer_transactions VALUES
+   ('T001','C001','P001',1499.99,'2026-03-02'),
+   ('T002','C002','P002',39.99,'2026-03-02'),
+   ('T003','C003','P003',249.00,'2026-03-03'),
+   ('T004','C004','P004',499.00,'2026-03-03'),
+   ('T005','C005','P005',12.50,'2026-03-04'),
+   ('T006','C006','P006',199.00,'2026-03-04'),
+   ('T007','C007','P007',18.00,'2026-03-05'),
+   ('T008','C008','P008',45.00,'2026-03-05'),
+   ('T009','C009','PX99',69.00,'2026-03-06'),
+   ('T010','C010','P010',-79.99,'2026-03-06');
+   ```
+1. Refer to the image below
+
+   ![](../media/gs26.png)
+
+1. Click on **Start,attach and run**
+
+   ![](../media/gs27.png)   
 
 ### Task 2: Register Databricks Workspace as a Data Source
 
@@ -144,7 +209,7 @@ In this task, you store the generated **Personal Access Token (PAT)** in **Azure
 
      ![Picture 1](./Media/sandbox-purview-image56.png)
     
-### Task 3.3: Connect Key Vault to Purview**
+### Task 3.3: Connect Key Vault to Purview
 
 In this task, you connect **Azure Key Vault** to **Microsoft Purview** by creating a Key Vault connection, enabling secure access to stored secrets.
 
