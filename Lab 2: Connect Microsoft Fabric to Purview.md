@@ -194,11 +194,15 @@ The Warehouse represents the structured analytics layer used for SQL-based workl
 
 1. In the warehouse, click **New SQL query (1)**.
 
-     ![Picture 1](./Media/DG022.png)
+     ![Picture 1](./Media/sandbox-purview-image242.png)
 
-1. In the SQL editor, paste the provided **SQL script (2)** and click **Run (3)** to execute the query.
+1. From the taskbar, open **File Explorer** and navigate to **C:\LabFiles\Files**. Right-click on **`warehouse-sales-orders.sql` (1)**, open it with **Notepad (2)** then click on **OK (2)**, and copy the code. Then, navigate back to the **SQL Editor**.
 
-    ![Picture 1](./Media/DG23.png)
+   ![Picture 1](./Media/sandbox-purview-image243.png)
+
+1. In the SQL editor, paste the copied **SQL script (1)** and click **Run (2)** to execute the query.
+
+    ![Picture 1](./Media/sandbox-purview-image244.png)
 
 1. In the **Explorer** pane, expand **Schemas (1)**, then **dbo (2)**, then **Tables (3)**, select **sales_orders (4)**, and verify that the table displays data with **15 records (5)**.
 
@@ -261,7 +265,7 @@ Pipelines enable data movement and are essential for demonstrating data lineage 
 
     ![Picture 1](./Media/DG27.png)
 
-      **Expected Result**: **`Purview-Lab-WS**` workspace now contains 6 items:
+      **Expected Result**: **Purview-Lab-WS** workspace now contains 6 items:
       - `PurviewLakehouse`:  Wide World Importers retail data + vendors table (Lakehouse)
       - `PurviewLakehouse`:  SQL analytics endpoint (auto-created)
       - `PurviewLakehouse`:  Semantic model (includes vendors table)
