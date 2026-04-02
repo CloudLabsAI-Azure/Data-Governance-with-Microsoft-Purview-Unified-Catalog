@@ -1,5 +1,7 @@
 # Day 1 - Lab 3: Connect Databricks Unity Catalog to Purview
 
+### Estimated Duration: 40 Minutes
+
 ## Lab Overview
 
 In this lab, you will connect Azure Databricks Unity Catalog to Microsoft Purview to enable governance and discovery of Databricks data assets. You will begin by verifying the Databricks workspace and required connection details, then register Unity Catalog as a data source in Purview. You will configure secure authentication using a Personal Access Token (PAT) stored in Azure Key Vault, create a credential in Purview, and run a scan to discover Databricks assets.
