@@ -125,4 +125,4 @@ In this lab, you learned to create and configure sensitivity labels in Microsoft
 
 ## Click Next to continue to the next lab.
 
-![](./Media/DG5.png)
+![](./Media/GS0001.png)
