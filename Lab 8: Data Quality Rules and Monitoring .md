@@ -160,8 +160,12 @@ Data quality in Microsoft Purview connects directly to the data source to execut
 
 1. Wait for both scans to complete.
 
-1. Once scan is completed you should see the    
+1. Once the scans are complete, navigate back to the **Sales Analytics** domain > **Data assets**.
 
+2. Verify that both assets display a **Quality score** of **High (100)**, as shown below.
+
+   ![Picture 1](./Media/sandbox-purview-image292.png)
+   
 ## Task 3: Review Quality Metrics in Unified Catalog (15 min)
 
 **Step 1: View Quality Scores on Assets**
