@@ -124,8 +124,8 @@ In this task, you will enhance asset metadata by adding descriptions, classifica
 1. Navigate to the **Schema (1)** tab.
 
 1. Apply classifications to the following columns:
-   - `PrimaryContact` → **All Full Names**
-   - `PostalCode` → **U.S. Zip Codes**
+   - `PrimaryContact`: **All Full Names**
+   - `PostalCode`: **U.S. Zip Codes**
 
      ![Picture 1](./Media/sandbox-purview-image195.png)
 
@@ -179,7 +179,6 @@ In this task, you will enhance asset metadata by adding descriptions, classifica
    | Owner |  Added |  Added |
    | Glossary terms | Not yet | Not yet |
 
-   > **Note**: Glossary terms (e.g., "Customer", "Revenue", "Order") will be created and linked to assets in **Lab 7: Business Metadata & Glossary Management** on Day 2. Glossary terms require a governance domain and enterprise glossary setup, which you'll configure in Labs 6 - 7.
 
 ### Summary
 
