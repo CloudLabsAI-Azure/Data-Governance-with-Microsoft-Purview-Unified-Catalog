@@ -268,4 +268,4 @@ In this lab, you:
 - Explored glossary-based search and navigation
 - Validated business-to-technical alignment across platforms
 
-## You have successfully completed Day 1 labs, click next to continue to the next Day 3 labs.
+## You have successfully completed Day 2 labs, click next to continue to the next Day 3 labs.
