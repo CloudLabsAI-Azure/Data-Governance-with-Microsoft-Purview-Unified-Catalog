@@ -6,7 +6,7 @@
 
 In this lab, you will bring together all governance capabilities learned across the 4-day workshop. You will create a derived table in Fabric using a notebook, apply full governance controls to the new asset, and perform a comprehensive end-to-end review of the entire governance framework using the Unified Catalog.
 
-This lab demonstrates the complete governance lifecycle — from data creation and scanning through to full curation including quality monitoring, data product membership, and cross-platform discovery.
+This lab demonstrates the complete governance lifecycle from data creation and scanning through to full curation including quality monitoring, data product membership, and cross-platform discovery.
 
 ## Lab Objectives
 
