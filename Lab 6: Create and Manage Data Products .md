@@ -1,5 +1,7 @@
 # Day 2 - Lab 6: Create and Manage Data Products
 
+## Estimated Duration: 60 minutes
+
 ## Lab Overview
 
 In this lab, you will create and manage data products in Microsoft Purview by combining data assets from multiple platforms such as Microsoft Fabric and Azure Databricks. You will define governance domains, create a data product with business context, and associate relevant data assets to build a unified, business-ready dataset.
