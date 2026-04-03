@@ -90,9 +90,9 @@ In this task, you will learn how to create a data product in **Microsoft Purview
 
    ![Picture 1](./Media/sandbox-purview-image259.png)
 
-1. In the **Find and select** pane, select **Databricks Sources (1)**, choose at least four relevant tables such as `customer`, `sales_customers`, `sales_suppliers`, and `sales_franchises` (2), verify them in the **Selected (2)** pane.
+1. In the **Find and select** pane, select **Databricks Sources (1)**, choose at least four relevant tables such as `customer`, `sales_customers`, `sales_suppliers`, and `customer_transactions` (2), verify them in the **Selected (2)** pane.
 
-   ![Picture 1](./Media/sandbox-purview-image260.png)
+   ![Picture 1](./Media/sandbox-purview-image300.png)
 
 1. Now uncheck **Databricks** and select the checkbox for **Fabric**.
 
@@ -104,7 +104,6 @@ In this task, you will learn how to create a data product in **Microsoft Purview
 
    > **Tip**: Use the **Collection** filter to narrow results to just Fabric Sources or Databricks Sources when multiple results appear.
 
-      
 1. Verify the assets appear in the data product's asset list (minimum 3 assets).
 
    ![Picture 1](./Media/sandbox-purview-image263.png)
