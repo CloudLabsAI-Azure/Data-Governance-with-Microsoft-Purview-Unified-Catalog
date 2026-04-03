@@ -141,4 +141,4 @@ In this lab, you:
 
 ## You have successfully completed Day 1 labs, click next to continue to the next Day 2 labs.
 
-![](./Media/GS0001.png)
+![](./Media/sandbox-purview-image342.png)
