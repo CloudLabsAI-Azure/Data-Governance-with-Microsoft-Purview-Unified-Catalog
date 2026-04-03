@@ -1,6 +1,6 @@
 # Day 3 - Lab 8: Data Quality Rules and Monitoring
 
-## Estimated Duration: 50 minutes
+## Estimated Duration: 60 minutes
 
 ## Lab Overview
 
@@ -96,7 +96,7 @@ In this task, you will create data quality rules on both Databricks and Fabric a
 
    ![Picture 1](./Media/sandbox-purview-image278.png)
 
-3. In the asset page, navigate to the **Rules (1)** tab, then click **+ New rule (2)**.
+1. In the asset page, navigate to the **Rules (1)** tab, then click **+ New rule (2)**.
 
     ![Picture 1](./Media/sandbox-purview-image279.png)
 
@@ -201,7 +201,6 @@ In this lab, you:
 - Executed quality scans on both Databricks and Fabric datasets
 - Reviewed quality scores and metrics in the Unified Catalog
 - Validated data reliability across platforms using quality monitoring
-
 
 ## Click Next to continue to the next lab.
 
