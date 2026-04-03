@@ -138,6 +138,20 @@ Authoritative data sources identified and governed using:
 
 ## Getting Started with the Lab Environment
 
+## Managing Your Virtual Machine
+
+1. Please note that the lab is available for **4 days (96 hours)** from the time it is launched. Within these 4 days, the VM can be used for a total of **24 hours**.
+
+1. Once the lab starts, the 96-hour access period begins. However, the VM will only run for up to 24 hours in total, and these hours are counted only when the VM is actively running.
+
+1. We recommend **stopping or pausing the VM** whenever it is not in use. This will help save the remaining VM hours so they can be used later within the 3-day period. Also, we have implemented Idleness Tracking, if the VM is **Idle** for **30 minutes automatically VM goes to Stopped State**.
+
+1. If the VM is in Stopped/Deallocated state, Users can Stop/Start the VM from the "Resources" tab that is available from the Guide section as shown below: **Start (1)** and **Stop/Deallocate (2)**.
+
+    ![](./Media/DGvm0.png)
+
+    ![](./Media/DGvm1.png)
+
 ## Accessing Your Lab Environment
 
 Once you're ready to begin, your virtual machine and lab guide will be available directly within your web browser.
