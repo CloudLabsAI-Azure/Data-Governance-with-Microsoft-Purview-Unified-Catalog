@@ -192,4 +192,4 @@ In this lab, you:
 
 ## Click Next to continue to the next lab.
 
-![](./Media/GS0001.png)
+![](./Media/sandbox-purview-image342.png)
