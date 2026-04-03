@@ -1,4 +1,4 @@
-# Day 4 - Lab 12: Sensitivity Labels, DLP & Audit 
+# Day 4 - Lab 12: Sensitivity Labels, DLP & Audit [Optional]
 
 In this lab, you will implement data protection and compliance controls using Microsoft Purview. You will create and publish sensitivity labels to classify sensitive data, configure Data Loss Prevention (DLP) policies to prevent unauthorized sharing, and apply these controls to datasets in Microsoft Fabric.
 
