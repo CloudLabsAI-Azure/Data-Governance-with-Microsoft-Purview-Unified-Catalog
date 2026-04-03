@@ -1,4 +1,4 @@
-# Day 4 - Lab 11: Data Product Access & Governance Controls
+# Day 4 - Lab 11: Data Product Access & Governance Controls [Optional]
 
 ## Estimated Duration: 50 minutes
 
