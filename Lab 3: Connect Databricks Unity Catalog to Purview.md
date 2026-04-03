@@ -1,6 +1,6 @@
 # Day 1 - Lab 3: Connect Databricks Unity Catalog to Purview
 
-### Estimated Duration: 40 Minutes
+### Estimated Duration: 60 Minutes
 
 ## Lab Overview
 
