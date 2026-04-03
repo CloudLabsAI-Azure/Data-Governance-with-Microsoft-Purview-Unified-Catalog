@@ -33,27 +33,27 @@ In this task, you will create a Fabric notebook that reads from existing Lakehou
 6. In the notebook, add a cell with the following PySpark code:
 
    ```python
-  # Create a customer revenue summary from existing Lakehouse data
-   df_customers = spark.sql("SELECT * FROM dimension_customer")
-   df_sales = spark.sql("SELECT * FROM fact_sale")
-   
-   # Aggregate sales per customer
-   customer_summary = df_sales.groupBy("CustomerKey").agg(
-       {"TotalIncludingTax": "sum", "SaleKey": "count"}
-   ).withColumnRenamed("sum(TotalIncludingTax)", "TotalRevenue") \
-    .withColumnRenamed("count(SaleKey)", "OrderCount")
-   
-   # Join with customer dimension
-   result = customer_summary.join(
-       df_customers.select("CustomerKey", "Customer", "Category", "BuyingGroup"),
-       on="CustomerKey",
-       how="inner"
-   )
-   
-   # Write to Lakehouse as a new table
-   result.write.mode("overwrite").format("delta").saveAsTable("customer_revenue_summary")
-   
-   print(f"Created customer_revenue_summary with {result.count()} rows")
+      # Create a customer revenue summary from existing Lakehouse data
+      df_customers = spark.sql("SELECT * FROM dimension_customer")
+      df_sales = spark.sql("SELECT * FROM fact_sale")
+      
+      # Aggregate sales per customer
+      customer_summary = df_sales.groupBy("CustomerKey").agg(
+          {"TotalIncludingTax": "sum", "SaleKey": "count"}
+      ).withColumnRenamed("sum(TotalIncludingTax)", "TotalRevenue") \
+       .withColumnRenamed("count(SaleKey)", "OrderCount")
+      
+      # Join with customer dimension
+      result = customer_summary.join(
+          df_customers.select("CustomerKey", "Customer", "Category", "BuyingGroup"),
+          on="CustomerKey",
+          how="inner"
+      )
+      
+      # Write to Lakehouse as a new table
+      result.write.mode("overwrite").format("delta").saveAsTable("customer_revenue_summary")
+      
+      print(f"Created customer_revenue_summary with {result.count()} rows")
    ```
 
 7. Click **Run all** → wait for execution to complete
