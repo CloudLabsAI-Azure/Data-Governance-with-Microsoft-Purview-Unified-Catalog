@@ -1,4 +1,4 @@
-# Day 2 - Lab 8: Data Quality Rules and Monitoring
+# Day 3 - Lab 8: Data Quality Rules and Monitoring
 
 ## Estimated Duration: 50 minutes
 
@@ -25,8 +25,6 @@ In this task, you will add data assets to the Sales Analytics governance domain 
 
 1. In **Unified Catalog**, expand **Health management (1)**, then select **Data quality (2)**. Select the **Sales Analytics (3)** domain.
    
-     ![Picture 1](./Media/sandbox-purview-image268.png)
-
 1. Click on **Customer 360**.
 
    ![Picture 1](./Media/sandbox-purview-image301.png)
