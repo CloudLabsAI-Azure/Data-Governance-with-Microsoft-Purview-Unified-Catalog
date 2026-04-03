@@ -198,7 +198,4 @@ In this task, you will verify that golden record assets are discoverable through
 
       ![Picture 1](./Media/sandbox-purview-image341.png)
 
-
-## Click Next to continue to the next lab.
-
-![](./Media/GS0001.png)
+## You have successfully completed Day 3 labs, click next to continue to the next Day 4 labs.
