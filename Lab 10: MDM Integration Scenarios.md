@@ -27,7 +27,9 @@ In this task, you will search the Unified Catalog to build a map of where the sa
 
 1. Go to **Purview portal** > **Unified Catalog** > **Discovery** > **Data assets**.
 
-1. Search for **customer** — note all customer-related assets across Fabric and Databricks.
+1. Search for **dimension_customer** — this is the Fabric Lakehouse customer master data.
+
+1. Search for **customer_transactions** — this is the Databricks customer transaction data.
 
 1. Search for **dimension_city** — note location data.
 
