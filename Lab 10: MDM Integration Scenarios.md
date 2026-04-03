@@ -19,21 +19,20 @@ In this lab, you will perform the following:
 
 ## Task 1: Identify MDM-Managed Master Data Sources
 
+
 In this task, you will search the Unified Catalog to build a map of where the same business entities (customer, location, product) exist across Fabric and Databricks, identifying which sources should be designated as authoritative.
 
 1. Go to **Purview portal** > **Unified Catalog** > **Discovery** > **Data assets**.
 
-1. Search for **dimension_customer** — this is the Fabric Lakehouse customer master data.
+1. Search for **dimension_customer** - this is the Fabric Lakehouse customer master data.
 
-1. Search for **customer_transactions** — this is the Databricks customer transaction data.
+1. Search for **customer_transactions** - this is the Databricks customer transaction data.
 
-1. Search for **dimension_city** — note location data.
+1. Search for **dimension_city** - note location data.
 
-1. Search for **sales_suppliers** — note product data.
+1. Search for **sales_suppliers** - note supplier/product data.
 
 1. You're building a mental map of where the same entity exists in multiple places.
-
----
 
 ## Task 2: Register Authoritative Master Data in Purview
 
