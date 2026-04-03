@@ -1,5 +1,6 @@
 # Day 2 - Lab 7: Business Metadata & Glossary Management
 
+## Estimated Duration: 50 minutes
 
 ## Lab Overview
 
