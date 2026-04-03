@@ -30,9 +30,7 @@ In this task, you will review how access control works across Fabric and Databri
    |------------|------------------------|--------------|
    | Fabric | Managed via Fabric workspace roles | Catalog + discovery + quality |
    | Databricks UC | Managed via Unity Catalog grants | Catalog + discovery |
-   | Azure SQL DB | Purview-managed policies supported | Direct policy enforcement |
-   | ADLS Gen2 | Purview-managed policies supported | Direct policy enforcement |
-
+  
 3. In this lab environment, data lives in **Fabric** and **Databricks** both manage their own access. Purview provides centralized cataloging, discovery, and quality monitoring.
 
 **Step 2: Review Fabric Workspace Permissions**
@@ -88,14 +86,6 @@ In this task, you will explore how data products serve as the governed access pa
 
 6. Repeat for `Enterprise Master Data` > review the consumer view
 
-**Step 3: Simulate Access Request (If Available)**
-
-7. If the **Request access** option is available on the data product:
-   - Click **Request access**
-   - Enter justification: `Need customer data for quarterly business review reporting`
-   - Submit the request
-8. Check for access request notifications in **Catalog management**
-9. This workflow demonstrates the governed path: discovery → request → approval → access
 
 ## Task 3: Centralized Governance Controls Review
 
@@ -110,6 +100,7 @@ In this task, you will review the centralized governance controls available in H
    - Assets in data products
    - Assets with quality rules
    - Assets with classifications
+
 3. Click into each control to see which assets meet or miss the control
 
 **Step 2: Review Health Actions**
@@ -121,14 +112,6 @@ In this task, you will review the centralized governance controls available in H
    - Assets not in any data product
    - Assets without quality rules
 6. These actions guide the governance team on what to curate next
-
-**Step 3: Review Data Estate Insights**
-
-7. Go to **Data Estate Insights** (left sidebar)
-8. Review the monitoring dashboards:
-   - **Assets**: total discovered, classified, curated
-   - **Scans**: scan success rate, frequency
-   - **Stewardship**: % with owners, descriptions
 
 **Step 4: Cross-Platform Governance Summary**
 
