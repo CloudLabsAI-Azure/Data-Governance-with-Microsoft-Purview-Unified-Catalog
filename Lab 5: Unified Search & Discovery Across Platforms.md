@@ -1,5 +1,7 @@
 # Day 2 - Lab 5: Unified Search & Discovery Across Platforms
 
+## Estimated Duration: 60 minutes
+
 ## Lab Overview 
 In this lab, you will use Microsoft Purview to search and discover data assets across Microsoft Fabric and Databricks. You will compare metadata across platforms, identify gaps in data documentation, and improve asset quality by adding descriptions, classifications, ownership, and lineage.
 
