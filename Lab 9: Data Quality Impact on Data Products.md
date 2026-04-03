@@ -64,10 +64,11 @@ In this task, you will review how data quality scores from Lab 8 are reflected o
 
 In this task, you will evaluate trust levels across your data estate by assessing assets against multiple governance criteria including quality scores, ownership, descriptions, and glossary terms.
 
-**Step 1: Evaluate Trust Criteria**
+### Task 2.1: Evaluate Trust Criteria**
 
-1. Go to **Unified Catalog** → **Discovery** → **Data assets**
-2. Search for `dimension_customer` (Fabric) → evaluate trust:
+1. Go to **Unified Catalog** > **Discovery** > **Data assets**.
+
+2. Search for `dimension_customer` (Fabric) and evaluate trust:
 
    | Trust Criterion | Status |
    |----------------|--------|
@@ -78,18 +79,22 @@ In this task, you will evaluate trust levels across your data estate by assessin
    | In a data product | `Customer 360` from Lab 6 |
    | **Trust level** | **HIGH — Trusted** |
 
-3. Search for `customer_transactions` (Databricks) → evaluate:
+   ![Picture 1](./Media/sandbox-purview-image316.png)
+
+4. Back on **Unified Catalog** > **Discovery** > **Data assets** the search for **`customer_transactions`** (Databricks) and evaluate:
 
    | Trust Criterion | Status |
    |----------------|--------|
    | Quality score | From Lab 8 |
-   | Owner assigned | Check |
-   | Description | Check |
-   | Glossary terms | Check |
-   | In a data product | Check |
+   | Owner assigned | From Lab 5 |
+   | Description | From Lab 5 |
+   | Glossary terms | From Lab 7 |
+   | In a data product | `Customer 360` from Lab 6 |
    | **Trust level** | **Evaluate based on criteria** |
 
-4. Search for an unmanaged asset (e.g., `dimension_stock_item`) → evaluate:
+   ![Picture 1](./Media/sandbox-purview-image317.png)
+
+6. Search for an unmanaged asset **`dimension_date`** and  evaluate:
 
    | Trust Criterion | Status |
    |----------------|--------|
@@ -100,14 +105,15 @@ In this task, you will evaluate trust levels across your data estate by assessin
    | In a data product | Not in any product |
    | **Trust level** | **LOW — Non-trusted** |
 
+   ![Picture 1](./Media/sandbox-purview-image318.png)
 
-**Step 3: Document Trust Assessment**
+### Task 2.2: Document Trust Assessment**
 
-7. Summary of trust levels across your estate:
+1. Summary of trust levels across your estate:
 
    | Trust Level | Criteria Met | Example Assets | Action Needed |
    |-------------|-------------|----------------|---------------|
-   | **High** | All criteria | `dimension_customer` | None — ready for consumption |
+   | **High** | All criteria | `dimension_customer` | None - ready for consumption |
    | **Medium** | Some criteria | `customer_transactions` | Complete remaining metadata |
    | **Low** | None/minimal | `dimension_stock_item` | Full curation needed |
 
