@@ -1,5 +1,7 @@
 # Day 4 - Lab 11: Data Product Access & Governance Controls
 
+## Estimated Duration: 50 minutes
+
 ## Lab Overview
 
 In this lab, you will explore access governance in a multi-platform environment using Microsoft Purview. You will review how access policies work across Fabric and Databricks, configure data product access request workflows, and review centralized governance controls through Health Management and Data Estate Insights.
@@ -14,11 +16,6 @@ In this lab, you will perform the following:
 - **Task 2:** Configure Data Product Access Requests
 - **Task 3:** Centralized Governance Controls Review
 
-## Estimated Duration: 50 minutes
-
-> **Prerequisites**: Labs 1–10 completed. Assets scanned, classified, quality-monitored, and organized into data products with glossary terms.
-
----
 
 ## Task 1: Understand Access Governance Across Platforms
 
@@ -26,7 +23,7 @@ In this task, you will review how access control works across Fabric and Databri
 
 **Step 1: Review Policy Capabilities by Source Type**
 
-1. Navigate to the **Purview portal** (`https://purview.microsoft.com`)
+1. Navigate to the **Purview portal**.
 2. Review the access governance model for each platform:
 
    | Source Type | Access Control Location | Purview Role |
@@ -36,7 +33,7 @@ In this task, you will review how access control works across Fabric and Databri
    | Azure SQL DB | Purview-managed policies supported | Direct policy enforcement |
    | ADLS Gen2 | Purview-managed policies supported | Direct policy enforcement |
 
-3. In this lab environment, data lives in **Fabric** and **Databricks** — both manage their own access. Purview provides centralized cataloging, discovery, and quality monitoring.
+3. In this lab environment, data lives in **Fabric** and **Databricks** both manage their own access. Purview provides centralized cataloging, discovery, and quality monitoring.
 
 **Step 2: Review Fabric Workspace Permissions**
 
@@ -56,8 +53,8 @@ In this task, you will review how access control works across Fabric and Databri
 **Step 3: Review Databricks UC Permissions**
 
 8. Switch to the **Databricks workspace**
-9. Go to **Catalog** → click `samples` → **Permissions**
-10. Review grants — the `samples` catalog is read-only for all workspace users
+9. Go to **Catalog** > click `samples` > **Permissions**
+10. Review grants > the `samples` catalog is read-only for all workspace users
 11. Unity Catalog provides fine-grained access at catalog, schema, and table level
 
 **Step 4: Document the Access Model**
@@ -66,15 +63,13 @@ In this task, you will review how access control works across Fabric and Databri
 13. Click **Edit** → append to **Description**: `Access Control: Managed via Fabric workspace roles on Purview-Lab-WS.`
 14. Click **Save**
 
----
-
 ## Task 2: Configure Data Product Access Requests
 
-In this task, you will explore how data products serve as the governed access path — consumers discover products in the Unified Catalog and request access through a structured workflow.
+In this task, you will explore how data products serve as the governed access path consumers discover products in the Unified Catalog and request access through a structured workflow.
 
 **Step 1: Review Data Product Access Settings**
 
-1. Go to **Unified Catalog** → **Catalog management** → **Data products** → click `Customer 360`
+1. Go to **Unified Catalog** > **Catalog management** > **Data products** > click **`Customer 360`**
 2. Look for an **Access** or **Policies** tab on the data product
 3. Review what access configuration options are available:
    - Access request workflow
@@ -83,14 +78,15 @@ In this task, you will explore how data products serve as the governed access pa
 
 **Step 2: Review Data Product from Consumer Perspective**
 
-4. Go to **Unified Catalog** → **Discovery** → **Data products**
-5. Click `Customer 360` — review what a business consumer sees:
+4. Go to **Unified Catalog** > **Discovery** > **Data products**
+5. Click `Customer 360` > review what a business consumer sees:
    - **Description**: explains the data product purpose
    - **Owner/Expert**: who to contact with questions
    - **Assets**: list of included tables with quality scores
    - **Governance domain**: `Sales Analytics`
    - **Request access** button (if self-service is enabled)
-6. Repeat for `Enterprise Master Data` — review the consumer view
+
+6. Repeat for `Enterprise Master Data` > review the consumer view
 
 **Step 3: Simulate Access Request (If Available)**
 
@@ -100,8 +96,6 @@ In this task, you will explore how data products serve as the governed access pa
    - Submit the request
 8. Check for access request notifications in **Catalog management**
 9. This workflow demonstrates the governed path: discovery → request → approval → access
-
----
 
 ## Task 3: Centralized Governance Controls Review
 
@@ -147,8 +141,6 @@ In this task, you will review the centralized governance controls available in H
    | Quality rules | Supported with connection | Supported with connection |
    | Data products | Assets added | Assets added |
    | Access control | Workspace roles | Unity Catalog grants |
-
----
 
 ### Summary
 
