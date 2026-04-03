@@ -1,4 +1,4 @@
-# Day 4 - Lab 13: End-to-End Governance Scenario
+# Day 4 - Lab 13: End-to-End Governance Scenario [Optional]
 
 ## Estimated Duration: 80 minutes
 
