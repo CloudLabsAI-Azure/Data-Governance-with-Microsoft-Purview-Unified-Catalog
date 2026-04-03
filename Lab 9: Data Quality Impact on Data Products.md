@@ -1,5 +1,7 @@
 # Day 3 - Lab 9: Data Quality Impact on Data Products
 
+## Estimated Duration: 30 minutes
+
 ## Lab Overview
 
 In this lab, you will explore how data quality results impact data products in Microsoft Purview. You will link quality scores to data products, evaluate trust levels across datasets, and understand how quality status is communicated to data consumers through the Unified Catalog.
@@ -67,7 +69,7 @@ In this task, you will evaluate trust levels across your data estate by assessin
 
 1. Go to **Unified Catalog** > **Discovery** > **Data assets**.
 
-2. Search for `dimension_customer` (Fabric) and evaluate trust:
+1. Search for `dimension_customer` (Fabric) and evaluate trust:
 
    | Trust Criterion | Status |
    |----------------|--------|
@@ -80,7 +82,7 @@ In this task, you will evaluate trust levels across your data estate by assessin
 
    ![Picture 1](./Media/sandbox-purview-image316.png)
 
-4. Back on **Unified Catalog** > **Discovery** > **Data assets** the search for **`customer_transactions`** (Databricks) and evaluate:
+1. Back on **Unified Catalog** > **Discovery** > **Data assets** the search for **`customer_transactions`** (Databricks) and evaluate:
 
    | Trust Criterion | Status |
    |----------------|--------|
@@ -93,7 +95,7 @@ In this task, you will evaluate trust levels across your data estate by assessin
 
    ![Picture 1](./Media/sandbox-purview-image317.png)
 
-6. Search for an unmanaged asset **`dimension_date`** and  evaluate:
+1. Search for an unmanaged asset **`dimension_date`** and  evaluate:
 
    | Trust Criterion | Status |
    |----------------|--------|
@@ -127,7 +129,7 @@ In this task, you will review how quality status is communicated to data consume
 
     ![Picture 1](./Media/sandbox-purview-image318.png)
    
-3. Review what a business consumer sees:
+1. Review what a business consumer sees:
    - **Description**: explains the data product purpose
    - **Owner/Expert**: who to contact with questions
    - **Assets**: list of included tables with quality scores
@@ -135,7 +137,7 @@ In this task, you will review how quality status is communicated to data consume
 
       ![Picture 1](./Media/sandbox-purview-image320.png)
      
-4. This is the primary way consumers discover and evaluate data quality through the data product page
+1. This is the primary way consumers discover and evaluate data quality through the data product page
 
 ### Summary
 
