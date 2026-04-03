@@ -48,7 +48,7 @@ In this task, you will create a classic glossary in Microsoft Purview and define
 
    ![Picture 1](./Media/DG99.png)
 
-1. Click **+ New term (1)** and select **System default** then click **Continue (2)**
+1. Click **+ New term (1)**, then click **Continue (2)**
 
    ![Picture 1](./Media/DG100.png)
 
@@ -157,6 +157,22 @@ In this task, you will learn how to map business glossary terms to **Fabric** an
 
    ![Picture 1](./Media/DG204.png)
 
+1. Click **Data assets (1)**, search for **customer_transactions (2)**, and select the asset **customer_transactions (3)**
+
+   ![Picture 1](./Media/sandbox-purview-image297.png)
+
+1. Click **Edit**
+
+1. Click the dropdown under **Glossary terms (1)** and select **Customer (2)**
+
+   ![Picture 1](./Media/sandbox-purview-image298.png)
+
+1. Verify **Customer** is added under selected terms, then click **Save (2)**
+
+1. Review that **Customer** appears under **Glossary terms** in the asset overview
+
+   ![Picture 1](./Media/sandbox-purview-image299.png)
+
 **Step 2: Map "Revenue" Term to Sales Assets**
 
 1. Click **Data assets (1)**, search for **fact_sale (2)**, and select the asset **fact_sale (3)**
@@ -222,16 +238,15 @@ In this task, you will learn how to map business glossary terms to **Fabric** an
 
    ![Picture 1](./Media/DG302.png)
 
-
 ## Task 3: Validate Business-to-Technical Alignment
 
 In this task, you will learn how to validate business-to-technical alignment in **Microsoft Purview** by exploring glossary-linked assets and cross-platform relationships.
 
-1. Go to **Unified Catalog** > **Discovery** > **Data assets**. In the search bar, type `Customer`, then press **Enter**.
+1. Go to **Unified Catalog** > **Discovery (1)** > **Data assets (2)**. In the search bar, type **`Customer` (3)**, then press **Enter**.
 
    ![Picture 1](./Media/sandbox-purview-image264.png)
 
-1. On the results page, expand **Assigned terms**. You should see all four created glossary terms.
+1. On the results page, expand **Assigned terms**. You should see all four created **glossary terms**.
 
    ![Picture 1](./Media/sandbox-purview-image265.png)
 
