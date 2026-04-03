@@ -51,13 +51,17 @@ If you can see the option “Open Microsoft Purview Governance Portal (new)”, 
     
     1. However, if you still see the classic Purview experience, follow the steps below to upgrade to the unified portal:
     
-        - Navigate to https://purview.microsoft.com/
+        - Navigate to **https://purview.microsoft.com/**
         - In the Microsoft Purview portal, click Settings (1)
         - Select Account (2)
         - In the Account overview, locate Account type
         - Click Upgrade account (3)
+
+           ![Picture 1](./Media/sandbox-purview-image350.png)
     
     1. In the prompt, click Confirm to proceed
+  
+       ![Picture 1](./Media/sandbox-purview-image351.png)
     
        **>Note:** This upgrade enables the Unified Microsoft Purview experience, which is required for completing this lab.
 
