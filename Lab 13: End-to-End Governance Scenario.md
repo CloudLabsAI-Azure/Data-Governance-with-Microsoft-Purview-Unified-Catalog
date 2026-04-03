@@ -140,32 +140,22 @@ In this task, you will perform a comprehensive review of the entire governance f
 
 **Step 2: Test End-to-End Discovery Scenarios**
 
-2. **Scenario 1 — Business user looking for customer data**:
-   - Search `Customer` → finds glossary term + all customer assets across platforms
-   - Click `Customer 360` data product → sees all curated customer data with quality scores
+2. **Scenario 1: Business user looking for customer data**:
+   - Search `Customer` > finds glossary term > all customer assets across platforms
+   - Click `Customer 360` data product > sees all curated customer data with quality scores
 
-3. **Scenario 2 — Compliance officer checking sensitive data**:
-   - Filter by classification `Person's Name` → finds all PII-containing assets
+3. **Scenario 2: Compliance officer checking sensitive data**:
+   - Filter by classification `Person's Name` > finds all PII-containing assets
    - Review classification details on asset schema tabs
 
-4. **Scenario 3 — Data engineer checking quality**:
-   - Go to **Health management** → **Data quality** → review all active rules and scores
+4. **Scenario 3: Data engineer checking quality**:
+   - Go to **Health management** > **Data quality** > review all active rules and scores
    - Identify any assets below quality threshold
 
-5. **Scenario 4 — MDM team finding golden records**:
-   - Open `Enterprise Master Data` product → sees curated golden records
+5. **Scenario 4: MDM team finding golden records**:
+   - Open `Enterprise Master Data` product > sees curated golden records
 
 **Step 3: Review What Each Day Accomplished**
-
-6. Summary of the 4-day governance journey:
-
-   | Day | Focus | What Was Built |
-   |-----|-------|---------------|
-   | 1 | Foundation | Purview setup, Fabric + Databricks connections, scanning, classifications |
-   | 2 | Discovery & Products | Cross-platform search, data products, glossary terms |
-   | 3 | Quality & MDM | Quality rules, trust assessment, golden records |
-   | 4 | Governance & Compliance | Access governance, health management, classifications, lineage, end-to-end |
-
 
 ### Summary
 
