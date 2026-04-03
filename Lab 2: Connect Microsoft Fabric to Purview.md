@@ -1,6 +1,6 @@
 # Day 1 - Lab 2: Connect Microsoft Fabric to Purview
 
-### Estimated Duration: 120 minutes
+### Estimated Duration: 60 minutes
  
 ## Lab Overview
 
