@@ -212,5 +212,5 @@ In this lab, you:
 10. **Lineage**: Item-level data flow traceability
 11. **Audit**: Activity logging and governance metrics via Data Estate Insights
 
-# Congratulations! You have successfully completed Day 4
+# Congratulations! You have successfully completed Day 4.
     
