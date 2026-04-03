@@ -42,9 +42,24 @@ Proper roles are required to create collections, domains, and manage data access
 
     ![Picture 1](./Media/DG16.png)
 
-   **>Important**: If you are unable to launch the **Open Microsoft Purview Governance Portal**, use the portal link https://purview.microsoft.com/. From the new Purview portal, follow the steps below to enable the unified portal experience:
+    **>Important:** If you are unable to see “Open Microsoft Purview Governance Portal (new)”, follow the steps below to enable it.
+If you can see the option “Open Microsoft Purview Governance Portal (new)”, it means the Unified Catalog experience is already enabled, and you can proceed with the lab from step no 5.
 
-    - From the left navigation pane, select **Settings** > **Account**, then click the **Upgrade** button to update the portal experience from **Classic** to **Enterprise**.
+    ### Important - Enable Unified Catalog experience
+    
+    1. In some environments, your organization may already have an enterprise Microsoft Purview account where the Unified portal experience is already enabled. In such cases, you will directly land in the new Purview portal and no action is required.
+    
+    1. However, if you still see the classic Purview experience, follow the steps below to upgrade to the unified portal:
+    
+        - Navigate to https://purview.microsoft.com/
+        - In the Microsoft Purview portal, click Settings (1)
+        - Select Account (2)
+        - In the Account overview, locate Account type
+        - Click Upgrade account (3)
+    
+    1. In the prompt, click Confirm to proceed
+    
+       **>Note:** This upgrade enables the Unified Microsoft Purview experience, which is required for completing this lab.
 
 1. When **Welcome to the new Microsoft Purview portal!** pop-up appears, click on **Get started**.
 
@@ -182,7 +197,7 @@ In this optional step, you will see how to create business domains in Microsoft 
     
     >**Note:** You can assign ownership either while creating a collection or domain, or after creation by editing the collection or domain and updating the ownership settings. 
 
-### Task 3: Enable Unified Catalog Experience
+### Task 3: Explore and understand the Unified Catalog experience  
 
 In this task, you will explore the Unified Catalog in Microsoft Purview, a business-friendly interface built on top of the Data Map.
 
