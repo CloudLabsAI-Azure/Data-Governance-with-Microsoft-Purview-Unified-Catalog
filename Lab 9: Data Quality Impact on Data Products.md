@@ -14,10 +14,9 @@ In this lab, you will perform the following:
 - **Task 2:** Identify Trusted vs Non-Trusted Datasets
 - **Task 3:** Communicate Quality Status to Consumers
 
-
 ## Task 1: Link Quality Results to Data Products
 
-In this task, you will review how data quality scores from Lab 8 are reflected on data product assets, and ensure all assets within the data product have quality monitoring enabled.
+In this task, you will review how data quality scores from Lab 8 are reflected on data product assets, and ensure assets within the data product have quality monitoring enabled.
 
 **Step 1: Review Current Data Product Quality**
 
@@ -105,7 +104,7 @@ In this task, you will evaluate trust levels across your data estate by assessin
    | In a data product | Not in any product |
    | **Trust level** | **LOW — Non-trusted** |
 
-   ![Picture 1](./Media/sandbox-purview-image318.png)
+   ![Picture 1](./Media/sandbox-purview-image319.png)
 
 ### Task 2.2: Document Trust Assessment**
 
@@ -124,16 +123,19 @@ In this task, you will review how quality status is communicated to data consume
 
 **Step 1: Data Product as Quality Communication Channel**
 
-1. Go to **Unified Catalog** → **Discovery** → **Data products**
-2. Click `Customer 360`
+1. Go to **Unified Catalog** > **Discovery** > **Data products** > click **`Customer 360`**.
+
+    ![Picture 1](./Media/sandbox-purview-image318.png)
+   
 3. Review what a business consumer sees:
    - **Description**: explains the data product purpose
    - **Owner/Expert**: who to contact with questions
    - **Assets**: list of included tables with quality scores
    - **Governance domain**: `Sales Analytics`
-   
-4. This is the primary way consumers discover and evaluate data quality through the data product page
 
+      ![Picture 1](./Media/sandbox-purview-image320.png)
+     
+4. This is the primary way consumers discover and evaluate data quality through the data product page
 
 ### Summary
 
