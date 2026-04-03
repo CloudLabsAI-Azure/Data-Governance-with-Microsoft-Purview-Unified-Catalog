@@ -56,6 +56,9 @@ In this task, you will review how data quality scores from Lab 8 are reflected o
 
   **Expected Result**: Assets in the `Customer 360` data product show quality scores from Lab 8. Data product quality is visible as an aggregate of individual asset quality.
 
+1. In **Unified Catalog**, expand **Catalog management (1)** and select **Governance domains (2)**. Select the **Sales Analytics (3)** domain. In the **Details** pane, review the **Data quality score (4)**, which should display **Healthy (XYZ)**.
+
+   ![Picture 1](./Media/sandbox-purview-image308.png)
 
 ## Task 2: Identify Trusted vs Non-Trusted Datasets
 
