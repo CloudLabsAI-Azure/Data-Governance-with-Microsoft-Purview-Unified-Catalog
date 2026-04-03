@@ -1,5 +1,7 @@
 # Day 4 - Lab 13: End-to-End Governance Scenario
 
+## Estimated Duration: 80 minutes
+
 ## Lab Overview
 
 In this lab, you will bring together all governance capabilities learned across the 4-day workshop. You will create a derived table in Fabric using a notebook, apply full governance controls to the new asset, and perform a comprehensive end-to-end review of the entire governance framework using the Unified Catalog.
@@ -13,12 +15,6 @@ In this lab, you will perform the following:
 - **Task 1:** Create a Derived Table and Track Lineage
 - **Task 2:** Validate Governance, Quality, and Security Controls
 - **Task 3:** Final Review Using Unified Catalog
-
-## Estimated Duration: 60 minutes
-
-> **Prerequisites**: Labs 1–12 completed. All governance layers configured: scans, classifications, glossary, data products, quality rules, health management.
-
----
 
 ## Task 1: Create a Derived Table and Track Lineage
 
@@ -80,8 +76,6 @@ In this task, you will create a Fabric notebook that reads from existing Lakehou
     - Purview captures item-level lineage (Lakehouse → Notebook)
 17. If lineage is visible, click on each node to review the metadata
 
----
-
 ## Task 2: Validate Governance, Quality, and Security Controls
 
 In this task, you will apply all governance layers to the newly created table — demonstrating the full governance lifecycle from scan to complete curation.
@@ -132,8 +126,6 @@ In this task, you will apply all governance layers to the newly created table �
 
 16. This is a fully governed asset — the complete governance lifecycle demonstrated
 
----
-
 ## Task 3: Final Review Using Unified Catalog
 
 In this task, you will perform a comprehensive review of the entire governance framework built across the 4-day workshop, testing end-to-end discovery scenarios.
@@ -174,7 +166,6 @@ In this task, you will perform a comprehensive review of the entire governance f
    | 3 | Quality & MDM | Quality rules, trust assessment, golden records |
    | 4 | Governance & Compliance | Access governance, health management, classifications, lineage, end-to-end |
 
----
 
 ### Summary
 
@@ -186,18 +177,6 @@ In this lab, you:
 - Validated the complete governance lifecycle on a single asset
 - Tested end-to-end discovery scenarios for different user personas
 - Reviewed the 4-day governance journey from zero to comprehensive framework
-
----
-
-## Workshop Complete — Full 4-Day Summary
-
-| Day | Theme | Labs | Duration |
-|-----|-------|------|----------|
-| 1 | Unified Catalog Foundation | Labs 1–4: Setup, Fabric, Databricks, Classification | ~4 hrs |
-| 2 | Discovery & Data Products | Labs 5–7: Search, Products, Glossary | ~2.5 hrs |
-| 3 | Data Quality & MDM | Labs 8–10: Quality Rules, Trust, Master Data | ~2.7 hrs |
-| 4 | Security & End-to-End | Labs 11–13: Access, Health, Lineage, Final Review | ~2.7 hrs |
-| | **Total** | **13 Labs** | **~12 hrs** |
 
 ### Key Governance Layers Built
 1. **Data Map**: Sources registered, scanned, metadata captured
