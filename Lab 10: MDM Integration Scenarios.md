@@ -1,3 +1,5 @@
+# Day 3 - Lab 9: Data Quality Impact on Data Products
+
 ## Task 1: Identify MDM-managed master data sources
 
 1. Go to Purview portal > Unified Catalog > Discovery > Data assets
