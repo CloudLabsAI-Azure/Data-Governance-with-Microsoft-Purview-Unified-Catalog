@@ -46,6 +46,18 @@
       {
         "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/Data-Governance-with-Microsoft-Purview-Unified-Catalog/refs/heads/prod/Lab%2010%3A%20MDM%20Integration%20Scenarios.md",
         "Order": 11
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/Data-Governance-with-Microsoft-Purview-Unified-Catalog/refs/heads/prod/Lab%2011-test%3A%20Access%20Policies%20%26%20Governance%20Controls.md",
+        "Order": 12
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/Data-Governance-with-Microsoft-Purview-Unified-Catalog/refs/heads/prod/Lab%2012-test%3A%20Sensitivity%20Labels%2C%20DLP%20%26%20Audit.md",
+        "Order": 13
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/Data-Governance-with-Microsoft-Purview-Unified-Catalog/refs/heads/prod/Lab%2013%3A%20End-to-End%20Governance%20Scenario.md",
+        "Order": 14
       }
     ]
   }
