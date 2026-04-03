@@ -21,33 +21,41 @@ In this task, you will review how data quality scores from Lab 8 are reflected o
 
 **Step 1: Review Current Data Product Quality**
 
-1. Navigate to the **Purview portal** (`https://purview.microsoft.com`)
+1. In **Unified Catalog**, expand **Catalog management (1)** and select **Data products (2)**. Locate the **Customer 360 (4)** data product and review the **Data quality score (3)**, **Healthy (XXX)**.
 
-2. Click **Unified Catalog** > **Catalog management** > **Data products** > click `Customer 360`
+   ![Picture 1](./Media/sandbox-purview-image310.png)
 
-3. Review the data product and its included assets
+1. On the **Customer 360** page, under **Data assets**, review the list of all assets.
 
-4. Click into each asset → check if the **Data quality** score from Lab 8 is visible on the asset detail page
+   ![Picture 1](./Media/sandbox-purview-image311.png)
 
-5. Note which assets have quality scores:
+1. Select **`customer_transactions (1)`** and review the asset details pane. Click **View details (2)** to open the full asset page.
 
-   | Asset | Quality Rules Applied? | Quality Score |
-   |-------|----------------------|---------------|
-   | `dimension_customer` | Yes — Empty/blank fields rule | Score from Lab 8 |
-   | `customer_transactions` | Yes — Custom accuracy rule | Score from Lab 8 |
+   ![Picture 1](./Media/sandbox-purview-image312.png)
 
-**Step 2: View Aggregated Quality on Data Product**
+1. On the asset page, review:
+    - **Data quality score** (should show **Healthy**)
+    - Column details and schema information
 
-6. Go back to **Data products** → `Customer 360`
-7. Review the data product quality:
-    - Each asset shows its quality score
-    - The overall data product quality is the aggregate of all asset scores
-    - Assets with 100% pass rates contribute positively; any failures lower the aggregate
-8. If the data product page shows a **Health** or **Quality** tab, review the overall quality summary
+      ![Picture 1](./Media/sandbox-purview-image313.png)
 
-**Expected Result**: Assets in the `Customer 360` data product show quality scores from Lab 8. Data product quality is visible as an aggregate of individual asset quality.
+1. Navigate back to the **Customer 360** page.
 
----
+1. Select **`dimension_customer (1)`** and review the asset details pane. Click **View details (2)**.
+
+   ![Picture 1](./Media/sandbox-purview-image314.png)
+
+1. On the asset page, review:
+   
+    - **Data quality score** (should show **Healthy**)
+    - Column details and schema information
+
+      ![Picture 1](./Media/sandbox-purview-image315.png)
+      
+1. Observe how data quality metrics are reflected at both the individual asset level and the overall data product level.
+
+  **Expected Result**: Assets in the `Customer 360` data product show quality scores from Lab 8. Data product quality is visible as an aggregate of individual asset quality.
+
 
 ## Task 2: Identify Trusted vs Non-Trusted Datasets
 
