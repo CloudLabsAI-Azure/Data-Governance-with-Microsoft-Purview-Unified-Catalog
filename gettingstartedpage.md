@@ -1,4 +1,4 @@
-# Getting Started – Data Governance with Microsoft Purview Across Fabric & Databricks
+# Getting Started – Data Governance with Microsoft Purview Unified Catalog
 
 ## Overview
 
