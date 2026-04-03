@@ -1,179 +1,410 @@
-# Day 4 - Lab 12: Health Management, Classifications & Audit
+# Day 4 - Lab 12: Sensitivity Labels, DLP & Audit 
 
-## Lab Overview
+## Task 1: Create sensitivity labels in Microsoft Purview
 
-In this lab, you will deep-dive into Purview Health Management to assess governance maturity, review auto-detected classifications for data sensitivity across Fabric and Databricks, and explore Data Estate Insights for governance reporting and audit tracking.
+In this task, you will create two Sensitivity labels, **Highly-Confidential**, to classify and protect organizational data. These labels define access, apply content markings, and help secure sensitive information while ensuring compliance with organizational policies.
 
-This lab demonstrates how Health Management controls measure governance completeness, how auto-detected classifications identify sensitive data without manual effort, and how Data Estate Insights provide executive-level governance reporting.
+1. In the Microsoft Edge browser window, navigate to the **Microsoft Purview** portal using the URL below:
 
-## Lab Objectives
+    ```
+    https://purview.microsoft.com/
+    ```
 
-In this lab, you will perform the following:
+1. From the left navigation pane of the Microsoft Purview, click on **Solutions (1)**, select **Information protection (2)**
 
-- **Task 1:** Explore Health Management & Governance Controls
-- **Task 2:** Deep-Dive into Classifications & Data Sensitivity
-- **Task 3:** Data Estate Insights & Audit Review
+    ![](./Media/DG500.png)
 
-## Estimated Duration: 50 minutes
+1. Under **Information protection** panel, select **Sensitivity labels (1)**, and select **Turn on now (2)** in the **yellow** information box that indicate **Your organization has not turned on the ability to process content in Office online files that have encrypted sensitivity labels applied and are stored in OneDrive and SharePoint**.
 
-> **Prerequisites**: Labs 1–11 completed. Data products published, quality rules executed, governance domains created.
+   > **Note**: Once you do this, there can be a delay for the setting to propagate through the system.
 
----
+     ![](./Media/DG502.png)
 
-## Task 1: Explore Health Management & Governance Controls
+1. On the **Sensitivity labels** page, select **+ Create a label**.
 
-In this task, you will navigate Health Management in the Unified Catalog to review governance maturity metrics, health controls, and recommended actions for improving governance posture.
+    ![](./Media/DG518.png)
 
-**Step 1: Navigate to Health Management**
+1. On the **Provide basic details for this label** page, enter a **Name**, **Display name**, and **Description for users** as following. Then select **Next (4)** at the bottom of the page:
 
-1. Navigate to the **Purview portal** (`https://purview.microsoft.com`)
-2. Click **Unified Catalog** → **Health management**
-3. Review the Health Management overview page
+    - **Name**: Enter the following name **(1)**
 
-**Step 2: Review Health Controls**
+       ```
+       Highly-Confidential
+       ```
+    - **Display name** | Enter the following display name **(2)**
+        ```
+        Highly-Confidential
+        ```
+    
+    - **Description for users** enter the following description **(3)**
+        ```
+        Highly-Confidential Demo
+        ``` 
+     
+       ![](./Media/DG501.png)
 
-4. Click **Controls** → review governance health metrics:
+1. Note the scope of this label. The scope is set to **Files and other data assets**, **Emails**, and **Meetings**. Read the description, but don’t change anything. Select **Next** at the bottom of the page.
 
-   | Health Control | What It Measures |
-   |---------------|-----------------|
-   | Assets with owners | % of assets that have an assigned owner |
-   | Assets with descriptions | % of assets that have descriptions |
-   | Assets in data products | % of assets packaged in data products |
-   | Assets with quality rules | % of assets with quality monitoring |
-   | Assets with classifications | % of scanned assets with detected classifications |
+   ![](./Media/DG503.png)
 
-5. Click into each control to see which assets meet or miss the control
-6. Note the overall health score for each dimension
+1. On the **Choose protection settings for the types of items you selected** page, select **Apply content marking (1)**, then select **Next (2)**.
 
-**Step 3: Review Health Actions**
+   ![](./Media/DG504.png)
+    
+1. On the **Content marking** page, take note of the information box at the top of the page. Turn on the **Content Marking (1)** and select the check box for **Add a watermark (2)**, **Add a header (3)**, and **Add a footer (4)**.
 
-7. Click **Health management** → **Actions**
-8. Review recommended governance improvements:
-   - **Add owners** — lists assets without assigned owners
-   - **Add descriptions** — lists assets without business descriptions
-   - **Add to data products** — lists assets not in any data product
-   - **Add quality rules** — lists assets without quality monitoring
-9. Click on an action → review the list of assets that need attention
-10. Pick one action (e.g., "Add descriptions") → select 1-2 assets → add descriptions to demonstrate the workflow
-11. Return to **Controls** → verify the health score improved
+   ![](./Media/DG505.png)
+   
+1. Under **Add a watermark**, click on **Customize text (1)**. Under **Watermark text**, type **Confidential watermark text (2)** and click on **Save (3)**.
 
-**Step 4: Review Data Observability (If Available)**
+   ![](./Media/DG506.png)
+  
+1. Under **Add a header**, click on **Customize text (1)**. Under **Header text**, type **Confidential Document (2)** and click on **Save (3)**.
 
-12. In **Health management**, look for **Data observability**
-13. If available, review data freshness monitoring, scan health, and asset discovery trends
+   ![](./Media/DG507.png)
 
----
+1. Under **Add a footer**, click on **Customize text (1)**. Under **Footer text**, type **Confidential Document (2)** and click on **Save (3)**.
 
-## Task 2: Deep-Dive into Classifications & Data Sensitivity
+   ![](./Media/DG508.png)
 
-In this task, you will review auto-detected classifications across Fabric and Databricks assets, examine column-level PII detection, and understand how classifications serve as the foundation for data sensitivity governance.
+   > **Note:** Content markings are applied to documents. For emails, only headers and footers are supported; watermarks are not.
 
-**Step 1: Review Classifications Across the Estate**
+1. Verify **Content marking (1)** settings including watermark, header, and footer, then click **Next (2)**
 
-1. Go to **Unified Catalog** → **Discovery** → **Data assets**
-2. Use the **Classification** filter on the left sidebar
-3. Review what classifications were auto-detected:
+   ![](./Media/DG509.png)
+      
+1. You are now in the Auto-labeling for files and emails window. Turn on the **Auto-labeling for files and emails**.
 
-   | Classification | Description | Expected Sources |
-   |---------------|-------------|-----------------|
-   | Person's Name | Names of people | `dimension_customer`, `dimension_employee` |
-   | Phone Number | Phone number patterns | `dimension_customer` |
-   | Postal Code | Postal/zip codes | `dimension_city` |
-   | Email Address | Email patterns | May appear in some assets |
+   ![](./Media/DG510.png)
+   
+1. Read the description of auto-labelling at the top of the page and the information box below it, and under **Detect content that matches these conditions**. Click on **+ Add condition (1)** from the drop-down select **Content contains (2)**
 
-4. Click on a classification filter → review all assets with that classification
+   ![](./Media/DG511.png)
+  
+1. Then under **Group name** select **Add (1)** drop-down, select **Sensitive info type (2)** and in **Sensitive info type** window search for **Credit (3)** and select the **Credit card number (4)**, select **Add (5)** from the button, select **Next** on the bottom of the page.
 
-**Step 2: Review Column-Level Classifications**
+   ![](./Media/DG512.png)
 
-5. Click on `dimension_customer` (Fabric Lakehouse) → go to the **Schema** tab
-6. Review column-level classifications:
-   - Each column shows its data type
-   - Columns with detected PII show classification tags
-7. Click on `dimension_city` → check for postal code classifications
+   > **Note:** If you did not find sensitive info type groups as mentioned, navigate back to the labels page and ensure that the features have been enabled as specified.
 
-**Step 3: Review Databricks Asset Classifications**
+1. On the **Define protection settings for groups and sites** page. Select **Next** at the bottom of the page.
 
-8. Search for `customer` → click on a Databricks customer asset
-9. Go to the **Schema** tab → review column-level classifications
-10. Compare with Fabric `dimension_customer` — both platforms have PII detected automatically
+   ![](./Media/DG514.png)
+          
+1. Review the settings and click on the **Create label**.
 
-**Step 4: Classification Summary**
+   ![](./Media/DG515.png)
+      
+1. On the **'Your sensitivity label that was created'** blade, select **Don't create a policy yet (1)** and click **Done (2)**.
 
-11. Document the classification landscape:
+   ![](./Media/DG516.png)
 
-    | Asset | Platform | Classifications Detected |
-    |-------|----------|------------------------|
-    | `dimension_customer` | Fabric | Person's Name, Phone Number |
-    | `dimension_city` | Fabric | Postal Code |
-    | `dimension_employee` | Fabric | Person's Name, Email Address |
-    | Databricks customer assets | Databricks | Person's Name, Phone Number |
+1. Back on the **Sensitivity labels** blade, notice the newly created sensitivity labels.After creating the label, on the **Labels** page, observe the list of labels you have created.
 
-12. Classifications serve as the automatic sensitivity detection layer — they work without additional licensing and provide the foundation for governance decisions
+   ![](./Media/DG517.png)
 
----
 
-## Task 3: Data Estate Insights & Audit Review
+   > **Note**: Creating Sensitivity labels is essential for maintaining a structured approach to data protection. It allows organizations to clearly define the sensitivity level of their data, enabling the implementation of tailored security measures. This proactive approach helps prevent unauthorized access and ensures compliance with data protection policies.
 
-In this task, you will review Data Estate Insights dashboards for governance reporting, verify the audit trail for scan and governance activities, and document the current governance posture.
+   > **Note**: Once you have created sensitivity labels in the next lab, you'll configure label policies, and then you can start using them and learn how to manage sensitivity labels. You'll also learn to apply sensitivity labels to emails and files in upcoming labs.
 
-**Step 1: Review Data Estate Insights**
+## Task 1.1: Publish the sensitivity label to the user
 
-1. Go to **Data Estate Insights** (left sidebar)
-2. Review the governance dashboards:
+In this task, you will focus on publishing existing sensitivity labels in Microsoft Purview. The process involves navigating through the Information Protection section and selecting specific labels to be published. This step is crucial for making the defined sensitivity labels accessible and applicable to all users within the organization.
 
-   | Dashboard Section | What It Shows |
-   |-------------------|--------------|
-   | **Assets** | Total discovered, classified, curated |
-   | **Scans** | Scan success rate, frequency, last scan dates |
-   | **Classifications** | PII detection coverage, classification distribution |
-   | **Stewardship** | % with owners, descriptions, glossary terms |
+1. Navigate back to the **Microsoft Purview** home page using the URL below.
 
-3. Navigate to the **Assets** section:
-   - Total assets discovered (from Fabric + Databricks scans)
-   - Assets by source type
-   - Growth trend
+   ```
+   https://purview.microsoft.com/
+   ```
+1. In Microsoft Purview portal, under **Information Protection**, select **Sensitivity labels (1)** from the panel and click on **Publish labels (2)**.
 
-4. Navigate to the **Scans** section:
-   - Scan health for `Contoso-Fabric` and `Contoso-Databricks-UC`
-   - Last successful scan dates
+   ![](./Media/DG600.png)
+    
+1. Select **Choose sensitivity labels to publish (1)**. A window opens that provides information about the policy. Select **Highly-Confidential (2)** from the list of label and select **Add (3)**.
 
-**Step 2: Review Scan Activity and Audit Trail**
+    ![](./Media/DG601.png) 
 
-5. Go to **Data Map** → **Data sources**
-6. Click `Contoso-Fabric` → review scan history:
-   - Scan dates, status, asset counts
-   - Who initiated each scan
-   - Duration and errors
-7. Click `Contoso-Databricks-UC` → review scan history
-8. Each scan run is logged with full audit trail
+1. Back on **Choose sensitivity labels to publish** blade, click on **Next**.
 
-**Step 3: Governance Posture Summary**
+   ![](./Media/DG602.png) 
+     
+1. Click **Next** on the **Assign admin units** page.
 
-9. Document the current governance posture:
+     ![](./Media/DG604.png) 
 
-    | Governance Metric | Status |
-    |-------------------|--------|
-    | Total assets discovered | 30+ |
-    | Assets with owners | From Labs 5-10 |
-    | Assets with descriptions | From Labs 5-10 |
-    | Assets with classifications | Auto-detected across estate |
-    | Assets with quality scores | From Labs 8-9 |
-    | Published data products | Customer 360, Enterprise Master Data |
-    | Governance domains | Sales Analytics |
-    | Glossary terms | From Labs 7 and 10 |
+1. Read the description under **Publish to users and groups**. Notice that this label is available to all users. Do not change any settings. Then select **Next** at the bottom of the page.
 
----
+    ![](./Media/DG605.png) 
 
-### Summary
+1. Under the **Policy settings**. Select **Require users to apply a label to their Fabric and Power BI content (1)**, then click **Next (2)**
 
-In this lab, you:
+    ![](./Media/DG606.png) 
 
-- Explored Health Management controls and governance maturity metrics
-- Reviewed health actions for improving governance posture
-- Deep-dived into auto-detected classifications across Fabric and Databricks
-- Examined column-level PII detection on data assets
-- Reviewed Data Estate Insights dashboards for governance reporting
-- Verified the audit trail for scan and governance activities
+1. Under the **Apply a Default label to documents**, Select. Select **Next** at the bottom of the page.
+
+    ![](./Media/DG607.png) 
+
+1. Under the **Apply a Default label to emails**, don’t change any settings. Select **Next** at the bottom of the page.
+
+     ![](./Media/DG608.png) 
+ 
+    
+1. On the **Default settings for meetings and calendar events**, don’t change any settings. Select **Next** at the bottom of the page.    
+
+   ![](./Media/DG609.png) 
+
+1. Under the **Apply a default label to Fabric and Power BI content**, don’t change any settings. Select **Next** at the bottom of the page.
+
+     ![](./Media/DG610.png)  
+    
+1. The last configuration option is to name your policy. Enter the policy name as **Highly-Confidentia-Policy (1)**. Then select **Next (2)** at the bottom of the page.
+
+   ![](./Media/DG611.png)    
+    
+1. Review the settings, click on **Submit**, and then select **Done**.
+
+   ![](./Media/DG612.png)  
+    
+   ![](./Media/DG613.png)   
+
+1. From the left navigation pane, expand **Policy (1)**, then select **Label publishing policies (2)**. Notice the newly published label policy **Highly-Confidentia-Policy (3)**.
+
+   ![](./Media/DG614.png)   
+
+   >**Note**: Publishing sensitivity labels is essential for ensuring uniform data protection across the organization. Sensitivity labels have now been published and made available to all users, so organizations can enforce consistent policies for handling sensitive information. This step contributes to a cohesive approach to data security and compliance, as it ensures that established sensitivity labels are effectively communicated and applied throughout the user base.
+   
+   >**Note**: Before starting the validation process for this lab, please be aware that it may take some time for the sensitivity label to take effect. Therefore, we recommend completing the remaining labs first and then proceeding with the validation.
+
+## Task 1.2: Create a Data Loss Prevention (DLP) policy
+
+In this task, you will create a Data Loss Prevention (DLP) policy in the Microsoft Purview portal to prevent sensitive data from being shared.
+
+1. Navigate back to the **Microsoft Purview** home page using the URL below.
+
+   ```
+   https://purview.microsoft.com/
+   ```
+
+1. In the **Microsoft Purview** portal, in the left navigation pane, click on **Solutions (1)** and select **Data loss prevention (2)**.
+   
+   ![](./Media/DG800.png)   
+
+1. On the **Policies** page, select **+ Create policy** to start the wizard for creating a new data loss prevention policy.
+
+      ![](./Media/DG801.png) 
+
+1. On the **What info do you want to protect?**, select **Enterprise applications & devices**.
+
+      ![](./Media/DG802.png) 
+
+1. On the **Start with a template or create a custom policy** page, scroll down and select **Custom (1)** under **Categories** and **Custom policy (2)** under **Regulations**. By default, both  options should already be selected. Select **Next (3)**.
+
+   ![](./Media/DG803.png) 
+   
+1. On the **Name your DLP policy** page, type **Credit card policy (1)** in the **Name** field and type **Protect credit card numbers from being shared. (2)** in the description field. Select **Next (3)**.
+
+      ![](./Media/DG804.png) 
+
+1. On the Assign admin units page, click **Next**.
+
+      ![](./Media/DG805.png) 
+
+1. On the **Choose where to apply the policy** page, 1. Select **Fabric and Power BI workspaces (1)**, then click **Next (2)**
+
+     ![](./Media/DG806.png) 
+   
+1. On the **Define policy settings** page, select **Create or customize advanced DLP rules** and select **Next**.
+
+      ![](./Media/DG807.png) 
+
+1. On the **Customize advanced DLP rules** page, select **+ Create rule**.
+
+    ![](./Media/DG809.png) 
+
+1. On the **Create rule** page, type **Credit card information** in the **Name** field.
+
+   ![](./Media/DG810.png) 
+
+1. Under **Conditions**, select **+ Add Condition (1)** and then select **Content contains (2)** from the drop-down menu.
+
+   ![](./Media/DG811.png) 
+
+1. In the new **Content contains** page, select **Add (1)** and select **Sensitive info types (2)** from the drop-down menu. On the Sensitive info types page, search **Credit (3)**, select **Credit Card Number (4)**, and select **Add (5)**.
+
+   ![](./Media/DG512.png) 
+
+1. Under **Actions**, click **Add an action (1)** and select **Restrict access or encrypt the content in Microsoft 365 locations (2)** from the drop-down menu.
+
+    ![](./Media/DG812.png) 
+
+1. Under the **Restrict access or encrypt the content in Microsoft 365 locations**, select **Block everyone**.
+
+    ![](./Media/DG813.png) 
+
+1. Under **User notifications**, turn on **Use notifications (1)** and select **Notify users in Office 365 service with a policy tip or email notifications (2)**
+
+   ![](./Media/DG814.png) 
+
+1. Under **Incident reports**, select the **severity level** as **Medium (1)**. Click on the toggle for under **Send an alert to admins when a rule match occurs (2)** and click on **Save (3)**.
+
+    ![](./Media/DG815.png) 
+
+1. Back on the **Customize advanced DLP rules** page, click on **Next**.
+
+    ![](./Media/DG816.png) 
+
+1. On **Policy mode** select **Turn the policy on immediately (1)** and click **Next (2)**.
+
+    ![](./Media/DG817.png) 
+  
+1. On the Review and Finish page, review the information and click on **Submit**. 
+  
+      ![](./Media/DG818.png) 
+
+1. Select **Done** on the **New policy created** page.
+
+      ![](./Media/DG819.png) 
+
+   >**Note**: You have now created a DLP policy that scans for Credit Card numbers in Microsoft Outlook.
+
+   >**Note**: Data Loss Prevention policies are critical for organizations to prevent the inadvertent sharing of sensitive information. In this scenario, the focus is on protecting Credit Card numbers. The lab ensures that users are informed and prompted before sharing such data. This proactive approach helps in securing sensitive information and ensures that users are aware of the policy requirements.
+
+## Task 1.3: Configure and Apply Sensitivity Labels  
+
+In this task, you will learn how to enable sensitivity label settings in the **Microsoft Purview Admin portal** and apply a **Highly-Confidential** label to a Fabric semantic model to enforce data protection and governance.
+
+1. In the Microsoft Purview portal, select **Settings (1)** from the top right corner and then select **Admin portal (2)**
+
+   ![](./Media/DG700.png)
+
+1. In the **Admin portal**, use the search bar to search for **Sensitivity Labels (1)** and review the **Information protection** section (2)
+
+   ![](./Media/DG701.png)
+
+1. In **Information protection**, select **Allow users to apply sensitivity labels for content (1)** to open the setting
+
+1. Turn on **Enabled (2)**, select **The entire organization (3)**, and click **Apply (4)**
+
+    ![](./Media/DG702.png)
+
+1. Repeat the same steps for all remaining **sensitivity label settings**
+
+1. Once enabled then verify all show **Enabled for the entire organization**
+
+    ![](./Media/DG704.png)
+
+1. In the Fabric portal, select **Workspaces (1)** from the left navigation and open **Purview-Lab (2)**
+
+   ![](./Media/DG708.png)
+
+1. In the workspace, select the **PurviewLakehouse** semantic model
+
+   ![](./Media/DG709.png)
+
+1. Click **Select a label (1)**, open the dropdown (2), and choose **Highly-Confidential (3)**
+
+   ![](./Media/DG710.png)
+
+1. Verify that the **Sensitivity label** is updated to **Highly-Confidential** in the overview
+
+   ![](./Media/DG711.png)
+
+   > **Note:** If the Fabric view is not enabled, select **Power BI (1)** and switch to **Fabric (2)**
+
+   ![](./Media/DG707.png)
+
+   ![](./Media/DG706.png)
+
+## Task 2: Enable audit and monitoring   
+
+> Audit in Microsoft Purview is a centralized logging and monitoring capability that records user and admin activities across services like:
+
+- Microsoft Fabric / Power BI
+- Azure Databricks (integrated scenarios)
+- SharePoint / OneDrive
+- Exchange
+
+> Key Features of Audit
+
+1. Centralized Activity Tracking
+    - Tracks actions across multiple services in one place
+    - Eliminates need for separate logs
+ 
+2. Detailed Event Logging
+    - Captures:
+        - View events
+        - Create/update/delete actions
+        - Sharing and access
+
+3. Advanced Filtering
+   - Filter by:
+      - User
+      - Activity type
+      - Date/time
+      - Workload (Fabric, Power BI, etc.)
+
+4. Compliance & Security Ready
+   - Supports:
+      - Regulatory audits
+      - Security investigations
+      - Insider risk detection
+
+1. In the **Microsoft Purview portal**, click on **Solutions** from the left navigation. Select **Audit**.
+
+   ![Picture 1](./Media/sandbox-purview-image343.png)
+
+1. On the Audit page, click **Start recording user and admin activity**.
+
+    ![Picture 1](./Media/sandbox-purview-image345.png)
+
+3. If prompted with a setup dialog, click **Yes** to complete the organizational setup.
+
+   ![Picture 1](./Media/sandbox-purview-image346.png)
+
+   > **Note:** Audit logging must be enabled before any activity can be tracked.
+   
+1. In the **Activities - friendly names** field, click the dropdown.
+
+2. Search for `fabric`.
+
+3. Select the following activities:
+   - Viewed Power BI dashboard
+   - Created Power BI dashboard
+
+    ![Picture 1](./Media/sandbox-purview-image347.png)
+
+1. In the **Users** field, type `odl`.
+
+2. Select the suggested user (e.g., **ODL_User**).
+
+   ![Picture 1](./Media/sandbox-purview-image348.png)
+   
+1. Under **Date and time range (UTC)**:
+   - Set the **Start date**
+   - Set the **End date**
+
+2. Click **Search**.
+
+   ![Picture 1](./Media/sandbox-purview-image349.png)
+
+## Task 2.1: Review Audit Results (Read Only)
+
+1. Review the returned audit logs.
+2. Observe the following details:
+   - Activity name
+   - User who performed the action
+   - Timestamp
+   - Workload (e.g., Power BI / Fabric)
+
+### Expected Outcome
+
+- Audit logging is successfully enabled.
+- You can search and view user activities such as:
+  - Viewing dashboards
+  - Creating dashboards
+- Audit results provide visibility into **who performed what action and when**.
+
 
 ## Click Next to continue to the next lab.
 
