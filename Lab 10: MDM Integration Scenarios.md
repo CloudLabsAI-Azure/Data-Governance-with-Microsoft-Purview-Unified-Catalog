@@ -1,5 +1,7 @@
 # Day 3 - Lab 10: MDM Integration Scenarios
 
+## Estimated Duration: 30 minutes
+
 ## Lab Overview
 
 In this lab, you will implement master data management (MDM) governance patterns using Microsoft Purview. You will identify master data entities across Fabric and Databricks, create a Classic glossary term to tag authoritative "golden record" sources, package them into a dedicated data product, and validate that master data is discoverable through the Unified Catalog.
@@ -15,10 +17,7 @@ In this lab, you will perform the following:
 - **Task 3:** Link Golden Records to Fabric and Databricks Assets
 - **Task 4:** Validate Master Data Discoverability
 
-## Estimated Duration: 40 minutes
-
 ## Task 1: Identify MDM-Managed Master Data Sources
-
 
 In this task, you will search the Unified Catalog to build a map of where the same business entities (customer, location, product) exist across Fabric and Databricks, identifying which sources should be designated as authoritative.
 
@@ -167,7 +166,7 @@ In this task, you will verify that golden record assets are discoverable through
 
 1. In the **Purview portal**, navigate to **Discovery (1)** > **Data assets (2)**. In the search bar, type **`Golden Record` (3)** and from the suggestions, select **Golden Record (4)** from the glossary results.
 
-  ![Picture 1](./Media/sandbox-purview-image336.png)
+    ![Picture 1](./Media/sandbox-purview-image336.png)
   
 1. Verify the 4 golden record assets appear in results.
 
@@ -177,25 +176,34 @@ In this task, you will verify that golden record assets are discoverable through
 
    ![Picture 1](./Media/sandbox-purview-image338.png)
    
-3. From the list of data products, click **Enterprise Master Data**.
+1. From the list of data products, click **Enterprise Master Data**.
 
    ![Picture 1](./Media/sandbox-purview-image339.png)
    
-5. Verify that all data assets are listed under **Data assets**, including:
+1. Verify that all data assets are listed under **Data assets**, including:
    - `customer_transactions`
    - `sales_suppliers`
    - `dimension_customer`
    - `dimension_city`
    
-6. Click on **dimension_customer** to open the asset details.
+1. Click on **dimension_customer** to open the asset details.
 
       ![Picture 1](./Media/sandbox-purview-image340.png)
 
-8. In the asset details pane, click **View details**, and verify that the asset is associated with both data products:
+1. In the asset details pane, click **View details**, and verify that the asset is associated with both data products:
 
     - **Customer 360**
     - **Enterprise Master Data**
 
       ![Picture 1](./Media/sandbox-purview-image341.png)
+
+
+### Summary
+
+In this lab, you:
+
+- Identified authoritative (golden) master data sources across systems.
+- Tagged and governed them in Purview using a Golden Record term.
+- Packaged and validated them as a discoverable, trusted data product.     
 
 ## You have successfully completed Day 3 labs, click next to continue to the next Day 4 labs.
