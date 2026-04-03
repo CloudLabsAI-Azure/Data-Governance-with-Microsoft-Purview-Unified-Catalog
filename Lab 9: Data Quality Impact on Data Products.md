@@ -22,9 +22,13 @@ In this task, you will review how data quality scores from Lab 8 are reflected o
 **Step 1: Review Current Data Product Quality**
 
 1. Navigate to the **Purview portal** (`https://purview.microsoft.com`)
-2. Click **Unified Catalog** → **Catalog management** → **Data products** → click `Customer 360`
+
+2. Click **Unified Catalog** > **Catalog management** > **Data products** > click `Customer 360`
+
 3. Review the data product and its included assets
+
 4. Click into each asset → check if the **Data quality** score from Lab 8 is visible on the asset detail page
+
 5. Note which assets have quality scores:
 
    | Asset | Quality Rules Applied? | Quality Score |
