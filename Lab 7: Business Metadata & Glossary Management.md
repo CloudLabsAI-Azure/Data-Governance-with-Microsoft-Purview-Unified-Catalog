@@ -20,6 +20,9 @@ In this lab, you will perform the following:
    
 In this task, you will create a classic glossary in Microsoft Purview and define four business terms that represent key business concepts. These terms will later be mapped to technical data assets.
 
+**Why it matters:**
+Business glossary terms in Microsoft Purview help standardize definitions across the organization, ensuring everyone uses the same meaning for key business concepts.
+
 1. Navigate back to the **Microsoft Purview** home page using the URL below.
 
    ```
@@ -116,6 +119,9 @@ In this task, you will create a classic glossary in Microsoft Purview and define
 ## Task 2: Map Glossary Terms to Fabric and Databricks Assets
 
 In this task, you will learn how to map business glossary terms to **Fabric** and **Databricks** assets in **Microsoft Purview** to connect business context with technical data.
+
+**Why it matters:**
+Mapping glossary terms to data assets connects business meaning with technical data, making it easier for users to understand and trust the data.
 
 **Step 1: Map "Customer" Term to Assets**
 
@@ -242,6 +248,9 @@ In this task, you will learn how to map business glossary terms to **Fabric** an
 ## Task 3: Validate Business-to-Technical Alignment
 
 In this task, you will learn how to validate business-to-technical alignment in **Microsoft Purview** by exploring glossary-linked assets and cross-platform relationships.
+
+**Why it matters:**
+Validating glossary-based search ensures users can find data using business terms, improving data discovery and usability across platforms.
 
 1. Go to **Unified Catalog** > **Discovery (1)** > **Data assets (2)**. In the search bar, type **`Customer` (3)**, then press **Enter**.
 
