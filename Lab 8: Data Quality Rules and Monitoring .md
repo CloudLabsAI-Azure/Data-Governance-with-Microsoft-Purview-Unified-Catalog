@@ -54,9 +54,10 @@ In this task, you will add data assets to the Sales Analytics governance domain 
 1. Select **+ New** then provide the following connection details:
    - **Connection name**: **fabric-dq-connection (1)**
    - **Source Type**:Choose **Fabric (2)**
-   - **Worksapce id**: paste the id you copied in the previous step
-   - **Lakehouse id**: paste the id you copied in the previous step
-   - Click **Submit (5)** after the connection is tested
+   - **Tenant ID**: **Auto selected (3)**
+   - **Worksapce id (4)**: paste the id you copied in the previous step
+   - **Lakehouse id (5)**: paste the id you copied in the previous step
+   - Click **Submit (6)** after the connection is tested
 
      ![Picture 1](./Media/sandbox-purview-image208.png)
 
