@@ -22,6 +22,9 @@ In this lab, you will perform the following:
 
 In this task, you will learn how to create a data product in **Microsoft Purview** by defining a governance domain and adding assets from **Fabric** and **Databricks**.
 
+**Why it matters:**
+Data products in Microsoft Purview allow organizations to combine data from multiple platforms into a single, business-ready dataset, making data easier to discover and use.
+
 > **What is a Data Product?** A data product is a curated, business-ready collection of data assets packaged for consumption. It groups related assets from any source (Fabric, Databricks, ADLS, etc.) into a single discoverable unit with business context, ownership, and access policies.
 
 ## Task 1.1: Create a Governance Domain
@@ -118,6 +121,9 @@ In this task, you will learn how to create a data product in **Microsoft Purview
 
 In this task, you will learn how to assign governance domain, ownership, and business context to a data product in **Microsoft Purview**.
 
+**Why it matters:**
+Adding business context, ownership, and domain ensures data is well-understood, trusted, and governed, helping users confidently use it for decision-making.
+
 **Step 1: Review Data Product Metadata**
 
 1. Open the **Customer 360** data product and review the metadata:
@@ -147,6 +153,9 @@ In this task, you will learn how to assign governance domain, ownership, and bus
 ## Task 3: Publish Data Product to Unified Catalog
 
 In this task, you will learn how to publish a data product in **Microsoft Purview** and verify its discovery in the **Unified Catalog**.
+
+**Why it matters:**
+Publishing makes the data product discoverable to business users, enabling easy access, reuse of trusted data, and better collaboration across teams.
 
 **Step 1: Review Before Publishing**
 
