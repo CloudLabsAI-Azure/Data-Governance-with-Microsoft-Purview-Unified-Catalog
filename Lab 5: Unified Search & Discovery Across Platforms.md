@@ -18,6 +18,9 @@ You will be able to complete the following tasks:
 
 In this task, you will use the Microsoft Purview Unified Catalog to search and explore data assets across Microsoft Fabric and Databricks. You will review asset details and understand how unified search enables cross-platform data discovery.
 
+**Why it matters:**
+The Unified Catalog in Microsoft Purview allows users to quickly discover data across platforms like Fabric and Databricks from a single place, improving productivity and data accessibility.
+
 1. From the left navigation pane, click **Solutions (1)**, then select **Unified Catalog (2)**.
 
    ![Picture 1](./Media/DG13.png)
@@ -71,6 +74,9 @@ In this task, you will use the Microsoft Purview Unified Catalog to search and e
 
 In this task, you will compare metadata across Fabric and Databricks assets to identify gaps in documentation, ownership, and classification, and understand differences in metadata availability between platforms.
 
+**Why it matters:**
+Comparing metadata helps identify gaps in descriptions, ownership, and classifications, ensuring data is consistent, understandable, and trustworthy.
+
 1. In the search results page, ensure **Fabric (1)** is selected under filters, and then click on **dimension_customer (2)**.
 
    ![Picture 1](./Media/sandbox-purview-image190.png)
@@ -106,6 +112,9 @@ In this task, you will compare metadata across Fabric and Databricks assets to i
 ### Task 3: Identify Ownership and Documentation Gaps
 
 In this task, you will enhance asset metadata by adding descriptions, classifications, ownership, and optional lineage. You will improve data quality and governance by filling gaps identified in previous steps.
+
+**Why it matters:**
+Adding metadata like descriptions, ownership, and classifications improves data quality, supports governance, and ensures data can be used confidently.
 
 1. In the search results page, ensure **Fabric (1)** is selected under filters, and then click on **dimension_customer (2)**.
 
