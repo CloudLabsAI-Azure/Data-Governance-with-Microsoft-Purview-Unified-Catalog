@@ -154,6 +154,7 @@ Mapping glossary terms to data assets connects business meaning with technical d
    ![Picture 1](./Media/DG201.png)
 
 1. Click the dropdown under **Glossary terms (1)** and select **Customer (2)**
+
    ![Picture 1](./Media/DG202.png)
 
 1. Verify **Customer** is added under selected terms, then click **Save (2)**
