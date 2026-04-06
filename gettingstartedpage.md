@@ -53,8 +53,13 @@ In this workshop, you will:
 ### Day 3 – Data Quality, Trust & MDM
 - **Lab 8:** Data Quality Rules and Monitoring  
 - **Lab 9:** Data Quality Impact on Data Products  
-- **Lab 10:** MDM Integration Scenarios  
+- **Lab 10:** MDM Integration Scenarios
 
+### Day 4 – Data Quality, Trust & MDM
+- **Lab 11:** Access Policies & Governance Controls
+- **Lab 12:** Sensitivity Labels, DLP & Audit
+- **Lab 13:** End-to-End Governance Scenario 
+  
 ## Prerequisites
 
 Participants should have:
