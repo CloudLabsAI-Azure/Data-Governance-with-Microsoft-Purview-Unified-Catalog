@@ -6,7 +6,7 @@
 
 In this lab, you will implement master data management (MDM) governance patterns using Microsoft Purview. You will identify master data entities across Fabric and Databricks, create a Classic glossary term to tag authoritative "golden record" sources, package them into a dedicated data product, and validate that master data is discoverable through the Unified Catalog.
 
-Microsoft Purview does not include a native MDM product. This lab demonstrates how to use Purview as the catalog layer for master data governance — identifying, tagging, and linking authoritative data sources so consumers know which datasets are the trusted golden sources.
+Microsoft Purview does not include a native MDM product. This lab demonstrates how to use Purview as the catalog layer for master data governance identifying, tagging, and linking authoritative data sources so consumers know which datasets are the trusted golden sources.
 
 ## Lab Objectives
 
