@@ -112,7 +112,7 @@ In this task, you will evaluate trust levels across your data estate by assessin
 
    ![Picture 1](./Media/sandbox-purview-image319.png)
 
-### Task 2.2: Document Trust Assessment**
+### Task 2.2: Document Trust Assessment
 
 1. Summary of trust levels across your estate:
 
