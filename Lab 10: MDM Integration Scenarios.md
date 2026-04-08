@@ -21,6 +21,8 @@ In this lab, you will perform the following:
 
 In this task, you will search the Unified Catalog to build a map of where the same business entities (customer, location, product) exist across Fabric and Databricks, identifying which sources should be designated as authoritative.
 
+**Why it matters:** Identifying where key business entities exist across systems helps organizations understand data duplication and fragmentation. This is the first step toward establishing a single, trusted source of truth.
+
 1. Go to **Purview portal** > **Unified Catalog** > **Discovery** > **Data assets**.
 
 1. Search for **dimension_customer** - this is the Fabric Lakehouse customer master data.
@@ -36,6 +38,8 @@ In this task, you will search the Unified Catalog to build a map of where the sa
 ## Task 2: Register Authoritative Master Data in Purview
 
 In this task, you will create a Classic glossary term called "Golden Record" to tag authoritative master data sources. Classic glossary terms can be mapped directly to individual assets, making them ideal for tagging golden records at the asset level.
+
+**Why it matters:** Tagging authoritative datasets as “Golden Records” helps clearly define trusted sources of master data. This ensures consistency and prevents confusion when multiple versions of the same data exist.
 
 1. Go to **Catalog management (1)** > select **Classic types (2)** under **Management Glossary** click on **View terms (3)**.
 
@@ -79,6 +83,8 @@ In this task, you will create a Classic glossary term called "Golden Record" to 
 ## Task 3: Link Golden Records to Fabric and Databricks Assets
 
 In this task, you will create a dedicated `Enterprise Master Data` data product to package all golden record assets together. This provides a single entry point for consumers to find authoritative master data sources.
+
+**Why it matters:** Grouping golden record assets into a data product provides a centralized and governed view of master data. This makes it easier for users to discover and use trusted datasets.
 
 1. Go to **Catalog management (1)** select **Data products (2)** > Click **+ New data product (3)**.
 
@@ -163,6 +169,8 @@ In this task, you will create a dedicated `Enterprise Master Data` data product 
 ## Task 4: Validate Master Data Discoverability
 
 In this task, you will verify that golden record assets are discoverable through search and data products, and confirm that the master data governance structure is visible in the Unified Catalog.
+
+**Why it matters:** Validating discoverability ensures that users can easily find and identify trusted master data through search and data products. This improves data usability and strengthens governance practices.
 
 1. In the **Purview portal**, navigate to **Discovery (1)** > **Data assets (2)**. In the search bar, type **`Golden Record` (3)** and from the suggestions, select **Golden Record (4)** from the glossary results.
 
