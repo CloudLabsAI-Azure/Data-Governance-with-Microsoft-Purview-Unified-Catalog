@@ -31,12 +31,6 @@ In this task, you will add data assets to the Sales Analytics governance domain 
       
 1. Here, you can see all the assets added from the previous lab. We have now applied data quality rules and generated quality scores for both the Fabric asset (`dimension_customer`) and the Databricks asset (`customer_transactions`).
 
-1. Notice the warning icon (1) indicating **No connection can be used**. This means a connection must be configured for the asset before running data quality rules.
-
-    ![Picture 1](./Media/sandbox-purview-image271.png)
-
-1. Click on **OK** to exit the pane.
-   
 1. Before creating the connection, we need to gather required values from both **Fabric** and **Databricks**. First, collect these details, then proceed to create the connection.
 
 1. Navigate back to **Fabric portal**, navigate to the workspace and open the **Lakehouse**. 
