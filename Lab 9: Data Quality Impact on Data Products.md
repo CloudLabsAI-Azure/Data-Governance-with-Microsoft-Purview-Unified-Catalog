@@ -20,6 +20,8 @@ In this lab, you will perform the following:
 
 In this task, you will review how data quality scores from Lab 8 are reflected on data product assets, and ensure assets within the data product have quality monitoring enabled.
 
+**Why it matters:** Linking quality results to data products ensures that data consumers can easily understand the reliability of datasets. This promotes transparency and helps users select trusted data for analysis.
+
 **Step 1: Review Current Data Product Quality**
 
 1. In **Unified Catalog**, expand **Catalog management (1)** and select **Data products (2)**. Locate the **Customer 360 (4)** data product and review the **Data quality score (3)**, **Healthy (XXX)**.
@@ -64,6 +66,8 @@ In this task, you will review how data quality scores from Lab 8 are reflected o
 ## Task 2: Identify Trusted vs Non-Trusted Datasets
 
 In this task, you will evaluate trust levels across your data estate by assessing assets against multiple governance criteria including quality scores, ownership, descriptions, and glossary terms.
+
+**Why it matters:** Evaluating datasets against governance criteria such as quality, ownership, and metadata helps classify data trust levels. This enables organizations to distinguish between reliable and unreliable data, improving overall data governance.
 
 ### Task 2.1: Evaluate Trust Criteria**
 
@@ -122,6 +126,8 @@ In this task, you will evaluate trust levels across your data estate by assessin
 ## Task 3: Communicate Quality Status to Consumers
 
 In this task, you will review how quality status is communicated to data consumers through data products and governance dashboards in Microsoft Purview.
+
+**Why it matters:** Data products act as a central interface for communicating data quality and governance details. This allows business users to quickly assess data trustworthiness without needing deep technical knowledge.
 
 **Step 1: Data Product as Quality Communication Channel**
 
