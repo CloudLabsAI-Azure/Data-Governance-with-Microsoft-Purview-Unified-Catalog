@@ -69,7 +69,7 @@ In this task, you will evaluate trust levels across your data estate by assessin
 
 **Why it matters:** Evaluating datasets against governance criteria such as quality, ownership, and metadata helps classify data trust levels. This enables organizations to distinguish between reliable and unreliable data, improving overall data governance.
 
-### Task 2.1: Evaluate Trust Criteria**
+### Task 2.1: Evaluate Trust Criteria
 
 1. Go to **Unified Catalog** > **Discovery** > **Data assets**.
 
