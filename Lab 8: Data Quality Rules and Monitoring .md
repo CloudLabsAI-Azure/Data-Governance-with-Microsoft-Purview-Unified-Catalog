@@ -41,9 +41,17 @@ In this task, you will add data assets to the Sales Analytics governance domain 
 
     ![Picture 1](./Media/sandbox-purview-image207.png)
 
-1. Back on **purview portal** then click on **Manage (1)** then seelct **Connections (2)**.
+1. Back on the **Microsoft Purview portal**, expand **Health management (1)** from the left navigation. Click on **Data quality (2)**.
+
+     ![](../media/sp-image-80.png)
    
-      ![Picture 1](./Media/sandbox-purview-image272.png)
+1. In the **Data Quality** page, select the governance domain:
+   
+   - **Sales Analytics (1)**
+   - Click **Manage (2)**.
+   - From the dropdown, select **Connections (3)**.
+
+     ![](../media/sp-image-81.png)
 
 1. Select **+ New** then provide the following connection details:
    - **Connection name**: **fabric-dq-connection (1)**
@@ -55,9 +63,9 @@ In this task, you will add data assets to the Sales Analytics governance domain 
 
      ![Picture 1](./Media/sandbox-purview-image208.png)
 
-1. Now lest creat for databrick.
+1. Now lets create connection for databrick.
 
-1. Select **New connection** again.
+1. Select **+ New** again.
 
    ![Picture 1](./Media/sandbox-purview-image273.png)
    
@@ -87,10 +95,14 @@ In this task, you will create data quality rules on both Databricks and Fabric a
 
      ![Picture 1](./Media/sandbox-purview-image285.png)
 
-1. Select **`customer_transactions`**.
+1. Select **Customer 360**.
 
-   ![Picture 1](./Media/sandbox-purview-image278.png)
+   ![](./Media/sp-image-82.png)
 
+1. In the **Customer 360** data product page, review the list of data assets. Locate and select **customer_transactions**.
+
+    ![](./Media/sp-image-83.png)
+   
 1. In the asset page, navigate to the **Rules (1)** tab, then click **+ New rule (2)**.
 
     ![Picture 1](./Media/sandbox-purview-image279.png)
@@ -119,6 +131,8 @@ In this task, you will create data quality rules on both Databricks and Fabric a
 
     ![Picture 1](./Media/sandbox-purview-image283.png)
 
+    **>Note**: If you encounter any errors, please ignore them.
+
 1. In the **Scan run configuration**:
     - Enable **Run incremental scan (1)**
     - Set **Scan data updated in the last (2)** to **One day**
@@ -127,11 +141,11 @@ In this task, you will create data quality rules on both Databricks and Fabric a
 
       ![Picture 1](./Media/sandbox-purview-image284.png)
 
-1. Once the scan completes, navigate back to the **Sales Analytics** domain → **Data assets**.
+1. Once the scan completes, navigate back to the **Sales Analytics** domain → **Customer 360**.
 
-1. Select `dimension_customer` to proceed with applying data quality rules on the Fabric asset.
+1. Select **`dimension_customer`** to proceed with applying data quality rules on the Fabric asset.
 
-   ![Picture 1](./Media/sandbox-purview-image286.png)
+    ![](./Media/sp-image-84.png)
    
 1. On the `dimension_customer` asset page, navigate to the **Rules (1)** tab, then click **+ New rule (2)**.
 
