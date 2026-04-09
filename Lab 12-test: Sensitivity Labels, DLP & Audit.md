@@ -280,7 +280,7 @@ In this task, you will create a Data Loss Prevention (DLP) policy in the Microso
 
 In this task, you will learn how to enable sensitivity label settings in the **Microsoft Purview Admin portal** and apply a **Highly-Confidential** label to a Fabric semantic model to enforce data protection and governance.
 
-1. In the Microsoft Purview portal, select **Settings (1)** from the top right corner and then select **Admin portal (2)**
+1. Navigate back to fabric portal, select **Settings (1)** from the top right corner and then select **Admin portal (2)**
 
    ![](./Media/DG700.png)
 
